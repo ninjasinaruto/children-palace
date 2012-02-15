@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Points>
+  <Top>
+    <Point FontName="宋体" FontSize="12"  Key="userName" X="165" Y="95"/>
+    <Point FontName="宋体" FontSize="12"  Key="year" X="580" Y="95"/>
+    <Point FontName="宋体" FontSize="12"  Key="month" X="630" Y="95"/>
+    <Point FontName="宋体" FontSize="12"  Key="day" X="680" Y="95"/>
+  </Top>
+  <Record1>
+  	<Point FontName="宋体" FontSize="10"  Key="name" X="120" Y="165"/>
+    <Point FontName="宋体" FontSize="10"  Key="unit" X="280" Y="165"/>
+    <Point FontName="宋体" FontSize="10"  Key="num" X="340" Y="165"/>
+    <Point FontName="宋体" FontSize="10"  Key="price" X="400" Y="165"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountWan" X="445" Y="165"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountQian" X="470" Y="165"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountBai" X="495" Y="165"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountShi" X="521" Y="165"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountYuan" X="548" Y="165"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountJiao" X="573" Y="165"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountFen" X="598" Y="165"/>
+    <Point FontName="宋体" FontSize="10"  Key="remark" X="650" Y="165"/>
+  </Record1>
+  <Record2>
+  	<Point FontName="宋体" FontSize="10"  Key="name" X="120" Y="195"/>
+    <Point FontName="宋体" FontSize="10"  Key="unit" X="280" Y="195"/>
+    <Point FontName="宋体" FontSize="10"  Key="num" X="340" Y="195"/>
+    <Point FontName="宋体" FontSize="10"  Key="price" X="400" Y="195"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountWan" X="445" Y="195"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountQian" X="470" Y="195"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountBai" X="495" Y="195"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountShi" X="521" Y="195"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountYuan" X="548" Y="195"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountJiao" X="573" Y="195"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountFen" X="598" Y="195"/>
+    <Point FontName="宋体" FontSize="10"  Key="remark" X="650" Y="195"/>
+  </Record2>
+  <Record3>
+  	<Point FontName="宋体" FontSize="10"  Key="name" X="120" Y="225"/>
+    <Point FontName="宋体" FontSize="10"  Key="unit" X="280" Y="225"/>
+    <Point FontName="宋体" FontSize="10"  Key="num" X="340" Y="225"/>
+    <Point FontName="宋体" FontSize="10"  Key="price" X="400" Y="225"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountWan" X="445" Y="225"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountQian" X="470" Y="225"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountBai" X="495" Y="225"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountShi" X="521" Y="225"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountYuan" X="548" Y="225"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountJiao" X="573" Y="225"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountFen" X="598" Y="225"/>
+    <Point FontName="宋体" FontSize="10"  Key="remark" X="650" Y="225"/>
+  </Record3>
+  <Record4>
+  	<Point FontName="宋体" FontSize="10"  Key="name" X="120" Y="255"/>
+    <Point FontName="宋体" FontSize="10"  Key="unit" X="280" Y="255"/>
+    <Point FontName="宋体" FontSize="10"  Key="num" X="340" Y="255"/>
+    <Point FontName="宋体" FontSize="10"  Key="price" X="400" Y="255"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountWan" X="445" Y="255"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountQian" X="470" Y="255"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountBai" X="495" Y="255"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountShi" X="521" Y="255"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountYuan" X="548" Y="255"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountJiao" X="573" Y="255"/>
+    <Point FontName="宋体" FontSize="10"  Key="amountFen" X="598" Y="255"/>
+    <Point FontName="宋体" FontSize="10"  Key="remark" X="650" Y="255"/>
+  </Record4>
+  <Total>
+  	<Point FontName="宋体" FontSize="12"  Key="totalWan" X="222" Y="303"/>
+    <Point FontName="宋体" FontSize="12"  Key="totalQian" X="271" Y="303"/>
+    <Point FontName="宋体" FontSize="12"  Key="totalBai" X="318" Y="303"/>
+    <Point FontName="宋体" FontSize="12"  Key="totalShi" X="370" Y="303"/>
+    <Point FontName="宋体" FontSize="12"  Key="totalYuan" X="418" Y="303"/>
+    <Point FontName="宋体" FontSize="12"  Key="totalJiao" X="466" Y="303"/>
+    <Point FontName="宋体" FontSize="12"  Key="totalFen" X="513" Y="303"/>
+    <Point FontName="宋体" FontSize="12"  Key="totalNum" X="610" Y="303"/>
+  </Total>
+  <Bottom>
+    <Point FontName="宋体" FontSize="12"  Key="head" X="156" Y="340"/>
+    <Point FontName="宋体" FontSize="12"  Key="accounting" X="376" Y="340"/>
+    <Point FontName="宋体" FontSize="12"  Key="cashier" X="606" Y="340"/>
+  </Bottom>
+</Points>
