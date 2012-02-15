@@ -1,0 +1,12 @@
+F:\CSharpProject\ChildrenPalace\Common\bin\Debug\Common.dll.config
+F:\CSharpProject\ChildrenPalace\Common\bin\Debug\Common.dll
+F:\CSharpProject\ChildrenPalace\Common\bin\Debug\Common.pdb
+F:\CSharpProject\ChildrenPalace\Common\obj\Debug\ResolveAssemblyReference.cache
+F:\CSharpProject\ChildrenPalace\Common\obj\Debug\Common.dll
+F:\CSharpProject\ChildrenPalace\Common\obj\Debug\Common.pdb
+G:\CSharpProject\ChildrenPalace\Common\bin\Debug\Common.dll.config
+G:\CSharpProject\ChildrenPalace\Common\bin\Debug\Common.dll
+G:\CSharpProject\ChildrenPalace\Common\bin\Debug\Common.pdb
+G:\CSharpProject\ChildrenPalace\Common\obj\Debug\ResolveAssemblyReference.cache
+G:\CSharpProject\ChildrenPalace\Common\obj\Debug\Common.dll
+G:\CSharpProject\ChildrenPalace\Common\obj\Debug\Common.pdb
