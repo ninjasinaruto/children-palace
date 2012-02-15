@@ -1,0 +1,305 @@
+﻿namespace QianDao
+{
+    partial class StudentSignInForm
+    {
+        /// <summary>
+        /// 必需的设计器变量。
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// 清理所有正在使用的资源。
+        /// </summary>
+        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows 窗体设计器生成的代码
+
+        /// <summary>
+        /// 设计器支持所需的方法 - 不要
+        /// 使用代码编辑器修改此方法的内容。
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentSignInForm));
+            this.txtCardNo = new System.Windows.Forms.TextBox();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblCardType = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.studentSignInBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.signInDataSet = new QianDao.SignInDataSet();
+            this.studentSignInTableAdapter = new QianDao.SignInDataSetTableAdapters.StudentSignInTableAdapter();
+            this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentsTableAdapter = new QianDao.SignInDataSetTableAdapters.StudentsTableAdapter();
+            this.coursesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.coursesTableAdapter = new QianDao.SignInDataSetTableAdapters.CoursesTableAdapter();
+            this.studentCoursesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentCostBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentCostTableAdapter = new QianDao.SignInDataSetTableAdapters.StudentCostTableAdapter();
+            this.studentCourseTableAdapter = new QianDao.SignInDataSetTableAdapters.StudentCourseTableAdapter();
+            this.studentCoursesCostbindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentCoursesCostTableAdapter = new QianDao.SignInDataSetTableAdapters.studentCoursesCostTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.studentSignInBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.signInDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentCoursesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentCostBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentCoursesCostbindingSource)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // txtCardNo
+            // 
+            this.txtCardNo.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtCardNo.Location = new System.Drawing.Point(362, 24);
+            this.txtCardNo.Name = "txtCardNo";
+            this.txtCardNo.Size = new System.Drawing.Size(406, 71);
+            this.txtCardNo.TabIndex = 1;
+            this.txtCardNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCardNo_KeyPress);
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.BackColor = System.Drawing.Color.Transparent;
+            this.lblStatus.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblStatus.ForeColor = System.Drawing.Color.Lime;
+            this.lblStatus.Location = new System.Drawing.Point(362, 588);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(252, 56);
+            this.lblStatus.TabIndex = 0;
+            this.lblStatus.Text = "刷卡成功";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.ForeColor = System.Drawing.Color.Yellow;
+            this.label2.Location = new System.Drawing.Point(161, 204);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(195, 56);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "姓名：";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.ForeColor = System.Drawing.Color.Yellow;
+            this.label1.Location = new System.Drawing.Point(161, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(195, 56);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "卡号：";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.BackColor = System.Drawing.Color.Transparent;
+            this.lblName.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblName.ForeColor = System.Drawing.Color.Lime;
+            this.lblName.Location = new System.Drawing.Point(362, 204);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(195, 56);
+            this.lblName.TabIndex = 0;
+            this.lblName.Text = "陈先文";
+            // 
+            // lblCardType
+            // 
+            this.lblCardType.AutoSize = true;
+            this.lblCardType.BackColor = System.Drawing.Color.Transparent;
+            this.lblCardType.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblCardType.ForeColor = System.Drawing.Color.Lime;
+            this.lblCardType.Location = new System.Drawing.Point(362, 332);
+            this.lblCardType.Name = "lblCardType";
+            this.lblCardType.Size = new System.Drawing.Size(195, 56);
+            this.lblCardType.TabIndex = 0;
+            this.lblCardType.Text = "普通卡";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.ForeColor = System.Drawing.Color.Yellow;
+            this.label6.Location = new System.Drawing.Point(47, 332);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(309, 56);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "卡片类型：";
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblTime.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblTime.ForeColor = System.Drawing.Color.Lime;
+            this.lblTime.Location = new System.Drawing.Point(362, 459);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(256, 56);
+            this.lblTime.TabIndex = 0;
+            this.lblTime.Text = "20:55:41";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label8.ForeColor = System.Drawing.Color.Yellow;
+            this.label8.Location = new System.Drawing.Point(47, 459);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(309, 56);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "刷卡时间：";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.ForeColor = System.Drawing.Color.Yellow;
+            this.label3.Location = new System.Drawing.Point(47, 588);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(309, 56);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "刷卡结果：";
+            // 
+            // studentSignInBindingSource
+            // 
+            this.studentSignInBindingSource.DataMember = "StudentSignIn";
+            this.studentSignInBindingSource.DataSource = this.signInDataSet;
+            // 
+            // signInDataSet
+            // 
+            this.signInDataSet.DataSetName = "SignInDataSet";
+            this.signInDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // studentSignInTableAdapter
+            // 
+            this.studentSignInTableAdapter.ClearBeforeFill = true;
+            // 
+            // studentsBindingSource
+            // 
+            this.studentsBindingSource.DataMember = "Students";
+            this.studentsBindingSource.DataSource = this.signInDataSet;
+            // 
+            // studentsTableAdapter
+            // 
+            this.studentsTableAdapter.ClearBeforeFill = true;
+            // 
+            // coursesBindingSource
+            // 
+            this.coursesBindingSource.DataMember = "Courses";
+            this.coursesBindingSource.DataSource = this.signInDataSet;
+            // 
+            // coursesTableAdapter
+            // 
+            this.coursesTableAdapter.ClearBeforeFill = true;
+            // 
+            // studentCoursesBindingSource
+            // 
+            this.studentCoursesBindingSource.DataMember = "StudentCourse";
+            this.studentCoursesBindingSource.DataSource = this.signInDataSet;
+            // 
+            // studentCostBindingSource
+            // 
+            this.studentCostBindingSource.DataMember = "StudentCost";
+            this.studentCostBindingSource.DataSource = this.signInDataSet;
+            // 
+            // studentCostTableAdapter
+            // 
+            this.studentCostTableAdapter.ClearBeforeFill = true;
+            // 
+            // studentCourseTableAdapter
+            // 
+            this.studentCourseTableAdapter.ClearBeforeFill = true;
+            // 
+            // studentCoursesCostbindingSource
+            // 
+            this.studentCoursesCostbindingSource.DataMember = "studentCoursesCost";
+            this.studentCoursesCostbindingSource.DataSource = this.signInDataSet;
+            // 
+            // studentCoursesCostTableAdapter
+            // 
+            this.studentCoursesCostTableAdapter.ClearBeforeFill = true;
+            // 
+            // StudentSignInForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::QianDao.Properties.Resources.untitled;
+            this.ClientSize = new System.Drawing.Size(1024, 715);
+            this.Controls.Add(this.txtCardNo);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblCardType);
+            this.Controls.Add(this.lblTime);
+            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblStatus);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "StudentSignInForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "学生签到";
+            this.Activated += new System.EventHandler(this.StudentSignInForm_Activated);
+            this.Deactivate += new System.EventHandler(this.StudentSignInForm_Deactivate);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StudentSignInForm_FormClosing);
+            this.Load += new System.EventHandler(this.StudentSignInForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.studentSignInBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.signInDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentCoursesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentCostBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentCoursesCostbindingSource)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.TextBox txtCardNo;
+        private System.Windows.Forms.Label lblStatus;
+        private SignInDataSet signInDataSet;
+        private System.Windows.Forms.BindingSource studentSignInBindingSource;
+        private SignInDataSetTableAdapters.StudentSignInTableAdapter studentSignInTableAdapter;
+        private System.Windows.Forms.BindingSource studentsBindingSource;
+        private SignInDataSetTableAdapters.StudentsTableAdapter studentsTableAdapter;
+        private System.Windows.Forms.BindingSource coursesBindingSource;
+        private SignInDataSetTableAdapters.CoursesTableAdapter coursesTableAdapter;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblCardType;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.BindingSource studentCoursesBindingSource;
+        private SignInDataSetTableAdapters.StudentCourseTableAdapter studentCourseTableAdapter;
+        private System.Windows.Forms.BindingSource studentCostBindingSource;
+        private SignInDataSetTableAdapters.StudentCostTableAdapter studentCostTableAdapter;
+        private System.Windows.Forms.BindingSource studentCoursesCostbindingSource;
+        private SignInDataSetTableAdapters.studentCoursesCostTableAdapter studentCoursesCostTableAdapter;
+    }
+}
+
