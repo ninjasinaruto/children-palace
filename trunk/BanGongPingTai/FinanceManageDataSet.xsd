@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FinanceManageDataSet" targetNamespace="http://tempuri.org/FinanceManageDataSet.xsd" xmlns:mstns="http://tempuri.org/FinanceManageDataSet.xsd" xmlns="http://tempuri.org/FinanceManageDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ChildrenPalaceConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ChildrenPalaceConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.BanGongPingTai.Properties.Settings.GlobalReference.Default.ChildrenPalaceConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MaterialsBuyTableAdapter" GeneratorDataComponentClassName="MaterialsBuyTableAdapter" Name="MaterialsBuy" UserDataComponentName="MaterialsBuyTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT materials_buy.BuyAmount, materials_buy.TotalCost, materials_buy.ActualPay, 
+      materials_buy.Remark, materials_buy.BuyDate, materials.MaterialName, 
+      materials.MaterialPrice
+FROM materials_buy INNER JOIN
+      materials ON materials_buy.MaterialId = materials.MaterialID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="BuyAmount" DataSetColumn="BuyAmount" />
+              <Mapping SourceColumn="TotalCost" DataSetColumn="TotalCost" />
+              <Mapping SourceColumn="ActualPay" DataSetColumn="ActualPay" />
+              <Mapping SourceColumn="Remark" DataSetColumn="Remark" />
+              <Mapping SourceColumn="BuyDate" DataSetColumn="BuyDate" />
+              <Mapping SourceColumn="MaterialName" DataSetColumn="MaterialName" />
+              <Mapping SourceColumn="MaterialPrice" DataSetColumn="MaterialPrice" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FinanceManageDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="FinanceManageDataSet" msprop:Generator_UserDSName="FinanceManageDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="MaterialsBuy" msprop:Generator_TableClassName="MaterialsBuyDataTable" msprop:Generator_TableVarName="tableMaterialsBuy" msprop:Generator_TablePropName="MaterialsBuy" msprop:Generator_RowDeletingName="MaterialsBuyRowDeleting" msprop:Generator_UserTableName="MaterialsBuy" msprop:Generator_RowChangingName="MaterialsBuyRowChanging" msprop:Generator_RowEvHandlerName="MaterialsBuyRowChangeEventHandler" msprop:Generator_RowDeletedName="MaterialsBuyRowDeleted" msprop:Generator_RowEvArgName="MaterialsBuyRowChangeEvent" msprop:Generator_RowChangedName="MaterialsBuyRowChanged" msprop:Generator_RowClassName="MaterialsBuyRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BuyAmount" msprop:Generator_ColumnVarNameInTable="columnBuyAmount" msprop:Generator_ColumnPropNameInRow="BuyAmount" msprop:Generator_ColumnPropNameInTable="BuyAmountColumn" msprop:Generator_UserColumnName="BuyAmount" type="xs:int" />
+              <xs:element name="TotalCost" msprop:Generator_ColumnVarNameInTable="columnTotalCost" msprop:Generator_ColumnPropNameInRow="TotalCost" msprop:Generator_ColumnPropNameInTable="TotalCostColumn" msprop:Generator_UserColumnName="TotalCost" type="xs:int" />
+              <xs:element name="ActualPay" msprop:Generator_ColumnVarNameInTable="columnActualPay" msprop:Generator_ColumnPropNameInRow="ActualPay" msprop:Generator_ColumnPropNameInTable="ActualPayColumn" msprop:Generator_UserColumnName="ActualPay" type="xs:int" />
+              <xs:element name="Remark" msprop:Generator_ColumnVarNameInTable="columnRemark" msprop:Generator_ColumnPropNameInRow="Remark" msprop:Generator_ColumnPropNameInTable="RemarkColumn" msprop:Generator_UserColumnName="Remark" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BuyDate" msprop:Generator_ColumnVarNameInTable="columnBuyDate" msprop:Generator_ColumnPropNameInRow="BuyDate" msprop:Generator_ColumnPropNameInTable="BuyDateColumn" msprop:Generator_UserColumnName="BuyDate" type="xs:dateTime" />
+              <xs:element name="MaterialName" msprop:Generator_ColumnVarNameInTable="columnMaterialName" msprop:Generator_ColumnPropNameInRow="MaterialName" msprop:Generator_ColumnPropNameInTable="MaterialNameColumn" msprop:Generator_UserColumnName="MaterialName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaterialPrice" msprop:Generator_ColumnVarNameInTable="columnMaterialPrice" msprop:Generator_ColumnPropNameInRow="MaterialPrice" msprop:Generator_ColumnPropNameInTable="MaterialPriceColumn" msprop:Generator_UserColumnName="MaterialPrice" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

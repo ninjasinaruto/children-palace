@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{531E5EF5-1BB3-4705-8F9B-AC1E97EF4697}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BanGongPingTai</RootNamespace>
+    <AssemblyName>BanGongPingTai</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>picasa.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IrisSkin2">
+      <HintPath>..\Resource\IrisSkin2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Affair.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Affair.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InputDialog\AffairDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog\AffairDetailForm.Designer.cs">
+      <DependentUpon>AffairDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AffairManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AffairManageForm.Designer.cs">
+      <DependentUpon>AffairManageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AffairApprovalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AffairApprovalForm.Designer.cs">
+      <DependentUpon>AffairApprovalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceManageDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinanceManageDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Materials.cs">
+      <DependentUpon>Materials.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Materials.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Materials.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialsManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaterialsManageForm.Designer.cs">
+      <DependentUpon>MaterialsManageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinanceManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinanceManageForm.Designer.cs">
+      <DependentUpon>FinanceManageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputDialog\CardConnectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog\CardConnectForm.Designer.cs">
+      <DependentUpon>CardConnectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputDialog\TeacherAddingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog\TeacherAddingForm.Designer.cs">
+      <DependentUpon>TeacherAddingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputDialog\SalaryChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog\SalaryChangeForm.Designer.cs">
+      <DependentUpon>SalaryChangeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NoticeDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NoticeDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PasswordUpdateForm.Designer.cs">
+      <DependentUpon>PasswordUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputDialog\NoticeDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog\NoticeDetailForm.Designer.cs">
+      <DependentUpon>NoticeDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PublishNoticeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PublishNoticeForm.Designer.cs">
+      <DependentUpon>PublishNoticeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="TeacherSalaryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeacherSalaryForm.Designer.cs">
+      <DependentUpon>TeacherSalaryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeachersDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TeachersDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TeachersManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeachersManageForm.Designer.cs">
+      <DependentUpon>TeachersManageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UsersDataSet.cs">
+      <DependentUpon>UsersDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UsersDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UsersDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UsersManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsersManageForm.Designer.cs">
+      <DependentUpon>UsersManageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputDialog\ViewNoticeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog\ViewNoticeForm.Designer.cs">
+      <DependentUpon>ViewNoticeForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="InputDialog\AffairDetailForm.resx">
+      <DependentUpon>AffairDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AffairManageForm.resx">
+      <DependentUpon>AffairManageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AffairApprovalForm.resx">
+      <DependentUpon>AffairApprovalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinanceManageForm.resx">
+      <DependentUpon>FinanceManageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaterialsManageForm.resx">
+      <DependentUpon>MaterialsManageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog\CardConnectForm.resx">
+      <DependentUpon>CardConnectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog\SalaryChangeForm.resx">
+      <DependentUpon>SalaryChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog\TeacherAddingForm.resx">
+      <DependentUpon>TeacherAddingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PasswordUpdateForm.resx">
+      <DependentUpon>PasswordUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog\NoticeDetailForm.resx">
+      <DependentUpon>NoticeDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublishNoticeForm.resx">
+      <DependentUpon>PublishNoticeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherSalaryForm.resx">
+      <DependentUpon>TeacherSalaryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeachersManageForm.resx">
+      <DependentUpon>TeachersManageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UsersManageForm.resx">
+      <DependentUpon>UsersManageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog\ViewNoticeForm.resx">
+      <DependentUpon>ViewNoticeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Affair.xsc">
+      <DependentUpon>Affair.xsd</DependentUpon>
+    </None>
+    <None Include="Affair.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Affair.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Affair.xss">
+      <DependentUpon>Affair.xsd</DependentUpon>
+    </None>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FinanceManageDataSet.xsc">
+      <DependentUpon>FinanceManageDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FinanceManageDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinanceManageDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="FinanceManageDataSet.xss">
+      <DependentUpon>FinanceManageDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Materials.xsc">
+      <DependentUpon>Materials.xsd</DependentUpon>
+    </None>
+    <None Include="Materials.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Materials.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Materials.xss">
+      <DependentUpon>Materials.xsd</DependentUpon>
+    </None>
+    <None Include="NoticeDataSet.xsc">
+      <DependentUpon>NoticeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="NoticeDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NoticeDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="NoticeDataSet.xss">
+      <DependentUpon>NoticeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="TeachersDataSet.xsc">
+      <DependentUpon>TeachersDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TeachersDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TeachersDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="TeachersDataSet.xss">
+      <DependentUpon>TeachersDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="UsersDataSet.xsc">
+      <DependentUpon>UsersDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="UsersDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UsersDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="UsersDataSet.xss">
+      <DependentUpon>UsersDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.ico" />
+    <Content Include="picasa.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{AE0CA65E-AE04-480F-9798-8B2616FF6152}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
