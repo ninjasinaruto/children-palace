@@ -50,9 +50,10 @@ FROM      course_types</CommandText>
             <Mappings>
               <Mapping SourceColumn="ID" DataSetColumn="CourseTypeID" />
               <Mapping SourceColumn="CourseTypeName" DataSetColumn="CourseTypeName" />
+              <Mapping SourceColumn="StudentCount" DataSetColumn="StudentCount" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteCourseType" Modifier="Public" Name="DeleteCourseType" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="DeleteCourseType">
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteCourseType" Modifier="Public" Name="DeleteCourseType" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteCourseType">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM course_types
@@ -63,7 +64,19 @@ WHERE   (ID = @CourseTypeID)</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertCourseType" Modifier="Public" Name="InsertCourseType" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertCourseType">
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="ChildrenPalace.dbo.course_types" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByQueryStudentCount" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByQueryStudentCount" GeneratorSourceName="FillByQueryStudentCount" GetMethodModifier="Public" GetMethodName="GetDataByQueryStudentCount" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByQueryStudentCount" UserSourceName="FillByQueryStudentCount">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   ID, CourseTypeName, ISNULL
+                    ((SELECT   SUM(StudentCount) AS StudentCount
+                      FROM      v_course AS v
+                      WHERE   (CourseTypeID = ct.ID)), 0) AS StudentCount
+FROM      course_types AS ct</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertCourseType" Modifier="Public" Name="InsertCourseType" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertCourseType">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO course_types
@@ -75,7 +88,7 @@ VALUES (@CourseTypeName)</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateCourseType" Modifier="Public" Name="UpdateCourseType" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateCourseType">
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateCourseType" Modifier="Public" Name="UpdateCourseType" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateCourseType">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE  course_types
@@ -191,6 +204,7 @@ SELECT DiscountLevel, DiscountLevelName FROM discount_level WHERE (DiscountLevel
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="StudentCount" msprop:Generator_ColumnVarNameInTable="columnStudentCount" msprop:Generator_ColumnPropNameInRow="StudentCount" msprop:Generator_ColumnPropNameInTable="StudentCountColumn" msprop:Generator_UserColumnName="StudentCount" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

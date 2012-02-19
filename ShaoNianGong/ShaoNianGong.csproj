@@ -154,6 +154,12 @@
     <Compile Include="InputDialog\CourseSubtypeAddingForm.Designer.cs">
       <DependentUpon>CourseSubtypeAddingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="InputDialog\CourseSubtypeUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog\CourseSubtypeUpdateForm.Designer.cs">
+      <DependentUpon>CourseSubtypeUpdateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InputDialog\CourseTypeAddingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,12 @@
     </Compile>
     <Compile Include="InputDialog\CourseTypeUpdateForm.Designer.cs">
       <DependentUpon>CourseTypeUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputDialog\CourseUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog\CourseUpdateForm.Designer.cs">
+      <DependentUpon>CourseUpdateForm.cs</DependentUpon>
     </Compile>
     <Compile Include="InputDialog\GetStudentNameForm.cs">
       <SubType>Form</SubType>
@@ -306,6 +318,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SignInDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="StaticDataSet.cs">
+      <DependentUpon>StaticDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="StaticDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -418,6 +434,9 @@
     <EmbeddedResource Include="InputDialog\CourseSubtypeAddingForm.resx">
       <DependentUpon>CourseSubtypeAddingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog\CourseSubtypeUpdateForm.resx">
+      <DependentUpon>CourseSubtypeUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InputDialog\CourseTypeAddingForm.resx">
       <DependentUpon>CourseTypeAddingForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -426,6 +445,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InputDialog\CourseTypeUpdateForm.resx">
       <DependentUpon>CourseTypeUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog\CourseUpdateForm.resx">
+      <DependentUpon>CourseUpdateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InputDialog\GetStudentNameForm.resx">
       <DependentUpon>GetStudentNameForm.cs</DependentUpon>
@@ -509,7 +531,6 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="ClassDiagram1.cd" />
     <None Include="CostListDataSet.xsc">
       <DependentUpon>CostListDataSet.xsd</DependentUpon>
     </None>

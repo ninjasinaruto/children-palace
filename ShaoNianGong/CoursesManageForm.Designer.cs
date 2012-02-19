@@ -29,29 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.courseTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.staticDataSet = new ShaoNianGong.StaticDataSet();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtCourseName = new System.Windows.Forms.TextBox();
-            this.coursesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.coursesDataSet = new ShaoNianGong.CoursesDataSet();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grdVwCourseTime = new System.Windows.Forms.DataGridView();
             this.IDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnDayOfWeek = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.beginTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.endTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.classroomNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseTimeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnAddCourseTime = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblCourseID = new System.Windows.Forms.Label();
             this.lblCourseTimeID = new System.Windows.Forms.Label();
             this.btnRemoveCourseTime = new System.Windows.Forms.Button();
-            this.courseTypesTableAdapter = new ShaoNianGong.StaticDataSetTableAdapters.CourseTypesTableAdapter();
             this.lstCourses = new System.Windows.Forms.ListBox();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,11 +49,8 @@
             this.dayOfWeekDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.beginTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.endTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dayOfWeekBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dayOfWeekTableAdapter = new ShaoNianGong.StaticDataSetTableAdapters.DayOfWeekTableAdapter();
             this.label4 = new System.Windows.Forms.Label();
             this.lstCourseSubtypes = new System.Windows.Forms.ListBox();
-            this.courseSubTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lstCourseType = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnDelCourseSubtype = new System.Windows.Forms.Button();
@@ -85,45 +72,47 @@
             this.tearchersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teachersDataSet = new ShaoNianGong.TeachersDataSet();
             this.cmbChargeMethod = new System.Windows.Forms.ComboBox();
-            this.chargeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtChargeAmount = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.tearchersTableAdapter = new ShaoNianGong.TeachersDataSetTableAdapters.TearchersTableAdapter();
+            this.chargeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.staticDataSet = new ShaoNianGong.StaticDataSet();
+            this.courseTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.courseTypesTableAdapter = new ShaoNianGong.StaticDataSetTableAdapters.CourseTypesTableAdapter();
+            this.dayOfWeekBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dayOfWeekTableAdapter = new ShaoNianGong.StaticDataSetTableAdapters.DayOfWeekTableAdapter();
             this.chargeTypeTableAdapter = new ShaoNianGong.StaticDataSetTableAdapters.ChargeTypeTableAdapter();
+            this.courseSubTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.coursesDataSet = new ShaoNianGong.CoursesDataSet();
+            this.coursesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.courseTimeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.columnDayOfWeek = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.beginTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classroomNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coursesTableAdapter = new ShaoNianGong.CoursesDataSetTableAdapters.CoursesTableAdapter();
             this.classroomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.classroomsTableAdapter = new ShaoNianGong.CoursesDataSetTableAdapters.ClassroomsTableAdapter();
             this.courseTimeTableAdapter = new ShaoNianGong.CoursesDataSetTableAdapters.CourseTimeTableAdapter();
             this.courseSubtypesTableAdapter = new ShaoNianGong.CoursesDataSetTableAdapters.CourseSubtypesTableAdapter();
-            this.tearchersTableAdapter = new ShaoNianGong.TeachersDataSetTableAdapters.TearchersTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.courseTypesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.staticDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coursesDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdVwCourseTime)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.courseTimeBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dayOfWeekBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.courseSubTypesBindingSource)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tearchersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teachersDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chargeTypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staticDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseTypesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dayOfWeekBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseSubTypesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursesDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseTimeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classroomsBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // courseTypesBindingSource
-            // 
-            this.courseTypesBindingSource.DataMember = "CourseTypes";
-            this.courseTypesBindingSource.DataSource = this.staticDataSet;
-            this.courseTypesBindingSource.PositionChanged += new System.EventHandler(this.courseTypesBindingSource_PositionChanged);
-            // 
-            // staticDataSet
-            // 
-            this.staticDataSet.DataSetName = "StaticDataSet";
-            this.staticDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtCourseName
             // 
@@ -133,17 +122,6 @@
             this.txtCourseName.ReadOnly = true;
             this.txtCourseName.Size = new System.Drawing.Size(359, 21);
             this.txtCourseName.TabIndex = 0;
-            // 
-            // coursesBindingSource
-            // 
-            this.coursesBindingSource.DataMember = "Courses";
-            this.coursesBindingSource.DataSource = this.coursesDataSet;
-            this.coursesBindingSource.PositionChanged += new System.EventHandler(this.coursesBindingSource_PositionChanged);
-            // 
-            // coursesDataSet
-            // 
-            this.coursesDataSet.DataSetName = "CoursesDataSet";
-            this.coursesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label6
             // 
@@ -191,52 +169,6 @@
             this.IDColumn.HeaderText = "课时ID";
             this.IDColumn.Name = "IDColumn";
             this.IDColumn.ReadOnly = true;
-            // 
-            // columnDayOfWeek
-            // 
-            this.columnDayOfWeek.DataPropertyName = "DayOfWeekName";
-            dataGridViewCellStyle10.NullValue = null;
-            this.columnDayOfWeek.DefaultCellStyle = dataGridViewCellStyle10;
-            this.columnDayOfWeek.HeaderText = "上课日期";
-            this.columnDayOfWeek.Name = "columnDayOfWeek";
-            this.columnDayOfWeek.ReadOnly = true;
-            this.columnDayOfWeek.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // beginTimeColumn
-            // 
-            this.beginTimeColumn.DataPropertyName = "BeginTime";
-            dataGridViewCellStyle11.Format = "t";
-            this.beginTimeColumn.DefaultCellStyle = dataGridViewCellStyle11;
-            this.beginTimeColumn.HeaderText = "开课时间";
-            this.beginTimeColumn.Name = "beginTimeColumn";
-            this.beginTimeColumn.ReadOnly = true;
-            this.beginTimeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // endTimeDataGridViewTextBoxColumn1
-            // 
-            this.endTimeDataGridViewTextBoxColumn1.DataPropertyName = "EndTime";
-            dataGridViewCellStyle12.Format = "t";
-            dataGridViewCellStyle12.NullValue = null;
-            this.endTimeDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle12;
-            this.endTimeDataGridViewTextBoxColumn1.HeaderText = "下课时间";
-            this.endTimeDataGridViewTextBoxColumn1.Name = "endTimeDataGridViewTextBoxColumn1";
-            this.endTimeDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.endTimeDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // classroomNameColumn
-            // 
-            this.classroomNameColumn.DataPropertyName = "ClassroomName";
-            this.classroomNameColumn.HeaderText = "上课教室";
-            this.classroomNameColumn.Name = "classroomNameColumn";
-            this.classroomNameColumn.ReadOnly = true;
-            this.classroomNameColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // courseTimeBindingSource
-            // 
-            this.courseTimeBindingSource.DataMember = "CourseTime";
-            this.courseTimeBindingSource.DataSource = this.coursesDataSet;
-            this.courseTimeBindingSource.Sort = "DayOfWeek, BeginTime";
-            this.courseTimeBindingSource.PositionChanged += new System.EventHandler(this.courseTimeBindingSource_PositionChanged);
             // 
             // btnAddCourseTime
             // 
@@ -292,10 +224,6 @@
             this.btnRemoveCourseTime.UseVisualStyleBackColor = true;
             this.btnRemoveCourseTime.Click += new System.EventHandler(this.btnRemoveCourseTime_Click);
             // 
-            // courseTypesTableAdapter
-            // 
-            this.courseTypesTableAdapter.ClearBeforeFill = true;
-            // 
             // lstCourses
             // 
             this.lstCourses.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.coursesBindingSource, "CourseID", true));
@@ -346,15 +274,6 @@
             this.endTimeDataGridViewTextBoxColumn.HeaderText = "EndTime";
             this.endTimeDataGridViewTextBoxColumn.Name = "endTimeDataGridViewTextBoxColumn";
             // 
-            // dayOfWeekBindingSource
-            // 
-            this.dayOfWeekBindingSource.DataMember = "DayOfWeek";
-            this.dayOfWeekBindingSource.DataSource = this.staticDataSet;
-            // 
-            // dayOfWeekTableAdapter
-            // 
-            this.dayOfWeekTableAdapter.ClearBeforeFill = true;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -375,12 +294,6 @@
             this.lstCourseSubtypes.Size = new System.Drawing.Size(269, 256);
             this.lstCourseSubtypes.TabIndex = 22;
             this.lstCourseSubtypes.ValueMember = "ID";
-            // 
-            // courseSubTypesBindingSource
-            // 
-            this.courseSubTypesBindingSource.DataMember = "CourseSubtypes";
-            this.courseSubTypesBindingSource.DataSource = this.coursesDataSet;
-            this.courseSubTypesBindingSource.PositionChanged += new System.EventHandler(this.courseSubTypesBindingSource_PositionChanged);
             // 
             // lstCourseType
             // 
@@ -493,6 +406,7 @@
             this.btnDelCourse.TabIndex = 24;
             this.btnDelCourse.Text = "删除";
             this.btnDelCourse.UseVisualStyleBackColor = true;
+            this.btnDelCourse.Click += new System.EventHandler(this.btnDelCourse_Click);
             // 
             // btnUpdateCourse
             // 
@@ -608,11 +522,6 @@
             this.cmbChargeMethod.TabIndex = 19;
             this.cmbChargeMethod.ValueMember = "ChargeTypeID";
             // 
-            // chargeTypeBindingSource
-            // 
-            this.chargeTypeBindingSource.DataMember = "ChargeType";
-            this.chargeTypeBindingSource.DataSource = this.staticDataSet;
-            // 
             // txtChargeAmount
             // 
             this.txtChargeAmount.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.coursesBindingSource, "ChargeAmount", true));
@@ -641,9 +550,105 @@
             this.label9.TabIndex = 1;
             this.label9.Text = "收费方式：";
             // 
+            // tearchersTableAdapter
+            // 
+            this.tearchersTableAdapter.ClearBeforeFill = true;
+            // 
+            // chargeTypeBindingSource
+            // 
+            this.chargeTypeBindingSource.DataMember = "ChargeType";
+            this.chargeTypeBindingSource.DataSource = this.staticDataSet;
+            // 
+            // staticDataSet
+            // 
+            this.staticDataSet.DataSetName = "StaticDataSet";
+            this.staticDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // courseTypesBindingSource
+            // 
+            this.courseTypesBindingSource.DataMember = "CourseTypes";
+            this.courseTypesBindingSource.DataSource = this.staticDataSet;
+            this.courseTypesBindingSource.PositionChanged += new System.EventHandler(this.courseTypesBindingSource_PositionChanged);
+            // 
+            // courseTypesTableAdapter
+            // 
+            this.courseTypesTableAdapter.ClearBeforeFill = true;
+            // 
+            // dayOfWeekBindingSource
+            // 
+            this.dayOfWeekBindingSource.DataMember = "DayOfWeek";
+            this.dayOfWeekBindingSource.DataSource = this.staticDataSet;
+            // 
+            // dayOfWeekTableAdapter
+            // 
+            this.dayOfWeekTableAdapter.ClearBeforeFill = true;
+            // 
             // chargeTypeTableAdapter
             // 
             this.chargeTypeTableAdapter.ClearBeforeFill = true;
+            // 
+            // courseSubTypesBindingSource
+            // 
+            this.courseSubTypesBindingSource.DataMember = "CourseSubtypes";
+            this.courseSubTypesBindingSource.DataSource = this.coursesDataSet;
+            this.courseSubTypesBindingSource.PositionChanged += new System.EventHandler(this.courseSubTypesBindingSource_PositionChanged);
+            // 
+            // coursesDataSet
+            // 
+            this.coursesDataSet.DataSetName = "CoursesDataSet";
+            this.coursesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // coursesBindingSource
+            // 
+            this.coursesBindingSource.DataMember = "Courses";
+            this.coursesBindingSource.DataSource = this.coursesDataSet;
+            this.coursesBindingSource.PositionChanged += new System.EventHandler(this.coursesBindingSource_PositionChanged);
+            // 
+            // courseTimeBindingSource
+            // 
+            this.courseTimeBindingSource.DataMember = "CourseTime";
+            this.courseTimeBindingSource.DataSource = this.coursesDataSet;
+            this.courseTimeBindingSource.Sort = "DayOfWeek, BeginTime";
+            this.courseTimeBindingSource.PositionChanged += new System.EventHandler(this.courseTimeBindingSource_PositionChanged);
+            // 
+            // columnDayOfWeek
+            // 
+            this.columnDayOfWeek.DataPropertyName = "DayOfWeekName";
+            dataGridViewCellStyle1.NullValue = null;
+            this.columnDayOfWeek.DefaultCellStyle = dataGridViewCellStyle1;
+            this.columnDayOfWeek.HeaderText = "上课日期";
+            this.columnDayOfWeek.Name = "columnDayOfWeek";
+            this.columnDayOfWeek.ReadOnly = true;
+            this.columnDayOfWeek.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // beginTimeColumn
+            // 
+            this.beginTimeColumn.DataPropertyName = "BeginTime";
+            dataGridViewCellStyle2.Format = "t";
+            this.beginTimeColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.beginTimeColumn.HeaderText = "开课时间";
+            this.beginTimeColumn.Name = "beginTimeColumn";
+            this.beginTimeColumn.ReadOnly = true;
+            this.beginTimeColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // endTimeDataGridViewTextBoxColumn1
+            // 
+            this.endTimeDataGridViewTextBoxColumn1.DataPropertyName = "EndTime";
+            dataGridViewCellStyle3.Format = "t";
+            dataGridViewCellStyle3.NullValue = null;
+            this.endTimeDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.endTimeDataGridViewTextBoxColumn1.HeaderText = "下课时间";
+            this.endTimeDataGridViewTextBoxColumn1.Name = "endTimeDataGridViewTextBoxColumn1";
+            this.endTimeDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.endTimeDataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // classroomNameColumn
+            // 
+            this.classroomNameColumn.DataPropertyName = "ClassroomName";
+            this.classroomNameColumn.HeaderText = "上课教室";
+            this.classroomNameColumn.Name = "classroomNameColumn";
+            this.classroomNameColumn.ReadOnly = true;
+            this.classroomNameColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // coursesTableAdapter
             // 
@@ -666,15 +671,11 @@
             // 
             this.courseSubtypesTableAdapter.ClearBeforeFill = true;
             // 
-            // tearchersTableAdapter
-            // 
-            this.tearchersTableAdapter.ClearBeforeFill = true;
-            // 
             // CoursesManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 637);
+            this.ClientSize = new System.Drawing.Size(1200, 645);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox1);
@@ -682,16 +683,9 @@
             this.Name = "CoursesManageForm";
             this.Text = "课程管理";
             this.Load += new System.EventHandler(this.CoursesManageForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.courseTypesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.staticDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coursesDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdVwCourseTime)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.courseTimeBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dayOfWeekBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.courseSubTypesBindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -701,6 +695,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.tearchersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teachersDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chargeTypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staticDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseTypesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dayOfWeekBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseSubTypesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursesDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseTimeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classroomsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
