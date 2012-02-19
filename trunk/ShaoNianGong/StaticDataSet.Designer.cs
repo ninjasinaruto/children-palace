@@ -662,6 +662,8 @@ namespace ShaoNianGong {
             
             private global::System.Data.DataColumn columnCourseTypeName;
             
+            private global::System.Data.DataColumn columnStudentCount;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CourseTypesDataTable() {
@@ -713,6 +715,14 @@ namespace ShaoNianGong {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn StudentCountColumn {
+                get {
+                    return this.columnStudentCount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -748,11 +758,12 @@ namespace ShaoNianGong {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CourseTypesRow AddCourseTypesRow(string CourseTypeName) {
+            public CourseTypesRow AddCourseTypesRow(string CourseTypeName, int StudentCount) {
                 CourseTypesRow rowCourseTypesRow = ((CourseTypesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        CourseTypeName};
+                        CourseTypeName,
+                        StudentCount};
                 rowCourseTypesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCourseTypesRow);
                 return rowCourseTypesRow;
@@ -784,6 +795,7 @@ namespace ShaoNianGong {
             internal void InitVars() {
                 this.columnCourseTypeID = base.Columns["CourseTypeID"];
                 this.columnCourseTypeName = base.Columns["CourseTypeName"];
+                this.columnStudentCount = base.Columns["StudentCount"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -793,6 +805,8 @@ namespace ShaoNianGong {
                 base.Columns.Add(this.columnCourseTypeID);
                 this.columnCourseTypeName = new global::System.Data.DataColumn("CourseTypeName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCourseTypeName);
+                this.columnStudentCount = new global::System.Data.DataColumn("StudentCount", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStudentCount);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnCourseTypeID}, true));
                 this.columnCourseTypeID.AutoIncrement = true;
@@ -1550,6 +1564,34 @@ namespace ShaoNianGong {
                     this[this.tableCourseTypes.CourseTypeNameColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int StudentCount {
+                get {
+                    try {
+                        return ((int)(this[this.tableCourseTypes.StudentCountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“CourseTypes”中列“StudentCount”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableCourseTypes.StudentCountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsStudentCountNull() {
+                return this.IsNull(this.tableCourseTypes.StudentCountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetStudentCountNull() {
+                this[this.tableCourseTypes.StudentCountColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -2057,6 +2099,7 @@ namespace ShaoNianGong.StaticDataSetTableAdapters {
             tableMapping.DataSetTable = "CourseTypes";
             tableMapping.ColumnMappings.Add("ID", "CourseTypeID");
             tableMapping.ColumnMappings.Add("CourseTypeName", "CourseTypeName");
+            tableMapping.ColumnMappings.Add("StudentCount", "StudentCount");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
@@ -2075,7 +2118,7 @@ namespace ShaoNianGong.StaticDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT   course_types.*\r\nFROM      course_types";
@@ -2087,16 +2130,23 @@ namespace ShaoNianGong.StaticDataSetTableAdapters {
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseTypeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "INSERT INTO course_types\r\n      (CourseTypeName)\r\nVALUES (@CourseTypeName)";
+            this._commandCollection[2].CommandText = "SELECT   ID, CourseTypeName, ISNULL\r\n                    ((SELECT   SUM(StudentCo" +
+                "unt) AS StudentCount\r\n                      FROM      v_course AS v\r\n           " +
+                "           WHERE   (CourseTypeID = ct.ID)), 0) AS StudentCount\r\nFROM      course" +
+                "_types AS ct";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseTypeName", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CourseTypeName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "UPDATE  course_types\r\nSET         CourseTypeName = @CourseTypeName\r\nWHERE   (ID =" +
-                " @CourseTypeID)";
+            this._commandCollection[3].CommandText = "INSERT INTO course_types\r\n      (CourseTypeName)\r\nVALUES (@CourseTypeName)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseTypeName", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CourseTypeName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseTypeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "UPDATE  course_types\r\nSET         CourseTypeName = @CourseTypeName\r\nWHERE   (ID =" +
+                " @CourseTypeID)";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseTypeName", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "CourseTypeName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseTypeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2118,6 +2168,30 @@ namespace ShaoNianGong.StaticDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual StaticDataSet.CourseTypesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            StaticDataSet.CourseTypesDataTable dataTable = new StaticDataSet.CourseTypesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByQueryStudentCount(StaticDataSet.CourseTypesDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual StaticDataSet.CourseTypesDataTable GetDataByQueryStudentCount() {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             StaticDataSet.CourseTypesDataTable dataTable = new StaticDataSet.CourseTypesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -2181,7 +2255,7 @@ namespace ShaoNianGong.StaticDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertCourseType(string CourseTypeName) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             if ((CourseTypeName == null)) {
                 throw new global::System.ArgumentNullException("CourseTypeName");
             }
@@ -2210,7 +2284,7 @@ namespace ShaoNianGong.StaticDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateCourseType(string CourseTypeName, int CourseTypeID) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
             if ((CourseTypeName == null)) {
                 throw new global::System.ArgumentNullException("CourseTypeName");
             }

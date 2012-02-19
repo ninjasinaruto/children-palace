@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ShaoNianGong
 {
-    public partial class CourseAddingForm : Form
+    public partial class CourseUpdateForm : Form
     {
         public string CourseType;
         public string CourseSubType;
@@ -17,14 +17,41 @@ namespace ShaoNianGong
         public int ChargeType;
         public int ChargeAmount;
 
-        public CourseAddingForm()
+        public CourseUpdateForm()
         {
             InitializeComponent();
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void CourseUpdateForm_Load(object sender, EventArgs e)
         {
-            this.Close();
+            cmbChargeMethod.SelectedIndex = 0;
+            txtCourseType.Text = CourseType;
+            txtCourseSubtype.Text = CourseSubType;
+            txtCourseName.Text = CourseName;
+            txtChargeAmount.Text = ChargeAmount+"";
+            string selChargeType = "按季度收费";
+            switch(ChargeType) {
+                case 0:
+                    selChargeType = "按季度收费";
+                    break;
+                case 1:
+                    selChargeType = "按月份收费";
+                    break;
+                case 2:
+                    selChargeType = "按课次收费";
+                    break;
+                default:
+                    break;
+            }
+            for (int i = 0; i < cmbChargeMethod.Items.Count; i++)
+            {
+                if (cmbChargeMethod.Items[i].ToString().Equals(selChargeType))
+                {
+                    cmbChargeMethod.SelectedIndex = i;
+                    break;
+                }
+            }
+
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -58,25 +85,14 @@ namespace ShaoNianGong
                 return;
             }
 
-            //ConfirmCourseAddingForm frmConfirm = new ConfirmCourseAddingForm();
-            //frmConfirm.CourseType = txtCourseType.Text;
-            //frmConfirm.CourseSubType = txtCourseSubtype.Text;
-            //frmConfirm.CourseName = txtCourseName.Text;
-            //frmConfirm.ChargeType = cmbChargeMethod.Text;
-            //frmConfirm.ChargeAmount = txtChargeAmount.Text;
-            //if (frmConfirm.ShowDialog() != DialogResult.OK)
-            //    return;
-
             CourseName = txtCourseName.Text.Trim();
             ChargeType = cmbChargeMethod.SelectedIndex;
             this.DialogResult = DialogResult.OK;
         }
 
-        private void CourseAddingForm_Load(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            cmbChargeMethod.SelectedIndex = 0;
-            txtCourseType.Text = CourseType;
-            txtCourseSubtype.Text = CourseSubType;
+            this.Close();
         }
     }
 }
