@@ -55,7 +55,8 @@ namespace ShaoNianGong
             else
             {
                 // 加载所有的学生
-                this.studentsTableAdapter.Fill(this.studentsDataSet.Students);
+                //this.studentsTableAdapter.Fill(this.studentsDataSet.Students);
+                this.studentsTableAdapter.FillByStatus(this.studentsDataSet.Students);
             }
         }
 
@@ -136,7 +137,8 @@ namespace ShaoNianGong
 
         private void btnShowAll_Click(object sender, EventArgs e)
         {
-            this.studentsTableAdapter.Fill(this.studentsDataSet.Students);
+            //this.studentsTableAdapter.Fill(this.studentsDataSet.Students);
+            this.studentsTableAdapter.FillByStatus(this.studentsDataSet.Students);
             this.Text = "学生资料管理 - [所有]";
             txtShowRange.Text = "所有";
         }
@@ -274,7 +276,7 @@ namespace ShaoNianGong
 
         private void StudentsManageForm_Resize(object sender, EventArgs e)
         {
-            dgvStudents.Width = this.Width - 33;
+            dgvStudents.Width = this.Width - 25;
             dgvStudents.Height = this.Height - 392;
         }
 
@@ -659,7 +661,8 @@ namespace ShaoNianGong
 
         private void btnShowLeft_Click(object sender, EventArgs e)
         {
-            this.studentsTableAdapter.FillByLeftCourse(this.studentsDataSet.Students);
+            //this.studentsTableAdapter.FillByLeftCourse(this.studentsDataSet.Students);
+            this.studentsTableAdapter.FillByLeave(this.studentsDataSet.Students);
             this.Text = "学生资料管理 - [离班]";
             txtShowRange.Text = "离班";
         }

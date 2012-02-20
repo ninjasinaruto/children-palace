@@ -37,14 +37,10 @@ namespace ShaoNianGong
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void CostListForm_Resize(object sender, EventArgs e)
         {
-
+            dgvCost.Height = this.Size.Height - 150;
+            dgvCost.Width = this.Size.Width - 20;
         }
 
         private void costListBindingSource_ListChanged(object sender, ListChangedEventArgs e)
@@ -112,11 +108,6 @@ namespace ShaoNianGong
                 endDate = new DateTime(endDate.Year, endDate.Month, endDate.Day, 0, 0, 0);
                 this.costListTableAdapter.FillByBeginEndDate(this.costListDataSet.CostList, beginDate, endDate);
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

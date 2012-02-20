@@ -29,10 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.depositDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DepositDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.depositAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ActualPaidAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpireTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TeacherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OperatorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.depositListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.depositListDataSet = new Common.DepositListDataSet();
             this.txtTotalPaid = new System.Windows.Forms.TextBox();
@@ -47,15 +56,6 @@
             this.dtDepositBeginDate = new System.Windows.Forms.DateTimePicker();
             this.dtDepositEndDate = new System.Windows.Forms.DateTimePicker();
             this.depositListTableAdapter = new Common.DepositListDataSetTableAdapters.DepositListTableAdapter();
-            this.depositDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DepositDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.depositAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ActualPaidAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExpireTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TeacherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OperatorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.depositListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.depositListDataSet)).BeginInit();
@@ -79,133 +79,22 @@
             this.TeacherName,
             this.OperatorColumn});
             this.dataGridView1.DataSource = this.depositListBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 89);
+            this.dataGridView1.Location = new System.Drawing.Point(10, 79);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(907, 544);
+            this.dataGridView1.Size = new System.Drawing.Size(1183, 481);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // depositListBindingSource
-            // 
-            this.depositListBindingSource.DataMember = "DepositList";
-            this.depositListBindingSource.DataSource = this.depositListDataSet;
-            this.depositListBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.depositListBindingSource_ListChanged);
-            // 
-            // depositListDataSet
-            // 
-            this.depositListDataSet.DataSetName = "DepositListDataSet";
-            this.depositListDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // txtTotalPaid
-            // 
-            this.txtTotalPaid.Location = new System.Drawing.Point(105, 51);
-            this.txtTotalPaid.Name = "txtTotalPaid";
-            this.txtTotalPaid.ReadOnly = true;
-            this.txtTotalPaid.Size = new System.Drawing.Size(120, 21);
-            this.txtTotalPaid.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 12);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "实收金额汇总：";
-            // 
-            // txtTotalDeposit
-            // 
-            this.txtTotalDeposit.Location = new System.Drawing.Point(105, 21);
-            this.txtTotalDeposit.Name = "txtTotalDeposit";
-            this.txtTotalDeposit.ReadOnly = true;
-            this.txtTotalDeposit.Size = new System.Drawing.Size(120, 21);
-            this.txtTotalDeposit.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 12);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "充值金额汇总：";
-            // 
-            // btnShowAllDeposit
-            // 
-            this.btnShowAllDeposit.Location = new System.Drawing.Point(347, 25);
-            this.btnShowAllDeposit.Name = "btnShowAllDeposit";
-            this.btnShowAllDeposit.Size = new System.Drawing.Size(96, 36);
-            this.btnShowAllDeposit.TabIndex = 7;
-            this.btnShowAllDeposit.Text = "查看所有";
-            this.btnShowAllDeposit.UseVisualStyleBackColor = true;
-            this.btnShowAllDeposit.Click += new System.EventHandler(this.btnShowAllDeposit_Click);
-            // 
-            // btnShowThisMonthDeposit
-            // 
-            this.btnShowThisMonthDeposit.Location = new System.Drawing.Point(245, 25);
-            this.btnShowThisMonthDeposit.Name = "btnShowThisMonthDeposit";
-            this.btnShowThisMonthDeposit.Size = new System.Drawing.Size(96, 36);
-            this.btnShowThisMonthDeposit.TabIndex = 7;
-            this.btnShowThisMonthDeposit.Text = "查看本月";
-            this.btnShowThisMonthDeposit.UseVisualStyleBackColor = true;
-            this.btnShowThisMonthDeposit.Click += new System.EventHandler(this.btnShowThisMonthDeposit_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(474, 29);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "起始日期：";
-            // 
-            // btnShowFilterDeposit
-            // 
-            this.btnShowFilterDeposit.Location = new System.Drawing.Point(680, 25);
-            this.btnShowFilterDeposit.Name = "btnShowFilterDeposit";
-            this.btnShowFilterDeposit.Size = new System.Drawing.Size(96, 36);
-            this.btnShowFilterDeposit.TabIndex = 7;
-            this.btnShowFilterDeposit.Text = "筛选";
-            this.btnShowFilterDeposit.UseVisualStyleBackColor = true;
-            this.btnShowFilterDeposit.Click += new System.EventHandler(this.btnShowFilterDeposit_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(474, 55);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 12);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "终止日期：";
-            // 
-            // dtDepositBeginDate
-            // 
-            this.dtDepositBeginDate.Location = new System.Drawing.Point(545, 25);
-            this.dtDepositBeginDate.Name = "dtDepositBeginDate";
-            this.dtDepositBeginDate.Size = new System.Drawing.Size(119, 21);
-            this.dtDepositBeginDate.TabIndex = 9;
-            // 
-            // dtDepositEndDate
-            // 
-            this.dtDepositEndDate.Location = new System.Drawing.Point(545, 50);
-            this.dtDepositEndDate.Name = "dtDepositEndDate";
-            this.dtDepositEndDate.Size = new System.Drawing.Size(119, 21);
-            this.dtDepositEndDate.TabIndex = 9;
-            // 
-            // depositListTableAdapter
-            // 
-            this.depositListTableAdapter.ClearBeforeFill = true;
             // 
             // depositDateDataGridViewTextBoxColumn
             // 
             this.depositDateDataGridViewTextBoxColumn.DataPropertyName = "DepositDate";
-            dataGridViewCellStyle4.Format = "D";
-            dataGridViewCellStyle4.NullValue = null;
-            this.depositDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle40.Format = "D";
+            dataGridViewCellStyle40.NullValue = null;
+            this.depositDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle40;
             this.depositDateDataGridViewTextBoxColumn.HeaderText = "充值日期";
             this.depositDateDataGridViewTextBoxColumn.Name = "depositDateDataGridViewTextBoxColumn";
             this.depositDateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -213,8 +102,8 @@
             // DepositDate
             // 
             this.DepositDate.DataPropertyName = "DepositDate";
-            dataGridViewCellStyle5.Format = "t";
-            this.DepositDate.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle41.Format = "t";
+            this.DepositDate.DefaultCellStyle = dataGridViewCellStyle41;
             this.DepositDate.HeaderText = "充值时间";
             this.DepositDate.Name = "DepositDate";
             this.DepositDate.ReadOnly = true;
@@ -243,9 +132,9 @@
             // ExpireTimeColumn
             // 
             this.ExpireTimeColumn.DataPropertyName = "ExpireTime";
-            dataGridViewCellStyle6.Format = "D";
-            dataGridViewCellStyle6.NullValue = null;
-            this.ExpireTimeColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle42.Format = "D";
+            dataGridViewCellStyle42.NullValue = null;
+            this.ExpireTimeColumn.DefaultCellStyle = dataGridViewCellStyle42;
             this.ExpireTimeColumn.HeaderText = "缴费到期时间";
             this.ExpireTimeColumn.Name = "ExpireTimeColumn";
             this.ExpireTimeColumn.ReadOnly = true;
@@ -271,11 +160,122 @@
             this.OperatorColumn.Name = "OperatorColumn";
             this.OperatorColumn.ReadOnly = true;
             // 
+            // depositListBindingSource
+            // 
+            this.depositListBindingSource.DataMember = "DepositList";
+            this.depositListBindingSource.DataSource = this.depositListDataSet;
+            this.depositListBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.depositListBindingSource_ListChanged);
+            // 
+            // depositListDataSet
+            // 
+            this.depositListDataSet.DataSetName = "DepositListDataSet";
+            this.depositListDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // txtTotalPaid
+            // 
+            this.txtTotalPaid.Location = new System.Drawing.Point(107, 42);
+            this.txtTotalPaid.Name = "txtTotalPaid";
+            this.txtTotalPaid.ReadOnly = true;
+            this.txtTotalPaid.Size = new System.Drawing.Size(120, 21);
+            this.txtTotalPaid.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 46);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 12);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "实收金额汇总：";
+            // 
+            // txtTotalDeposit
+            // 
+            this.txtTotalDeposit.Location = new System.Drawing.Point(107, 12);
+            this.txtTotalDeposit.Name = "txtTotalDeposit";
+            this.txtTotalDeposit.ReadOnly = true;
+            this.txtTotalDeposit.Size = new System.Drawing.Size(120, 21);
+            this.txtTotalDeposit.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 12);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "充值金额汇总：";
+            // 
+            // btnShowAllDeposit
+            // 
+            this.btnShowAllDeposit.Location = new System.Drawing.Point(349, 16);
+            this.btnShowAllDeposit.Name = "btnShowAllDeposit";
+            this.btnShowAllDeposit.Size = new System.Drawing.Size(96, 36);
+            this.btnShowAllDeposit.TabIndex = 7;
+            this.btnShowAllDeposit.Text = "查看所有";
+            this.btnShowAllDeposit.UseVisualStyleBackColor = true;
+            this.btnShowAllDeposit.Click += new System.EventHandler(this.btnShowAllDeposit_Click);
+            // 
+            // btnShowThisMonthDeposit
+            // 
+            this.btnShowThisMonthDeposit.Location = new System.Drawing.Point(247, 16);
+            this.btnShowThisMonthDeposit.Name = "btnShowThisMonthDeposit";
+            this.btnShowThisMonthDeposit.Size = new System.Drawing.Size(96, 36);
+            this.btnShowThisMonthDeposit.TabIndex = 7;
+            this.btnShowThisMonthDeposit.Text = "查看本月";
+            this.btnShowThisMonthDeposit.UseVisualStyleBackColor = true;
+            this.btnShowThisMonthDeposit.Click += new System.EventHandler(this.btnShowThisMonthDeposit_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(476, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "起始日期：";
+            // 
+            // btnShowFilterDeposit
+            // 
+            this.btnShowFilterDeposit.Location = new System.Drawing.Point(682, 16);
+            this.btnShowFilterDeposit.Name = "btnShowFilterDeposit";
+            this.btnShowFilterDeposit.Size = new System.Drawing.Size(96, 36);
+            this.btnShowFilterDeposit.TabIndex = 7;
+            this.btnShowFilterDeposit.Text = "筛选";
+            this.btnShowFilterDeposit.UseVisualStyleBackColor = true;
+            this.btnShowFilterDeposit.Click += new System.EventHandler(this.btnShowFilterDeposit_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(476, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "终止日期：";
+            // 
+            // dtDepositBeginDate
+            // 
+            this.dtDepositBeginDate.Location = new System.Drawing.Point(547, 16);
+            this.dtDepositBeginDate.Name = "dtDepositBeginDate";
+            this.dtDepositBeginDate.Size = new System.Drawing.Size(119, 21);
+            this.dtDepositBeginDate.TabIndex = 9;
+            // 
+            // dtDepositEndDate
+            // 
+            this.dtDepositEndDate.Location = new System.Drawing.Point(547, 41);
+            this.dtDepositEndDate.Name = "dtDepositEndDate";
+            this.dtDepositEndDate.Size = new System.Drawing.Size(119, 21);
+            this.dtDepositEndDate.TabIndex = 9;
+            // 
+            // depositListTableAdapter
+            // 
+            this.depositListTableAdapter.ClearBeforeFill = true;
+            // 
             // DepositListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(931, 654);
+            this.ClientSize = new System.Drawing.Size(1205, 572);
             this.Controls.Add(this.dtDepositEndDate);
             this.Controls.Add(this.dtDepositBeginDate);
             this.Controls.Add(this.label4);

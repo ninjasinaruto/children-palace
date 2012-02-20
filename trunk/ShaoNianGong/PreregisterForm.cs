@@ -25,7 +25,27 @@ namespace ShaoNianGong
                 MessageBox.Show("姓名不可为空");
                 return;
             }
+            DataRow[] rows = studentsDataSet.Students.Select("Name = '" + txtName.Text.Trim() + "'");
 
+
+            if (rows.Length > 0)
+            {
+                if (MessageBox.Show("系统里已存在姓名为：【" + txtName.Text.Trim() + "】的学生，确定继续报名吗？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    doRegister();
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                doRegister();
+            }
+        }
+
+        private void doRegister() {
             ConfirmPreregisterForm frmConfirmPreregister = new ConfirmPreregisterForm();
             frmConfirmPreregister.StudentCourseType = lstCourseType.Text;
             frmConfirmPreregister.StudentCourseSubType = lstCourseSubtypes.Text;
@@ -43,7 +63,7 @@ namespace ShaoNianGong
             frmConfirmPreregister.Text = "确定为" + txtName.Text + "进行预报名？";
             if (frmConfirmPreregister.ShowDialog() != DialogResult.OK)
                 return;
- 
+
             try
             {
                 int? courseSubtype;
@@ -69,6 +89,8 @@ namespace ShaoNianGong
 
         private void PreregisterForm_Load(object sender, EventArgs e)
         {
+            // TODO: 这行代码将数据加载到表“studentsDataSet.Students”中。您可以根据需要移动或删除它。
+            this.studentsTableAdapter.Fill(this.studentsDataSet.Students);
             // 填充CourseTypes列表
             this.courseTypesTableAdapter.Fill(this.staticDataSet.CourseTypes);
             lstCourseType.DataSource = courseTypesBindingSource;
@@ -76,6 +98,7 @@ namespace ShaoNianGong
             lstCourseType.ValueMember = "CourseTypeID";
 
             this.studentsPreregTableAdapter.Fill(this.preregisterDataset.studentsPrereg);
+            this.studentsTableAdapter.Fill(this.studentsDataSet.Students);
             cmbSex.SelectedIndex = 0;
         }
 

@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -462,9 +462,9 @@
             // ExpireTime
             // 
             this.ExpireTime.DataPropertyName = "ExpireTime";
-            dataGridViewCellStyle1.Format = "D";
-            dataGridViewCellStyle1.NullValue = null;
-            this.ExpireTime.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle31.Format = "D";
+            dataGridViewCellStyle31.NullValue = null;
+            this.ExpireTime.DefaultCellStyle = dataGridViewCellStyle31;
             this.ExpireTime.HeaderText = "缴费到期时间";
             this.ExpireTime.Name = "ExpireTime";
             this.ExpireTime.ReadOnly = true;
@@ -479,9 +479,9 @@
             // BirthdayColumn
             // 
             this.BirthdayColumn.DataPropertyName = "Birthday";
-            dataGridViewCellStyle2.Format = "D";
-            dataGridViewCellStyle2.NullValue = null;
-            this.BirthdayColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle32.Format = "D";
+            dataGridViewCellStyle32.NullValue = null;
+            this.BirthdayColumn.DefaultCellStyle = dataGridViewCellStyle32;
             this.BirthdayColumn.HeaderText = "生日";
             this.BirthdayColumn.Name = "BirthdayColumn";
             this.BirthdayColumn.ReadOnly = true;
@@ -591,9 +591,9 @@
             // ExpireTimeColumn
             // 
             this.ExpireTimeColumn.DataPropertyName = "ExpireTime";
-            dataGridViewCellStyle3.Format = "D";
-            dataGridViewCellStyle3.NullValue = null;
-            this.ExpireTimeColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle33.Format = "D";
+            dataGridViewCellStyle33.NullValue = null;
+            this.ExpireTimeColumn.DefaultCellStyle = dataGridViewCellStyle33;
             this.ExpireTimeColumn.HeaderText = "到期时间";
             this.ExpireTimeColumn.Name = "ExpireTimeColumn";
             this.ExpireTimeColumn.ReadOnly = true;
@@ -756,9 +756,9 @@
             // beginTimeDataGridViewTextBoxColumn
             // 
             this.beginTimeDataGridViewTextBoxColumn.DataPropertyName = "BeginTime";
-            dataGridViewCellStyle4.Format = "t";
-            dataGridViewCellStyle4.NullValue = null;
-            this.beginTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle34.Format = "t";
+            dataGridViewCellStyle34.NullValue = null;
+            this.beginTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle34;
             this.beginTimeDataGridViewTextBoxColumn.HeaderText = "上课时间";
             this.beginTimeDataGridViewTextBoxColumn.Name = "beginTimeDataGridViewTextBoxColumn";
             this.beginTimeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -766,8 +766,8 @@
             // endTimeDataGridViewTextBoxColumn
             // 
             this.endTimeDataGridViewTextBoxColumn.DataPropertyName = "EndTime";
-            dataGridViewCellStyle5.Format = "t";
-            this.endTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle35.Format = "t";
+            this.endTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle35;
             this.endTimeDataGridViewTextBoxColumn.HeaderText = "下课时间";
             this.endTimeDataGridViewTextBoxColumn.Name = "endTimeDataGridViewTextBoxColumn";
             this.endTimeDataGridViewTextBoxColumn.ReadOnly = true;

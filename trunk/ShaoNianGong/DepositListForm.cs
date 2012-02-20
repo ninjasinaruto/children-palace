@@ -25,8 +25,8 @@ namespace ShaoNianGong
 
         private void DepositListForm_Resize(object sender, EventArgs e)
         {
-            dataGridView1.Width = this.Width - 58;
-            dataGridView1.Height = this.Height - 117;
+            dataGridView1.Width = this.Width - 20;
+            dataGridView1.Height = this.Height - 150;
         }
 
         private void depositListBindingSource_ListChanged(object sender, ListChangedEventArgs e)

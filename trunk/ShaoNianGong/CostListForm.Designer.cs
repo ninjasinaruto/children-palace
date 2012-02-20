@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtTotalPaid = new System.Windows.Forms.TextBox();
             this.txtTotalCost = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,7 +42,7 @@
             this.btnShowFilterDeposit = new System.Windows.Forms.Button();
             this.btnShowAllDeposit = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvCost = new System.Windows.Forms.DataGridView();
             this.costDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExpireTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,11 +55,11 @@
             this.courseNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chargeTypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chargeAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OperatorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costListDataSet = new ShaoNianGong.CostListDataSet();
             this.costListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.costListTableAdapter = new ShaoNianGong.CostListDataSetTableAdapters.CostListTableAdapter();
-            this.OperatorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.costListDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.costListBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -88,7 +88,6 @@
             this.label1.Size = new System.Drawing.Size(89, 12);
             this.label1.TabIndex = 7;
             this.label1.Text = "拟收金额汇总：";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // dtDepositEndDate
             // 
@@ -161,14 +160,14 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "实收金额汇总：";
             // 
-            // dataGridView1
+            // dgvCost
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvCost.AllowUserToAddRows = false;
+            this.dgvCost.AllowUserToDeleteRows = false;
+            this.dgvCost.AllowUserToResizeRows = false;
+            this.dgvCost.AutoGenerateColumns = false;
+            this.dgvCost.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCost.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.costDateDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
             this.ExpireTimeColumn,
@@ -182,25 +181,24 @@
             this.chargeTypeNameDataGridViewTextBoxColumn,
             this.chargeAmountDataGridViewTextBoxColumn,
             this.OperatorColumn});
-            this.dataGridView1.DataMember = "CostList";
-            this.dataGridView1.DataSource = this.costListDataSet;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 79);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1183, 481);
-            this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgvCost.DataMember = "CostList";
+            this.dgvCost.DataSource = this.costListDataSet;
+            this.dgvCost.Location = new System.Drawing.Point(10, 79);
+            this.dgvCost.MultiSelect = false;
+            this.dgvCost.Name = "dgvCost";
+            this.dgvCost.ReadOnly = true;
+            this.dgvCost.RowHeadersVisible = false;
+            this.dgvCost.RowTemplate.Height = 23;
+            this.dgvCost.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCost.Size = new System.Drawing.Size(1183, 481);
+            this.dgvCost.TabIndex = 1;
             // 
             // costDateDataGridViewTextBoxColumn
             // 
             this.costDateDataGridViewTextBoxColumn.DataPropertyName = "CostDate";
-            dataGridViewCellStyle3.Format = "F";
-            dataGridViewCellStyle3.NullValue = null;
-            this.costDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Format = "F";
+            dataGridViewCellStyle1.NullValue = null;
+            this.costDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.costDateDataGridViewTextBoxColumn.HeaderText = "收费日期";
             this.costDateDataGridViewTextBoxColumn.Name = "costDateDataGridViewTextBoxColumn";
             this.costDateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -216,9 +214,9 @@
             // ExpireTimeColumn
             // 
             this.ExpireTimeColumn.DataPropertyName = "ExpireTime";
-            dataGridViewCellStyle4.Format = "D";
-            dataGridViewCellStyle4.NullValue = null;
-            this.ExpireTimeColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Format = "D";
+            dataGridViewCellStyle2.NullValue = null;
+            this.ExpireTimeColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.ExpireTimeColumn.HeaderText = "缴费到期时间";
             this.ExpireTimeColumn.Name = "ExpireTimeColumn";
             this.ExpireTimeColumn.ReadOnly = true;
@@ -288,6 +286,13 @@
             this.chargeAmountDataGridViewTextBoxColumn.ReadOnly = true;
             this.chargeAmountDataGridViewTextBoxColumn.Width = 130;
             // 
+            // OperatorColumn
+            // 
+            this.OperatorColumn.DataPropertyName = "Operator";
+            this.OperatorColumn.HeaderText = "经办人";
+            this.OperatorColumn.Name = "OperatorColumn";
+            this.OperatorColumn.ReadOnly = true;
+            // 
             // costListDataSet
             // 
             this.costListDataSet.DataSetName = "CostListDataSet";
@@ -302,13 +307,6 @@
             // costListTableAdapter
             // 
             this.costListTableAdapter.ClearBeforeFill = true;
-            // 
-            // OperatorColumn
-            // 
-            this.OperatorColumn.DataPropertyName = "Operator";
-            this.OperatorColumn.HeaderText = "经办人";
-            this.OperatorColumn.Name = "OperatorColumn";
-            this.OperatorColumn.ReadOnly = true;
             // 
             // CostListForm
             // 
@@ -326,12 +324,12 @@
             this.Controls.Add(this.txtTotalPaid);
             this.Controls.Add(this.txtTotalCost);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvCost);
             this.Name = "CostListForm";
             this.Text = "收费汇总";
             this.Load += new System.EventHandler(this.CostListForm_Load);
             this.Resize += new System.EventHandler(this.CostListForm_Resize);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCost)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.costListDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.costListBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -344,7 +342,7 @@
         private CostListDataSet costListDataSet;
         private System.Windows.Forms.BindingSource costListBindingSource;
         private CostListDataSetTableAdapters.CostListTableAdapter costListTableAdapter;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvCost;
         private System.Windows.Forms.TextBox txtTotalPaid;
         private System.Windows.Forms.TextBox txtTotalCost;
         private System.Windows.Forms.Label label1;

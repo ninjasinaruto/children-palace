@@ -88,6 +88,7 @@ namespace ShaoNianGong
             (currentForm as StudentsManageForm).UserType = this.UserType;
             (currentForm as StudentsManageForm).UserName = this.UserName;
             currentForm.MdiParent = this;
+            currentForm.WindowState = FormWindowState.Maximized;
             currentForm.Show();
             currentForm.Location = new Point(0, 0);
 
@@ -106,6 +107,7 @@ namespace ShaoNianGong
             }
             currentForm = new CoursesManageForm();
             currentForm.MdiParent = this;
+            currentForm.WindowState = FormWindowState.Maximized;
             currentForm.Show();
             currentForm.Location = new Point(0, 0);
 
@@ -167,6 +169,7 @@ namespace ShaoNianGong
             }
             currentForm = new PreregManageForm();
             currentForm.MdiParent = this;
+            currentForm.WindowState = FormWindowState.Maximized;
             currentForm.Show();
             currentForm.Location = new Point(0, 0);
 
@@ -185,6 +188,7 @@ namespace ShaoNianGong
             }
             currentForm = new PreregSignUpCoursesForm();
             currentForm.MdiParent = this;
+            currentForm.WindowState = FormWindowState.Maximized;
             currentForm.Show();
             currentForm.Location = new Point(0, 0);
 
@@ -203,6 +207,7 @@ namespace ShaoNianGong
             }
             currentForm = new DepositListForm();
             currentForm.MdiParent = this;
+            currentForm.WindowState = FormWindowState.Maximized;
             currentForm.Show();
             currentForm.Location = new Point(0, 0);
 
@@ -221,6 +226,7 @@ namespace ShaoNianGong
             }
             currentForm = new MaterialBuyListForm();
             currentForm.MdiParent = this;
+            currentForm.WindowState = FormWindowState.Maximized;
             currentForm.Show();
             currentForm.Location = new Point(0, 0);
 
@@ -241,6 +247,7 @@ namespace ShaoNianGong
             (currentForm as CostListForm).UserType = this.UserType;
             (currentForm as CostListForm).UserName = this.UserName;
             currentForm.MdiParent = this;
+            currentForm.WindowState = FormWindowState.Maximized;
             currentForm.Show();
             currentForm.Location = new Point(0, 0);
 
@@ -259,6 +266,7 @@ namespace ShaoNianGong
             }
             currentForm = new LeftCourseForm();
             currentForm.MdiParent = this;
+            currentForm.WindowState = FormWindowState.Maximized;
             currentForm.Show();
             currentForm.Location = new Point(0, 0);
 
@@ -294,6 +302,7 @@ namespace ShaoNianGong
             }
             currentForm = new StudentSigninManageForm();
             currentForm.MdiParent = this;
+            currentForm.WindowState = FormWindowState.Maximized;
             currentForm.Show();
             currentForm.Location = new Point(0, 0);
 
