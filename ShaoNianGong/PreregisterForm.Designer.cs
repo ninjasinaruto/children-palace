@@ -45,8 +45,10 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtRecommender = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -68,8 +70,9 @@
             this.staticDataSet = new ShaoNianGong.StaticDataSet();
             this.courseTypesTableAdapter = new ShaoNianGong.StaticDataSetTableAdapters.CourseTypesTableAdapter();
             this.courseSubtypesTableAdapter = new ShaoNianGong.CoursesDataSetTableAdapters.CourseSubtypesTableAdapter();
-            this.txtRecommender = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentsDataSet = new ShaoNianGong.StudentsDataSet();
+            this.studentsTableAdapter = new ShaoNianGong.StudentsDataSetTableAdapters.StudentsTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.preregisterDataset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsPreregBindingSource)).BeginInit();
@@ -78,6 +81,8 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.courseTypesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staticDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -235,6 +240,15 @@
             this.txtAddress.Size = new System.Drawing.Size(137, 21);
             this.txtAddress.TabIndex = 9;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(503, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "推荐人：";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -252,6 +266,13 @@
             this.label5.Size = new System.Drawing.Size(41, 12);
             this.label5.TabIndex = 8;
             this.label5.Text = "地址：";
+            // 
+            // txtRecommender
+            // 
+            this.txtRecommender.Location = new System.Drawing.Point(562, 24);
+            this.txtRecommender.Name = "txtRecommender";
+            this.txtRecommender.Size = new System.Drawing.Size(106, 21);
+            this.txtRecommender.TabIndex = 11;
             // 
             // txtPhone
             // 
@@ -410,21 +431,19 @@
             // 
             this.courseSubtypesTableAdapter.ClearBeforeFill = true;
             // 
-            // txtRecommender
+            // studentsBindingSource
             // 
-            this.txtRecommender.Location = new System.Drawing.Point(562, 24);
-            this.txtRecommender.Name = "txtRecommender";
-            this.txtRecommender.Size = new System.Drawing.Size(106, 21);
-            this.txtRecommender.TabIndex = 11;
+            this.studentsBindingSource.DataMember = "Students";
+            this.studentsBindingSource.DataSource = this.studentsDataSet;
             // 
-            // label3
+            // studentsDataSet
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(503, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "推荐人：";
+            this.studentsDataSet.DataSetName = "StudentsDataSet";
+            this.studentsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // studentsTableAdapter
+            // 
+            this.studentsTableAdapter.ClearBeforeFill = true;
             // 
             // PreregisterForm
             // 
@@ -451,6 +470,8 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.courseTypesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.staticDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -498,5 +519,8 @@
         private CoursesDataSet coursesDataSet;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtRecommender;
+        private System.Windows.Forms.BindingSource studentsBindingSource;
+        private StudentsDataSet studentsDataSet;
+        private StudentsDataSetTableAdapters.StudentsTableAdapter studentsTableAdapter;
     }
 }
