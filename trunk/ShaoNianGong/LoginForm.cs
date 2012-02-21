@@ -49,6 +49,7 @@ namespace ShaoNianGong
             // 更新User信息
             User.CurrentUser.UserName = txtUserName.Text;
             User.CurrentUser.UserType = rows[0].Field<int>("UserType");
+            User.CurrentUser.Password = rows[0].Field<string>("Password");
             this.DialogResult = DialogResult.OK;
         }
 
