@@ -225,6 +225,7 @@
             this.toolBtnWelcome.Size = new System.Drawing.Size(60, 21);
             this.toolBtnWelcome.Text = "欢迎您：";
             this.toolBtnWelcome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolBtnWelcome.Click += new System.EventHandler(this.toolBtnWelcome_Click);
             // 
             // versionDataSet
             // 

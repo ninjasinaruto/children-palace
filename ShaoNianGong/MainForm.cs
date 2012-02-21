@@ -311,5 +311,14 @@ namespace ShaoNianGong
             currentButton = tsbStudentSignin;
             currentButton.Checked = true;
         }
+
+        private void toolBtnWelcome_Click(object sender, EventArgs e)
+        {
+            UpdateUserPwdForm frmUpdateUserPwd = new UpdateUserPwdForm();
+            DialogResult result = frmUpdateUserPwd.ShowDialog();
+
+            if (result != DialogResult.OK)
+                return;
+        }
     }
 }

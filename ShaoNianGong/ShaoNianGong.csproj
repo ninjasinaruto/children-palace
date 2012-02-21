@@ -383,6 +383,12 @@
     <Compile Include="InputDialog\TeacherSelectForm.Designer.cs">
       <DependentUpon>TeacherSelectForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateUserPwdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateUserPwdForm.Designer.cs">
+      <DependentUpon>UpdateUserPwdForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <Compile Include="Users.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -527,6 +533,9 @@
     </Compile>
     <EmbeddedResource Include="InputDialog\TeacherSelectForm.resx">
       <DependentUpon>TeacherSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateUserPwdForm.resx">
+      <DependentUpon>UpdateUserPwdForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config">
       <SubType>Designer</SubType>
