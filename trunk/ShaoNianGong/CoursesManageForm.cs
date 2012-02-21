@@ -42,6 +42,18 @@ namespace ShaoNianGong
 
             // 初始化chargeMethod
             cmbChargeMethod.SelectedIndex = 0;
+
+            if (User.CurrentUser.UserType <= 1) {
+                btnAddCourseType.Enabled = false;
+                btnUpdateCourseType.Enabled = false;
+                btnDelCourseType.Enabled = false;
+                btnAddCourseSubtype.Enabled = false;
+                btnUpdateCourseSubtype.Enabled = false;
+                btnDelCourseSubtype.Enabled = false;
+                btnAddCourse.Enabled = false;
+                btnUpdateCourse.Enabled = false;
+                btnDelCourse.Enabled = false;
+            }
         }
 
         /// <summary>
@@ -178,11 +190,13 @@ namespace ShaoNianGong
                         courseTypesTableAdapter.FillByQueryStudentCount(staticDataSet.CourseTypes);
 
                         courseTypeID = this.staticDataSet.CourseTypes.Rows[courseTypesBindingSource.Position].Field<int>("CourseTypeID");
-                        int courseSubTypeID = this.coursesDataSet.CourseSubtypes.Rows[this.courseSubTypesBindingSource.Position].Field<int>("ID");
                         courseSubtypesTableAdapter.FillByQueryStudentCount(coursesDataSet.CourseSubtypes, courseTypeID);
-                        
-                        coursesTableAdapter.FillByQueryStudentCount(coursesDataSet.Courses, courseSubTypeID);
-                        coursesDataSet.Courses.CourseSubTypeIDColumn.DefaultValue = courseSubTypeID;
+                        if (this.coursesDataSet.CourseSubtypes.Rows.Count > 0)
+                        {
+                            int courseSubTypeID = this.coursesDataSet.CourseSubtypes.Rows[this.courseSubTypesBindingSource.Position].Field<int>("ID");
+                            coursesTableAdapter.FillByQueryStudentCount(coursesDataSet.Courses, courseSubTypeID);
+                            coursesDataSet.Courses.CourseSubTypeIDColumn.DefaultValue = courseSubTypeID;
+                        }
                     }
                 }
                 else
@@ -263,10 +277,12 @@ namespace ShaoNianGong
                     courseSubtypesTableAdapter.DeleteByID(courseSubTypeID);
 
                     courseSubtypesTableAdapter.FillByQueryStudentCount(coursesDataSet.CourseSubtypes, courseTypeId);
-                    courseSubTypeID = this.coursesDataSet.CourseSubtypes.Rows[this.courseSubTypesBindingSource.Position].Field<int>("ID");
-        
-                    coursesTableAdapter.FillByQueryStudentCount(coursesDataSet.Courses, courseSubTypeID);
-                    coursesDataSet.Courses.CourseSubTypeIDColumn.DefaultValue = courseSubTypeID;
+                    if (this.coursesDataSet.CourseSubtypes.Rows.Count > 0)
+                    {
+                        courseSubTypeID = this.coursesDataSet.CourseSubtypes.Rows[this.courseSubTypesBindingSource.Position].Field<int>("ID");
+                        coursesTableAdapter.FillByQueryStudentCount(coursesDataSet.Courses, courseSubTypeID);
+                        coursesDataSet.Courses.CourseSubTypeIDColumn.DefaultValue = courseSubTypeID;
+                    }
                 }
                 else
                 {

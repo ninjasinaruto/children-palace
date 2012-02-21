@@ -40,6 +40,8 @@
             this.usersbindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.usersDataSet = new ShaoNianGong.Users();
             this.usersTableAdapter = new ShaoNianGong.UsersTableAdapters.UsersTableAdapter();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtNewPwd2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.usersbindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersDataSet)).BeginInit();
             this.SuspendLayout();
@@ -49,7 +51,7 @@
             this.btnOK.Location = new System.Drawing.Point(73, 151);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 30);
-            this.btnOK.TabIndex = 2;
+            this.btnOK.TabIndex = 3;
             this.btnOK.Text = "确定";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -59,7 +61,7 @@
             this.btnCancel.Location = new System.Drawing.Point(181, 151);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 30);
-            this.btnCancel.TabIndex = 3;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -67,36 +69,36 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 11F);
-            this.label1.Location = new System.Drawing.Point(47, 23);
+            this.label1.Font = new System.Drawing.Font("宋体", 9F);
+            this.label1.Location = new System.Drawing.Point(70, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 15);
+            this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 2;
             this.label1.Text = "用户名：";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("宋体", 11F);
-            this.label2.Location = new System.Drawing.Point(47, 64);
+            this.label2.Font = new System.Drawing.Font("宋体", 9F);
+            this.label2.Location = new System.Drawing.Point(70, 51);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 15);
+            this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 3;
             this.label2.Text = "旧密码：";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("宋体", 11F);
-            this.label3.Location = new System.Drawing.Point(47, 111);
+            this.label3.Font = new System.Drawing.Font("宋体", 9F);
+            this.label3.Location = new System.Drawing.Point(70, 82);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 15);
+            this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 4;
             this.label3.Text = "新密码：";
             // 
             // txtOldPwd
             // 
-            this.txtOldPwd.Location = new System.Drawing.Point(115, 62);
+            this.txtOldPwd.Location = new System.Drawing.Point(129, 48);
             this.txtOldPwd.Name = "txtOldPwd";
             this.txtOldPwd.PasswordChar = '*';
             this.txtOldPwd.Size = new System.Drawing.Size(149, 21);
@@ -104,7 +106,7 @@
             // 
             // txtNewPwd
             // 
-            this.txtNewPwd.Location = new System.Drawing.Point(115, 108);
+            this.txtNewPwd.Location = new System.Drawing.Point(129, 79);
             this.txtNewPwd.Name = "txtNewPwd";
             this.txtNewPwd.PasswordChar = '*';
             this.txtNewPwd.Size = new System.Drawing.Size(149, 21);
@@ -113,10 +115,10 @@
             // lblUserName
             // 
             this.lblUserName.AutoSize = true;
-            this.lblUserName.Font = new System.Drawing.Font("宋体", 11F);
-            this.lblUserName.Location = new System.Drawing.Point(112, 23);
+            this.lblUserName.Font = new System.Drawing.Font("宋体", 9F);
+            this.lblUserName.Location = new System.Drawing.Point(129, 23);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(67, 15);
+            this.lblUserName.Size = new System.Drawing.Size(53, 12);
             this.lblUserName.TabIndex = 7;
             this.lblUserName.Text = "测试用户";
             // 
@@ -134,11 +136,31 @@
             // 
             this.usersTableAdapter.ClearBeforeFill = true;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("宋体", 9F);
+            this.label4.Location = new System.Drawing.Point(46, 114);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 12);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "确认新密码：";
+            // 
+            // txtNewPwd2
+            // 
+            this.txtNewPwd2.Location = new System.Drawing.Point(129, 111);
+            this.txtNewPwd2.Name = "txtNewPwd2";
+            this.txtNewPwd2.PasswordChar = '*';
+            this.txtNewPwd2.Size = new System.Drawing.Size(149, 21);
+            this.txtNewPwd2.TabIndex = 2;
+            // 
             // UpdateUserPwdForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(331, 193);
+            this.Controls.Add(this.txtNewPwd2);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.txtNewPwd);
             this.Controls.Add(this.txtOldPwd);
@@ -173,5 +195,7 @@
         private System.Windows.Forms.BindingSource usersbindingSource;
         private Users usersDataSet;
         private UsersTableAdapters.UsersTableAdapter usersTableAdapter;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtNewPwd2;
     }
 }

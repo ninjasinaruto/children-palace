@@ -43,22 +43,22 @@
             this.btnShowAllDeposit = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvCost = new System.Windows.Forms.DataGridView();
+            this.costListDataSet = new ShaoNianGong.CostListDataSet();
+            this.costListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.costListTableAdapter = new ShaoNianGong.CostListDataSetTableAdapters.CostListTableAdapter();
             this.costDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExpireTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ActualCostAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chargeAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiscountLevelName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiscountReason = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseTypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseSubtypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chargeTypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chargeAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OperatorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costListDataSet = new ShaoNianGong.CostListDataSet();
-            this.costListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.costListTableAdapter = new ShaoNianGong.CostListDataSetTableAdapters.CostListTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.costListDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.costListBindingSource)).BeginInit();
@@ -173,13 +173,13 @@
             this.ExpireTimeColumn,
             this.costAmountDataGridViewTextBoxColumn,
             this.ActualCostAmount,
+            this.chargeAmountDataGridViewTextBoxColumn,
             this.DiscountLevelName,
             this.DiscountReason,
             this.courseTypeNameDataGridViewTextBoxColumn,
             this.courseSubtypeNameDataGridViewTextBoxColumn,
             this.courseNameDataGridViewTextBoxColumn,
             this.chargeTypeNameDataGridViewTextBoxColumn,
-            this.chargeAmountDataGridViewTextBoxColumn,
             this.OperatorColumn});
             this.dgvCost.DataMember = "CostList";
             this.dgvCost.DataSource = this.costListDataSet;
@@ -192,6 +192,21 @@
             this.dgvCost.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCost.Size = new System.Drawing.Size(1183, 481);
             this.dgvCost.TabIndex = 1;
+            // 
+            // costListDataSet
+            // 
+            this.costListDataSet.DataSetName = "CostListDataSet";
+            this.costListDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // costListBindingSource
+            // 
+            this.costListBindingSource.DataMember = "CostList";
+            this.costListBindingSource.DataSource = this.costListDataSet;
+            this.costListBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.costListBindingSource_ListChanged);
+            // 
+            // costListTableAdapter
+            // 
+            this.costListTableAdapter.ClearBeforeFill = true;
             // 
             // costDateDataGridViewTextBoxColumn
             // 
@@ -234,6 +249,14 @@
             this.ActualCostAmount.HeaderText = "实收金额";
             this.ActualCostAmount.Name = "ActualCostAmount";
             this.ActualCostAmount.ReadOnly = true;
+            // 
+            // chargeAmountDataGridViewTextBoxColumn
+            // 
+            this.chargeAmountDataGridViewTextBoxColumn.DataPropertyName = "ChargeAmount";
+            this.chargeAmountDataGridViewTextBoxColumn.HeaderText = "课程收费金额";
+            this.chargeAmountDataGridViewTextBoxColumn.Name = "chargeAmountDataGridViewTextBoxColumn";
+            this.chargeAmountDataGridViewTextBoxColumn.ReadOnly = true;
+            this.chargeAmountDataGridViewTextBoxColumn.Width = 130;
             // 
             // DiscountLevelName
             // 
@@ -278,35 +301,12 @@
             this.chargeTypeNameDataGridViewTextBoxColumn.ReadOnly = true;
             this.chargeTypeNameDataGridViewTextBoxColumn.Width = 130;
             // 
-            // chargeAmountDataGridViewTextBoxColumn
-            // 
-            this.chargeAmountDataGridViewTextBoxColumn.DataPropertyName = "ChargeAmount";
-            this.chargeAmountDataGridViewTextBoxColumn.HeaderText = "课程收费金额";
-            this.chargeAmountDataGridViewTextBoxColumn.Name = "chargeAmountDataGridViewTextBoxColumn";
-            this.chargeAmountDataGridViewTextBoxColumn.ReadOnly = true;
-            this.chargeAmountDataGridViewTextBoxColumn.Width = 130;
-            // 
             // OperatorColumn
             // 
             this.OperatorColumn.DataPropertyName = "Operator";
             this.OperatorColumn.HeaderText = "经办人";
             this.OperatorColumn.Name = "OperatorColumn";
             this.OperatorColumn.ReadOnly = true;
-            // 
-            // costListDataSet
-            // 
-            this.costListDataSet.DataSetName = "CostListDataSet";
-            this.costListDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // costListBindingSource
-            // 
-            this.costListBindingSource.DataMember = "CostList";
-            this.costListBindingSource.DataSource = this.costListDataSet;
-            this.costListBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.costListBindingSource_ListChanged);
-            // 
-            // costListTableAdapter
-            // 
-            this.costListTableAdapter.ClearBeforeFill = true;
             // 
             // CostListForm
             // 
@@ -359,13 +359,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ExpireTimeColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn costAmountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ActualCostAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chargeAmountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiscountLevelName;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiscountReason;
         private System.Windows.Forms.DataGridViewTextBoxColumn courseTypeNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn courseSubtypeNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn courseNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn chargeTypeNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn chargeAmountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn OperatorColumn;
     }
 }

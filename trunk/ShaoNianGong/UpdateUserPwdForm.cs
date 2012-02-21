@@ -44,13 +44,29 @@ namespace ShaoNianGong
                 txtNewPwd.Focus();
                 return;
             }
+            string newPwd2 = txtNewPwd2.Text.Trim();
+            if (newPwd2.Length == 0)
+            {
+                MessageBox.Show("确认新密码不可为空！");
+                txtNewPwd2.Focus();
+                return;
+            }
             if (oldPwd.Equals(User.CurrentUser.Password))
             {
-                this.usersTableAdapter.UpdateUserPwd(newPwd, User.CurrentUser.UserName);
-                User.CurrentUser.Password = newPwd;
-                MessageBox.Show("密码修改成功！");
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                if (newPwd2.Equals(newPwd))
+                {
+                    this.usersTableAdapter.UpdateUserPwd(newPwd, User.CurrentUser.UserName);
+                    User.CurrentUser.Password = newPwd;
+                    MessageBox.Show("密码修改成功！");
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("两次密码输入不一致，请检查！");
+                    txtNewPwd2.Focus();
+                    return;
+                }
             }
             else
             {
