@@ -2931,7 +2931,7 @@ namespace ShaoNianGong.CoursesDataSetTableAdapters {
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = @"SELECT   ID, CourseName, CourseSubTypeID, ChargeType, ChargeAmount, TeacherID, ISNULL
                     ((SELECT   COUNT(0) AS StudentCount
-                      FROM      student_courses AS sc
+                      FROM      student_cost AS sc
                       WHERE   (CourseID = c.ID)), 0) AS StudentCount
 FROM      courses AS c
 WHERE   (CourseSubTypeID = @CourseSubTypeID)";
