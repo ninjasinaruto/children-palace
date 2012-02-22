@@ -22,5 +22,11 @@ namespace ShaoNianGong
             this.leaveCourseTableAdapter.Fill(this.leaveCourseDataSet.LeaveCourse);
 
         }
+
+        private void LeftCourseForm_Resize(object sender, EventArgs e)
+        {
+            dataGridView1.Width = this.Width - 20;
+            dataGridView1.Height = this.Height - 150;
+        }
     }
 }
