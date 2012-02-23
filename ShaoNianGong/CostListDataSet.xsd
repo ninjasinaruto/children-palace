@@ -12,22 +12,20 @@
               <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT course_types.CourseTypeName, course_subtypes.CourseSubtypeName, 
-      courses.CourseName, courses.ChargeAmount, charge_type.ChargeTypeName, 
-      students.Name, student_cost.CostDate, student_cost.CostAmount, students.Balance, 
-      student_courses.ExpireTime, student_cost.DiscountLevel, 
-      student_cost.ActualCostAmount, student_cost.DiscountReason, 
-      discount_level.DiscountLevelName, student_cost.Operator
-FROM student_cost INNER JOIN
-      students ON student_cost.StudentID = students.ID INNER JOIN
-      courses ON student_cost.CourseID = courses.ID INNER JOIN
-      course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
-      course_types ON course_subtypes.CourseTypeID = course_types.ID INNER JOIN
-      charge_type ON courses.ChargeType = charge_type.ChargeTypeID INNER JOIN
-      student_courses ON students.ID = student_courses.StudentID AND 
-      courses.ID = student_courses.CourseID INNER JOIN
-      discount_level ON 
-      student_cost.DiscountLevel = discount_level.DiscountLevel
+                    <CommandText>SELECT DISTINCT 
+                course_types.CourseTypeName, course_subtypes.CourseSubtypeName, courses.CourseName, courses.ChargeAmount, 
+                charge_type.ChargeTypeName, students.Name, student_cost.CostDate, student_cost.CostAmount, students.Balance, 
+                v_student_courses.ExpireTime, student_cost.DiscountLevel, student_cost.ActualCostAmount, 
+                student_cost.DiscountReason, discount_level.DiscountLevelName, student_cost.Operator
+FROM      student_cost INNER JOIN
+                students ON student_cost.StudentID = students.ID INNER JOIN
+                courses ON student_cost.CourseID = courses.ID INNER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID INNER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID INNER JOIN
+                v_student_courses ON students.ID = v_student_courses.StudentID AND 
+                courses.ID = v_student_courses.CourseID INNER JOIN
+                discount_level ON student_cost.DiscountLevel = discount_level.DiscountLevel
 ORDER BY student_cost.CostDate DESC</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -55,26 +53,24 @@ ORDER BY student_cost.CostDate DESC</CommandText>
               <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByBeginDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByBeginDate" GeneratorSourceName="FillByBeginDate" GetMethodModifier="Public" GetMethodName="GetDataByBeginDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByBeginDate" UserSourceName="FillByBeginDate">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT course_types.CourseTypeName, course_subtypes.CourseSubtypeName, 
-      courses.CourseName, courses.ChargeAmount, charge_type.ChargeTypeName, 
-      students.Name, student_cost.CostDate, student_cost.CostAmount, students.Balance, 
-      student_courses.ExpireTime, student_cost.DiscountLevel, 
-      student_cost.ActualCostAmount, student_cost.DiscountReason, 
-      discount_level.DiscountLevelName, student_cost.Operator
-FROM student_cost INNER JOIN
-      students ON student_cost.StudentID = students.ID INNER JOIN
-      courses ON student_cost.CourseID = courses.ID INNER JOIN
-      course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
-      course_types ON course_subtypes.CourseTypeID = course_types.ID INNER JOIN
-      charge_type ON courses.ChargeType = charge_type.ChargeTypeID INNER JOIN
-      student_courses ON students.ID = student_courses.StudentID AND 
-      courses.ID = student_courses.CourseID INNER JOIN
-      discount_level ON 
-      student_cost.DiscountLevel = discount_level.DiscountLevel
-WHERE (student_cost.CostDate &gt; @BeginDate)
+                    <CommandText>SELECT DISTINCT 
+                course_types.CourseTypeName, course_subtypes.CourseSubtypeName, courses.CourseName, courses.ChargeAmount, 
+                charge_type.ChargeTypeName, students.Name, student_cost.CostDate, student_cost.CostAmount, students.Balance, 
+                v_student_courses.ExpireTime, student_cost.DiscountLevel, student_cost.ActualCostAmount, 
+                student_cost.DiscountReason, discount_level.DiscountLevelName, student_cost.Operator
+FROM      student_cost INNER JOIN
+                students ON student_cost.StudentID = students.ID INNER JOIN
+                courses ON student_cost.CourseID = courses.ID INNER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID INNER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID INNER JOIN
+                v_student_courses ON students.ID = v_student_courses.StudentID AND 
+                courses.ID = v_student_courses.CourseID INNER JOIN
+                discount_level ON student_cost.DiscountLevel = discount_level.DiscountLevel
+WHERE   (CONVERT(varchar(7), student_cost.CostDate, 111) = @BeginDate)
 ORDER BY student_cost.CostDate DESC</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="CostDate" DataSourceName="ChildrenPalace.dbo.student_cost" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="CostDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="AnsiString" Direction="Input" ParameterName="@BeginDate" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -82,23 +78,21 @@ ORDER BY student_cost.CostDate DESC</CommandText>
               <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByBeginEndDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByBeginEndDate" GeneratorSourceName="FillByBeginEndDate" GetMethodModifier="Public" GetMethodName="GetDataByBeginEndDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByBeginEndDate" UserSourceName="FillByBeginEndDate">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT course_types.CourseTypeName, course_subtypes.CourseSubtypeName, 
-      courses.CourseName, courses.ChargeAmount, charge_type.ChargeTypeName, 
-      students.Name, student_cost.CostDate, student_cost.CostAmount, students.Balance, 
-      student_courses.ExpireTime, student_cost.DiscountLevel, 
-      student_cost.ActualCostAmount, student_cost.DiscountReason, 
-      discount_level.DiscountLevelName, student_cost.Operator
-FROM student_cost INNER JOIN
-      students ON student_cost.StudentID = students.ID INNER JOIN
-      courses ON student_cost.CourseID = courses.ID INNER JOIN
-      course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
-      course_types ON course_subtypes.CourseTypeID = course_types.ID INNER JOIN
-      charge_type ON courses.ChargeType = charge_type.ChargeTypeID INNER JOIN
-      student_courses ON students.ID = student_courses.StudentID AND 
-      courses.ID = student_courses.CourseID INNER JOIN
-      discount_level ON 
-      student_cost.DiscountLevel = discount_level.DiscountLevel
-WHERE (student_cost.CostDate &gt; @BeginDate) AND (student_cost.CostDate &lt; @EndDate)
+                    <CommandText>SELECT DISTINCT 
+                course_types.CourseTypeName, course_subtypes.CourseSubtypeName, courses.CourseName, courses.ChargeAmount, 
+                charge_type.ChargeTypeName, students.Name, student_cost.CostDate, student_cost.CostAmount, students.Balance, 
+                v_student_courses.ExpireTime, student_cost.DiscountLevel, student_cost.ActualCostAmount, 
+                student_cost.DiscountReason, discount_level.DiscountLevelName, student_cost.Operator
+FROM      student_cost INNER JOIN
+                students ON student_cost.StudentID = students.ID INNER JOIN
+                courses ON student_cost.CourseID = courses.ID INNER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID INNER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID INNER JOIN
+                v_student_courses ON students.ID = v_student_courses.StudentID AND 
+                courses.ID = v_student_courses.CourseID INNER JOIN
+                discount_level ON student_cost.DiscountLevel = discount_level.DiscountLevel
+WHERE   (student_cost.CostDate &gt; @BeginDate) AND (student_cost.CostDate &lt; @EndDate)
 ORDER BY student_cost.CostDate DESC</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="CostDate" DataSourceName="ChildrenPalace.dbo.student_cost" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="CostDate" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -107,26 +101,74 @@ ORDER BY student_cost.CostDate DESC</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByCourseID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByCourseID" GeneratorSourceName="FillByCourseID" GetMethodModifier="Public" GetMethodName="GetDataByCourseID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByCourseID" UserSourceName="FillByCourseID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT 
+                course_types.CourseTypeName, course_subtypes.CourseSubtypeName, courses.CourseName, courses.ChargeAmount, 
+                charge_type.ChargeTypeName, students.Name, student_cost.CostDate, student_cost.CostAmount, students.Balance, 
+                v_student_courses.ExpireTime, student_cost.DiscountLevel, student_cost.ActualCostAmount, 
+                student_cost.DiscountReason, discount_level.DiscountLevelName, student_cost.Operator
+FROM      student_cost INNER JOIN
+                students ON student_cost.StudentID = students.ID INNER JOIN
+                courses ON student_cost.CourseID = courses.ID INNER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID INNER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID INNER JOIN
+                v_student_courses ON students.ID = v_student_courses.StudentID AND 
+                courses.ID = v_student_courses.CourseID INNER JOIN
+                discount_level ON student_cost.DiscountLevel = discount_level.DiscountLevel
+WHERE   (courses.ID = @CourseID)
+ORDER BY student_cost.CostDate DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="CourseID" ColumnName="ID" DataSourceName="ChildrenPalace.dbo.courses" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@CourseID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByCourseType" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByCourseType" GeneratorSourceName="FillByCourseType" GetMethodModifier="Public" GetMethodName="GetDataByCourseType" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByCourseType" UserSourceName="FillByCourseType">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT 
+                course_types.CourseTypeName, course_subtypes.CourseSubtypeName, courses.CourseName, courses.ChargeAmount, 
+                charge_type.ChargeTypeName, students.Name, student_cost.CostDate, student_cost.CostAmount, students.Balance, 
+                v_student_courses.ExpireTime, student_cost.DiscountLevel, student_cost.ActualCostAmount, 
+                student_cost.DiscountReason, discount_level.DiscountLevelName, student_cost.Operator
+FROM      student_cost INNER JOIN
+                students ON student_cost.StudentID = students.ID INNER JOIN
+                courses ON student_cost.CourseID = courses.ID INNER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID INNER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID INNER JOIN
+                v_student_courses ON students.ID = v_student_courses.StudentID AND 
+                courses.ID = v_student_courses.CourseID INNER JOIN
+                discount_level ON student_cost.DiscountLevel = discount_level.DiscountLevel
+WHERE   (course_types.ID = @CourseTypeID)
+ORDER BY student_cost.CostDate DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="CourseTypeID" ColumnName="ID" DataSourceName="ChildrenPalace.dbo.course_types" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@CourseTypeID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByStudentID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByStudentID" GeneratorSourceName="FillByStudentID" GetMethodModifier="Public" GetMethodName="GetDataByStudentID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByStudentID" UserSourceName="FillByStudentID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT course_types.CourseTypeName, course_subtypes.CourseSubtypeName, 
-      courses.CourseName, courses.ChargeAmount, charge_type.ChargeTypeName, 
-      students.Name, student_cost.CostDate, student_cost.CostAmount, students.Balance, 
-      student_courses.ExpireTime, student_cost.DiscountLevel, 
-      student_cost.ActualCostAmount, student_cost.DiscountReason, 
-      discount_level.DiscountLevelName, student_cost.Operator
-FROM student_cost INNER JOIN
-      students ON student_cost.StudentID = students.ID INNER JOIN
-      courses ON student_cost.CourseID = courses.ID INNER JOIN
-      course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
-      course_types ON course_subtypes.CourseTypeID = course_types.ID INNER JOIN
-      charge_type ON courses.ChargeType = charge_type.ChargeTypeID INNER JOIN
-      student_courses ON students.ID = student_courses.StudentID AND 
-      courses.ID = student_courses.CourseID INNER JOIN
-      discount_level ON 
-      student_cost.DiscountLevel = discount_level.DiscountLevel
-WHERE (student_cost.StudentID = @StudentID)
+                    <CommandText>SELECT DISTINCT 
+                course_types.CourseTypeName, course_subtypes.CourseSubtypeName, courses.CourseName, courses.ChargeAmount, 
+                charge_type.ChargeTypeName, students.Name, student_cost.CostDate, student_cost.CostAmount, students.Balance, 
+                v_student_courses.ExpireTime, student_cost.DiscountLevel, student_cost.ActualCostAmount, 
+                student_cost.DiscountReason, discount_level.DiscountLevelName, student_cost.Operator
+FROM      student_cost INNER JOIN
+                students ON student_cost.StudentID = students.ID INNER JOIN
+                courses ON student_cost.CourseID = courses.ID INNER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID INNER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID INNER JOIN
+                v_student_courses ON students.ID = v_student_courses.StudentID AND 
+                courses.ID = v_student_courses.CourseID INNER JOIN
+                discount_level ON student_cost.DiscountLevel = discount_level.DiscountLevel
+WHERE   (student_cost.StudentID = @StudentID)
 ORDER BY student_cost.CostDate DESC</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="StudentID" ColumnName="StudentID" DataSourceName="ChildrenPalace.dbo.student_cost" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@StudentID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="StudentID" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -137,26 +179,24 @@ ORDER BY student_cost.CostDate DESC</CommandText>
               <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByUserName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByUserName" GeneratorSourceName="FillByUserName" GetMethodModifier="Public" GetMethodName="GetDataByUserName" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByUserName" UserSourceName="FillByUserName">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT course_types.CourseTypeName, course_subtypes.CourseSubtypeName, 
-      courses.CourseName, courses.ChargeAmount, charge_type.ChargeTypeName, 
-      students.Name, student_cost.CostDate, student_cost.CostAmount, students.Balance, 
-      student_courses.ExpireTime, student_cost.DiscountLevel, 
-      student_cost.ActualCostAmount, student_cost.DiscountReason, 
-      discount_level.DiscountLevelName, student_cost.Operator
-FROM users INNER JOIN
-      users_course_privilege ON 
-      users.UserName = users_course_privilege.UserName INNER JOIN
-      student_cost INNER JOIN
-      students ON student_cost.StudentID = students.ID INNER JOIN
-      courses ON student_cost.CourseID = courses.ID INNER JOIN
-      course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
-      course_types ON course_subtypes.CourseTypeID = course_types.ID INNER JOIN
-      charge_type ON courses.ChargeType = charge_type.ChargeTypeID INNER JOIN
-      student_courses ON students.ID = student_courses.StudentID AND 
-      courses.ID = student_courses.CourseID INNER JOIN
-      discount_level ON student_cost.DiscountLevel = discount_level.DiscountLevel ON 
-      users_course_privilege.CourseId = courses.ID
-WHERE (users.UserName = @UserName)
+                    <CommandText>SELECT DISTINCT 
+                course_types.CourseTypeName, course_subtypes.CourseSubtypeName, courses.CourseName, courses.ChargeAmount, 
+                charge_type.ChargeTypeName, students.Name, student_cost.CostDate, student_cost.CostAmount, students.Balance, 
+                v_student_courses.ExpireTime, student_cost.DiscountLevel, student_cost.ActualCostAmount, 
+                student_cost.DiscountReason, discount_level.DiscountLevelName, student_cost.Operator
+FROM      users INNER JOIN
+                users_course_privilege ON users.UserName = users_course_privilege.UserName INNER JOIN
+                student_cost INNER JOIN
+                students ON student_cost.StudentID = students.ID INNER JOIN
+                courses ON student_cost.CourseID = courses.ID INNER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID INNER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID INNER JOIN
+                v_student_courses ON students.ID = v_student_courses.StudentID AND 
+                courses.ID = v_student_courses.CourseID INNER JOIN
+                discount_level ON student_cost.DiscountLevel = discount_level.DiscountLevel ON 
+                users_course_privilege.CourseId = courses.ID
+WHERE   (users.UserName = @UserName)
 ORDER BY student_cost.CostDate DESC</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="UserName" ColumnName="UserName" DataSourceName="ChildrenPalace.dbo.users" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@UserName" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="UserName" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -167,30 +207,28 @@ ORDER BY student_cost.CostDate DESC</CommandText>
               <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByUserNameBeginDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByUserNameBeginDate" GeneratorSourceName="FillByUserNameBeginDate" GetMethodModifier="Public" GetMethodName="GetDataByUserNameBeginDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByUserNameBeginDate" UserSourceName="FillByUserNameBeginDate">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT course_types.CourseTypeName, course_subtypes.CourseSubtypeName, 
-      courses.CourseName, courses.ChargeAmount, charge_type.ChargeTypeName, 
-      students.Name, student_cost.CostDate, student_cost.CostAmount, students.Balance, 
-      student_courses.ExpireTime, student_cost.DiscountLevel, 
-      student_cost.ActualCostAmount, student_cost.DiscountReason, 
-      discount_level.DiscountLevelName, student_cost.Operator
-FROM users INNER JOIN
-      users_course_privilege ON 
-      users.UserName = users_course_privilege.UserName INNER JOIN
-      student_cost INNER JOIN
-      students ON student_cost.StudentID = students.ID INNER JOIN
-      courses ON student_cost.CourseID = courses.ID INNER JOIN
-      course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
-      course_types ON course_subtypes.CourseTypeID = course_types.ID INNER JOIN
-      charge_type ON courses.ChargeType = charge_type.ChargeTypeID INNER JOIN
-      student_courses ON students.ID = student_courses.StudentID AND 
-      courses.ID = student_courses.CourseID INNER JOIN
-      discount_level ON student_cost.DiscountLevel = discount_level.DiscountLevel ON 
-      users_course_privilege.CourseId = courses.ID
-WHERE (users.UserName = @UserName) AND (student_cost.CostDate &gt; @BeginDate)
+                    <CommandText>SELECT DISTINCT 
+                course_types.CourseTypeName, course_subtypes.CourseSubtypeName, courses.CourseName, courses.ChargeAmount, 
+                charge_type.ChargeTypeName, students.Name, student_cost.CostDate, student_cost.CostAmount, students.Balance, 
+                v_student_courses.ExpireTime, student_cost.DiscountLevel, student_cost.ActualCostAmount, 
+                student_cost.DiscountReason, discount_level.DiscountLevelName, student_cost.Operator
+FROM      users INNER JOIN
+                users_course_privilege ON users.UserName = users_course_privilege.UserName INNER JOIN
+                student_cost INNER JOIN
+                students ON student_cost.StudentID = students.ID INNER JOIN
+                courses ON student_cost.CourseID = courses.ID INNER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID INNER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID INNER JOIN
+                v_student_courses ON students.ID = v_student_courses.StudentID AND 
+                courses.ID = v_student_courses.CourseID INNER JOIN
+                discount_level ON student_cost.DiscountLevel = discount_level.DiscountLevel ON 
+                users_course_privilege.CourseId = courses.ID
+WHERE   (CONVERT(varchar(7), student_cost.CostDate, 111) = @BeginDate) AND (users.UserName = @UserName)
 ORDER BY student_cost.CostDate DESC</CommandText>
                     <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="AnsiString" Direction="Input" ParameterName="@BeginDate" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="UserName" ColumnName="UserName" DataSourceName="ChildrenPalace.dbo.users" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@UserName" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="UserName" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="CostDate" DataSourceName="ChildrenPalace.dbo.student_cost" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="CostDate" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -198,32 +236,87 @@ ORDER BY student_cost.CostDate DESC</CommandText>
               <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByUserNameBeginEndDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByUserNameBeginEndDate" GeneratorSourceName="FillByUserNameBeginEndDate" GetMethodModifier="Public" GetMethodName="GetDataByUserNameBeginEndDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByUserNameBeginEndDate" UserSourceName="FillByUserNameBeginEndDate">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT course_types.CourseTypeName, course_subtypes.CourseSubtypeName, 
-      courses.CourseName, courses.ChargeAmount, charge_type.ChargeTypeName, 
-      students.Name, student_cost.CostDate, student_cost.CostAmount, students.Balance, 
-      student_courses.ExpireTime, student_cost.DiscountLevel, 
-      student_cost.ActualCostAmount, student_cost.DiscountReason, 
-      discount_level.DiscountLevelName, student_cost.Operator
-FROM users INNER JOIN
-      users_course_privilege ON 
-      users.UserName = users_course_privilege.UserName INNER JOIN
-      student_cost INNER JOIN
-      students ON student_cost.StudentID = students.ID INNER JOIN
-      courses ON student_cost.CourseID = courses.ID INNER JOIN
-      course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
-      course_types ON course_subtypes.CourseTypeID = course_types.ID INNER JOIN
-      charge_type ON courses.ChargeType = charge_type.ChargeTypeID INNER JOIN
-      student_courses ON students.ID = student_courses.StudentID AND 
-      courses.ID = student_courses.CourseID INNER JOIN
-      discount_level ON student_cost.DiscountLevel = discount_level.DiscountLevel ON 
-      users_course_privilege.CourseId = courses.ID
-WHERE (users.UserName = @UserName) AND (student_cost.CostDate &gt; @BeginDate) AND 
-      (student_cost.CostDate &lt; @EndDate)
+                    <CommandText>SELECT DISTINCT 
+                course_types.CourseTypeName, course_subtypes.CourseSubtypeName, courses.CourseName, courses.ChargeAmount, 
+                charge_type.ChargeTypeName, students.Name, student_cost.CostDate, student_cost.CostAmount, students.Balance, 
+                v_student_courses.ExpireTime, student_cost.DiscountLevel, student_cost.ActualCostAmount, 
+                student_cost.DiscountReason, discount_level.DiscountLevelName, student_cost.Operator
+FROM      users INNER JOIN
+                users_course_privilege ON users.UserName = users_course_privilege.UserName INNER JOIN
+                student_cost INNER JOIN
+                students ON student_cost.StudentID = students.ID INNER JOIN
+                courses ON student_cost.CourseID = courses.ID INNER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID INNER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID INNER JOIN
+                v_student_courses ON students.ID = v_student_courses.StudentID AND 
+                courses.ID = v_student_courses.CourseID INNER JOIN
+                discount_level ON student_cost.DiscountLevel = discount_level.DiscountLevel ON 
+                users_course_privilege.CourseId = courses.ID
+WHERE   (student_cost.CostDate &gt; @BeginDate) AND (student_cost.CostDate &lt; @EndDate) AND (users.UserName = @UserName)
 ORDER BY student_cost.CostDate DESC</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="UserName" ColumnName="UserName" DataSourceName="ChildrenPalace.dbo.users" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@UserName" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="UserName" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="CostDate" DataSourceName="ChildrenPalace.dbo.student_cost" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="CostDate" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="EndDate" ColumnName="CostDate" DataSourceName="ChildrenPalace.dbo.student_cost" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="CostDate" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="UserName" ColumnName="UserName" DataSourceName="ChildrenPalace.dbo.users" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@UserName" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="UserName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByUserNameCourseID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByUserNameCourseID" GeneratorSourceName="FillByUserNameCourseID" GetMethodModifier="Public" GetMethodName="GetDataByUserNameCourseID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByUserNameCourseID" UserSourceName="FillByUserNameCourseID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT 
+                course_types.CourseTypeName, course_subtypes.CourseSubtypeName, courses.CourseName, courses.ChargeAmount, 
+                charge_type.ChargeTypeName, students.Name, student_cost.CostDate, student_cost.CostAmount, students.Balance, 
+                v_student_courses.ExpireTime, student_cost.DiscountLevel, student_cost.ActualCostAmount, 
+                student_cost.DiscountReason, discount_level.DiscountLevelName, student_cost.Operator
+FROM      users INNER JOIN
+                users_course_privilege ON users.UserName = users_course_privilege.UserName INNER JOIN
+                student_cost INNER JOIN
+                students ON student_cost.StudentID = students.ID INNER JOIN
+                courses ON student_cost.CourseID = courses.ID INNER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID INNER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID INNER JOIN
+                v_student_courses ON students.ID = v_student_courses.StudentID AND 
+                courses.ID = v_student_courses.CourseID INNER JOIN
+                discount_level ON student_cost.DiscountLevel = discount_level.DiscountLevel ON 
+                users_course_privilege.CourseId = courses.ID
+WHERE   (courses.ID = @CourseID) AND (users.UserName = @userName)
+ORDER BY student_cost.CostDate DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="CourseID" ColumnName="ID" DataSourceName="ChildrenPalace.dbo.courses" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@CourseID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="userName" ColumnName="UserName" DataSourceName="ChildrenPalace.dbo.users" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@userName" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="UserName" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByUserNameCourseType" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByUserNameCourseType" GeneratorSourceName="FillByUserNameCourseType" GetMethodModifier="Public" GetMethodName="GetDataByUserNameCourseType" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByUserNameCourseType" UserSourceName="FillByUserNameCourseType">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT 
+                course_types.CourseTypeName, course_subtypes.CourseSubtypeName, courses.CourseName, courses.ChargeAmount, 
+                charge_type.ChargeTypeName, students.Name, student_cost.CostDate, student_cost.CostAmount, students.Balance, 
+                v_student_courses.ExpireTime, student_cost.DiscountLevel, student_cost.ActualCostAmount, 
+                student_cost.DiscountReason, discount_level.DiscountLevelName, student_cost.Operator
+FROM      users INNER JOIN
+                users_course_privilege ON users.UserName = users_course_privilege.UserName INNER JOIN
+                student_cost INNER JOIN
+                students ON student_cost.StudentID = students.ID INNER JOIN
+                courses ON student_cost.CourseID = courses.ID INNER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID INNER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID INNER JOIN
+                v_student_courses ON students.ID = v_student_courses.StudentID AND 
+                courses.ID = v_student_courses.CourseID INNER JOIN
+                discount_level ON student_cost.DiscountLevel = discount_level.DiscountLevel ON 
+                users_course_privilege.CourseId = courses.ID
+WHERE   (course_types.ID = @CourseTypeID) AND (users.UserName = @userName)
+ORDER BY student_cost.CostDate DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="CourseTypeID" ColumnName="ID" DataSourceName="ChildrenPalace.dbo.course_types" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@CourseTypeID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="userName" ColumnName="UserName" DataSourceName="ChildrenPalace.dbo.users" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@userName" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="UserName" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>

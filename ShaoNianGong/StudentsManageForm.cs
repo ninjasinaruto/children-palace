@@ -42,6 +42,7 @@ namespace ShaoNianGong
                 btnReportBack.Enabled = false;
                 btnVacate.Enabled = false;
                 btnSignUpCourses.Enabled = false;
+                btnChangeCourses.Enabled = false;
 
                 btnShowAll.Enabled = false;
                 btnShowLeft.Enabled = false;
@@ -107,11 +108,13 @@ namespace ShaoNianGong
             {
                 btnLeaveCourse.Enabled = true;
                 btnExtendSignUp.Enabled = true;
+                btnChangeCourses.Enabled = false;
             }
             else
             {
                 btnLeaveCourse.Enabled = false;
                 btnExtendSignUp.Enabled = false;
+                btnChangeCourses.Enabled = false;
             }
         }
 
@@ -730,6 +733,54 @@ namespace ShaoNianGong
             if (!int.TryParse(txtID.Text, out frmHistroryRecord.StudentID))
                 return;
             frmHistroryRecord.ShowDialog();
+        }
+
+        private void btnChangeCourses_Click(object sender, EventArgs e)
+        {
+            if (dgvStudents.SelectedRows.Count <= 0)
+                return;
+            DataGridViewRow row = dgvStudents.SelectedRows[0];
+
+            ChangeCourseForm frmChangeCourse = new ChangeCourseForm();
+            frmChangeCourse.CardNo = txtCardNo.Text;
+            frmChangeCourse.StudentName = txtName.Text;
+            frmChangeCourse.Balance = txtBalance.Text;
+            frmChangeCourse.row = row;
+            if (frmChangeCourse.ShowDialog() != DialogResult.OK)
+                return;
+            //GetDepositAmountForm frmGetDepositAmount = new GetDepositAmountForm();
+            //frmGetDepositAmount.StudentName = txtName.Text;
+            //frmGetDepositAmount.CardNo = txtCardNo.Text;
+            //frmGetDepositAmount.CardType = txtCardType.Text;
+            //if (frmGetDepositAmount.ShowDialog() != DialogResult.OK)
+            //    return;
+
+            //int depositAmount = frmGetDepositAmount.DepositAmount;
+            //int paidAmount = frmGetDepositAmount.PaidAmount;
+            //int tuitionAmount = frmGetDepositAmount.tuitionAmount;
+            //int materialsAmount = frmGetDepositAmount.materialsAmount;
+            //int otherAmount = frmGetDepositAmount.otherAmount;
+
+            //DataGridViewRow row = dgvStudents.SelectedRows[0];
+
+            //ConfirmDepositForm frmConfirmDeposit = new ConfirmDepositForm();
+            //frmConfirmDeposit.DepositAmount = depositAmount.ToString();
+            //frmConfirmDeposit.PaidAmount = paidAmount.ToString();
+            //frmConfirmDeposit.TuitionAmount = tuitionAmount.ToString();
+            //frmConfirmDeposit.MaterialsAmount = materialsAmount.ToString();
+            //frmConfirmDeposit.OtherAmount = otherAmount.ToString();
+            //frmConfirmDeposit.StudentName = txtName.Text;
+            //frmConfirmDeposit.StudentSex = row.Cells["SexColumn"].Value.ToString();
+            //frmConfirmDeposit.StudentBirthday = row.Cells["BirthdayColumn"].Value.ToString();
+            //frmConfirmDeposit.StudentAddress = row.Cells["AddressColumn"].Value.ToString();
+            //frmConfirmDeposit.StudentPhone = row.Cells["PhoneColumn"].Value.ToString();
+            //frmConfirmDeposit.StudentFartherName = row.Cells["FartherNameColumn"].Value.ToString();
+            //frmConfirmDeposit.StudentFartherPhone = row.Cells["FartherTelColumn"].Value.ToString();
+            //frmConfirmDeposit.StudentFartherWork = row.Cells["FartherWorkColumn"].Value.ToString();
+            //frmConfirmDeposit.StudentMotherName = row.Cells["MotherNameColumn"].Value.ToString();
+            //frmConfirmDeposit.StudentMotherPhone = row.Cells["MotherTelColumn"].Value.ToString();
+            //frmConfirmDeposit.StudentMotherWork = row.Cells["MotherWorkColumn"].Value.ToString();
+            //frmConfirmDeposit.Text = "确定为“" + txtName.Text + "”充值" + depositAmount + "元吗？";
         }
     }
 }

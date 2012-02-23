@@ -51,9 +51,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtTotalBuy = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblBuyCount = new System.Windows.Forms.Label();
+            this.txtShowRange = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialsDataSet1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -79,7 +85,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1183, 481);
+            this.dataGridView1.Size = new System.Drawing.Size(1183, 439);
             this.dataGridView1.TabIndex = 0;
             // 
             // Column1
@@ -242,11 +248,62 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "购买金额汇总：";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblBuyCount);
+            this.panel1.Controls.Add(this.txtShowRange);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 524);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1205, 48);
+            this.panel1.TabIndex = 29;
+            // 
+            // lblBuyCount
+            // 
+            this.lblBuyCount.AutoSize = true;
+            this.lblBuyCount.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblBuyCount.Location = new System.Drawing.Point(476, 11);
+            this.lblBuyCount.Name = "lblBuyCount";
+            this.lblBuyCount.Size = new System.Drawing.Size(25, 12);
+            this.lblBuyCount.TabIndex = 25;
+            this.lblBuyCount.Text = "0条";
+            // 
+            // txtShowRange
+            // 
+            this.txtShowRange.AutoSize = true;
+            this.txtShowRange.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtShowRange.Location = new System.Drawing.Point(111, 11);
+            this.txtShowRange.Name = "txtShowRange";
+            this.txtShowRange.Size = new System.Drawing.Size(31, 12);
+            this.txtShowRange.TabIndex = 25;
+            this.txtShowRange.Text = "所有";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(380, 11);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 12);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "购买记录总数：";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(11, 11);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(89, 12);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "当前显示范围：";
+            // 
             // MaterialBuyListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1205, 572);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dtBuyEndDate);
             this.Controls.Add(this.dtBuyBeginDate);
             this.Controls.Add(this.label4);
@@ -266,6 +323,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialsDataSet1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,5 +354,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtTotalBuy;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblBuyCount;
+        private System.Windows.Forms.Label txtShowRange;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label5;
     }
 }

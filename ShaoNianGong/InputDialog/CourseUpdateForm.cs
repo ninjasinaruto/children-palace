@@ -51,7 +51,11 @@ namespace ShaoNianGong
                     break;
                 }
             }
-
+            if (User.CurrentUser.UserType == 2 || User.CurrentUser.UserName == "郑文静")
+            {
+                cmbChargeMethod.Enabled = true;
+                txtChargeAmount.ReadOnly = false;
+            }
         }
 
         private void btnOK_Click(object sender, EventArgs e)
