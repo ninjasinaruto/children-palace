@@ -136,6 +136,7 @@
             // cmbChargeMethod
             // 
             this.cmbChargeMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbChargeMethod.Enabled = false;
             this.cmbChargeMethod.FormattingEnabled = true;
             this.cmbChargeMethod.Items.AddRange(new object[] {
             "按季度收费",
@@ -150,6 +151,7 @@
             // 
             this.txtChargeAmount.Location = new System.Drawing.Point(328, 105);
             this.txtChargeAmount.Name = "txtChargeAmount";
+            this.txtChargeAmount.ReadOnly = true;
             this.txtChargeAmount.Size = new System.Drawing.Size(94, 21);
             this.txtChargeAmount.TabIndex = 0;
             this.txtChargeAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;

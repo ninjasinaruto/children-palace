@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.depositDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DepositDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,9 +56,15 @@
             this.dtDepositBeginDate = new System.Windows.Forms.DateTimePicker();
             this.dtDepositEndDate = new System.Windows.Forms.DateTimePicker();
             this.depositListTableAdapter = new Common.DepositListDataSetTableAdapters.DepositListTableAdapter();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblDepositCount = new System.Windows.Forms.Label();
+            this.txtShowRange = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.depositListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.depositListDataSet)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -86,15 +92,15 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1183, 481);
+            this.dataGridView1.Size = new System.Drawing.Size(1183, 437);
             this.dataGridView1.TabIndex = 0;
             // 
             // depositDateDataGridViewTextBoxColumn
             // 
             this.depositDateDataGridViewTextBoxColumn.DataPropertyName = "DepositDate";
-            dataGridViewCellStyle40.Format = "D";
-            dataGridViewCellStyle40.NullValue = null;
-            this.depositDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle4.Format = "D";
+            dataGridViewCellStyle4.NullValue = null;
+            this.depositDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.depositDateDataGridViewTextBoxColumn.HeaderText = "充值日期";
             this.depositDateDataGridViewTextBoxColumn.Name = "depositDateDataGridViewTextBoxColumn";
             this.depositDateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -102,8 +108,8 @@
             // DepositDate
             // 
             this.DepositDate.DataPropertyName = "DepositDate";
-            dataGridViewCellStyle41.Format = "t";
-            this.DepositDate.DefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle5.Format = "t";
+            this.DepositDate.DefaultCellStyle = dataGridViewCellStyle5;
             this.DepositDate.HeaderText = "充值时间";
             this.DepositDate.Name = "DepositDate";
             this.DepositDate.ReadOnly = true;
@@ -132,9 +138,9 @@
             // ExpireTimeColumn
             // 
             this.ExpireTimeColumn.DataPropertyName = "ExpireTime";
-            dataGridViewCellStyle42.Format = "D";
-            dataGridViewCellStyle42.NullValue = null;
-            this.ExpireTimeColumn.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle6.Format = "D";
+            dataGridViewCellStyle6.NullValue = null;
+            this.ExpireTimeColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.ExpireTimeColumn.HeaderText = "缴费到期时间";
             this.ExpireTimeColumn.Name = "ExpireTimeColumn";
             this.ExpireTimeColumn.ReadOnly = true;
@@ -271,11 +277,62 @@
             // 
             this.depositListTableAdapter.ClearBeforeFill = true;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblDepositCount);
+            this.panel1.Controls.Add(this.txtShowRange);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 524);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1205, 48);
+            this.panel1.TabIndex = 28;
+            // 
+            // lblDepositCount
+            // 
+            this.lblDepositCount.AutoSize = true;
+            this.lblDepositCount.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblDepositCount.Location = new System.Drawing.Point(476, 11);
+            this.lblDepositCount.Name = "lblDepositCount";
+            this.lblDepositCount.Size = new System.Drawing.Size(25, 12);
+            this.lblDepositCount.TabIndex = 25;
+            this.lblDepositCount.Text = "0条";
+            // 
+            // txtShowRange
+            // 
+            this.txtShowRange.AutoSize = true;
+            this.txtShowRange.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtShowRange.Location = new System.Drawing.Point(111, 11);
+            this.txtShowRange.Name = "txtShowRange";
+            this.txtShowRange.Size = new System.Drawing.Size(31, 12);
+            this.txtShowRange.TabIndex = 25;
+            this.txtShowRange.Text = "所有";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(380, 11);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 12);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "充值记录总数：";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(11, 11);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(89, 12);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "当前显示范围：";
+            // 
             // DepositListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1205, 572);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dtDepositEndDate);
             this.Controls.Add(this.dtDepositBeginDate);
             this.Controls.Add(this.label4);
@@ -295,6 +352,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.depositListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.depositListDataSet)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,5 +385,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CourseName;
         private System.Windows.Forms.DataGridViewTextBoxColumn TeacherName;
         private System.Windows.Forms.DataGridViewTextBoxColumn OperatorColumn;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblDepositCount;
+        private System.Windows.Forms.Label txtShowRange;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label5;
     }
 }

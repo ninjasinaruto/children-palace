@@ -42,18 +42,6 @@ namespace ShaoNianGong
 
             // 初始化chargeMethod
             cmbChargeMethod.SelectedIndex = 0;
-
-            if (User.CurrentUser.UserType <= 1) {
-                btnAddCourseType.Enabled = false;
-                btnUpdateCourseType.Enabled = false;
-                btnDelCourseType.Enabled = false;
-                btnAddCourseSubtype.Enabled = false;
-                btnUpdateCourseSubtype.Enabled = false;
-                btnDelCourseSubtype.Enabled = false;
-                btnAddCourse.Enabled = false;
-                btnUpdateCourse.Enabled = false;
-                btnDelCourse.Enabled = false;
-            }
         }
 
         /// <summary>

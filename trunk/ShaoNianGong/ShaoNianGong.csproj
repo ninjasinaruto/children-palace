@@ -77,6 +77,12 @@
     <Compile Include="ConfirmationDialog\ConfirmVacateForm.Designer.cs">
       <DependentUpon>ConfirmVacateForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="InputDialog\ChangeCourseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog\ChangeCourseForm.Designer.cs">
+      <DependentUpon>ChangeCourseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InputDialog\CourseExtendForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,6 +259,10 @@
     <Compile Include="InvoicePrintingForm.Designer.cs">
       <DependentUpon>InvoicePrintingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LeaveCourseDataSet.cs">
+      <DependentUpon>LeaveCourseDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="LeaveCourseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -403,6 +413,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConfirmationDialog\ConfirmVacateForm.resx">
       <DependentUpon>ConfirmVacateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog\ChangeCourseForm.resx">
+      <DependentUpon>ChangeCourseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InputDialog\CourseExtendForm.resx">
       <DependentUpon>CourseExtendForm.cs</DependentUpon>

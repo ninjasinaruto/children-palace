@@ -2705,10 +2705,10 @@ FROM materials INNER JOIN
 FROM      materials INNER JOIN
                 materials_cost ON materials.MaterialID = materials_cost.MaterialID INNER JOIN
                 students ON materials_cost.StudentID = students.ID
-WHERE   (materials_cost.BuyTime > @BeginDate)
+WHERE   (CONVERT(varchar(7), materials_cost.BuyTime, 111) = @BeginDate)
 ORDER BY materials_cost.BuyTime DESC";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "BuyTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = @"SELECT   students.Name, materials_cost.MaterialPrice, materials_cost.BuyCount, materials.MaterialName, 
@@ -2762,13 +2762,13 @@ WHERE (materials_cost.StudentID = @StudentID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByBeginDate(MaterialsDataSet.StudentMaterialsDataTable dataTable, global::System.Nullable<global::System.DateTime> BeginDate) {
+        public virtual int FillByBeginDate(MaterialsDataSet.StudentMaterialsDataTable dataTable, string BeginDate) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((BeginDate.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(BeginDate.Value));
+            if ((BeginDate == null)) {
+                throw new global::System.ArgumentNullException("BeginDate");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(BeginDate));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2781,13 +2781,13 @@ WHERE (materials_cost.StudentID = @StudentID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual MaterialsDataSet.StudentMaterialsDataTable GetDataByBeginDate(global::System.Nullable<global::System.DateTime> BeginDate) {
+        public virtual MaterialsDataSet.StudentMaterialsDataTable GetDataByBeginDate(string BeginDate) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((BeginDate.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(BeginDate.Value));
+            if ((BeginDate == null)) {
+                throw new global::System.ArgumentNullException("BeginDate");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(BeginDate));
             }
             MaterialsDataSet.StudentMaterialsDataTable dataTable = new MaterialsDataSet.StudentMaterialsDataTable();
             this.Adapter.Fill(dataTable);

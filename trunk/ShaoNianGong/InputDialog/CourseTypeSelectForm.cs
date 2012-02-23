@@ -13,6 +13,8 @@ namespace ShaoNianGong
     {
         public int CourseTypeId;
         public string CourseTypeName;
+        public string userName;
+        public bool isPrivate = false;
 
         public CourseTypeSelectForm()
         {
@@ -33,7 +35,14 @@ namespace ShaoNianGong
 
         private void CourseTypeSelectForm_Load(object sender, EventArgs e)
         {
-            courseTypesTableAdapter.Fill(staticDataSet.CourseTypes);
+            if (!isPrivate)
+            {
+                courseTypesTableAdapter.Fill(staticDataSet.CourseTypes);
+            }
+            else
+            {
+                courseTypesTableAdapter.FillByUserName(staticDataSet.CourseTypes, userName);
+            }
             lstCourseType.SelectedIndex = 0;
         }
     }

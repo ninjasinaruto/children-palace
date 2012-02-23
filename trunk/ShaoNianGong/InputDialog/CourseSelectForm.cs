@@ -15,6 +15,8 @@ namespace ShaoNianGong
         public string CourseTypeName;
         public string CourseSubtypeName;
         public string CourseName;
+        public string userName;
+        public bool isPrivate = false;
 
         public CourseSelectForm()
         {
@@ -24,7 +26,14 @@ namespace ShaoNianGong
         private void CourseSelectForm_Load(object sender, EventArgs e)
         {
             // 1> 填充CourseTypes表格及对应的ComboBox
-            this.courseTypesTableAdapter.Fill(this.staticDataSet.CourseTypes);
+            if (!isPrivate)
+            {
+                this.courseTypesTableAdapter.Fill(this.staticDataSet.CourseTypes);
+            }
+            else
+            {
+                this.courseTypesTableAdapter.FillByUserName(this.staticDataSet.CourseTypes, userName);
+            }
             lstCourseType.DataSource = courseTypesBindingSource;
             lstCourseType.DisplayMember = "CourseTypeName";
             lstCourseType.ValueMember = "CourseTypeID";
@@ -35,7 +44,14 @@ namespace ShaoNianGong
             if (courseTypesBindingSource.Position < 0)
                 return;
             int courseTypeID = this.staticDataSet.CourseTypes.Rows[courseTypesBindingSource.Position].Field<int>("CourseTypeID");
-            this.courseSubtypesTableAdapter.Fill(coursesDataSet.CourseSubtypes, courseTypeID);
+            if (!isPrivate)
+            {
+                this.courseSubtypesTableAdapter.Fill(coursesDataSet.CourseSubtypes, courseTypeID);
+            }
+            else
+            {
+                this.courseSubtypesTableAdapter.FillByUserName(coursesDataSet.CourseSubtypes, courseTypeID, userName);
+            }
         }
 
         private void courseSubTypesBindingSource_PositionChanged(object sender, EventArgs e)
@@ -47,7 +63,14 @@ namespace ShaoNianGong
             }
 
             int courseSubTypeID = this.coursesDataSet.CourseSubtypes.Rows[this.courseSubTypesBindingSource.Position].Field<int>("ID");
-            coursesTableAdapter.Fill(coursesDataSet.Courses, courseSubTypeID);
+            if (!isPrivate)
+            {
+                coursesTableAdapter.Fill(coursesDataSet.Courses, courseSubTypeID);
+            }
+            else
+            {
+                coursesTableAdapter.FillByUserName(coursesDataSet.Courses, courseSubTypeID, userName);  
+            }
         }
 
         private void btnOK_Click(object sender, EventArgs e)

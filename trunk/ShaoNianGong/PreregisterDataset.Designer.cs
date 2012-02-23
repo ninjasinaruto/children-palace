@@ -4007,17 +4007,15 @@ SELECT ID, Name, Sex, Telephone, Address, Birthday, FartherName, FartherWork, Fa
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT students.Name, students.Sex, students.Telephone, students.Address, 
-      students.Birthday, students.FartherName, students.FartherWork, students.FartherTel, 
-      students.MotherName, students.MotherWork, students.MotherTel, students.ID, 
-      students.Balance, students.CardNo, students.PreregisterCourseSubtype, 
-      students.ExpireTime, card_type.CardTypeName, 
-      course_subtypes.CourseSubtypeName, students.Recommender
-FROM students INNER JOIN
-      card_type ON students.CardType = card_type.CardTypeID INNER JOIN
-      course_subtypes ON 
-      students.PreregisterCourseSubtype = course_subtypes.ID
-WHERE (students.Status = 0)";
+            this._commandCollection[0].CommandText = @"SELECT   students.Name, students.Sex, students.Telephone, students.Address, students.Birthday, students.FartherName, 
+                students.FartherWork, students.FartherTel, students.MotherName, students.MotherWork, students.MotherTel, 
+                students.ID, students.Balance, students.CardNo, students.PreregisterCourseSubtype, students.ExpireTime, 
+                card_type.CardTypeName, course_subtypes.CourseSubtypeName, students.Recommender
+FROM      students INNER JOIN
+                card_type ON students.CardType = card_type.CardTypeID INNER JOIN
+                course_subtypes ON students.PreregisterCourseSubtype = course_subtypes.ID
+WHERE   (students.Status = 0)
+ORDER BY students.ID DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;

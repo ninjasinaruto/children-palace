@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -122,6 +122,7 @@
             this.btnDeposit = new System.Windows.Forms.Button();
             this.btnExtendSignUp = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnChangeCourses = new System.Windows.Forms.Button();
             this.btnHistoryRecord = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnReportBack = new System.Windows.Forms.Button();
@@ -294,7 +295,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(960, 52);
+            this.groupBox1.Size = new System.Drawing.Size(1008, 52);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "基本资料";
@@ -407,7 +408,7 @@
             this.dgvStudents.RowHeadersVisible = false;
             this.dgvStudents.RowTemplate.Height = 23;
             this.dgvStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStudents.Size = new System.Drawing.Size(1173, 295);
+            this.dgvStudents.Size = new System.Drawing.Size(1239, 295);
             this.dgvStudents.TabIndex = 18;
             // 
             // CardTypeNameColumn
@@ -462,9 +463,9 @@
             // ExpireTime
             // 
             this.ExpireTime.DataPropertyName = "ExpireTime";
-            dataGridViewCellStyle31.Format = "D";
-            dataGridViewCellStyle31.NullValue = null;
-            this.ExpireTime.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle1.Format = "D";
+            dataGridViewCellStyle1.NullValue = null;
+            this.ExpireTime.DefaultCellStyle = dataGridViewCellStyle1;
             this.ExpireTime.HeaderText = "缴费到期时间";
             this.ExpireTime.Name = "ExpireTime";
             this.ExpireTime.ReadOnly = true;
@@ -479,9 +480,9 @@
             // BirthdayColumn
             // 
             this.BirthdayColumn.DataPropertyName = "Birthday";
-            dataGridViewCellStyle32.Format = "D";
-            dataGridViewCellStyle32.NullValue = null;
-            this.BirthdayColumn.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle2.Format = "D";
+            dataGridViewCellStyle2.NullValue = null;
+            this.BirthdayColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.BirthdayColumn.HeaderText = "生日";
             this.BirthdayColumn.Name = "BirthdayColumn";
             this.BirthdayColumn.ReadOnly = true;
@@ -591,9 +592,9 @@
             // ExpireTimeColumn
             // 
             this.ExpireTimeColumn.DataPropertyName = "ExpireTime";
-            dataGridViewCellStyle33.Format = "D";
-            dataGridViewCellStyle33.NullValue = null;
-            this.ExpireTimeColumn.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle3.Format = "D";
+            dataGridViewCellStyle3.NullValue = null;
+            this.ExpireTimeColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.ExpireTimeColumn.HeaderText = "到期时间";
             this.ExpireTimeColumn.Name = "ExpireTimeColumn";
             this.ExpireTimeColumn.ReadOnly = true;
@@ -712,7 +713,7 @@
             this.groupBox6.Controls.Add(this.dataGridView1);
             this.groupBox6.Location = new System.Drawing.Point(776, 84);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(414, 140);
+            this.groupBox6.Size = new System.Drawing.Size(475, 140);
             this.groupBox6.TabIndex = 21;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "上课时间";
@@ -736,7 +737,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(404, 114);
+            this.dataGridView1.Size = new System.Drawing.Size(463, 114);
             this.dataGridView1.TabIndex = 0;
             // 
             // dayOfWeekNameDataGridViewTextBoxColumn
@@ -756,9 +757,9 @@
             // beginTimeDataGridViewTextBoxColumn
             // 
             this.beginTimeDataGridViewTextBoxColumn.DataPropertyName = "BeginTime";
-            dataGridViewCellStyle34.Format = "t";
-            dataGridViewCellStyle34.NullValue = null;
-            this.beginTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle4.Format = "t";
+            dataGridViewCellStyle4.NullValue = null;
+            this.beginTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.beginTimeDataGridViewTextBoxColumn.HeaderText = "上课时间";
             this.beginTimeDataGridViewTextBoxColumn.Name = "beginTimeDataGridViewTextBoxColumn";
             this.beginTimeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -766,8 +767,8 @@
             // endTimeDataGridViewTextBoxColumn
             // 
             this.endTimeDataGridViewTextBoxColumn.DataPropertyName = "EndTime";
-            dataGridViewCellStyle35.Format = "t";
-            this.endTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle5.Format = "t";
+            this.endTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.endTimeDataGridViewTextBoxColumn.HeaderText = "下课时间";
             this.endTimeDataGridViewTextBoxColumn.Name = "endTimeDataGridViewTextBoxColumn";
             this.endTimeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -825,9 +826,9 @@
             this.lblStudentsCount.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblStudentsCount.Location = new System.Drawing.Point(451, 11);
             this.lblStudentsCount.Name = "lblStudentsCount";
-            this.lblStudentsCount.Size = new System.Drawing.Size(32, 12);
+            this.lblStudentsCount.Size = new System.Drawing.Size(25, 12);
             this.lblStudentsCount.TabIndex = 25;
-            this.lblStudentsCount.Text = "30人";
+            this.lblStudentsCount.Text = "0人";
             // 
             // panel1
             // 
@@ -836,9 +837,9 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 620);
+            this.panel1.Location = new System.Drawing.Point(0, 605);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1220, 33);
+            this.panel1.Size = new System.Drawing.Size(1263, 48);
             this.panel1.TabIndex = 27;
             // 
             // btnBuyMaterial
@@ -868,7 +869,7 @@
             // btnVacate
             // 
             this.btnVacate.Enabled = false;
-            this.btnVacate.Location = new System.Drawing.Point(432, 20);
+            this.btnVacate.Location = new System.Drawing.Point(503, 20);
             this.btnVacate.Name = "btnVacate";
             this.btnVacate.Size = new System.Drawing.Size(65, 31);
             this.btnVacate.TabIndex = 17;
@@ -878,7 +879,7 @@
             // 
             // btnSignUpCourses
             // 
-            this.btnSignUpCourses.Location = new System.Drawing.Point(290, 20);
+            this.btnSignUpCourses.Location = new System.Drawing.Point(219, 20);
             this.btnSignUpCourses.Name = "btnSignUpCourses";
             this.btnSignUpCourses.Size = new System.Drawing.Size(65, 31);
             this.btnSignUpCourses.TabIndex = 17;
@@ -888,7 +889,7 @@
             // 
             // btnLeaveCourse
             // 
-            this.btnLeaveCourse.Location = new System.Drawing.Point(361, 20);
+            this.btnLeaveCourse.Location = new System.Drawing.Point(432, 20);
             this.btnLeaveCourse.Name = "btnLeaveCourse";
             this.btnLeaveCourse.Size = new System.Drawing.Size(65, 31);
             this.btnLeaveCourse.TabIndex = 17;
@@ -908,7 +909,7 @@
             // 
             // btnExtendSignUp
             // 
-            this.btnExtendSignUp.Location = new System.Drawing.Point(219, 20);
+            this.btnExtendSignUp.Location = new System.Drawing.Point(290, 20);
             this.btnExtendSignUp.Name = "btnExtendSignUp";
             this.btnExtendSignUp.Size = new System.Drawing.Size(65, 31);
             this.btnExtendSignUp.TabIndex = 17;
@@ -918,6 +919,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.btnChangeCourses);
             this.groupBox5.Controls.Add(this.btnHistoryRecord);
             this.groupBox5.Controls.Add(this.btnExtendSignUp);
             this.groupBox5.Controls.Add(this.btnDeposit);
@@ -929,14 +931,25 @@
             this.groupBox5.Controls.Add(this.btnVacate);
             this.groupBox5.Location = new System.Drawing.Point(535, 230);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(651, 68);
+            this.groupBox5.Size = new System.Drawing.Size(717, 68);
             this.groupBox5.TabIndex = 23;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "操作";
             // 
+            // btnChangeCourses
+            // 
+            this.btnChangeCourses.Enabled = false;
+            this.btnChangeCourses.Location = new System.Drawing.Point(361, 20);
+            this.btnChangeCourses.Name = "btnChangeCourses";
+            this.btnChangeCourses.Size = new System.Drawing.Size(65, 31);
+            this.btnChangeCourses.TabIndex = 19;
+            this.btnChangeCourses.Text = "转班";
+            this.btnChangeCourses.UseVisualStyleBackColor = true;
+            this.btnChangeCourses.Click += new System.EventHandler(this.btnChangeCourses_Click);
+            // 
             // btnHistoryRecord
             // 
-            this.btnHistoryRecord.Location = new System.Drawing.Point(574, 20);
+            this.btnHistoryRecord.Location = new System.Drawing.Point(645, 20);
             this.btnHistoryRecord.Name = "btnHistoryRecord";
             this.btnHistoryRecord.Size = new System.Drawing.Size(65, 31);
             this.btnHistoryRecord.TabIndex = 18;
@@ -957,7 +970,7 @@
             // btnReportBack
             // 
             this.btnReportBack.Enabled = false;
-            this.btnReportBack.Location = new System.Drawing.Point(503, 20);
+            this.btnReportBack.Location = new System.Drawing.Point(574, 20);
             this.btnReportBack.Name = "btnReportBack";
             this.btnReportBack.Size = new System.Drawing.Size(65, 31);
             this.btnReportBack.TabIndex = 17;
@@ -967,7 +980,7 @@
             // 
             // btnCardConnect
             // 
-            this.btnCardConnect.Location = new System.Drawing.Point(982, 22);
+            this.btnCardConnect.Location = new System.Drawing.Point(1038, 22);
             this.btnCardConnect.Name = "btnCardConnect";
             this.btnCardConnect.Size = new System.Drawing.Size(89, 38);
             this.btnCardConnect.TabIndex = 17;
@@ -1025,7 +1038,7 @@
             // 
             // btnCardDisconnect
             // 
-            this.btnCardDisconnect.Location = new System.Drawing.Point(1077, 22);
+            this.btnCardDisconnect.Location = new System.Drawing.Point(1156, 23);
             this.btnCardDisconnect.Name = "btnCardDisconnect";
             this.btnCardDisconnect.Size = new System.Drawing.Size(89, 38);
             this.btnCardDisconnect.TabIndex = 17;
@@ -1037,7 +1050,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1220, 653);
+            this.ClientSize = new System.Drawing.Size(1263, 653);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCardDisconnect);
             this.Controls.Add(this.btnCardConnect);
@@ -1189,6 +1202,7 @@
         private System.Windows.Forms.Button btnCardDisconnect;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnHistoryRecord;
+        private System.Windows.Forms.Button btnChangeCourses;
 
     }
 }

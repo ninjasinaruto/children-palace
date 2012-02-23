@@ -24,23 +24,24 @@ namespace ShaoNianGong
             if (UserType == 0)
             {
                 // 仅显示本月已授权
-                DateTime beginDate = DateTime.Now;
-                beginDate = new DateTime(beginDate.Year, beginDate.Month, 1, 0, 0, 0);
-                this.costListTableAdapter.FillByUserNameBeginDate(this.costListDataSet.CostList, this.UserName, beginDate);
+                //DateTime beginDate = DateTime.Now;
+                //beginDate = new DateTime(beginDate.Year, beginDate.Month, 1, 0, 0, 0);
+                this.costListTableAdapter.FillByUserNameBeginDate(this.costListDataSet.CostList, DateTime.Now.ToString("yyyy/MM"), this.UserName);
             }
             else
             {
                 // 显示本月
-                DateTime beginDate = DateTime.Now;
-                beginDate = new DateTime(beginDate.Year, beginDate.Month, 1, 0, 0, 0);
-                this.costListTableAdapter.FillByBeginDate(this.costListDataSet.CostList, beginDate);
+                //DateTime beginDate = DateTime.Now;
+                //beginDate = new DateTime(beginDate.Year, beginDate.Month, 1, 0, 0, 0);
+                this.costListTableAdapter.FillByBeginDate(this.costListDataSet.CostList, DateTime.Now.ToString("yyyy/MM"));
             }
+            txtShowRange.Text = "本月";
         }
 
         private void CostListForm_Resize(object sender, EventArgs e)
         {
-            dgvCost.Height = this.Size.Height - 150;
             dgvCost.Width = this.Size.Width - 20;
+            dgvCost.Height = this.Size.Height - 192;
         }
 
         private void costListBindingSource_ListChanged(object sender, ListChangedEventArgs e)
@@ -54,6 +55,7 @@ namespace ShaoNianGong
             }
             txtTotalCost.Text = totalCost.ToString();
             txtTotalPaid.Text = totalPaid.ToString();
+            lblCostCount.Text = costListDataSet.CostList.Rows.Count + "条";
         }
 
         private void btnShowThisMonthDeposit_Click(object sender, EventArgs e)
@@ -61,17 +63,18 @@ namespace ShaoNianGong
             if (UserType == 0)
             {
                 // 仅显示本月已授权
-                DateTime beginDate = DateTime.Now;
-                beginDate = new DateTime(beginDate.Year, beginDate.Month, 1, 0, 0, 0);
-                this.costListTableAdapter.FillByUserNameBeginDate(this.costListDataSet.CostList, this.UserName, beginDate);
+                //DateTime beginDate = DateTime.Now;
+                //beginDate = new DateTime(beginDate.Year, beginDate.Month, 1, 0, 0, 0);
+                this.costListTableAdapter.FillByUserNameBeginDate(this.costListDataSet.CostList, DateTime.Now.ToString("yyyy/MM"), this.UserName);
             }
             else
             {
                 // 显示本月
-                DateTime beginDate = DateTime.Now;
-                beginDate = new DateTime(beginDate.Year, beginDate.Month, 1, 0, 0, 0);
-                this.costListTableAdapter.FillByBeginDate(this.costListDataSet.CostList, beginDate);
+                //DateTime beginDate = DateTime.Now;
+                //beginDate = new DateTime(beginDate.Year, beginDate.Month, 1, 0, 0, 0);
+                this.costListTableAdapter.FillByBeginDate(this.costListDataSet.CostList, DateTime.Now.ToString("yyyy/MM"));
             }
+            txtShowRange.Text = "本月";
         }
 
         private void btnShowAllDeposit_Click(object sender, EventArgs e)
@@ -86,28 +89,75 @@ namespace ShaoNianGong
                 // 显示所有
                 this.costListTableAdapter.Fill(this.costListDataSet.CostList);
             }
+            txtShowRange.Text = "所有";
         }
 
         private void btnShowFilterDeposit_Click(object sender, EventArgs e)
         {
+           
+            DateTime beginDate = dtDepositBeginDate.Value;
+            beginDate = new DateTime(beginDate.Year, beginDate.Month, beginDate.Day, 0, 0, 0);
+            DateTime endDate = dtDepositEndDate.Value;
+            endDate = new DateTime(endDate.Year, endDate.Month, endDate.Day, 0, 0, 0);
             if (UserType == 0)
             {
                 // 仅显示过滤已授权
-                DateTime beginDate = dtDepositBeginDate.Value;
-                beginDate = new DateTime(beginDate.Year, beginDate.Month, beginDate.Day, 0, 0, 0);
-                DateTime endDate = dtDepositEndDate.Value;
-                endDate = new DateTime(endDate.Year, endDate.Month, endDate.Day, 0, 0, 0);
-                this.costListTableAdapter.FillByUserNameBeginEndDate(this.costListDataSet.CostList, this.UserName, beginDate, endDate);
+                this.costListTableAdapter.FillByUserNameBeginEndDate(this.costListDataSet.CostList,beginDate,endDate,this.UserName);
             }
             else
             {
                 // 显示过滤
-                DateTime beginDate = dtDepositBeginDate.Value;
-                beginDate = new DateTime(beginDate.Year, beginDate.Month, beginDate.Day, 0, 0, 0);
-                DateTime endDate = dtDepositEndDate.Value;
-                endDate = new DateTime(endDate.Year, endDate.Month, endDate.Day, 0, 0, 0);
                 this.costListTableAdapter.FillByBeginEndDate(this.costListDataSet.CostList, beginDate, endDate);
             }
+            txtShowRange.Text = beginDate.ToShortDateString() + " - " + endDate.ToShortDateString();
+        }
+
+        private void btnSearchByCourse_Click(object sender, EventArgs e)
+        {
+            CourseSelectForm frmCourseSelect = new CourseSelectForm();
+            if (UserType == 0)
+            {
+                frmCourseSelect.isPrivate = true;
+                frmCourseSelect.userName = this.UserName;
+                if (frmCourseSelect.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+                this.costListTableAdapter.FillByUserNameCourseID(this.costListDataSet.CostList, frmCourseSelect.CourseID, this.UserName);
+            }
+            else
+            {
+                if (frmCourseSelect.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+                this.costListTableAdapter.FillByCourseID(this.costListDataSet.CostList, frmCourseSelect.CourseID);
+            }
+            txtShowRange.Text = frmCourseSelect.CourseTypeName + " - " + frmCourseSelect.CourseSubtypeName + " - " + frmCourseSelect.CourseName;
+        }
+
+        private void btnSearchByCourseType_Click(object sender, EventArgs e)
+        {
+            CourseTypeSelectForm frmCourseTypeSelect = new CourseTypeSelectForm();
+            if (UserType == 0)
+            {
+                frmCourseTypeSelect.isPrivate = true;
+                frmCourseTypeSelect.userName = this.UserName;
+                if (frmCourseTypeSelect.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+                this.costListTableAdapter.FillByUserNameCourseType(this.costListDataSet.CostList, frmCourseTypeSelect.CourseTypeId, this.UserName);
+            }
+            else
+            {
+                if (frmCourseTypeSelect.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+                this.costListTableAdapter.FillByCourseType(this.costListDataSet.CostList, frmCourseTypeSelect.CourseTypeId);
+            }
+            txtShowRange.Text = frmCourseTypeSelect.CourseTypeName;
         }
     }
 }
