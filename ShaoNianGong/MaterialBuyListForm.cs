@@ -22,7 +22,7 @@ namespace ShaoNianGong
             //beginDate = new DateTime(beginDate.Year, beginDate.Month, 1, 0, 0, 0);
             // TODO: 这行代码将数据加载到表“materialsDataSet1.StudentMaterials”中。您可以根据需要移动或删除它。
             //this.studentMaterialsTableAdapter.Fill(this.materialsDataSet1.StudentMaterials);
-            this.studentMaterialsTableAdapter.FillByBeginDate(this.materialsDataSet1.StudentMaterials, DateTime.Now.ToString("yyyy/MM"));
+            this.studentMaterialsTableAdapter.FillByBeginDate(this.materialsDataSet1.StudentMaterials);
             txtShowRange.Text = "本月";
         }
 
@@ -30,7 +30,7 @@ namespace ShaoNianGong
         {
             //DateTime beginDate = DateTime.Now;
             //beginDate = new DateTime(beginDate.Year, beginDate.Month, 1, 0, 0, 0);
-            this.studentMaterialsTableAdapter.FillByBeginDate(this.materialsDataSet1.StudentMaterials, DateTime.Now.ToString("yyyy/MM"));
+            this.studentMaterialsTableAdapter.FillByBeginDate(this.materialsDataSet1.StudentMaterials);
             txtShowRange.Text = "本月";
         }
 

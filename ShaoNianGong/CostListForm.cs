@@ -26,14 +26,14 @@ namespace ShaoNianGong
                 // 仅显示本月已授权
                 //DateTime beginDate = DateTime.Now;
                 //beginDate = new DateTime(beginDate.Year, beginDate.Month, 1, 0, 0, 0);
-                this.costListTableAdapter.FillByUserNameBeginDate(this.costListDataSet.CostList, DateTime.Now.ToString("yyyy/MM"), this.UserName);
+                this.costListTableAdapter.FillByUserNameBeginDate(this.costListDataSet.CostList, this.UserName);
             }
             else
             {
                 // 显示本月
                 //DateTime beginDate = DateTime.Now;
                 //beginDate = new DateTime(beginDate.Year, beginDate.Month, 1, 0, 0, 0);
-                this.costListTableAdapter.FillByBeginDate(this.costListDataSet.CostList, DateTime.Now.ToString("yyyy/MM"));
+                this.costListTableAdapter.FillByBeginDate(this.costListDataSet.CostList);
             }
             txtShowRange.Text = "本月";
         }
@@ -65,14 +65,14 @@ namespace ShaoNianGong
                 // 仅显示本月已授权
                 //DateTime beginDate = DateTime.Now;
                 //beginDate = new DateTime(beginDate.Year, beginDate.Month, 1, 0, 0, 0);
-                this.costListTableAdapter.FillByUserNameBeginDate(this.costListDataSet.CostList, DateTime.Now.ToString("yyyy/MM"), this.UserName);
+                this.costListTableAdapter.FillByUserNameBeginDate(this.costListDataSet.CostList, this.UserName);
             }
             else
             {
                 // 显示本月
                 //DateTime beginDate = DateTime.Now;
                 //beginDate = new DateTime(beginDate.Year, beginDate.Month, 1, 0, 0, 0);
-                this.costListTableAdapter.FillByBeginDate(this.costListDataSet.CostList, DateTime.Now.ToString("yyyy/MM"));
+                this.costListTableAdapter.FillByBeginDate(this.costListDataSet.CostList);
             }
             txtShowRange.Text = "本月";
         }
