@@ -1188,10 +1188,9 @@ FROM      student_cost INNER JOIN
                 v_student_courses ON students.ID = v_student_courses.StudentID AND 
                 courses.ID = v_student_courses.CourseID INNER JOIN
                 discount_level ON student_cost.DiscountLevel = discount_level.DiscountLevel
-WHERE   (CONVERT(varchar(7), student_cost.CostDate, 111) = @BeginDate)
+WHERE   (CONVERT(varchar(7), student_cost.CostDate, 111) = CONVERT(varchar(7), GETDATE(), 111))
 ORDER BY student_cost.CostDate DESC";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = @"SELECT DISTINCT 
@@ -1316,10 +1315,9 @@ ORDER BY student_cost.CostDate DESC";
                 "ses.CourseID INNER JOIN\r\n                discount_level ON student_cost.Discount" +
                 "Level = discount_level.DiscountLevel ON \r\n                users_course_privilege" +
                 ".CourseId = courses.ID\r\nWHERE   (CONVERT(varchar(7), student_cost.CostDate, 111)" +
-                " = @BeginDate) AND (users.UserName = @UserName)\r\nORDER BY student_cost.CostDate " +
-                "DESC";
+                " = CONVERT(varchar(7), getdate(), 111)) AND (users.UserName = @UserName)\r\nORDER " +
+                "BY student_cost.CostDate DESC";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[8].Connection = this.Connection;
@@ -1425,14 +1423,8 @@ ORDER BY student_cost.CostDate DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByBeginDate(CostListDataSet.CostListDataTable dataTable, string BeginDate) {
+        public virtual int FillByBeginDate(CostListDataSet.CostListDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((BeginDate == null)) {
-                throw new global::System.ArgumentNullException("BeginDate");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(BeginDate));
-            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -1444,14 +1436,8 @@ ORDER BY student_cost.CostDate DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual CostListDataSet.CostListDataTable GetDataByBeginDate(string BeginDate) {
+        public virtual CostListDataSet.CostListDataTable GetDataByBeginDate() {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((BeginDate == null)) {
-                throw new global::System.ArgumentNullException("BeginDate");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(BeginDate));
-            }
             CostListDataSet.CostListDataTable dataTable = new CostListDataSet.CostListDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -1603,19 +1589,13 @@ ORDER BY student_cost.CostDate DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByUserNameBeginDate(CostListDataSet.CostListDataTable dataTable, string BeginDate, string UserName) {
+        public virtual int FillByUserNameBeginDate(CostListDataSet.CostListDataTable dataTable, string UserName) {
             this.Adapter.SelectCommand = this.CommandCollection[7];
-            if ((BeginDate == null)) {
-                throw new global::System.ArgumentNullException("BeginDate");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(BeginDate));
-            }
             if ((UserName == null)) {
                 throw new global::System.ArgumentNullException("UserName");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(UserName));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(UserName));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1628,19 +1608,13 @@ ORDER BY student_cost.CostDate DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual CostListDataSet.CostListDataTable GetDataByUserNameBeginDate(string BeginDate, string UserName) {
+        public virtual CostListDataSet.CostListDataTable GetDataByUserNameBeginDate(string UserName) {
             this.Adapter.SelectCommand = this.CommandCollection[7];
-            if ((BeginDate == null)) {
-                throw new global::System.ArgumentNullException("BeginDate");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(BeginDate));
-            }
             if ((UserName == null)) {
                 throw new global::System.ArgumentNullException("UserName");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(UserName));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(UserName));
             }
             CostListDataSet.CostListDataTable dataTable = new CostListDataSet.CostListDataTable();
             this.Adapter.Fill(dataTable);
