@@ -286,6 +286,7 @@
             this.Controls.Add(this.txtMotherPhone);
             this.MaximizeBox = false;
             this.Name = "StudentInfoEditForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "基本资料编辑";
             this.Load += new System.EventHandler(this.StudentInfoEditForm_Load);
             this.ResumeLayout(false);

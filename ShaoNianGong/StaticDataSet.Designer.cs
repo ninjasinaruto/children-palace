@@ -34,6 +34,8 @@ namespace ShaoNianGong {
         
         private StudentCoursesDataTable tableStudentCourses;
         
+        private global::System.Data.DataRelation relationFK_courses_charge_type;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -290,6 +292,7 @@ namespace ShaoNianGong {
                     this.tableStudentCourses.InitVars();
                 }
             }
+            this.relationFK_courses_charge_type = this.Relations["FK_courses_charge_type"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -310,6 +313,10 @@ namespace ShaoNianGong {
             base.Tables.Add(this.tableDiscountLevel);
             this.tableStudentCourses = new StudentCoursesDataTable();
             base.Tables.Add(this.tableStudentCourses);
+            this.relationFK_courses_charge_type = new global::System.Data.DataRelation("FK_courses_charge_type", new global::System.Data.DataColumn[] {
+                        this.tableChargeType.ChargeTypeIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableStudentCourses.ChargeTypeColumn}, false);
+            this.Relations.Add(this.relationFK_courses_charge_type);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1654,14 +1661,17 @@ namespace ShaoNianGong {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public StudentCoursesRow AddStudentCoursesRow(int StudentID, int CourseID, string CourseName, int ChargeType, int ChargeAmount) {
+            public StudentCoursesRow AddStudentCoursesRow(int StudentID, int CourseID, string CourseName, ChargeTypeRow parentChargeTypeRowByFK_courses_charge_type, int ChargeAmount) {
                 StudentCoursesRow rowStudentCoursesRow = ((StudentCoursesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         StudentID,
                         CourseID,
                         CourseName,
-                        ChargeType,
+                        null,
                         ChargeAmount};
+                if ((parentChargeTypeRowByFK_courses_charge_type != null)) {
+                    columnValuesArray[3] = parentChargeTypeRowByFK_courses_charge_type[0];
+                }
                 rowStudentCoursesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowStudentCoursesRow);
                 return rowStudentCoursesRow;
@@ -1970,6 +1980,17 @@ namespace ShaoNianGong {
                     this[this.tableChargeType.ChargeTypeNameColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public StudentCoursesRow[] GetStudentCoursesRows() {
+                if ((this.Table.ChildRelations["FK_courses_charge_type"] == null)) {
+                    return new StudentCoursesRow[0];
+                }
+                else {
+                    return ((StudentCoursesRow[])(base.GetChildRows(this.Table.ChildRelations["FK_courses_charge_type"])));
+                }
+            }
         }
         
         /// <summary>
@@ -2090,6 +2111,17 @@ namespace ShaoNianGong {
                 }
                 set {
                     this[this.tableStudentCourses.ChargeAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ChargeTypeRow ChargeTypeRow {
+                get {
+                    return ((ChargeTypeRow)(this.GetParentRow(this.Table.ParentRelations["FK_courses_charge_type"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_courses_charge_type"]);
                 }
             }
             
@@ -3488,26 +3520,18 @@ FROM      student_cost LEFT OUTER JOIN
                 courses ON courses.ID = student_cost.CourseID LEFT OUTER JOIN
                 course_subtypes ON course_subtypes.ID = courses.CourseSubTypeID LEFT OUTER JOIN
                 course_types ON course_types.ID = course_subtypes.CourseTypeID
-WHERE   (student_cost.StudentID =
-                    (SELECT   ID
-                     FROM      students
-                     WHERE   (CardNo = @CardNo)))";
+WHERE   (student_cost.StudentID = @StudentID)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CardNo", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(StaticDataSet.StudentCoursesDataTable dataTable, string CardNo) {
+        public virtual int Fill(StaticDataSet.StudentCoursesDataTable dataTable, int StudentID) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((CardNo == null)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(CardNo));
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(StudentID));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -3519,14 +3543,9 @@ WHERE   (student_cost.StudentID =
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual StaticDataSet.StudentCoursesDataTable GetData(string CardNo) {
+        public virtual StaticDataSet.StudentCoursesDataTable GetData(int StudentID) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((CardNo == null)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(CardNo));
-            }
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(StudentID));
             StaticDataSet.StudentCoursesDataTable dataTable = new StaticDataSet.StudentCoursesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

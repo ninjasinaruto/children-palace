@@ -108,7 +108,7 @@ namespace ShaoNianGong
             {
                 btnLeaveCourse.Enabled = true;
                 btnExtendSignUp.Enabled = true;
-                btnChangeCourses.Enabled = false;
+                btnChangeCourses.Enabled = true;
             }
             else
             {
@@ -737,15 +737,25 @@ namespace ShaoNianGong
 
         private void btnChangeCourses_Click(object sender, EventArgs e)
         {
-            if (dgvStudents.SelectedRows.Count <= 0)
+            if (dgvStudentCourses.SelectedRows.Count <= 0)
                 return;
-            DataGridViewRow row = dgvStudents.SelectedRows[0];
+            DataGridViewRow row = dgvStudentCourses.SelectedRows[0];
+
+            int selectedStudentCourseIndex = GetSelectedStudentCourseIndex();
+            int studentCourseId = studentsDataSet.StudentCourses.Rows[selectedStudentCourseIndex].Field<int>("ID");
+            int courseID = studentsDataSet.StudentCourses.Rows[selectedStudentCourseIndex].Field<int>("CourseID");
+            int studentId = int.Parse(txtID.Text);
 
             ChangeCourseForm frmChangeCourse = new ChangeCourseForm();
-            frmChangeCourse.CardNo = txtCardNo.Text;
             frmChangeCourse.StudentName = txtName.Text;
             frmChangeCourse.Balance = txtBalance.Text;
-            frmChangeCourse.row = row;
+
+            frmChangeCourse.CurrentExpireDate = row.Cells["ExpireTimeColumn"].Value.ToString();
+            frmChangeCourse.CourseType = row.Cells["CourseTypeColumn"].Value.ToString();
+            frmChangeCourse.CourseSubtype = row.Cells["CourseSubtypeColumn"].Value.ToString();
+            frmChangeCourse.CourseName = row.Cells["CourseNameColumn"].Value.ToString();
+            frmChangeCourse.ChargeType = row.Cells["ChargeTypeColumn"].Value.ToString();
+            frmChangeCourse.ChargeAmount = row.Cells["ChargeAmountColumn"].Value.ToString();
             if (frmChangeCourse.ShowDialog() != DialogResult.OK)
                 return;
             //GetDepositAmountForm frmGetDepositAmount = new GetDepositAmountForm();

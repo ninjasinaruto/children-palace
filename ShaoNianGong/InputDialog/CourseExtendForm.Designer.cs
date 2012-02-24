@@ -429,6 +429,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "CourseExtendForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "续报课程";
             this.Load += new System.EventHandler(this.CourseExtendForm_Load);
             this.groupBox5.ResumeLayout(false);

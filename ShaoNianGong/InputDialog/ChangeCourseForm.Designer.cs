@@ -30,15 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dtSignUpDate = new System.Windows.Forms.DateTimePicker();
-            this.courseSubTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.coursesDataSet = new ShaoNianGong.CoursesDataSet();
             this.txtDiscountReason = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtSignupTimes = new System.Windows.Forms.TextBox();
             this.lstCourseSubtypes = new System.Windows.Forms.ListBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.lstCourses = new System.Windows.Forms.ListBox();
-            this.coursesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lstCourseType = new System.Windows.Forms.ListBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -48,37 +45,20 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.cmbDiscount = new System.Windows.Forms.ComboBox();
-            this.discountLevelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.staticDataSet = new ShaoNianGong.StaticDataSet();
             this.label22 = new System.Windows.Forms.Label();
-            this.txtBalance = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.txtActualCostAmount = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtCardNo = new System.Windows.Forms.TextBox();
             this.txtTotalCost = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtCourseId = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.courseTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmbChargeMethod = new System.Windows.Forms.ComboBox();
-            this.chargeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.courseTypesTableAdapter = new ShaoNianGong.StaticDataSetTableAdapters.CourseTypesTableAdapter();
-            this.coursesTableAdapter = new ShaoNianGong.CoursesDataSetTableAdapters.CoursesTableAdapter();
-            this.chargeTypeTableAdapter = new ShaoNianGong.StaticDataSetTableAdapters.ChargeTypeTableAdapter();
-            this.courseSubtypesTableAdapter = new ShaoNianGong.CoursesDataSetTableAdapters.CourseSubtypesTableAdapter();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.txtCourseName = new System.Windows.Forms.TextBox();
-            this.discountLevelTableAdapter = new ShaoNianGong.StaticDataSetTableAdapters.DiscountLevelTableAdapter();
+            this.txtChangeCourseName = new System.Windows.Forms.TextBox();
             this.txtExpireDate = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
@@ -86,31 +66,46 @@
             this.lblCostType = new System.Windows.Forms.Label();
             this.dtExpireDate = new System.Windows.Forms.DateTimePicker();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cmbCourseName = new System.Windows.Forms.ComboBox();
-            this.studentCoursesbindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.staticDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.studentCoursesTableAdapter = new ShaoNianGong.StaticDataSetTableAdapters.StudentCoursesTableAdapter();
-            this.cmbChargeType = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtBalance = new System.Windows.Forms.TextBox();
+            this.txtCourseSubtype = new System.Windows.Forms.TextBox();
+            this.txtCourseType = new System.Windows.Forms.TextBox();
+            this.txtCourseName = new System.Windows.Forms.TextBox();
+            this.txtStudentName = new System.Windows.Forms.TextBox();
+            this.txtChargeType = new System.Windows.Forms.TextBox();
             this.txtChargeAmount = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.courseSubTypesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coursesDataSet)).BeginInit();
+            this.chargeTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.staticDataSet = new ShaoNianGong.StaticDataSet();
+            this.chargeTypeTableAdapter = new ShaoNianGong.StaticDataSetTableAdapters.ChargeTypeTableAdapter();
+            this.discountLevelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.discountLevelTableAdapter = new ShaoNianGong.StaticDataSetTableAdapters.DiscountLevelTableAdapter();
+            this.courseTypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.courseTypesTableAdapter = new ShaoNianGong.StaticDataSetTableAdapters.CourseTypesTableAdapter();
+            this.courseSubtypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.coursesDataSet = new ShaoNianGong.CoursesDataSet();
+            this.courseSubtypesTableAdapter = new ShaoNianGong.CoursesDataSetTableAdapters.CourseSubtypesTableAdapter();
+            this.coursesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.coursesTableAdapter = new ShaoNianGong.CoursesDataSetTableAdapters.CoursesTableAdapter();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.discountLevelBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.staticDataSet)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.courseTypesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chargeTypeBindingSource)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.studentCoursesbindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.staticDataSetBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chargeTypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staticDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.discountLevelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseTypesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseSubtypesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursesDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dtSignUpDate
@@ -119,18 +114,6 @@
             this.dtSignUpDate.Name = "dtSignUpDate";
             this.dtSignUpDate.Size = new System.Drawing.Size(115, 21);
             this.dtSignUpDate.TabIndex = 21;
-            this.dtSignUpDate.ValueChanged += new System.EventHandler(this.dtSignUpDate_ValueChanged);
-            // 
-            // courseSubTypesBindingSource
-            // 
-            this.courseSubTypesBindingSource.DataMember = "CourseSubtypes";
-            this.courseSubTypesBindingSource.DataSource = this.coursesDataSet;
-            this.courseSubTypesBindingSource.PositionChanged += new System.EventHandler(this.courseSubTypesBindingSource_PositionChanged);
-            // 
-            // coursesDataSet
-            // 
-            this.coursesDataSet.DataSetName = "CoursesDataSet";
-            this.coursesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtDiscountReason
             // 
@@ -157,12 +140,10 @@
             this.txtSignupTimes.TabIndex = 20;
             this.txtSignupTimes.Text = "1";
             this.txtSignupTimes.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtSignupTimes.TextChanged += new System.EventHandler(this.txtSignupTimes_TextChanged);
-            this.txtSignupTimes.Leave += new System.EventHandler(this.txtSignupTimes_Leave);
             // 
             // lstCourseSubtypes
             // 
-            this.lstCourseSubtypes.DataSource = this.courseSubTypesBindingSource;
+            this.lstCourseSubtypes.DataSource = this.courseSubtypesBindingSource;
             this.lstCourseSubtypes.DisplayMember = "CourseSubtypeName";
             this.lstCourseSubtypes.FormattingEnabled = true;
             this.lstCourseSubtypes.ItemHeight = 12;
@@ -180,7 +161,7 @@
             this.groupBox4.Controls.Add(this.label16);
             this.groupBox4.Controls.Add(this.label18);
             this.groupBox4.Controls.Add(this.label17);
-            this.groupBox4.Location = new System.Drawing.Point(12, 180);
+            this.groupBox4.Location = new System.Drawing.Point(12, 165);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(586, 200);
             this.groupBox4.TabIndex = 40;
@@ -199,12 +180,6 @@
             this.lstCourses.Size = new System.Drawing.Size(166, 136);
             this.lstCourses.TabIndex = 28;
             this.lstCourses.ValueMember = "CourseID";
-            // 
-            // coursesBindingSource
-            // 
-            this.coursesBindingSource.DataMember = "Courses";
-            this.coursesBindingSource.DataSource = this.coursesDataSet;
-            this.coursesBindingSource.PositionChanged += new System.EventHandler(this.coursesBindingSource_PositionChanged);
             // 
             // lstCourseType
             // 
@@ -290,17 +265,6 @@
             this.cmbDiscount.Size = new System.Drawing.Size(115, 20);
             this.cmbDiscount.TabIndex = 22;
             this.cmbDiscount.ValueMember = "DiscountLevel";
-            this.cmbDiscount.SelectedIndexChanged += new System.EventHandler(this.cmbDiscount_SelectedIndexChanged);
-            // 
-            // discountLevelBindingSource
-            // 
-            this.discountLevelBindingSource.DataMember = "DiscountLevel";
-            this.discountLevelBindingSource.DataSource = this.staticDataSet;
-            // 
-            // staticDataSet
-            // 
-            this.staticDataSet.DataSetName = "StaticDataSet";
-            this.staticDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label22
             // 
@@ -310,16 +274,6 @@
             this.label22.Size = new System.Drawing.Size(65, 12);
             this.label22.TabIndex = 1;
             this.label22.Text = "收费方式：";
-            // 
-            // txtBalance
-            // 
-            this.txtBalance.Location = new System.Drawing.Point(447, 23);
-            this.txtBalance.Name = "txtBalance";
-            this.txtBalance.ReadOnly = true;
-            this.txtBalance.Size = new System.Drawing.Size(97, 21);
-            this.txtBalance.TabIndex = 2;
-            this.txtBalance.Text = "0";
-            this.txtBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label2
             // 
@@ -339,15 +293,6 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "折扣原因：";
             // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(550, 26);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(17, 12);
-            this.label23.TabIndex = 1;
-            this.label23.Text = "元";
-            // 
             // txtActualCostAmount
             // 
             this.txtActualCostAmount.Location = new System.Drawing.Point(373, 76);
@@ -357,40 +302,6 @@
             this.txtActualCostAmount.TabIndex = 20;
             this.txtActualCostAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(400, 26);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 12);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "余额：";
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(253, 23);
-            this.txtName.Name = "txtName";
-            this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(120, 21);
-            this.txtName.TabIndex = 3;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 26);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 12);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "卡号：";
-            // 
-            // txtCardNo
-            // 
-            this.txtCardNo.Location = new System.Drawing.Point(64, 23);
-            this.txtCardNo.Name = "txtCardNo";
-            this.txtCardNo.ReadOnly = true;
-            this.txtCardNo.Size = new System.Drawing.Size(120, 21);
-            this.txtCardNo.TabIndex = 3;
-            // 
             // txtTotalCost
             // 
             this.txtTotalCost.Location = new System.Drawing.Point(373, 21);
@@ -398,7 +309,6 @@
             this.txtTotalCost.Size = new System.Drawing.Size(92, 21);
             this.txtTotalCost.TabIndex = 20;
             this.txtTotalCost.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTotalCost.TextChanged += new System.EventHandler(this.txtTotalCost_TextChanged);
             // 
             // label14
             // 
@@ -408,31 +318,6 @@
             this.label14.Size = new System.Drawing.Size(65, 12);
             this.label14.TabIndex = 1;
             this.label14.Text = "到期时间：";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.txtBalance);
-            this.groupBox1.Controls.Add(this.label23);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtCardNo);
-            this.groupBox1.Controls.Add(this.txtName);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(586, 58);
-            this.groupBox1.TabIndex = 43;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "基本资料";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(206, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "姓名：";
             // 
             // label7
             // 
@@ -454,7 +339,6 @@
             // 
             // txtCourseId
             // 
-            this.txtCourseId.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.coursesBindingSource, "CourseID", true));
             this.txtCourseId.Location = new System.Drawing.Point(177, 20);
             this.txtCourseId.Name = "txtCourseId";
             this.txtCourseId.ReadOnly = true;
@@ -480,12 +364,6 @@
             this.label13.TabIndex = 1;
             this.label13.Text = "元";
             // 
-            // courseTypesBindingSource
-            // 
-            this.courseTypesBindingSource.DataMember = "CourseTypes";
-            this.courseTypesBindingSource.DataSource = this.staticDataSet;
-            this.courseTypesBindingSource.PositionChanged += new System.EventHandler(this.courseTypesBindingSource_PositionChanged);
-            // 
             // cmbChargeMethod
             // 
             this.cmbChargeMethod.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.coursesBindingSource, "ChargeType", true));
@@ -499,32 +377,10 @@
             this.cmbChargeMethod.Size = new System.Drawing.Size(115, 20);
             this.cmbChargeMethod.TabIndex = 22;
             this.cmbChargeMethod.ValueMember = "ChargeTypeID";
-            this.cmbChargeMethod.TextChanged += new System.EventHandler(this.cmbChargeMethod_TextChanged);
-            // 
-            // chargeTypeBindingSource
-            // 
-            this.chargeTypeBindingSource.DataMember = "ChargeType";
-            this.chargeTypeBindingSource.DataSource = this.staticDataSet;
-            // 
-            // courseTypesTableAdapter
-            // 
-            this.courseTypesTableAdapter.ClearBeforeFill = true;
-            // 
-            // coursesTableAdapter
-            // 
-            this.coursesTableAdapter.ClearBeforeFill = true;
-            // 
-            // chargeTypeTableAdapter
-            // 
-            this.chargeTypeTableAdapter.ClearBeforeFill = true;
-            // 
-            // courseSubtypesTableAdapter
-            // 
-            this.courseSubtypesTableAdapter.ClearBeforeFill = true;
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.txtCourseName);
+            this.groupBox5.Controls.Add(this.txtChangeCourseName);
             this.groupBox5.Controls.Add(this.cmbChargeMethod);
             this.groupBox5.Controls.Add(this.txtCourseId);
             this.groupBox5.Controls.Add(this.txtCost);
@@ -532,25 +388,21 @@
             this.groupBox5.Controls.Add(this.label20);
             this.groupBox5.Controls.Add(this.label21);
             this.groupBox5.Controls.Add(this.label22);
-            this.groupBox5.Location = new System.Drawing.Point(12, 386);
+            this.groupBox5.Location = new System.Drawing.Point(12, 372);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(586, 82);
             this.groupBox5.TabIndex = 41;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "课程信息";
             // 
-            // txtCourseName
+            // txtChangeCourseName
             // 
-            this.txtCourseName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.coursesBindingSource, "CourseName", true));
-            this.txtCourseName.Location = new System.Drawing.Point(167, 20);
-            this.txtCourseName.Name = "txtCourseName";
-            this.txtCourseName.ReadOnly = true;
-            this.txtCourseName.Size = new System.Drawing.Size(321, 21);
-            this.txtCourseName.TabIndex = 21;
-            // 
-            // discountLevelTableAdapter
-            // 
-            this.discountLevelTableAdapter.ClearBeforeFill = true;
+            this.txtChangeCourseName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.coursesBindingSource, "CourseName", true));
+            this.txtChangeCourseName.Location = new System.Drawing.Point(167, 20);
+            this.txtChangeCourseName.Name = "txtChangeCourseName";
+            this.txtChangeCourseName.ReadOnly = true;
+            this.txtChangeCourseName.Size = new System.Drawing.Size(321, 21);
+            this.txtChangeCourseName.TabIndex = 21;
             // 
             // txtExpireDate
             // 
@@ -572,13 +424,12 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(414, 657);
+            this.btnOK.Location = new System.Drawing.Point(414, 647);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(94, 36);
             this.btnOK.TabIndex = 39;
             this.btnOK.Text = "确定";
             this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // groupBox3
             // 
@@ -600,7 +451,7 @@
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.lblCostType);
             this.groupBox3.Controls.Add(this.dtExpireDate);
-            this.groupBox3.Location = new System.Drawing.Point(12, 474);
+            this.groupBox3.Location = new System.Drawing.Point(12, 461);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(586, 175);
             this.groupBox3.TabIndex = 42;
@@ -626,7 +477,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(514, 657);
+            this.btnCancel.Location = new System.Drawing.Point(514, 647);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(94, 36);
             this.btnCancel.TabIndex = 44;
@@ -634,117 +485,234 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // groupBox2
+            // groupBox1
             // 
-            this.groupBox2.Controls.Add(this.cmbChargeType);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.txtChargeAmount);
-            this.groupBox2.Controls.Add(this.cmbCourseName);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label24);
-            this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Location = new System.Drawing.Point(12, 76);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(586, 98);
-            this.groupBox2.TabIndex = 41;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "已报课程";
+            this.groupBox1.Controls.Add(this.label25);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtBalance);
+            this.groupBox1.Controls.Add(this.txtCourseSubtype);
+            this.groupBox1.Controls.Add(this.txtCourseType);
+            this.groupBox1.Controls.Add(this.txtCourseName);
+            this.groupBox1.Controls.Add(this.txtStudentName);
+            this.groupBox1.Controls.Add(this.txtChargeType);
+            this.groupBox1.Controls.Add(this.txtChargeAmount);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.label23);
+            this.groupBox1.Controls.Add(this.label24);
+            this.groupBox1.Location = new System.Drawing.Point(12, 7);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(586, 151);
+            this.groupBox1.TabIndex = 45;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "基本信息";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(452, 27);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(17, 12);
+            this.label25.TabIndex = 26;
+            this.label25.Text = "元";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(283, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "账户余额：";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(283, 57);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "所属科目：";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(19, 57);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 12);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "所属类别：";
+            // 
+            // txtBalance
+            // 
+            this.txtBalance.Location = new System.Drawing.Point(354, 24);
+            this.txtBalance.Name = "txtBalance";
+            this.txtBalance.ReadOnly = true;
+            this.txtBalance.Size = new System.Drawing.Size(92, 21);
+            this.txtBalance.TabIndex = 22;
+            // 
+            // txtCourseSubtype
+            // 
+            this.txtCourseSubtype.Location = new System.Drawing.Point(354, 55);
+            this.txtCourseSubtype.Name = "txtCourseSubtype";
+            this.txtCourseSubtype.ReadOnly = true;
+            this.txtCourseSubtype.Size = new System.Drawing.Size(203, 21);
+            this.txtCourseSubtype.TabIndex = 22;
+            // 
+            // txtCourseType
+            // 
+            this.txtCourseType.Location = new System.Drawing.Point(90, 55);
+            this.txtCourseType.Name = "txtCourseType";
+            this.txtCourseType.ReadOnly = true;
+            this.txtCourseType.Size = new System.Drawing.Size(148, 21);
+            this.txtCourseType.TabIndex = 23;
+            // 
+            // txtCourseName
+            // 
+            this.txtCourseName.Location = new System.Drawing.Point(90, 83);
+            this.txtCourseName.Name = "txtCourseName";
+            this.txtCourseName.ReadOnly = true;
+            this.txtCourseName.Size = new System.Drawing.Size(467, 21);
+            this.txtCourseName.TabIndex = 21;
+            // 
+            // txtStudentName
+            // 
+            this.txtStudentName.Location = new System.Drawing.Point(90, 24);
+            this.txtStudentName.Name = "txtStudentName";
+            this.txtStudentName.ReadOnly = true;
+            this.txtStudentName.Size = new System.Drawing.Size(148, 21);
+            this.txtStudentName.TabIndex = 20;
+            // 
+            // txtChargeType
+            // 
+            this.txtChargeType.Location = new System.Drawing.Point(90, 113);
+            this.txtChargeType.Name = "txtChargeType";
+            this.txtChargeType.ReadOnly = true;
+            this.txtChargeType.Size = new System.Drawing.Size(148, 21);
+            this.txtChargeType.TabIndex = 20;
+            // 
+            // txtChargeAmount
+            // 
+            this.txtChargeAmount.Location = new System.Drawing.Point(354, 113);
+            this.txtChargeAmount.Name = "txtChargeAmount";
+            this.txtChargeAmount.ReadOnly = true;
+            this.txtChargeAmount.Size = new System.Drawing.Size(92, 21);
+            this.txtChargeAmount.TabIndex = 20;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(17, 28);
+            this.label10.Location = new System.Drawing.Point(19, 86);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 12);
-            this.label10.TabIndex = 23;
+            this.label10.TabIndex = 1;
             this.label10.Text = "课程名称：";
-            // 
-            // cmbCourseName
-            // 
-            this.cmbCourseName.DataSource = this.studentCoursesbindingSource;
-            this.cmbCourseName.DisplayMember = "CourseName";
-            this.cmbCourseName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCourseName.FormattingEnabled = true;
-            this.cmbCourseName.Location = new System.Drawing.Point(88, 24);
-            this.cmbCourseName.Name = "cmbCourseName";
-            this.cmbCourseName.Size = new System.Drawing.Size(479, 20);
-            this.cmbCourseName.TabIndex = 23;
-            this.cmbCourseName.ValueMember = "CourseID";
-            // 
-            // studentCoursesbindingSource
-            // 
-            this.studentCoursesbindingSource.DataMember = "StudentCourses";
-            this.studentCoursesbindingSource.DataSource = this.staticDataSet;
-            // 
-            // staticDataSetBindingSource
-            // 
-            this.staticDataSetBindingSource.DataSource = this.staticDataSet;
-            this.staticDataSetBindingSource.Position = 0;
-            // 
-            // studentCoursesTableAdapter
-            // 
-            this.studentCoursesTableAdapter.ClearBeforeFill = true;
-            // 
-            // cmbChargeType
-            // 
-            this.cmbChargeType.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.studentCoursesbindingSource, "ChargeType", true));
-            this.cmbChargeType.DataSource = this.chargeTypeBindingSource;
-            this.cmbChargeType.DisplayMember = "ChargeTypeName";
-            this.cmbChargeType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbChargeType.Enabled = false;
-            this.cmbChargeType.FormattingEnabled = true;
-            this.cmbChargeType.Location = new System.Drawing.Point(88, 59);
-            this.cmbChargeType.Name = "cmbChargeType";
-            this.cmbChargeType.Size = new System.Drawing.Size(115, 20);
-            this.cmbChargeType.TabIndex = 27;
-            this.cmbChargeType.ValueMember = "ChargeTypeID";
-            // 
-            // txtChargeAmount
-            // 
-            this.txtChargeAmount.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentCoursesbindingSource, "ChargeAmount", true));
-            this.txtChargeAmount.Location = new System.Drawing.Point(294, 59);
-            this.txtChargeAmount.Name = "txtChargeAmount";
-            this.txtChargeAmount.ReadOnly = true;
-            this.txtChargeAmount.Size = new System.Drawing.Size(92, 21);
-            this.txtChargeAmount.TabIndex = 26;
-            this.txtChargeAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(392, 62);
+            this.label11.Location = new System.Drawing.Point(452, 119);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(17, 12);
-            this.label11.TabIndex = 25;
+            this.label11.TabIndex = 1;
             this.label11.Text = "元";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(223, 62);
+            this.label15.Location = new System.Drawing.Point(19, 27);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(65, 12);
-            this.label15.TabIndex = 24;
-            this.label15.Text = "收取费用：";
+            this.label15.TabIndex = 1;
+            this.label15.Text = "学生姓名：";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(283, 119);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(65, 12);
+            this.label23.TabIndex = 1;
+            this.label23.Text = "收取费用：";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(17, 62);
+            this.label24.Location = new System.Drawing.Point(19, 116);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(65, 12);
-            this.label24.TabIndex = 23;
+            this.label24.TabIndex = 1;
             this.label24.Text = "收费方式：";
+            // 
+            // chargeTypeBindingSource
+            // 
+            this.chargeTypeBindingSource.DataMember = "ChargeType";
+            this.chargeTypeBindingSource.DataSource = this.staticDataSet;
+            // 
+            // staticDataSet
+            // 
+            this.staticDataSet.DataSetName = "StaticDataSet";
+            this.staticDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // chargeTypeTableAdapter
+            // 
+            this.chargeTypeTableAdapter.ClearBeforeFill = true;
+            // 
+            // discountLevelBindingSource
+            // 
+            this.discountLevelBindingSource.DataMember = "DiscountLevel";
+            this.discountLevelBindingSource.DataSource = this.staticDataSet;
+            // 
+            // discountLevelTableAdapter
+            // 
+            this.discountLevelTableAdapter.ClearBeforeFill = true;
+            // 
+            // courseTypesBindingSource
+            // 
+            this.courseTypesBindingSource.DataMember = "CourseTypes";
+            this.courseTypesBindingSource.DataSource = this.staticDataSet;
+            this.courseTypesBindingSource.PositionChanged += new System.EventHandler(this.courseTypesBindingSource_PositionChanged);
+            // 
+            // courseTypesTableAdapter
+            // 
+            this.courseTypesTableAdapter.ClearBeforeFill = true;
+            // 
+            // courseSubtypesBindingSource
+            // 
+            this.courseSubtypesBindingSource.DataMember = "CourseSubtypes";
+            this.courseSubtypesBindingSource.DataSource = this.coursesDataSet;
+            this.courseSubtypesBindingSource.PositionChanged += new System.EventHandler(this.courseSubtypesBindingSource_PositionChanged);
+            // 
+            // coursesDataSet
+            // 
+            this.coursesDataSet.DataSetName = "CoursesDataSet";
+            this.coursesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // courseSubtypesTableAdapter
+            // 
+            this.courseSubtypesTableAdapter.ClearBeforeFill = true;
+            // 
+            // coursesBindingSource
+            // 
+            this.coursesBindingSource.DataMember = "Courses";
+            this.coursesBindingSource.DataSource = this.coursesDataSet;
+            this.coursesBindingSource.PositionChanged += new System.EventHandler(this.coursesBindingSource_PositionChanged);
+            // 
+            // coursesTableAdapter
+            // 
+            this.coursesTableAdapter.ClearBeforeFill = true;
             // 
             // ChangeCourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(613, 705);
-            this.Controls.Add(this.groupBox2);
+            this.ClientSize = new System.Drawing.Size(613, 690);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.groupBox3);
@@ -752,27 +720,23 @@
             this.MaximizeBox = false;
             this.Name = "ChangeCourseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "转班";
+            this.Text = "学生转班";
             this.Load += new System.EventHandler(this.ChangeCourseForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.courseSubTypesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.coursesDataSet)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.discountLevelBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.staticDataSet)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.courseTypesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chargeTypeBindingSource)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.studentCoursesbindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.staticDataSetBindingSource)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chargeTypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staticDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.discountLevelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseTypesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseSubtypesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursesDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coursesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -780,15 +744,12 @@
         #endregion
 
         private System.Windows.Forms.DateTimePicker dtSignUpDate;
-        private System.Windows.Forms.BindingSource courseSubTypesBindingSource;
-        private CoursesDataSet coursesDataSet;
         private System.Windows.Forms.TextBox txtDiscountReason;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtSignupTimes;
         private System.Windows.Forms.ListBox lstCourseSubtypes;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.ListBox lstCourses;
-        private System.Windows.Forms.BindingSource coursesBindingSource;
         private System.Windows.Forms.ListBox lstCourseType;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label18;
@@ -798,37 +759,20 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.ComboBox cmbDiscount;
-        private System.Windows.Forms.BindingSource discountLevelBindingSource;
-        private StaticDataSet staticDataSet;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox txtBalance;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox txtActualCostAmount;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtCardNo;
         private System.Windows.Forms.TextBox txtTotalCost;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtCourseId;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.BindingSource courseTypesBindingSource;
         private System.Windows.Forms.ComboBox cmbChargeMethod;
-        private System.Windows.Forms.BindingSource chargeTypeBindingSource;
-        private StaticDataSetTableAdapters.CourseTypesTableAdapter courseTypesTableAdapter;
-        private CoursesDataSetTableAdapters.CoursesTableAdapter coursesTableAdapter;
-        private StaticDataSetTableAdapters.ChargeTypeTableAdapter chargeTypeTableAdapter;
-        private CoursesDataSetTableAdapters.CourseSubtypesTableAdapter courseSubtypesTableAdapter;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox txtCourseName;
-        private StaticDataSetTableAdapters.DiscountLevelTableAdapter discountLevelTableAdapter;
+        private System.Windows.Forms.TextBox txtChangeCourseName;
         private System.Windows.Forms.TextBox txtExpireDate;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnOK;
@@ -836,16 +780,34 @@
         private System.Windows.Forms.Label lblCostType;
         private System.Windows.Forms.DateTimePicker dtExpireDate;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox cmbCourseName;
-        private System.Windows.Forms.BindingSource staticDataSetBindingSource;
-        private System.Windows.Forms.BindingSource studentCoursesbindingSource;
-        private StaticDataSetTableAdapters.StudentCoursesTableAdapter studentCoursesTableAdapter;
-        private System.Windows.Forms.ComboBox cmbChargeType;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtBalance;
+        private System.Windows.Forms.TextBox txtCourseSubtype;
+        private System.Windows.Forms.TextBox txtCourseType;
+        private System.Windows.Forms.TextBox txtCourseName;
+        private System.Windows.Forms.TextBox txtStudentName;
+        private System.Windows.Forms.TextBox txtChargeType;
         private System.Windows.Forms.TextBox txtChargeAmount;
+        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.BindingSource chargeTypeBindingSource;
+        private StaticDataSet staticDataSet;
+        private StaticDataSetTableAdapters.ChargeTypeTableAdapter chargeTypeTableAdapter;
+        private System.Windows.Forms.BindingSource discountLevelBindingSource;
+        private StaticDataSetTableAdapters.DiscountLevelTableAdapter discountLevelTableAdapter;
+        private System.Windows.Forms.BindingSource courseTypesBindingSource;
+        private StaticDataSetTableAdapters.CourseTypesTableAdapter courseTypesTableAdapter;
+        private System.Windows.Forms.BindingSource courseSubtypesBindingSource;
+        private CoursesDataSet coursesDataSet;
+        private CoursesDataSetTableAdapters.CourseSubtypesTableAdapter courseSubtypesTableAdapter;
+        private System.Windows.Forms.BindingSource coursesBindingSource;
+        private CoursesDataSetTableAdapters.CoursesTableAdapter coursesTableAdapter;
     }
 }

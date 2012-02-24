@@ -938,7 +938,6 @@
             // 
             // btnChangeCourses
             // 
-            this.btnChangeCourses.Enabled = false;
             this.btnChangeCourses.Location = new System.Drawing.Point(361, 20);
             this.btnChangeCourses.Name = "btnChangeCourses";
             this.btnChangeCourses.Size = new System.Drawing.Size(65, 31);
