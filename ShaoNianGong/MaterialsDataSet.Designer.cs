@@ -2705,7 +2705,7 @@ FROM materials INNER JOIN
 FROM      materials INNER JOIN
                 materials_cost ON materials.MaterialID = materials_cost.MaterialID INNER JOIN
                 students ON materials_cost.StudentID = students.ID
-WHERE   (CONVERT(varchar(7), materials_cost.BuyTime, 111) = CONVERT(varchar(7), getdate(), 111))
+WHERE   datediff(month,materials_cost.BuyTime,getdate())=0    
 ORDER BY materials_cost.BuyTime DESC";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();

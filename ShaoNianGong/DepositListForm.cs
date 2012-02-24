@@ -21,7 +21,7 @@ namespace ShaoNianGong
             //DateTime beginDate = DateTime.Now;
             //beginDate = new DateTime(beginDate.Year, beginDate.Month, 1, 0, 0, 0);
             //this.depositListTableAdapter.FillByBeginDate(this.depositListDataSet.DepositList, beginDate);
-            this.depositListTableAdapter.FillByYMOfDate(this.depositListDataSet.DepositList);
+            this.depositListTableAdapter.FillByMonth(this.depositListDataSet.DepositList);
             txtShowRange.Text = "本月";
         }
 
@@ -57,7 +57,7 @@ namespace ShaoNianGong
             //DateTime beginDate = DateTime.Now;
             //beginDate = new DateTime(beginDate.Year, beginDate.Month, 1, 0, 0, 0);
             //this.depositListTableAdapter.FillByBeginDate(this.depositListDataSet.DepositList, beginDate);
-            this.depositListTableAdapter.FillByYMOfDate(this.depositListDataSet.DepositList);
+            this.depositListTableAdapter.FillByMonth(this.depositListDataSet.DepositList);
             txtShowRange.Text = "本月";
         }
 

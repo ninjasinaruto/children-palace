@@ -1188,7 +1188,7 @@ FROM      student_cost INNER JOIN
                 v_student_courses ON students.ID = v_student_courses.StudentID AND 
                 courses.ID = v_student_courses.CourseID INNER JOIN
                 discount_level ON student_cost.DiscountLevel = discount_level.DiscountLevel
-WHERE   (CONVERT(varchar(7), student_cost.CostDate, 111) = CONVERT(varchar(7), GETDATE(), 111))
+WHERE   (DATEDIFF(month, student_cost.CostDate, GETDATE()) = 0)
 ORDER BY student_cost.CostDate DESC";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
@@ -1314,9 +1314,8 @@ ORDER BY student_cost.CostDate DESC";
                 " = v_student_courses.StudentID AND \r\n                courses.ID = v_student_cour" +
                 "ses.CourseID INNER JOIN\r\n                discount_level ON student_cost.Discount" +
                 "Level = discount_level.DiscountLevel ON \r\n                users_course_privilege" +
-                ".CourseId = courses.ID\r\nWHERE   (CONVERT(varchar(7), student_cost.CostDate, 111)" +
-                " = CONVERT(varchar(7), getdate(), 111)) AND (users.UserName = @UserName)\r\nORDER " +
-                "BY student_cost.CostDate DESC";
+                ".CourseId = courses.ID\r\nWHERE   (users.UserName = @UserName) AND (DATEDIFF(month" +
+                ", student_cost.CostDate, GETDATE()) = 0)\r\nORDER BY student_cost.CostDate DESC";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
