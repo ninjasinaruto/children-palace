@@ -48,14 +48,14 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtActualRefundAmount = new System.Windows.Forms.TextBox();
+            this.txtLeaveReason = new System.Windows.Forms.TextBox();
             this.txtRefoundAmount = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtLeaveReason = new System.Windows.Forms.TextBox();
             this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -258,6 +258,13 @@
             this.txtActualRefundAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtActualRefundAmount.TextChanged += new System.EventHandler(this.txtActualRefundAmount_TextChanged);
             // 
+            // txtLeaveReason
+            // 
+            this.txtLeaveReason.Location = new System.Drawing.Point(90, 57);
+            this.txtLeaveReason.Name = "txtLeaveReason";
+            this.txtLeaveReason.Size = new System.Drawing.Size(340, 21);
+            this.txtLeaveReason.TabIndex = 20;
+            // 
             // txtRefoundAmount
             // 
             this.txtRefoundAmount.Location = new System.Drawing.Point(90, 24);
@@ -266,6 +273,15 @@
             this.txtRefoundAmount.TabIndex = 20;
             this.txtRefoundAmount.Text = "0";
             this.txtRefoundAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(19, 60);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(65, 12);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "离班原因：";
             // 
             // label10
             // 
@@ -314,22 +330,6 @@
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(19, 60);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 12);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "离班原因：";
-            // 
-            // txtLeaveReason
-            // 
-            this.txtLeaveReason.Location = new System.Drawing.Point(90, 57);
-            this.txtLeaveReason.Name = "txtLeaveReason";
-            this.txtLeaveReason.Size = new System.Drawing.Size(340, 21);
-            this.txtLeaveReason.TabIndex = 20;
-            // 
             // LeaveCourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -340,6 +340,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox5);
             this.Name = "LeaveCourseForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "学生离班";
             this.Load += new System.EventHandler(this.LeaveCourseForm_Load);
             this.groupBox5.ResumeLayout(false);

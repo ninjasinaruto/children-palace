@@ -44,7 +44,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cmbDiscount = new System.Windows.Forms.ComboBox();
             this.dtSignUpDate = new System.Windows.Forms.DateTimePicker();
-            this.dtExpireDate = new System.Windows.Forms.DateTimePicker();
             this.txtDiscountReason = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtSignupTimes = new System.Windows.Forms.TextBox();
@@ -60,6 +59,7 @@
             this.txtExpireDate = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.lblCostType = new System.Windows.Forms.Label();
+            this.dtExpireDate = new System.Windows.Forms.DateTimePicker();
             this.btnSignup = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.txtCourseName = new System.Windows.Forms.TextBox();
@@ -204,14 +204,6 @@
             this.dtSignUpDate.TabIndex = 21;
             this.dtSignUpDate.ValueChanged += new System.EventHandler(this.dtSignUpDate_ValueChanged);
             // 
-            // dtExpireDate
-            // 
-            this.dtExpireDate.Location = new System.Drawing.Point(374, 49);
-            this.dtExpireDate.Name = "dtExpireDate";
-            this.dtExpireDate.Size = new System.Drawing.Size(115, 21);
-            this.dtExpireDate.TabIndex = 21;
-            this.dtExpireDate.Visible = false;
-            // 
             // txtDiscountReason
             // 
             this.txtDiscountReason.Location = new System.Drawing.Point(168, 103);
@@ -347,6 +339,14 @@
             this.lblCostType.Size = new System.Drawing.Size(29, 12);
             this.lblCostType.TabIndex = 1;
             this.lblCostType.Text = "季度";
+            // 
+            // dtExpireDate
+            // 
+            this.dtExpireDate.Location = new System.Drawing.Point(374, 49);
+            this.dtExpireDate.Name = "dtExpireDate";
+            this.dtExpireDate.Size = new System.Drawing.Size(115, 21);
+            this.dtExpireDate.TabIndex = 21;
+            this.dtExpireDate.Visible = false;
             // 
             // btnSignup
             // 
@@ -622,6 +622,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "CourseSignUpForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "报名新课程";
             this.Load += new System.EventHandler(this.CourseSignUpForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.courseSubTypesBindingSource)).EndInit();
