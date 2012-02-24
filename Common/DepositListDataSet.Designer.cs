@@ -1177,10 +1177,9 @@ FROM      deposit_list INNER JOIN
                      WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
                 courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
                 tearchers ON tearchers.ID = courses.TeacherID
-WHERE   (CONVERT(varchar(7), deposit_list.DepositDate, 111) = @YMOfDate)
+WHERE   (CONVERT(varchar(7), deposit_list.DepositDate, 111) = CONVERT(varchar(7), GETDATE(), 111))
 ORDER BY deposit_list.DepositDate DESC";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@YMOfDate", global::System.Data.SqlDbType.VarChar, 1024, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1291,14 +1290,8 @@ ORDER BY deposit_list.DepositDate DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByYMOfDate(DepositListDataSet.DepositListDataTable dataTable, string YMOfDate) {
+        public virtual int FillByYMOfDate(DepositListDataSet.DepositListDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[4];
-            if ((YMOfDate == null)) {
-                throw new global::System.ArgumentNullException("YMOfDate");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(YMOfDate));
-            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -1310,14 +1303,8 @@ ORDER BY deposit_list.DepositDate DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual DepositListDataSet.DepositListDataTable GetDataByYMOfDate(string YMOfDate) {
+        public virtual DepositListDataSet.DepositListDataTable GetDataByYMOfDate() {
             this.Adapter.SelectCommand = this.CommandCollection[4];
-            if ((YMOfDate == null)) {
-                throw new global::System.ArgumentNullException("YMOfDate");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(YMOfDate));
-            }
             DepositListDataSet.DepositListDataTable dataTable = new DepositListDataSet.DepositListDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
