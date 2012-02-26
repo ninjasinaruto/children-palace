@@ -739,6 +739,7 @@ namespace ShaoNianGong
         {
             if (dgvStudentCourses.SelectedRows.Count <= 0)
                 return;
+            int rowIndex = dgvStudents.CurrentRow.Index;
             DataGridViewRow row = dgvStudentCourses.SelectedRows[0];
 
             int selectedStudentCourseIndex = GetSelectedStudentCourseIndex();
@@ -747,6 +748,7 @@ namespace ShaoNianGong
             int studentId = int.Parse(txtID.Text);
 
             ChangeCourseForm frmChangeCourse = new ChangeCourseForm();
+            frmChangeCourse.StudentID = studentId;
             frmChangeCourse.StudentName = txtName.Text;
             frmChangeCourse.Balance = txtBalance.Text;
 
@@ -758,39 +760,83 @@ namespace ShaoNianGong
             frmChangeCourse.ChargeAmount = row.Cells["ChargeAmountColumn"].Value.ToString();
             if (frmChangeCourse.ShowDialog() != DialogResult.OK)
                 return;
-            //GetDepositAmountForm frmGetDepositAmount = new GetDepositAmountForm();
-            //frmGetDepositAmount.StudentName = txtName.Text;
-            //frmGetDepositAmount.CardNo = txtCardNo.Text;
-            //frmGetDepositAmount.CardType = txtCardType.Text;
-            //if (frmGetDepositAmount.ShowDialog() != DialogResult.OK)
-            //    return;
 
-            //int depositAmount = frmGetDepositAmount.DepositAmount;
-            //int paidAmount = frmGetDepositAmount.PaidAmount;
-            //int tuitionAmount = frmGetDepositAmount.tuitionAmount;
-            //int materialsAmount = frmGetDepositAmount.materialsAmount;
-            //int otherAmount = frmGetDepositAmount.otherAmount;
+            ConfirmChangeCourseForm frmConfirmChangeCourse = new ConfirmChangeCourseForm();
+            frmConfirmChangeCourse.StudentName = frmChangeCourse.StudentName;
+            frmConfirmChangeCourse.Balance = frmChangeCourse.Balance;
+            frmConfirmChangeCourse.CourseTypeName = frmChangeCourse.CourseType;
+            frmConfirmChangeCourse.CourseSubtypeName = frmChangeCourse.CourseSubtype;
+            frmConfirmChangeCourse.CourseName = frmChangeCourse.CourseName;
+            frmConfirmChangeCourse.ChargeTypeName = frmChangeCourse.ChargeType;
+            frmConfirmChangeCourse.ChargeAmount = frmChangeCourse.ChargeAmount;
+            frmConfirmChangeCourse.ExpireDate = DateTime.Parse(frmChangeCourse.CurrentExpireDate).ToLongDateString();
+            frmConfirmChangeCourse.NewCourseTypeName = frmChangeCourse.NewCourseType;
+            frmConfirmChangeCourse.NewCourseSubtypeName = frmChangeCourse.NewCourseSubtype;
+            frmConfirmChangeCourse.NewCourseName = frmChangeCourse.NewCourseName;
+            frmConfirmChangeCourse.NewChargeTypeName = frmChangeCourse.NewChargeTypeName;
+            frmConfirmChangeCourse.NewChargeAmount = frmChangeCourse.NewChargeAmount;
+            frmConfirmChangeCourse.SignUpPeriod = frmChangeCourse.SignUpPeriod;
+            frmConfirmChangeCourse.NewExpireDate = frmChangeCourse.NewExpireTime.ToLongDateString();
+            frmConfirmChangeCourse.SettlementAmount = frmChangeCourse.SettlementAmount + "";
+            frmConfirmChangeCourse.TotalAmount = frmChangeCourse.TotalCost + "";
+            frmConfirmChangeCourse.DiscountLevelName = frmChangeCourse.NewDiscountLevel;
+            frmConfirmChangeCourse.InbackAmount = frmChangeCourse.InbackAmount + "";
+            frmConfirmChangeCourse.DiscountReason = frmChangeCourse.DiscountReason;
 
-            //DataGridViewRow row = dgvStudents.SelectedRows[0];
+            if (frmConfirmChangeCourse.ShowDialog() != DialogResult.OK)
+                return;
 
-            //ConfirmDepositForm frmConfirmDeposit = new ConfirmDepositForm();
-            //frmConfirmDeposit.DepositAmount = depositAmount.ToString();
-            //frmConfirmDeposit.PaidAmount = paidAmount.ToString();
-            //frmConfirmDeposit.TuitionAmount = tuitionAmount.ToString();
-            //frmConfirmDeposit.MaterialsAmount = materialsAmount.ToString();
-            //frmConfirmDeposit.OtherAmount = otherAmount.ToString();
-            //frmConfirmDeposit.StudentName = txtName.Text;
-            //frmConfirmDeposit.StudentSex = row.Cells["SexColumn"].Value.ToString();
-            //frmConfirmDeposit.StudentBirthday = row.Cells["BirthdayColumn"].Value.ToString();
-            //frmConfirmDeposit.StudentAddress = row.Cells["AddressColumn"].Value.ToString();
-            //frmConfirmDeposit.StudentPhone = row.Cells["PhoneColumn"].Value.ToString();
-            //frmConfirmDeposit.StudentFartherName = row.Cells["FartherNameColumn"].Value.ToString();
-            //frmConfirmDeposit.StudentFartherPhone = row.Cells["FartherTelColumn"].Value.ToString();
-            //frmConfirmDeposit.StudentFartherWork = row.Cells["FartherWorkColumn"].Value.ToString();
-            //frmConfirmDeposit.StudentMotherName = row.Cells["MotherNameColumn"].Value.ToString();
-            //frmConfirmDeposit.StudentMotherPhone = row.Cells["MotherTelColumn"].Value.ToString();
-            //frmConfirmDeposit.StudentMotherWork = row.Cells["MotherWorkColumn"].Value.ToString();
-            //frmConfirmDeposit.Text = "确定为“" + txtName.Text + "”充值" + depositAmount + "元吗？";
+            // 1.更新余额(当前余额+结算-折后补缴)
+            int balance = int.Parse(frmConfirmChangeCourse.Balance) + int.Parse(frmConfirmChangeCourse.SettlementAmount) - int.Parse(frmConfirmChangeCourse.InbackAmount);
+            studentsTableAdapter.UpdateBalance(balance, int.Parse(txtID.Text));
+            txtBalance.Text = balance.ToString();
+
+            // 2.更新最近的缴费过期时间
+            studentsTableAdapter.UpdateExpireTime(DateTime.Parse(frmConfirmChangeCourse.NewExpireDate), int.Parse(txtID.Text));
+
+            // 3.更新学生课程表
+            // 1)将原来记录转移到历史表
+            studentCoursesLogTableAdapter.InsertQuery(studentCourseId);
+            // 2)删除原来的记录
+            studentCoursesTableAdapter.DeleteStudentCourse(studentCourseId);
+            // 3)新增新的记录
+            studentCoursesTableAdapter.InsertStudentCourse(studentId, frmChangeCourse.NewCourseID, DateTime.Parse(frmConfirmChangeCourse.NewExpireDate),
+                int.Parse(frmChangeCourse.NewChargeAmount) * frmChangeCourse.SignUpTime, frmChangeCourse.SignUpTime);
+
+            // 4.更新学生消费表
+            // 1)将原来记录转移到历史表
+            studentCostLogTableAdapter.InsertQuery(studentId, courseID);
+            // 2)删除原来的记录
+            studentCostTableAdapter1.DeleteByStudentIDAndCourseID(studentId, courseID);
+            // 3)新增新的记录
+            studentCostTableAdapter1.InsertCost(int.Parse(txtID.Text), frmChangeCourse.NewCourseID, int.Parse(frmConfirmChangeCourse.TotalAmount), DateTime.Now, frmChangeCourse.DiscountLevel,
+                int.Parse(frmConfirmChangeCourse.InbackAmount), frmConfirmChangeCourse.DiscountReason, User.CurrentUser.UserName);
+
+            // 5.新增转班历史表
+            changeCoursesTableAdapter.Insert(studentId, frmConfirmChangeCourse.CourseTypeName, frmConfirmChangeCourse.CourseSubtypeName, frmConfirmChangeCourse.CourseName,
+                frmConfirmChangeCourse.ChargeTypeName, int.Parse(frmConfirmChangeCourse.ChargeAmount), frmConfirmChangeCourse.NewCourseTypeName, frmConfirmChangeCourse.NewCourseSubtypeName,
+                frmConfirmChangeCourse.NewCourseName, frmConfirmChangeCourse.NewChargeTypeName, int.Parse(frmConfirmChangeCourse.NewChargeAmount), DateTime.Parse(frmConfirmChangeCourse.NewExpireDate),
+                int.Parse(frmConfirmChangeCourse.TotalAmount), int.Parse(frmConfirmChangeCourse.SettlementAmount), int.Parse(frmConfirmChangeCourse.InbackAmount), frmChangeCourse.DiscountLevel,
+                frmConfirmChangeCourse.DiscountReason, DateTime.Now, User.CurrentUser.UserName);
+            MessageBox.Show("转班成功！", "报名课程成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // 6.刷新显示
+            studentCoursesTableAdapter.Fill(studentsDataSet.StudentCourses, studentId);
+            if (this.UserType == 0)
+            {
+                // 只加载被授权的学生
+                this.studentsTableAdapter.FillByUserName(this.studentsDataSet.Students, this.UserName);
+            }
+            else
+            {
+                // 加载所有的学生
+                this.studentsTableAdapter.FillByStatus(this.studentsDataSet.Students);
+            }
+
+            if (rowIndex >= 0)
+            {
+                this.dgvStudents.Rows[rowIndex].Selected = true;
+                this.dgvStudents.CurrentCell = this.dgvStudents.Rows[rowIndex].Cells[0];
+            }
         }
     }
 }
