@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -127,6 +127,7 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnReportBack = new System.Windows.Forms.Button();
             this.btnCardConnect = new System.Windows.Forms.Button();
+            this.btnCardDisconnect = new System.Windows.Forms.Button();
             this.studentsTableAdapter = new ShaoNianGong.StudentsDataSetTableAdapters.StudentsTableAdapter();
             this.studentCoursesTableAdapter = new ShaoNianGong.StudentsDataSetTableAdapters.StudentCoursesTableAdapter();
             this.courseTimesTableAdapter = new ShaoNianGong.StudentsDataSetTableAdapters.CourseTimesTableAdapter();
@@ -138,7 +139,12 @@
             this.cardListTableAdapter = new ShaoNianGong.StudentsDataSetTableAdapters.CardListTableAdapter();
             this.studentVacateBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.studentVacateTableAdapter = new ShaoNianGong.StudentsDataSetTableAdapters.StudentVacateTableAdapter();
-            this.btnCardDisconnect = new System.Windows.Forms.Button();
+            this.studentCoursesLogBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentCoursesLogTableAdapter = new ShaoNianGong.StudentsDataSetTableAdapters.StudentCoursesLogTableAdapter();
+            this.studentCostLogBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentCostLogTableAdapter = new ShaoNianGong.StudentsDataSetTableAdapters.StudentCostLogTableAdapter();
+            this.changeCoursesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.changeCoursesTableAdapter = new ShaoNianGong.StudentsDataSetTableAdapters.ChangeCoursesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsDataSet)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -161,6 +167,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.studentRefundBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentVacateBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentCoursesLogBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentCostLogBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.changeCoursesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -463,9 +472,9 @@
             // ExpireTime
             // 
             this.ExpireTime.DataPropertyName = "ExpireTime";
-            dataGridViewCellStyle1.Format = "D";
-            dataGridViewCellStyle1.NullValue = null;
-            this.ExpireTime.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Format = "D";
+            dataGridViewCellStyle6.NullValue = null;
+            this.ExpireTime.DefaultCellStyle = dataGridViewCellStyle6;
             this.ExpireTime.HeaderText = "缴费到期时间";
             this.ExpireTime.Name = "ExpireTime";
             this.ExpireTime.ReadOnly = true;
@@ -480,9 +489,9 @@
             // BirthdayColumn
             // 
             this.BirthdayColumn.DataPropertyName = "Birthday";
-            dataGridViewCellStyle2.Format = "D";
-            dataGridViewCellStyle2.NullValue = null;
-            this.BirthdayColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Format = "D";
+            dataGridViewCellStyle7.NullValue = null;
+            this.BirthdayColumn.DefaultCellStyle = dataGridViewCellStyle7;
             this.BirthdayColumn.HeaderText = "生日";
             this.BirthdayColumn.Name = "BirthdayColumn";
             this.BirthdayColumn.ReadOnly = true;
@@ -592,9 +601,9 @@
             // ExpireTimeColumn
             // 
             this.ExpireTimeColumn.DataPropertyName = "ExpireTime";
-            dataGridViewCellStyle3.Format = "D";
-            dataGridViewCellStyle3.NullValue = null;
-            this.ExpireTimeColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Format = "D";
+            dataGridViewCellStyle8.NullValue = null;
+            this.ExpireTimeColumn.DefaultCellStyle = dataGridViewCellStyle8;
             this.ExpireTimeColumn.HeaderText = "到期时间";
             this.ExpireTimeColumn.Name = "ExpireTimeColumn";
             this.ExpireTimeColumn.ReadOnly = true;
@@ -757,9 +766,9 @@
             // beginTimeDataGridViewTextBoxColumn
             // 
             this.beginTimeDataGridViewTextBoxColumn.DataPropertyName = "BeginTime";
-            dataGridViewCellStyle4.Format = "t";
-            dataGridViewCellStyle4.NullValue = null;
-            this.beginTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Format = "t";
+            dataGridViewCellStyle9.NullValue = null;
+            this.beginTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
             this.beginTimeDataGridViewTextBoxColumn.HeaderText = "上课时间";
             this.beginTimeDataGridViewTextBoxColumn.Name = "beginTimeDataGridViewTextBoxColumn";
             this.beginTimeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -767,8 +776,8 @@
             // endTimeDataGridViewTextBoxColumn
             // 
             this.endTimeDataGridViewTextBoxColumn.DataPropertyName = "EndTime";
-            dataGridViewCellStyle5.Format = "t";
-            this.endTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Format = "t";
+            this.endTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
             this.endTimeDataGridViewTextBoxColumn.HeaderText = "下课时间";
             this.endTimeDataGridViewTextBoxColumn.Name = "endTimeDataGridViewTextBoxColumn";
             this.endTimeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -987,6 +996,16 @@
             this.btnCardConnect.UseVisualStyleBackColor = true;
             this.btnCardConnect.Click += new System.EventHandler(this.btnCardConnect_Click);
             // 
+            // btnCardDisconnect
+            // 
+            this.btnCardDisconnect.Location = new System.Drawing.Point(1156, 23);
+            this.btnCardDisconnect.Name = "btnCardDisconnect";
+            this.btnCardDisconnect.Size = new System.Drawing.Size(89, 38);
+            this.btnCardDisconnect.TabIndex = 17;
+            this.btnCardDisconnect.Text = "回收卡片";
+            this.btnCardDisconnect.UseVisualStyleBackColor = true;
+            this.btnCardDisconnect.Click += new System.EventHandler(this.btnCardDisconnect_Click);
+            // 
             // studentsTableAdapter
             // 
             this.studentsTableAdapter.ClearBeforeFill = true;
@@ -1035,15 +1054,32 @@
             // 
             this.studentVacateTableAdapter.ClearBeforeFill = true;
             // 
-            // btnCardDisconnect
+            // studentCoursesLogBindingSource
             // 
-            this.btnCardDisconnect.Location = new System.Drawing.Point(1156, 23);
-            this.btnCardDisconnect.Name = "btnCardDisconnect";
-            this.btnCardDisconnect.Size = new System.Drawing.Size(89, 38);
-            this.btnCardDisconnect.TabIndex = 17;
-            this.btnCardDisconnect.Text = "回收卡片";
-            this.btnCardDisconnect.UseVisualStyleBackColor = true;
-            this.btnCardDisconnect.Click += new System.EventHandler(this.btnCardDisconnect_Click);
+            this.studentCoursesLogBindingSource.DataMember = "StudentCoursesLog";
+            this.studentCoursesLogBindingSource.DataSource = this.studentsDataSet;
+            // 
+            // studentCoursesLogTableAdapter
+            // 
+            this.studentCoursesLogTableAdapter.ClearBeforeFill = true;
+            // 
+            // studentCostLogBindingSource
+            // 
+            this.studentCostLogBindingSource.DataMember = "StudentCostLog";
+            this.studentCostLogBindingSource.DataSource = this.studentsDataSet;
+            // 
+            // studentCostLogTableAdapter
+            // 
+            this.studentCostLogTableAdapter.ClearBeforeFill = true;
+            // 
+            // changeCoursesBindingSource
+            // 
+            this.changeCoursesBindingSource.DataMember = "ChangeCourses";
+            this.changeCoursesBindingSource.DataSource = this.studentsDataSet;
+            // 
+            // changeCoursesTableAdapter
+            // 
+            this.changeCoursesTableAdapter.ClearBeforeFill = true;
             // 
             // StudentsManageForm
             // 
@@ -1090,6 +1126,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.studentRefundBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentVacateBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentCoursesLogBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentCostLogBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.changeCoursesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1202,6 +1241,12 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnHistoryRecord;
         private System.Windows.Forms.Button btnChangeCourses;
+        private System.Windows.Forms.BindingSource studentCoursesLogBindingSource;
+        private StudentsDataSetTableAdapters.StudentCoursesLogTableAdapter studentCoursesLogTableAdapter;
+        private System.Windows.Forms.BindingSource studentCostLogBindingSource;
+        private StudentsDataSetTableAdapters.StudentCostLogTableAdapter studentCostLogTableAdapter;
+        private System.Windows.Forms.BindingSource changeCoursesBindingSource;
+        private StudentsDataSetTableAdapters.ChangeCoursesTableAdapter changeCoursesTableAdapter;
 
     }
 }
