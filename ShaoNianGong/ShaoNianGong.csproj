@@ -89,6 +89,18 @@
     <Compile Include="InputDialog\ChangeCourseForm.Designer.cs">
       <DependentUpon>ChangeCourseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="InputDialog\ClassroomAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog\ClassroomAddForm.Designer.cs">
+      <DependentUpon>ClassroomAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputDialog\ClassroomUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog\ClassroomUpdateForm.Designer.cs">
+      <DependentUpon>ClassroomUpdateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InputDialog\CourseExtendForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -425,6 +437,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InputDialog\ChangeCourseForm.resx">
       <DependentUpon>ChangeCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog\ClassroomAddForm.resx">
+      <DependentUpon>ClassroomAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog\ClassroomUpdateForm.resx">
+      <DependentUpon>ClassroomUpdateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InputDialog\CourseExtendForm.resx">
       <DependentUpon>CourseExtendForm.cs</DependentUpon>

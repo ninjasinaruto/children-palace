@@ -18,28 +18,89 @@ namespace ShaoNianGong
 
         private void ClassroomManageForm_Load(object sender, EventArgs e)
         {
-            // TODO: 这行代码将数据加载到表“coursesDataSet.Classrooms”中。您可以根据需要移动或删除它。
+            this.dayOfWeekTableAdapter.Fill(this.staticDataSet.DayOfWeek);
             this.classroomsTableAdapter.Fill(this.coursesDataSet.Classrooms);
         }
 
-        private void btnAddClassroom_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (txtClassroomName.Text == "")
+            ClassroomAddForm frmClassroomAdd = new ClassroomAddForm();
+            if (frmClassroomAdd.ShowDialog() != DialogResult.OK)
+                return;
+            classroomsTableAdapter.Insert(frmClassroomAdd.ClassroomName);
+            this.classroomsTableAdapter.Fill(this.coursesDataSet.Classrooms);
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (this.classroomsBindingSource.Position == -1)
             {
-                MessageBox.Show("请输入教室名称", "请输入教室名称", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtClassroomName.Focus();
+                MessageBox.Show("请选择要修改的教室！");
                 return;
             }
+            else
+            {
+                int classroomID = this.coursesDataSet.Classrooms.Rows[this.classroomsBindingSource.Position].Field<int>("ClassroomID");
+                string classroomName = this.coursesDataSet.Classrooms.Rows[this.classroomsBindingSource.Position].Field<string>("ClassroomName");
+                ClassroomUpdateForm frmClassroomUpdate = new ClassroomUpdateForm();
+                frmClassroomUpdate.ClassroomName = classroomName;
+                if (frmClassroomUpdate.ShowDialog() != DialogResult.OK)
+                    return;
+                classroomsTableAdapter.UpdateByID(frmClassroomUpdate.ClassroomName, classroomID);
+                this.classroomsTableAdapter.Fill(this.coursesDataSet.Classrooms);
+            }
+        }
 
-            ConfirmAddClassroomForm frmAddClassroom = new ConfirmAddClassroomForm();
-            frmAddClassroom.ClassroomName = txtClassroomName.Text;
-            if (frmAddClassroom.ShowDialog() != DialogResult.OK)
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            if (this.classroomsBindingSource.Position == -1)
+            {
+                MessageBox.Show("请选择要删除的教室！");
                 return;
+            }
+            else
+            {
+                int classroomID = this.coursesDataSet.Classrooms.Rows[this.classroomsBindingSource.Position].Field<int>("ClassroomID");
+                string classroomName = this.coursesDataSet.Classrooms.Rows[this.classroomsBindingSource.Position].Field<string>("ClassroomName");
+                int courseCount = this.coursesDataSet.Classrooms.Rows[this.classroomsBindingSource.Position].Field<int>("CourseCount");
+                if (courseCount > 0)
+                {
+                    MessageBox.Show("该教室有安排课程，无法删除！");
+                    return;
+                }
+                else
+                {
+                    if (MessageBox.Show("您确定要删除该教室吗？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                    {
+                        classroomsTableAdapter.DeleteByID(classroomID);
+                        this.classroomsTableAdapter.Fill(this.coursesDataSet.Classrooms);
+                    }
+                }
+            }
+        }
 
-            classroomsTableAdapter.Insert(txtClassroomName.Text);
-            this.classroomsTableAdapter.Fill(this.coursesDataSet.Classrooms);
-            txtClassroomName.Text = "";
-            txtClassroomName.Focus();
+        private void classroomsBindingSource_PositionChanged(object sender, EventArgs e)
+        {
+            if (classroomsBindingSource.Position < 0)
+            {
+                coursesDataSet.CoursesOfClassroom.Clear();
+                return;
+            }
+            int classroomID = this.coursesDataSet.Classrooms.Rows[classroomsBindingSource.Position].Field<int>("ClassroomID");
+            int dayOfWeek = this.staticDataSet.DayOfWeek.Rows[dayOfWeekBindingSource.Position].Field<int>("DayOfWeekValue");
+            this.coursesOfClassroomTableAdapter.FillByClassroomIDAndDayOfWeek(coursesDataSet.CoursesOfClassroom, classroomID, dayOfWeek);
+        }
+
+        private void dayOfWeekBindingSource_PositionChanged(object sender, EventArgs e)
+        {
+            if (classroomsBindingSource.Position < 0)
+            {
+                coursesDataSet.CoursesOfClassroom.Clear();
+                return;
+            }
+            int classroomID = this.coursesDataSet.Classrooms.Rows[classroomsBindingSource.Position].Field<int>("ClassroomID");
+            int dayOfWeek = this.staticDataSet.DayOfWeek.Rows[dayOfWeekBindingSource.Position].Field<int>("DayOfWeekValue");
+            this.coursesOfClassroomTableAdapter.FillByClassroomIDAndDayOfWeek(coursesDataSet.CoursesOfClassroom, classroomID, dayOfWeek);
         }
     }
 }
