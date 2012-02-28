@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.coursesDataSet = new ShaoNianGong.CoursesDataSet();
             this.classroomsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.listBox1 = new System.Windows.Forms.ListBox();
@@ -45,15 +45,15 @@
             this.staticDataSet = new ShaoNianGong.StaticDataSet();
             this.dayOfWeekTableAdapter = new ShaoNianGong.StaticDataSetTableAdapters.DayOfWeekTableAdapter();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.coursesOfClassroomBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.coursesOfClassroomTableAdapter = new ShaoNianGong.CoursesDataSetTableAdapters.CoursesOfClassroomTableAdapter();
+            this.dgvCourseOfClassroom = new System.Windows.Forms.DataGridView();
             this.courseTypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseSubtypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TeacherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.beginTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.endTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coursesOfClassroomBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.coursesOfClassroomTableAdapter = new ShaoNianGong.CoursesDataSetTableAdapters.CoursesOfClassroomTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.coursesDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classroomsBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -61,7 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dayOfWeekBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.staticDataSet)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCourseOfClassroom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coursesOfClassroomBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -175,7 +175,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dataGridView1);
+            this.groupBox3.Controls.Add(this.dgvCourseOfClassroom);
             this.groupBox3.Location = new System.Drawing.Point(391, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(721, 355);
@@ -183,37 +183,28 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "课程信息";
             // 
-            // dataGridView1
+            // dgvCourseOfClassroom
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvCourseOfClassroom.AllowUserToAddRows = false;
+            this.dgvCourseOfClassroom.AllowUserToDeleteRows = false;
+            this.dgvCourseOfClassroom.AutoGenerateColumns = false;
+            this.dgvCourseOfClassroom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCourseOfClassroom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.courseTypeNameDataGridViewTextBoxColumn,
             this.courseSubtypeNameDataGridViewTextBoxColumn,
             this.courseNameDataGridViewTextBoxColumn,
             this.TeacherName,
             this.beginTimeDataGridViewTextBoxColumn,
             this.endTimeDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.coursesOfClassroomBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(14, 21);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(692, 318);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // coursesOfClassroomBindingSource
-            // 
-            this.coursesOfClassroomBindingSource.DataMember = "CoursesOfClassroom";
-            this.coursesOfClassroomBindingSource.DataSource = this.coursesDataSet;
-            // 
-            // coursesOfClassroomTableAdapter
-            // 
-            this.coursesOfClassroomTableAdapter.ClearBeforeFill = true;
+            this.dgvCourseOfClassroom.DataSource = this.coursesOfClassroomBindingSource;
+            this.dgvCourseOfClassroom.Location = new System.Drawing.Point(14, 21);
+            this.dgvCourseOfClassroom.Name = "dgvCourseOfClassroom";
+            this.dgvCourseOfClassroom.ReadOnly = true;
+            this.dgvCourseOfClassroom.RowHeadersVisible = false;
+            this.dgvCourseOfClassroom.RowTemplate.Height = 23;
+            this.dgvCourseOfClassroom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCourseOfClassroom.Size = new System.Drawing.Size(692, 318);
+            this.dgvCourseOfClassroom.TabIndex = 0;
             // 
             // courseTypeNameDataGridViewTextBoxColumn
             // 
@@ -246,9 +237,9 @@
             // beginTimeDataGridViewTextBoxColumn
             // 
             this.beginTimeDataGridViewTextBoxColumn.DataPropertyName = "BeginTime";
-            dataGridViewCellStyle3.Format = "t";
-            dataGridViewCellStyle3.NullValue = null;
-            this.beginTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Format = "t";
+            dataGridViewCellStyle1.NullValue = null;
+            this.beginTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.beginTimeDataGridViewTextBoxColumn.HeaderText = "开课时间";
             this.beginTimeDataGridViewTextBoxColumn.Name = "beginTimeDataGridViewTextBoxColumn";
             this.beginTimeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -257,13 +248,23 @@
             // endTimeDataGridViewTextBoxColumn
             // 
             this.endTimeDataGridViewTextBoxColumn.DataPropertyName = "EndTime";
-            dataGridViewCellStyle4.Format = "t";
-            dataGridViewCellStyle4.NullValue = null;
-            this.endTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Format = "t";
+            dataGridViewCellStyle2.NullValue = null;
+            this.endTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.endTimeDataGridViewTextBoxColumn.HeaderText = "下课时间";
             this.endTimeDataGridViewTextBoxColumn.Name = "endTimeDataGridViewTextBoxColumn";
             this.endTimeDataGridViewTextBoxColumn.ReadOnly = true;
             this.endTimeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // coursesOfClassroomBindingSource
+            // 
+            this.coursesOfClassroomBindingSource.DataMember = "CoursesOfClassroom";
+            this.coursesOfClassroomBindingSource.DataSource = this.coursesDataSet;
+            this.coursesOfClassroomBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.coursesOfClassroomBindingSource_ListChanged);
+            // 
+            // coursesOfClassroomTableAdapter
+            // 
+            this.coursesOfClassroomTableAdapter.ClearBeforeFill = true;
             // 
             // ClassroomManageForm
             // 
@@ -285,7 +286,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dayOfWeekBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.staticDataSet)).EndInit();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCourseOfClassroom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coursesOfClassroomBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -307,7 +308,7 @@
         private StaticDataSetTableAdapters.DayOfWeekTableAdapter dayOfWeekTableAdapter;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvCourseOfClassroom;
         private System.Windows.Forms.BindingSource coursesOfClassroomBindingSource;
         private CoursesDataSetTableAdapters.CoursesOfClassroomTableAdapter coursesOfClassroomTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn courseTypeNameDataGridViewTextBoxColumn;
