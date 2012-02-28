@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtBalance = new System.Windows.Forms.TextBox();
             this.studentsPreregBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.preregisterDataset = new ShaoNianGong.PreregisterDataset();
@@ -114,6 +114,7 @@
             this.studentCostBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.studentCostTableAdapter = new ShaoNianGong.PreregisterDatasetTableAdapters.StudentCostTableAdapter();
             this.discountLevelTableAdapter = new ShaoNianGong.StaticDataSetTableAdapters.DiscountLevelTableAdapter();
+            this.staticDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.studentsPreregBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.preregisterDataset)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -131,6 +132,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.discountLevelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentCoursesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentCostBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staticDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBalance
@@ -569,9 +571,9 @@
             // BirthdayColumn
             // 
             this.BirthdayColumn.DataPropertyName = "Birthday";
-            dataGridViewCellStyle1.Format = "D";
-            dataGridViewCellStyle1.NullValue = null;
-            this.BirthdayColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "D";
+            dataGridViewCellStyle2.NullValue = null;
+            this.BirthdayColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.BirthdayColumn.HeaderText = "生日";
             this.BirthdayColumn.Name = "BirthdayColumn";
             this.BirthdayColumn.ReadOnly = true;
@@ -864,6 +866,11 @@
             // 
             this.discountLevelTableAdapter.ClearBeforeFill = true;
             // 
+            // staticDataSetBindingSource
+            // 
+            this.staticDataSetBindingSource.DataSource = this.staticDataSet;
+            this.staticDataSetBindingSource.Position = 0;
+            // 
             // PreregSignUpCoursesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -902,6 +909,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.discountLevelBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentCoursesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentCostBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.staticDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -993,5 +1001,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RecommenderColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn AddressColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn BirthdayColumn;
+        private System.Windows.Forms.BindingSource staticDataSetBindingSource;
     }
 }

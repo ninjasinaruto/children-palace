@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
             this.depositListDataSet = new Common.DepositListDataSet();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.depositDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,21 +46,13 @@
             this.ExpireTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TeacherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OperatorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.depositListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.depositListTableAdapter = new Common.DepositListDataSetTableAdapters.DepositListTableAdapter();
             this.costListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.costListDataSet = new ShaoNianGong.CostListDataSet();
             this.costListTableAdapter = new ShaoNianGong.CostListDataSetTableAdapters.CostListTableAdapter();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.materialsDataSet1 = new ShaoNianGong.MaterialsDataSet();
-            this.studentMaterialsTableAdapter = new ShaoNianGong.MaterialsDataSetTableAdapters.StudentMaterialsTableAdapter();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.leaveCourseTableAdapter = new ShaoNianGong.LeaveCourseDataSetTableAdapters.LeaveCourseTableAdapter();
-            this.leaveCourseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.leaveCourseDataSet = new ShaoNianGong.LeaveCourseDataSet();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.OperatorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,13 +66,14 @@
             this.chargeTypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chargeAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaterialName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaterialPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BuyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BuyTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Operator = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.materialsDataSet1 = new ShaoNianGong.MaterialsDataSet();
+            this.studentMaterialsTableAdapter = new ShaoNianGong.MaterialsDataSetTableAdapters.StudentMaterialsTableAdapter();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.leaveCourseTableAdapter = new ShaoNianGong.LeaveCourseDataSetTableAdapters.LeaveCourseTableAdapter();
+            this.leaveCourseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.leaveCourseDataSet = new ShaoNianGong.LeaveCourseDataSet();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.refundDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.refundReasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,6 +84,13 @@
             this.teacherNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expireTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Operatorff = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaterialName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaterialPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuyTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Operator = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.depositListDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.depositListBindingSource)).BeginInit();
@@ -141,9 +141,9 @@
             // depositDateDataGridViewTextBoxColumn
             // 
             this.depositDateDataGridViewTextBoxColumn.DataPropertyName = "DepositDate";
-            dataGridViewCellStyle1.Format = "D";
-            dataGridViewCellStyle1.NullValue = null;
-            this.depositDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle22.Format = "D";
+            dataGridViewCellStyle22.NullValue = null;
+            this.depositDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle22;
             this.depositDateDataGridViewTextBoxColumn.HeaderText = "充值日期";
             this.depositDateDataGridViewTextBoxColumn.Name = "depositDateDataGridViewTextBoxColumn";
             this.depositDateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -151,8 +151,8 @@
             // DepositDate
             // 
             this.DepositDate.DataPropertyName = "DepositDate";
-            dataGridViewCellStyle2.Format = "t";
-            this.DepositDate.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle23.Format = "t";
+            this.DepositDate.DefaultCellStyle = dataGridViewCellStyle23;
             this.DepositDate.HeaderText = "充值时间";
             this.DepositDate.Name = "DepositDate";
             this.DepositDate.ReadOnly = true;
@@ -181,9 +181,9 @@
             // ExpireTimeColumn
             // 
             this.ExpireTimeColumn.DataPropertyName = "ExpireTime";
-            dataGridViewCellStyle3.Format = "D";
-            dataGridViewCellStyle3.NullValue = null;
-            this.ExpireTimeColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle24.Format = "D";
+            dataGridViewCellStyle24.NullValue = null;
+            this.ExpireTimeColumn.DefaultCellStyle = dataGridViewCellStyle24;
             this.ExpireTimeColumn.HeaderText = "缴费到期时间";
             this.ExpireTimeColumn.Name = "ExpireTimeColumn";
             this.ExpireTimeColumn.ReadOnly = true;
@@ -201,6 +201,13 @@
             this.TeacherName.HeaderText = "任课教师";
             this.TeacherName.Name = "TeacherName";
             this.TeacherName.ReadOnly = true;
+            // 
+            // OperatorColumn
+            // 
+            this.OperatorColumn.DataPropertyName = "Operator";
+            this.OperatorColumn.HeaderText = "经办人";
+            this.OperatorColumn.Name = "OperatorColumn";
+            this.OperatorColumn.ReadOnly = true;
             // 
             // depositListBindingSource
             // 
@@ -248,113 +255,23 @@
             this.dataGridViewTextBoxColumn7});
             this.dataGridView2.DataMember = "CostList";
             this.dataGridView2.DataSource = this.costListDataSet;
-            this.dataGridView2.Location = new System.Drawing.Point(12, 177);
+            this.dataGridView2.Location = new System.Drawing.Point(12, 179);
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowTemplate.Height = 23;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(1171, 185);
+            this.dataGridView2.Size = new System.Drawing.Size(1171, 171);
             this.dataGridView2.TabIndex = 13;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataMember = "StudentMaterials";
-            this.bindingSource1.DataSource = this.materialsDataSet1;
-            // 
-            // materialsDataSet1
-            // 
-            this.materialsDataSet1.DataSetName = "MaterialsDataSet";
-            this.materialsDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // studentMaterialsTableAdapter
-            // 
-            this.studentMaterialsTableAdapter.ClearBeforeFill = true;
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.AllowUserToResizeRows = false;
-            this.dataGridView3.AutoGenerateColumns = false;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.MaterialName,
-            this.MaterialPrice,
-            this.BuyCount,
-            this.BuyTime,
-            this.TotalCost,
-            this.Operator});
-            this.dataGridView3.DataSource = this.bindingSource1;
-            this.dataGridView3.Location = new System.Drawing.Point(12, 368);
-            this.dataGridView3.MultiSelect = false;
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.RowHeadersVisible = false;
-            this.dataGridView3.RowTemplate.Height = 23;
-            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(609, 203);
-            this.dataGridView3.TabIndex = 18;
-            // 
-            // leaveCourseTableAdapter
-            // 
-            this.leaveCourseTableAdapter.ClearBeforeFill = true;
-            // 
-            // leaveCourseBindingSource
-            // 
-            this.leaveCourseBindingSource.DataMember = "LeaveCourse";
-            this.leaveCourseBindingSource.DataSource = this.leaveCourseDataSet;
-            // 
-            // leaveCourseDataSet
-            // 
-            this.leaveCourseDataSet.DataSetName = "LeaveCourseDataSet";
-            this.leaveCourseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataGridView4
-            // 
-            this.dataGridView4.AllowUserToAddRows = false;
-            this.dataGridView4.AllowUserToDeleteRows = false;
-            this.dataGridView4.AllowUserToResizeRows = false;
-            this.dataGridView4.AutoGenerateColumns = false;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.refundDateDataGridViewTextBoxColumn,
-            this.dataGridViewTextBoxColumn3,
-            this.refundReasonDataGridViewTextBoxColumn,
-            this.refundAmountDataGridViewTextBoxColumn,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.teacherNameDataGridViewTextBoxColumn,
-            this.expireTimeDataGridViewTextBoxColumn,
-            this.Operatorff});
-            this.dataGridView4.DataSource = this.leaveCourseBindingSource;
-            this.dataGridView4.Location = new System.Drawing.Point(627, 368);
-            this.dataGridView4.MultiSelect = false;
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.ReadOnly = true;
-            this.dataGridView4.RowHeadersVisible = false;
-            this.dataGridView4.RowTemplate.Height = 23;
-            this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView4.Size = new System.Drawing.Size(556, 203);
-            this.dataGridView4.TabIndex = 19;
-            // 
-            // OperatorColumn
-            // 
-            this.OperatorColumn.DataPropertyName = "Operator";
-            this.OperatorColumn.HeaderText = "经办人";
-            this.OperatorColumn.Name = "OperatorColumn";
-            this.OperatorColumn.ReadOnly = true;
             // 
             // costDateDataGridViewTextBoxColumn
             // 
             this.costDateDataGridViewTextBoxColumn.DataPropertyName = "CostDate";
-            dataGridViewCellStyle4.Format = "F";
-            dataGridViewCellStyle4.NullValue = null;
-            this.costDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle25.Format = "F";
+            dataGridViewCellStyle25.NullValue = null;
+            this.costDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle25;
             this.costDateDataGridViewTextBoxColumn.HeaderText = "收费日期";
             this.costDateDataGridViewTextBoxColumn.Name = "costDateDataGridViewTextBoxColumn";
             this.costDateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -370,9 +287,9 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "ExpireTime";
-            dataGridViewCellStyle5.Format = "D";
-            dataGridViewCellStyle5.NullValue = null;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle26.Format = "D";
+            dataGridViewCellStyle26.NullValue = null;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle26;
             this.dataGridViewTextBoxColumn2.HeaderText = "缴费到期时间";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
@@ -449,61 +366,95 @@
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
-            // Column1
+            // bindingSource1
             // 
-            this.Column1.DataPropertyName = "Name";
-            this.Column1.HeaderText = "学生姓名";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.bindingSource1.DataMember = "StudentMaterials";
+            this.bindingSource1.DataSource = this.materialsDataSet1;
             // 
-            // MaterialName
+            // materialsDataSet1
             // 
-            this.MaterialName.DataPropertyName = "MaterialName";
-            this.MaterialName.HeaderText = "材料名称";
-            this.MaterialName.Name = "MaterialName";
-            this.MaterialName.ReadOnly = true;
+            this.materialsDataSet1.DataSetName = "MaterialsDataSet";
+            this.materialsDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // MaterialPrice
+            // studentMaterialsTableAdapter
             // 
-            this.MaterialPrice.DataPropertyName = "MaterialPrice";
-            this.MaterialPrice.HeaderText = "材料价格";
-            this.MaterialPrice.Name = "MaterialPrice";
-            this.MaterialPrice.ReadOnly = true;
+            this.studentMaterialsTableAdapter.ClearBeforeFill = true;
             // 
-            // BuyCount
+            // dataGridView3
             // 
-            this.BuyCount.DataPropertyName = "BuyCount";
-            this.BuyCount.HeaderText = "购买数量";
-            this.BuyCount.Name = "BuyCount";
-            this.BuyCount.ReadOnly = true;
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.AllowUserToResizeRows = false;
+            this.dataGridView3.AutoGenerateColumns = false;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.MaterialName,
+            this.MaterialPrice,
+            this.BuyCount,
+            this.BuyTime,
+            this.TotalCost,
+            this.Operator});
+            this.dataGridView3.DataSource = this.bindingSource1;
+            this.dataGridView3.Location = new System.Drawing.Point(12, 360);
+            this.dataGridView3.MultiSelect = false;
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
+            this.dataGridView3.RowHeadersVisible = false;
+            this.dataGridView3.RowTemplate.Height = 23;
+            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView3.Size = new System.Drawing.Size(1171, 159);
+            this.dataGridView3.TabIndex = 18;
             // 
-            // BuyTime
+            // leaveCourseTableAdapter
             // 
-            this.BuyTime.DataPropertyName = "BuyTime";
-            this.BuyTime.HeaderText = "购买时间";
-            this.BuyTime.Name = "BuyTime";
-            this.BuyTime.ReadOnly = true;
+            this.leaveCourseTableAdapter.ClearBeforeFill = true;
             // 
-            // TotalCost
+            // leaveCourseBindingSource
             // 
-            this.TotalCost.DataPropertyName = "TotalCost";
-            this.TotalCost.HeaderText = "总价格";
-            this.TotalCost.Name = "TotalCost";
-            this.TotalCost.ReadOnly = true;
+            this.leaveCourseBindingSource.DataMember = "LeaveCourse";
+            this.leaveCourseBindingSource.DataSource = this.leaveCourseDataSet;
             // 
-            // Operator
+            // leaveCourseDataSet
             // 
-            this.Operator.DataPropertyName = "Operator";
-            this.Operator.HeaderText = "经办人";
-            this.Operator.Name = "Operator";
-            this.Operator.ReadOnly = true;
+            this.leaveCourseDataSet.DataSetName = "LeaveCourseDataSet";
+            this.leaveCourseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.AllowUserToAddRows = false;
+            this.dataGridView4.AllowUserToDeleteRows = false;
+            this.dataGridView4.AllowUserToResizeRows = false;
+            this.dataGridView4.AutoGenerateColumns = false;
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.refundDateDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn3,
+            this.refundReasonDataGridViewTextBoxColumn,
+            this.refundAmountDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.teacherNameDataGridViewTextBoxColumn,
+            this.expireTimeDataGridViewTextBoxColumn,
+            this.Operatorff});
+            this.dataGridView4.DataSource = this.leaveCourseBindingSource;
+            this.dataGridView4.Location = new System.Drawing.Point(12, 525);
+            this.dataGridView4.MultiSelect = false;
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.ReadOnly = true;
+            this.dataGridView4.RowHeadersVisible = false;
+            this.dataGridView4.RowTemplate.Height = 23;
+            this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView4.Size = new System.Drawing.Size(1171, 162);
+            this.dataGridView4.TabIndex = 19;
             // 
             // refundDateDataGridViewTextBoxColumn
             // 
             this.refundDateDataGridViewTextBoxColumn.DataPropertyName = "RefundDate";
-            dataGridViewCellStyle6.Format = "D";
-            dataGridViewCellStyle6.NullValue = null;
-            this.refundDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle27.Format = "D";
+            dataGridViewCellStyle27.NullValue = null;
+            this.refundDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle27;
             this.refundDateDataGridViewTextBoxColumn.HeaderText = "离班日期";
             this.refundDateDataGridViewTextBoxColumn.Name = "refundDateDataGridViewTextBoxColumn";
             this.refundDateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -560,9 +511,9 @@
             // expireTimeDataGridViewTextBoxColumn
             // 
             this.expireTimeDataGridViewTextBoxColumn.DataPropertyName = "ExpireTime";
-            dataGridViewCellStyle7.Format = "D";
-            dataGridViewCellStyle7.NullValue = null;
-            this.expireTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle28.Format = "D";
+            dataGridViewCellStyle28.NullValue = null;
+            this.expireTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle28;
             this.expireTimeDataGridViewTextBoxColumn.HeaderText = "缴费到期时间";
             this.expireTimeDataGridViewTextBoxColumn.Name = "expireTimeDataGridViewTextBoxColumn";
             this.expireTimeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -574,21 +525,70 @@
             this.Operatorff.Name = "Operatorff";
             this.Operatorff.ReadOnly = true;
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Name";
+            this.Column1.HeaderText = "学生姓名";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // MaterialName
+            // 
+            this.MaterialName.DataPropertyName = "MaterialName";
+            this.MaterialName.HeaderText = "材料名称";
+            this.MaterialName.Name = "MaterialName";
+            this.MaterialName.ReadOnly = true;
+            // 
+            // MaterialPrice
+            // 
+            this.MaterialPrice.DataPropertyName = "MaterialPrice";
+            this.MaterialPrice.HeaderText = "材料价格";
+            this.MaterialPrice.Name = "MaterialPrice";
+            this.MaterialPrice.ReadOnly = true;
+            // 
+            // BuyCount
+            // 
+            this.BuyCount.DataPropertyName = "BuyCount";
+            this.BuyCount.HeaderText = "购买数量";
+            this.BuyCount.Name = "BuyCount";
+            this.BuyCount.ReadOnly = true;
+            // 
+            // BuyTime
+            // 
+            this.BuyTime.DataPropertyName = "BuyTime";
+            this.BuyTime.HeaderText = "购买时间";
+            this.BuyTime.Name = "BuyTime";
+            this.BuyTime.ReadOnly = true;
+            // 
+            // TotalCost
+            // 
+            this.TotalCost.DataPropertyName = "TotalCost";
+            this.TotalCost.HeaderText = "总价格";
+            this.TotalCost.Name = "TotalCost";
+            this.TotalCost.ReadOnly = true;
+            // 
+            // Operator
+            // 
+            this.Operator.DataPropertyName = "Operator";
+            this.Operator.HeaderText = "经办人";
+            this.Operator.Name = "Operator";
+            this.Operator.ReadOnly = true;
+            // 
             // HistoryRecordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1195, 583);
+            this.ClientSize = new System.Drawing.Size(1195, 696);
             this.Controls.Add(this.dataGridView4);
             this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.MaximizeBox = false;
             this.Name = "HistoryRecordForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "历史记录";
             this.Load += new System.EventHandler(this.HistoryRecordForm_Load);
+            this.Resize += new System.EventHandler(this.HistoryRecordForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.depositListDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.depositListBindingSource)).EndInit();
@@ -645,13 +645,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn chargeTypeNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn chargeAmountDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaterialName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaterialPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BuyCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BuyTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalCost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Operator;
         private System.Windows.Forms.DataGridViewTextBoxColumn refundDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn refundReasonDataGridViewTextBoxColumn;
@@ -662,5 +655,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn teacherNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn expireTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Operatorff;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaterialName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaterialPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BuyCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BuyTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Operator;
     }
 }

@@ -18,6 +18,12 @@ namespace ShaoNianGong
 
         private void SignUpCoursesForm_Load(object sender, EventArgs e)
         {
+            // 获取CourseTypes列表，填充对应的ComboBox
+            this.courseTypesTableAdapter.Fill(this.staticDataSet.CourseTypes);
+            lstCourseType.DataSource = courseTypesBindingSource;
+            lstCourseType.DisplayMember = "CourseTypeName";
+            lstCourseType.ValueMember = "CourseTypeID";
+
             // TODO: 这行代码将数据加载到表“staticDataSet.DiscountLevel”中。您可以根据需要移动或删除它。
             this.discountLevelTableAdapter.Fill(this.staticDataSet.DiscountLevel);
             // TODO: 这行代码将数据加载到表“preregisterDataset.StudentCourses”中。您可以根据需要移动或删除它。
@@ -26,12 +32,6 @@ namespace ShaoNianGong
             this.studentsPreregTableAdapter.Fill(this.preregisterDataset.studentsPrereg);
             // 获取收费类别
             this.chargeTypeTableAdapter.Fill(this.staticDataSet.ChargeType);
-
-            // 获取CourseTypes列表，填充对应的ComboBox
-            this.courseTypesTableAdapter.Fill(this.staticDataSet.CourseTypes);
-            lstCourseType.DataSource = courseTypesBindingSource;
-            lstCourseType.DisplayMember = "CourseTypeName";
-            lstCourseType.ValueMember = "CourseTypeID";
 
             // 初始化date
             dtCurrentDate.Value = DateTime.Now;
@@ -72,6 +72,13 @@ namespace ShaoNianGong
 
         private void studentsPreregBindingSource_PositionChanged(object sender, EventArgs e)
         {
+            if (studentsPreregBindingSource.Position < 0)
+                return;
+            int courseTypeID = this.preregisterDataset.studentsPrereg.Rows[studentsPreregBindingSource.Position].Field<int>("CourseTypeID");
+            int courseSubtypeID = this.preregisterDataset.studentsPrereg.Rows[studentsPreregBindingSource.Position].Field<int>("PreregisterCourseSubtype");
+
+            lstCourseType.SelectedValue = courseTypeID;
+            lstCourseSubtypes.SelectedValue = courseSubtypeID;
             /*
             txtPreregisterCourseSubtype.Text = "";
             if (studentsPreregBindingSource.Position < 0)

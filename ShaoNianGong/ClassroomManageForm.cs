@@ -11,6 +11,7 @@ namespace ShaoNianGong
 {
     public partial class ClassroomManageForm : Form
     {
+        public int currentDayOfWeek;
         public ClassroomManageForm()
         {
             InitializeComponent();
@@ -18,8 +19,38 @@ namespace ShaoNianGong
 
         private void ClassroomManageForm_Load(object sender, EventArgs e)
         {
+            // 获取今天的星期
+            switch (DateTime.Now.DayOfWeek)
+            {
+                case DayOfWeek.Monday:
+                    currentDayOfWeek = 1;
+                    break;
+                case DayOfWeek.Tuesday:
+                    currentDayOfWeek = 2;
+                    break;
+                case DayOfWeek.Wednesday:
+                    currentDayOfWeek = 3;
+                    break;
+                case DayOfWeek.Thursday:
+                    currentDayOfWeek = 4;
+                    break;
+                case DayOfWeek.Friday:
+                    currentDayOfWeek = 5;
+                    break;
+                case DayOfWeek.Saturday:
+                    currentDayOfWeek = 6;
+                    break;
+                case DayOfWeek.Sunday:
+                    currentDayOfWeek = 7;
+                    break;
+            }
+
             this.dayOfWeekTableAdapter.Fill(this.staticDataSet.DayOfWeek);
             this.classroomsTableAdapter.Fill(this.coursesDataSet.Classrooms);
+            this.coursesOfClassroomTableAdapter.Fill(this.coursesDataSet.CoursesOfClassroom);
+
+            if (dgvCourseOfClassroom.Rows.Count > 0)
+                dgvCourseOfClassroom.Rows[0].Selected = false;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -79,30 +110,6 @@ namespace ShaoNianGong
             }
         }
 
-        private void classroomsBindingSource_PositionChanged(object sender, EventArgs e)
-        {
-            if (classroomsBindingSource.Position < 0)
-            {
-                coursesDataSet.CoursesOfClassroom.Clear();
-                return;
-            }
-            int classroomID = this.coursesDataSet.Classrooms.Rows[classroomsBindingSource.Position].Field<int>("ClassroomID");
-            int dayOfWeek = this.staticDataSet.DayOfWeek.Rows[dayOfWeekBindingSource.Position].Field<int>("DayOfWeekValue");
-            this.coursesOfClassroomTableAdapter.FillByClassroomIDAndDayOfWeek(coursesDataSet.CoursesOfClassroom, classroomID, dayOfWeek);
-        }
-
-        private void dayOfWeekBindingSource_PositionChanged(object sender, EventArgs e)
-        {
-            if (classroomsBindingSource.Position < 0)
-            {
-                coursesDataSet.CoursesOfClassroom.Clear();
-                return;
-            }
-            int classroomID = this.coursesDataSet.Classrooms.Rows[classroomsBindingSource.Position].Field<int>("ClassroomID");
-            int dayOfWeek = this.staticDataSet.DayOfWeek.Rows[dayOfWeekBindingSource.Position].Field<int>("DayOfWeekValue");
-            this.coursesOfClassroomTableAdapter.FillByClassroomIDAndDayOfWeek(coursesDataSet.CoursesOfClassroom, classroomID, dayOfWeek);
-        }
-
         private void coursesOfClassroomBindingSource_ListChanged(object sender, ListChangedEventArgs e)
         {
             int count = this.coursesDataSet.CoursesOfClassroom.Rows.Count;
@@ -112,8 +119,8 @@ namespace ShaoNianGong
                 {
                     DateTime beginTime = this.coursesDataSet.CoursesOfClassroom.Rows[i].Field<DateTime>("BeginTime");
                     DateTime endTime = this.coursesDataSet.CoursesOfClassroom.Rows[i].Field<DateTime>("EndTime");
-
-                    if (isBetweenBeginAndEndTime(beginTime, endTime))
+                    int dayOfWeek = this.coursesDataSet.CoursesOfClassroom.Rows[i].Field<int>("DayOfWeekValue");
+                    if (isBetweenBeginAndEndTime(beginTime, endTime) && dayOfWeek == currentDayOfWeek)
                     {
                         dgvCourseOfClassroom.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 0, 0);
                     }
@@ -129,6 +136,48 @@ namespace ShaoNianGong
             if (now.CompareTo(sTime) >= 1 && now.CompareTo(eTime) <= -1)
                 return true;
             return false;
+        }
+
+        private void btnSearchByDay_Click(object sender, EventArgs e)
+        {
+            int dayOfWeek = this.staticDataSet.DayOfWeek.Rows[dayOfWeekBindingSource.Position].Field<int>("DayOfWeekValue");
+            this.coursesOfClassroomTableAdapter.FillByDayOfWeek(coursesDataSet.CoursesOfClassroom, dayOfWeek);
+            if (dgvCourseOfClassroom.Rows.Count > 0)
+                dgvCourseOfClassroom.Rows[0].Selected = false;
+        }
+
+        private void btnSearchByClassroom_Click(object sender, EventArgs e)
+        {
+            if (classroomsBindingSource.Position < 0)
+            {
+                coursesDataSet.CoursesOfClassroom.Clear();
+                return;
+            }
+            int classroomID = this.coursesDataSet.Classrooms.Rows[classroomsBindingSource.Position].Field<int>("ClassroomID");
+            this.coursesOfClassroomTableAdapter.FillByClassroomID(coursesDataSet.CoursesOfClassroom, classroomID);
+            if (dgvCourseOfClassroom.Rows.Count > 0)
+                dgvCourseOfClassroom.Rows[0].Selected = false;
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (classroomsBindingSource.Position < 0)
+            {
+                coursesDataSet.CoursesOfClassroom.Clear();
+                return;
+            }
+            int classroomID = this.coursesDataSet.Classrooms.Rows[classroomsBindingSource.Position].Field<int>("ClassroomID");
+            int dayOfWeek = this.staticDataSet.DayOfWeek.Rows[dayOfWeekBindingSource.Position].Field<int>("DayOfWeekValue");
+            this.coursesOfClassroomTableAdapter.FillByClassroomIDAndDayOfWeek(coursesDataSet.CoursesOfClassroom, classroomID, dayOfWeek);
+            if (dgvCourseOfClassroom.Rows.Count > 0)
+                dgvCourseOfClassroom.Rows[0].Selected = false;
+        }
+
+        private void btnSearchAll_Click(object sender, EventArgs e)
+        {
+            this.coursesOfClassroomTableAdapter.Fill(this.coursesDataSet.CoursesOfClassroom);
+            if (dgvCourseOfClassroom.Rows.Count > 0)
+                dgvCourseOfClassroom.Rows[0].Selected = false;
         }
     }
 }

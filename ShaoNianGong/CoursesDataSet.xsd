@@ -191,7 +191,7 @@ SELECT ID, ClassroomName, (SELECT COUNT(0) AS CourseCount FROM course_time WHERE
               <Mapping SourceColumn="CourseCount" DataSetColumn="CourseCount" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteByID" Modifier="Public" Name="DeleteByID" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteByID">
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteByID" Modifier="Public" Name="DeleteByID" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteByID">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM classrooms
@@ -202,7 +202,7 @@ WHERE   (ID = @Original_ID)</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateByID" Modifier="Public" Name="UpdateByID" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateByID">
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateByID" Modifier="Public" Name="UpdateByID" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateByID">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE  classrooms
@@ -500,17 +500,19 @@ FROM      courses INNER JOIN
             <MainSource>
               <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT   course_time.ID, course_time.CourseID, v_course.CourseName, v_course.CourseTypeID, 
-                course_types.CourseTypeName, v_course.CourseSubTypeID, course_subtypes.CourseSubtypeName, 
-                course_time.ClassroomID, course_time.BeginTime, course_time.EndTime, v_course.TeacherID, 
-                tearchers.Name AS TeacherName
-FROM      course_time INNER JOIN
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT   course_time.CourseID, v_course.CourseName, v_course.CourseTypeID, course_types.CourseTypeName, 
+                v_course.CourseSubTypeID, course_subtypes.CourseSubtypeName, course_time.ClassroomID, 
+                classrooms.ClassroomName, course_time.BeginTime, course_time.EndTime, day_of_week.DayOfWeekName, 
+                day_of_week.DayOfWeekValue, v_course.TeacherID, tearchers.Name AS TeacherName
+FROM      course_time LEFT OUTER JOIN
+                day_of_week ON day_of_week.DayOfWeekValue = course_time.DayOfWeek INNER JOIN
+                classrooms ON classrooms.ID = course_time.ClassroomID INNER JOIN
                 v_course ON v_course.ID = course_time.CourseID INNER JOIN
                 course_types ON course_types.ID = v_course.CourseTypeID INNER JOIN
                 course_subtypes ON course_subtypes.ID = v_course.CourseSubTypeID LEFT OUTER JOIN
                 tearchers ON tearchers.ID = v_course.TeacherID
-ORDER BY CONVERT(varchar(12), course_time.BeginTime, 108), course_time.ID</CommandText>
+ORDER BY course_time.DayOfWeek, CONVERT(varchar(12), course_time.BeginTime, 108), v_course.ID</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -528,25 +530,73 @@ ORDER BY CONVERT(varchar(12), course_time.BeginTime, 108), course_time.ID</Comma
               <Mapping SourceColumn="EndTime" DataSetColumn="EndTime" />
               <Mapping SourceColumn="TeacherID" DataSetColumn="TeacherID" />
               <Mapping SourceColumn="TeacherName" DataSetColumn="TeacherName" />
-              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="ClassroomName" DataSetColumn="ClassroomName" />
+              <Mapping SourceColumn="DayOfWeekName" DataSetColumn="DayOfWeekName" />
+              <Mapping SourceColumn="DayOfWeekValue" DataSetColumn="DayOfWeekValue" />
             </Mappings>
             <Sources>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByClassroomID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByClassroomID" GeneratorSourceName="FillByClassroomID" GetMethodModifier="Public" GetMethodName="GetDataByClassroomID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByClassroomID" UserSourceName="FillByClassroomID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   course_time.CourseID, v_course.CourseName, v_course.CourseTypeID, course_types.CourseTypeName, 
+                v_course.CourseSubTypeID, course_subtypes.CourseSubtypeName, course_time.ClassroomID, 
+                classrooms.ClassroomName, course_time.BeginTime, course_time.EndTime, day_of_week.DayOfWeekName, 
+                day_of_week.DayOfWeekValue, v_course.TeacherID, tearchers.Name AS TeacherName
+FROM      course_time LEFT OUTER JOIN
+                day_of_week ON day_of_week.DayOfWeekValue = course_time.DayOfWeek INNER JOIN
+                classrooms ON classrooms.ID = course_time.ClassroomID INNER JOIN
+                v_course ON v_course.ID = course_time.CourseID INNER JOIN
+                course_types ON course_types.ID = v_course.CourseTypeID INNER JOIN
+                course_subtypes ON course_subtypes.ID = v_course.CourseSubTypeID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = v_course.TeacherID
+WHERE   (course_time.ClassroomID = @ClassroomID)
+ORDER BY course_time.DayOfWeek, CONVERT(varchar(12), course_time.BeginTime, 108), v_course.ID</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="ClassroomID" ColumnName="ClassroomID" DataSourceName="ChildrenPalace.dbo.course_time" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ClassroomID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ClassroomID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByClassroomIDAndDayOfWeek" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByClassroomIDAndDayOfWeek" GeneratorSourceName="FillByClassroomIDAndDayOfWeek" GetMethodModifier="Public" GetMethodName="GetDataByClassroomIDAndDayOfWeek" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByClassroomIDAndDayOfWeek" UserSourceName="FillByClassroomIDAndDayOfWeek">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT   course_time.ID, course_time.CourseID, v_course.CourseName, v_course.CourseTypeID, 
-                course_types.CourseTypeName, v_course.CourseSubTypeID, course_subtypes.CourseSubtypeName, 
-                course_time.ClassroomID, course_time.BeginTime, course_time.EndTime, v_course.TeacherID, 
-                tearchers.Name AS TeacherName
-FROM      course_time INNER JOIN
+                    <CommandText>SELECT   course_time.CourseID, v_course.CourseName, v_course.CourseTypeID, course_types.CourseTypeName, 
+                v_course.CourseSubTypeID, course_subtypes.CourseSubtypeName, course_time.ClassroomID, 
+                classrooms.ClassroomName, course_time.BeginTime, course_time.EndTime, day_of_week.DayOfWeekName, 
+                day_of_week.DayOfWeekValue, v_course.TeacherID, tearchers.Name AS TeacherName
+FROM      course_time LEFT OUTER JOIN
+                day_of_week ON day_of_week.DayOfWeekValue = course_time.DayOfWeek INNER JOIN
+                classrooms ON classrooms.ID = course_time.ClassroomID INNER JOIN
                 v_course ON v_course.ID = course_time.CourseID INNER JOIN
                 course_types ON course_types.ID = v_course.CourseTypeID INNER JOIN
                 course_subtypes ON course_subtypes.ID = v_course.CourseSubTypeID LEFT OUTER JOIN
                 tearchers ON tearchers.ID = v_course.TeacherID
 WHERE   (course_time.ClassroomID = @ClassroomID) AND (course_time.DayOfWeek = @DayOfWeek)
-ORDER BY CONVERT(varchar(12), course_time.BeginTime, 108), course_time.ID</CommandText>
+ORDER BY course_time.DayOfWeek, CONVERT(varchar(12), course_time.BeginTime, 108), v_course.ID</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="ClassroomID" ColumnName="ClassroomID" DataSourceName="ChildrenPalace.dbo.course_time" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ClassroomID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ClassroomID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="DayOfWeek" ColumnName="DayOfWeek" DataSourceName="ChildrenPalace.dbo.course_time" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@DayOfWeek" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="DayOfWeek" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByDayOfWeek" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByDayOfWeek" GeneratorSourceName="FillByDayOfWeek" GetMethodModifier="Public" GetMethodName="GetDataByDayOfWeek" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByDayOfWeek" UserSourceName="FillByDayOfWeek">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   course_time.CourseID, v_course.CourseName, v_course.CourseTypeID, course_types.CourseTypeName, 
+                v_course.CourseSubTypeID, course_subtypes.CourseSubtypeName, course_time.ClassroomID, 
+                classrooms.ClassroomName, course_time.BeginTime, course_time.EndTime, day_of_week.DayOfWeekName, 
+                day_of_week.DayOfWeekValue, v_course.TeacherID, tearchers.Name AS TeacherName
+FROM      course_time LEFT OUTER JOIN
+                day_of_week ON day_of_week.DayOfWeekValue = course_time.DayOfWeek INNER JOIN
+                classrooms ON classrooms.ID = course_time.ClassroomID INNER JOIN
+                v_course ON v_course.ID = course_time.CourseID INNER JOIN
+                course_types ON course_types.ID = v_course.CourseTypeID INNER JOIN
+                course_subtypes ON course_subtypes.ID = v_course.CourseSubTypeID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = v_course.TeacherID
+WHERE   (course_time.DayOfWeek = @DayOfWeek)
+ORDER BY course_time.DayOfWeek, CONVERT(varchar(12), course_time.BeginTime, 108), v_course.ID</CommandText>
+                    <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="DayOfWeek" ColumnName="DayOfWeek" DataSourceName="ChildrenPalace.dbo.course_time" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@DayOfWeek" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="DayOfWeek" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
@@ -713,7 +763,21 @@ ORDER BY CONVERT(varchar(12), course_time.BeginTime, 108), course_time.ID</Comma
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="ClassroomName" msprop:Generator_ColumnVarNameInTable="columnClassroomName" msprop:Generator_ColumnPropNameInRow="ClassroomName" msprop:Generator_ColumnPropNameInTable="ClassroomNameColumn" msprop:Generator_UserColumnName="ClassroomName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DayOfWeekName" msprop:Generator_ColumnVarNameInTable="columnDayOfWeekName" msprop:Generator_ColumnPropNameInRow="DayOfWeekName" msprop:Generator_ColumnPropNameInTable="DayOfWeekNameColumn" msprop:Generator_UserColumnName="DayOfWeekName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DayOfWeekValue" msprop:Generator_ColumnVarNameInTable="columnDayOfWeekValue" msprop:Generator_ColumnPropNameInRow="DayOfWeekValue" msprop:Generator_ColumnPropNameInTable="DayOfWeekValueColumn" msprop:Generator_UserColumnName="DayOfWeekValue" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -735,15 +799,10 @@ ORDER BY CONVERT(varchar(12), course_time.BeginTime, 108), course_time.ID</Comma
       <xs:selector xpath=".//mstns:Courses" />
       <xs:field xpath="mstns:CourseID" />
     </xs:unique>
-    <xs:unique name="CoursesOfClassroom_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:CoursesOfClassroom" />
-      <xs:field xpath="mstns:ID" />
-    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
       <msdata:Relationship name="FK_course_time_classrooms" msdata:parent="Classrooms" msdata:child="CourseTime" msdata:parentkey="ClassroomID" msdata:childkey="ClassroomID" msprop:Generator_UserChildTable="CourseTime" msprop:Generator_ChildPropName="GetCourseTimeRows" msprop:Generator_ParentPropName="ClassroomsRow" msprop:Generator_UserRelationName="FK_course_time_classrooms" msprop:Generator_RelationVarName="relationFK_course_time_classrooms" msprop:Generator_UserParentTable="Classrooms" />
-      <msdata:Relationship name="FK_courses_course_subtypes" msdata:parent="CoursesOfClassroom" msdata:child="Courses" msdata:parentkey="ID" msdata:childkey="CourseSubTypeID" msprop:Generator_UserChildTable="Courses" msprop:Generator_ChildPropName="GetCoursesRows" msprop:Generator_ParentPropName="CoursesOfClassroomRow" msprop:Generator_UserRelationName="FK_courses_course_subtypes" msprop:Generator_RelationVarName="relationFK_courses_course_subtypes" msprop:Generator_UserParentTable="CoursesOfClassroom" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

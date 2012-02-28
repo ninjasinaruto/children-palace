@@ -513,6 +513,8 @@ namespace ShaoNianGong {
             
             private global::System.Data.DataColumn columnRecommender;
             
+            private global::System.Data.DataColumn columnCourseTypeID;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public studentsPreregDataTable() {
@@ -700,6 +702,14 @@ namespace ShaoNianGong {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CourseTypeIDColumn {
+                get {
+                    return this.columnCourseTypeID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -753,7 +763,8 @@ namespace ShaoNianGong {
                         System.DateTime ExpireTime, 
                         string CardTypeName, 
                         string CourseSubtypeName, 
-                        string Recommender) {
+                        string Recommender, 
+                        int CourseTypeID) {
                 studentsPreregRow rowstudentsPreregRow = ((studentsPreregRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Name,
@@ -774,7 +785,8 @@ namespace ShaoNianGong {
                         ExpireTime,
                         CardTypeName,
                         CourseSubtypeName,
-                        Recommender};
+                        Recommender,
+                        CourseTypeID};
                 rowstudentsPreregRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowstudentsPreregRow);
                 return rowstudentsPreregRow;
@@ -823,6 +835,7 @@ namespace ShaoNianGong {
                 this.columnCardTypeName = base.Columns["CardTypeName"];
                 this.columnCourseSubtypeName = base.Columns["CourseSubtypeName"];
                 this.columnRecommender = base.Columns["Recommender"];
+                this.columnCourseTypeID = base.Columns["CourseTypeID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -866,6 +879,8 @@ namespace ShaoNianGong {
                 base.Columns.Add(this.columnCourseSubtypeName);
                 this.columnRecommender = new global::System.Data.DataColumn("Recommender", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRecommender);
+                this.columnCourseTypeID = new global::System.Data.DataColumn("CourseTypeID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCourseTypeID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnName.MaxLength = 20;
@@ -891,6 +906,7 @@ namespace ShaoNianGong {
                 this.columnCourseSubtypeName.AllowDBNull = false;
                 this.columnCourseSubtypeName.MaxLength = 20;
                 this.columnRecommender.MaxLength = 50;
+                this.columnCourseTypeID.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2907,6 +2923,17 @@ namespace ShaoNianGong {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int CourseTypeID {
+                get {
+                    return ((int)(this[this.tablestudentsPrereg.CourseTypeIDColumn]));
+                }
+                set {
+                    this[this.tablestudentsPrereg.CourseTypeIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNameNull() {
                 return this.IsNull(this.tablestudentsPrereg.NameColumn);
             }
@@ -3924,6 +3951,7 @@ namespace ShaoNianGong.PreregisterDatasetTableAdapters {
             tableMapping.ColumnMappings.Add("CardTypeName", "CardTypeName");
             tableMapping.ColumnMappings.Add("CourseSubtypeName", "CourseSubtypeName");
             tableMapping.ColumnMappings.Add("Recommender", "Recommender");
+            tableMapping.ColumnMappings.Add("CourseTypeID", "CourseTypeID");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -4010,7 +4038,8 @@ SELECT ID, Name, Sex, Telephone, Address, Birthday, FartherName, FartherWork, Fa
             this._commandCollection[0].CommandText = @"SELECT   students.Name, students.Sex, students.Telephone, students.Address, students.Birthday, students.FartherName, 
                 students.FartherWork, students.FartherTel, students.MotherName, students.MotherWork, students.MotherTel, 
                 students.ID, students.Balance, students.CardNo, students.PreregisterCourseSubtype, students.ExpireTime, 
-                card_type.CardTypeName, course_subtypes.CourseSubtypeName, students.Recommender
+                card_type.CardTypeName, course_subtypes.CourseSubtypeName, students.Recommender, 
+                course_subtypes.CourseTypeID
 FROM      students INNER JOIN
                 card_type ON students.CardType = card_type.CardTypeID INNER JOIN
                 course_subtypes ON students.PreregisterCourseSubtype = course_subtypes.ID
