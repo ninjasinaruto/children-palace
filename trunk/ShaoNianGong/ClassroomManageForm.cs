@@ -102,5 +102,33 @@ namespace ShaoNianGong
             int dayOfWeek = this.staticDataSet.DayOfWeek.Rows[dayOfWeekBindingSource.Position].Field<int>("DayOfWeekValue");
             this.coursesOfClassroomTableAdapter.FillByClassroomIDAndDayOfWeek(coursesDataSet.CoursesOfClassroom, classroomID, dayOfWeek);
         }
+
+        private void coursesOfClassroomBindingSource_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            int count = this.coursesDataSet.CoursesOfClassroom.Rows.Count;
+            if (count > 0)
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    DateTime beginTime = this.coursesDataSet.CoursesOfClassroom.Rows[i].Field<DateTime>("BeginTime");
+                    DateTime endTime = this.coursesDataSet.CoursesOfClassroom.Rows[i].Field<DateTime>("EndTime");
+
+                    if (isBetweenBeginAndEndTime(beginTime, endTime))
+                    {
+                        dgvCourseOfClassroom.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 0, 0);
+                    }
+                }
+            }
+        }
+
+        private bool isBetweenBeginAndEndTime(DateTime beginTime, DateTime endTime)
+        {
+            DateTime now = DateTime.Parse(DateTime.Now.ToShortTimeString());
+            DateTime sTime = DateTime.Parse(beginTime.ToShortTimeString());
+            DateTime eTime = DateTime.Parse(endTime.ToShortTimeString());
+            if (now.CompareTo(sTime) >= 1 && now.CompareTo(eTime) <= -1)
+                return true;
+            return false;
+        }
     }
 }
