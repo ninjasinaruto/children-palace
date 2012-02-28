@@ -9,14 +9,14 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MaterialsBuyTableAdapter" GeneratorDataComponentClassName="MaterialsBuyTableAdapter" Name="MaterialsBuy" UserDataComponentName="MaterialsBuyTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT materials_buy.BuyAmount, materials_buy.TotalCost, materials_buy.ActualPay, 
-      materials_buy.Remark, materials_buy.BuyDate, materials.MaterialName, 
-      materials.MaterialPrice
-FROM materials_buy INNER JOIN
-      materials ON materials_buy.MaterialId = materials.MaterialID</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT   materials_buy.BuyAmount, materials_buy.TotalCost, materials_buy.ActualPay, materials_buy.Remark, 
+                materials_buy.BuyDate, materials.MaterialName, materials.MaterialPrice, materials_buy.Operator
+FROM      materials_buy INNER JOIN
+                materials ON materials_buy.MaterialId = materials.MaterialID
+ORDER BY materials_buy.BuyDate DESC</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -30,8 +30,40 @@ FROM materials_buy INNER JOIN
               <Mapping SourceColumn="BuyDate" DataSetColumn="BuyDate" />
               <Mapping SourceColumn="MaterialName" DataSetColumn="MaterialName" />
               <Mapping SourceColumn="MaterialPrice" DataSetColumn="MaterialPrice" />
+              <Mapping SourceColumn="Operator" DataSetColumn="Operator" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByBeginDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByBeginDate" GeneratorSourceName="FillByBeginDate" GetMethodModifier="Public" GetMethodName="GetDataByBeginDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByBeginDate" UserSourceName="FillByBeginDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   materials_buy.BuyAmount, materials_buy.TotalCost, materials_buy.ActualPay, materials_buy.Remark, 
+                materials_buy.BuyDate, materials.MaterialName, materials.MaterialPrice, materials_buy.Operator
+FROM      materials_buy INNER JOIN
+                materials ON materials_buy.MaterialId = materials.MaterialID
+WHERE   (DATEDIFF(month, materials_buy.BuyDate, GETDATE()) = 0)
+ORDER BY materials_buy.BuyDate DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByBeginEndDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByBeginEndDate" GeneratorSourceName="FillByBeginEndDate" GetMethodModifier="Public" GetMethodName="GetDataByBeginEndDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByBeginEndDate" UserSourceName="FillByBeginEndDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   materials_buy.BuyAmount, materials_buy.TotalCost, materials_buy.ActualPay, materials_buy.Remark, 
+                materials_buy.BuyDate, materials.MaterialName, materials.MaterialPrice, materials_buy.Operator
+FROM      materials_buy INNER JOIN
+                materials ON materials_buy.MaterialId = materials.MaterialID
+WHERE   (DATEDIFF(day, materials_buy.BuyDate, @BeginDate) &gt;= 0) AND (DATEDIFF(day, materials_buy.BuyDate, @EndDate) 
+                &lt;= 0)
+ORDER BY materials_buy.BuyDate DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="EndDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
         </Tables>
         <Sources />
@@ -63,6 +95,13 @@ FROM materials_buy INNER JOIN
                 </xs:simpleType>
               </xs:element>
               <xs:element name="MaterialPrice" msprop:Generator_ColumnVarNameInTable="columnMaterialPrice" msprop:Generator_ColumnPropNameInRow="MaterialPrice" msprop:Generator_ColumnPropNameInTable="MaterialPriceColumn" msprop:Generator_UserColumnName="MaterialPrice" type="xs:int" />
+              <xs:element name="Operator" msprop:Generator_ColumnVarNameInTable="columnOperator" msprop:Generator_ColumnPropNameInRow="Operator" msprop:Generator_ColumnPropNameInTable="OperatorColumn" msprop:Generator_UserColumnName="Operator" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

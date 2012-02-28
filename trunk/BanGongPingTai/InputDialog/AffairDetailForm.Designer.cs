@@ -78,7 +78,6 @@
             this.txtContent.Name = "txtContent";
             this.txtContent.Size = new System.Drawing.Size(379, 159);
             this.txtContent.TabIndex = 1;
-            this.txtContent.TextChanged += new System.EventHandler(this.txtContent_TextChanged);
             // 
             // btnApply
             // 
@@ -126,11 +125,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.MaximizeBox = false;
             this.Name = "AffairDetailForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "事务申报";
             this.Load += new System.EventHandler(this.AffairApplyForm_Load);
+            this.Resize += new System.EventHandler(this.AffairDetailForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.affairDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.affairApplyBindingSource)).EndInit();
             this.ResumeLayout(false);

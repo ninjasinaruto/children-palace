@@ -58,9 +58,11 @@ namespace BanGongPingTai
             this.Close();
         }
 
-        private void txtContent_TextChanged(object sender, EventArgs e)
+        private void AffairDetailForm_Resize(object sender, EventArgs e)
         {
-
+            txtTitle.Width = this.Width - 180;
+            txtContent.Width = this.Width - 180;
+            txtContent.Height = this.Height - 150;
         }
     }
 }

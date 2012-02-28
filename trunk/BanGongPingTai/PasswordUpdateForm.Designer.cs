@@ -145,6 +145,7 @@
             this.Controls.Add(this.txtUserName);
             this.MaximizeBox = false;
             this.Name = "PasswordUpdateForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "密码修改";
             this.Load += new System.EventHandler(this.PasswordUpdateForm_Load);
             this.ResumeLayout(false);

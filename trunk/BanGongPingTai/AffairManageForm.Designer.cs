@@ -29,15 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvAffair = new System.Windows.Forms.DataGridView();
-            this.applyTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.applyDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApprovalStatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApprovalContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.applyContentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.affairApplyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.affairDataSet = new BanGongPingTai.Affair();
             this.btnApplyNewAffair = new System.Windows.Forms.Button();
@@ -54,6 +50,12 @@
             this.btnShowAffairDetail = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnShowNoticeDetail = new System.Windows.Forms.Button();
+            this.applyTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.applyDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ApprovalStatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ApprovalContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ApplyDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.applyContentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAffair)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.affairApplyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.affairDataSet)).BeginInit();
@@ -77,16 +79,17 @@
             this.applyDateDataGridViewTextBoxColumn,
             this.ApprovalStatusColumn,
             this.ApprovalContent,
+            this.ApplyDate,
             this.applyContentDataGridViewTextBoxColumn});
             this.dgvAffair.DataSource = this.affairApplyBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAffair.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAffair.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvAffair.Location = new System.Drawing.Point(10, 20);
             this.dgvAffair.MultiSelect = false;
             this.dgvAffair.Name = "dgvAffair";
@@ -97,48 +100,6 @@
             this.dgvAffair.Size = new System.Drawing.Size(941, 341);
             this.dgvAffair.TabIndex = 0;
             this.dgvAffair.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
-            // 
-            // applyTitleDataGridViewTextBoxColumn
-            // 
-            this.applyTitleDataGridViewTextBoxColumn.DataPropertyName = "ApplyTitle";
-            this.applyTitleDataGridViewTextBoxColumn.HeaderText = "标题";
-            this.applyTitleDataGridViewTextBoxColumn.Name = "applyTitleDataGridViewTextBoxColumn";
-            this.applyTitleDataGridViewTextBoxColumn.ReadOnly = true;
-            this.applyTitleDataGridViewTextBoxColumn.Width = 54;
-            // 
-            // applyDateDataGridViewTextBoxColumn
-            // 
-            this.applyDateDataGridViewTextBoxColumn.DataPropertyName = "ApplyDate";
-            dataGridViewCellStyle1.Format = "f";
-            dataGridViewCellStyle1.NullValue = null;
-            this.applyDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.applyDateDataGridViewTextBoxColumn.HeaderText = "申请时间";
-            this.applyDateDataGridViewTextBoxColumn.Name = "applyDateDataGridViewTextBoxColumn";
-            this.applyDateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.applyDateDataGridViewTextBoxColumn.Width = 78;
-            // 
-            // ApprovalStatusColumn
-            // 
-            this.ApprovalStatusColumn.HeaderText = "审批状态";
-            this.ApprovalStatusColumn.Name = "ApprovalStatusColumn";
-            this.ApprovalStatusColumn.ReadOnly = true;
-            this.ApprovalStatusColumn.Width = 78;
-            // 
-            // ApprovalContent
-            // 
-            this.ApprovalContent.DataPropertyName = "ApprovalContent";
-            this.ApprovalContent.HeaderText = "审批回复";
-            this.ApprovalContent.Name = "ApprovalContent";
-            this.ApprovalContent.ReadOnly = true;
-            this.ApprovalContent.Width = 78;
-            // 
-            // applyContentDataGridViewTextBoxColumn
-            // 
-            this.applyContentDataGridViewTextBoxColumn.DataPropertyName = "ApplyContent";
-            this.applyContentDataGridViewTextBoxColumn.HeaderText = "内容";
-            this.applyContentDataGridViewTextBoxColumn.Name = "applyContentDataGridViewTextBoxColumn";
-            this.applyContentDataGridViewTextBoxColumn.ReadOnly = true;
-            this.applyContentDataGridViewTextBoxColumn.Width = 54;
             // 
             // affairApplyBindingSource
             // 
@@ -183,14 +144,14 @@
             this.noticeTitleDataGridViewTextBoxColumn,
             this.noticeContentDataGridViewTextBoxColumn});
             this.dgvNotices.DataSource = this.noticesBindingSource;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvNotices.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvNotices.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvNotices.Location = new System.Drawing.Point(10, 20);
             this.dgvNotices.MultiSelect = false;
             this.dgvNotices.Name = "dgvNotices";
@@ -285,6 +246,59 @@
             this.btnShowNoticeDetail.UseVisualStyleBackColor = true;
             this.btnShowNoticeDetail.Click += new System.EventHandler(this.btnShowNoticeDetail_Click);
             // 
+            // applyTitleDataGridViewTextBoxColumn
+            // 
+            this.applyTitleDataGridViewTextBoxColumn.DataPropertyName = "ApplyTitle";
+            this.applyTitleDataGridViewTextBoxColumn.HeaderText = "标题";
+            this.applyTitleDataGridViewTextBoxColumn.Name = "applyTitleDataGridViewTextBoxColumn";
+            this.applyTitleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.applyTitleDataGridViewTextBoxColumn.Width = 54;
+            // 
+            // applyDateDataGridViewTextBoxColumn
+            // 
+            this.applyDateDataGridViewTextBoxColumn.DataPropertyName = "ApplyDate";
+            dataGridViewCellStyle1.Format = "f";
+            dataGridViewCellStyle1.NullValue = null;
+            this.applyDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.applyDateDataGridViewTextBoxColumn.HeaderText = "申请时间";
+            this.applyDateDataGridViewTextBoxColumn.Name = "applyDateDataGridViewTextBoxColumn";
+            this.applyDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.applyDateDataGridViewTextBoxColumn.Width = 78;
+            // 
+            // ApprovalStatusColumn
+            // 
+            this.ApprovalStatusColumn.HeaderText = "审批状态";
+            this.ApprovalStatusColumn.Name = "ApprovalStatusColumn";
+            this.ApprovalStatusColumn.ReadOnly = true;
+            this.ApprovalStatusColumn.Width = 78;
+            // 
+            // ApprovalContent
+            // 
+            this.ApprovalContent.DataPropertyName = "ApprovalContent";
+            this.ApprovalContent.HeaderText = "审批回复";
+            this.ApprovalContent.Name = "ApprovalContent";
+            this.ApprovalContent.ReadOnly = true;
+            this.ApprovalContent.Width = 78;
+            // 
+            // ApplyDate
+            // 
+            this.ApplyDate.DataPropertyName = "ApplyDate";
+            dataGridViewCellStyle2.Format = "f";
+            dataGridViewCellStyle2.NullValue = null;
+            this.ApplyDate.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ApplyDate.HeaderText = "审批时间";
+            this.ApplyDate.Name = "ApplyDate";
+            this.ApplyDate.ReadOnly = true;
+            this.ApplyDate.Width = 78;
+            // 
+            // applyContentDataGridViewTextBoxColumn
+            // 
+            this.applyContentDataGridViewTextBoxColumn.DataPropertyName = "ApplyContent";
+            this.applyContentDataGridViewTextBoxColumn.HeaderText = "内容";
+            this.applyContentDataGridViewTextBoxColumn.Name = "applyContentDataGridViewTextBoxColumn";
+            this.applyContentDataGridViewTextBoxColumn.ReadOnly = true;
+            this.applyContentDataGridViewTextBoxColumn.Width = 54;
+            // 
             // AffairManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -314,11 +328,6 @@
         private Affair affairDataSet;
         private System.Windows.Forms.BindingSource affairApplyBindingSource;
         private AffairTableAdapters.AffairApplyTableAdapter affairApplyTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn applyTitleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn applyDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ApprovalStatusColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ApprovalContent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn applyContentDataGridViewTextBoxColumn;
         private NoticeDataSet noticeDataSet;
         private System.Windows.Forms.DataGridView dgvNotices;
         private System.Windows.Forms.DataGridViewTextBoxColumn userNameDataGridViewTextBoxColumn;
@@ -331,5 +340,11 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnShowAffairDetail;
         private System.Windows.Forms.Button btnShowNoticeDetail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn applyTitleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn applyDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ApprovalStatusColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ApprovalContent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ApplyDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn applyContentDataGridViewTextBoxColumn;
     }
 }
