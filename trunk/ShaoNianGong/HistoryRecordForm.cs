@@ -30,5 +30,13 @@ namespace ShaoNianGong
             studentMaterialsTableAdapter.FillByStudentID(materialsDataSet1.StudentMaterials, this.StudentID);
             leaveCourseTableAdapter.FillByStudentID(leaveCourseDataSet.LeaveCourse, this.StudentID);
         }
+
+        private void HistoryRecordForm_Resize(object sender, EventArgs e)
+        {
+            dataGridView1.Width = this.Width - 20;
+            dataGridView2.Width = this.Width - 20;
+            dataGridView3.Width = this.Width - 20;
+            dataGridView4.Width = this.Width - 20;
+        }
     }
 }

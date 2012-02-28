@@ -49,7 +49,8 @@ VALUES (@Name,@Sex,@Telephone,@Address,@Birthday,@FartherName,@FartherWork,@Fart
                     <CommandText>SELECT   students.Name, students.Sex, students.Telephone, students.Address, students.Birthday, students.FartherName, 
                 students.FartherWork, students.FartherTel, students.MotherName, students.MotherWork, students.MotherTel, 
                 students.ID, students.Balance, students.CardNo, students.PreregisterCourseSubtype, students.ExpireTime, 
-                card_type.CardTypeName, course_subtypes.CourseSubtypeName, students.Recommender
+                card_type.CardTypeName, course_subtypes.CourseSubtypeName, students.Recommender, 
+                course_subtypes.CourseTypeID
 FROM      students INNER JOIN
                 card_type ON students.CardType = card_type.CardTypeID INNER JOIN
                 course_subtypes ON students.PreregisterCourseSubtype = course_subtypes.ID
@@ -123,6 +124,7 @@ SELECT ID, Name, Sex, Telephone, Address, Birthday, FartherName, FartherWork, Fa
               <Mapping SourceColumn="CardTypeName" DataSetColumn="CardTypeName" />
               <Mapping SourceColumn="CourseSubtypeName" DataSetColumn="CourseSubtypeName" />
               <Mapping SourceColumn="Recommender" DataSetColumn="Recommender" />
+              <Mapping SourceColumn="CourseTypeID" DataSetColumn="CourseTypeID" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateBalance" Modifier="Public" Name="UpdateBalance" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateBalance">
@@ -592,6 +594,7 @@ FROM students</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="CourseTypeID" msprop:Generator_ColumnVarNameInTable="columnCourseTypeID" msprop:Generator_ColumnPropNameInRow="CourseTypeID" msprop:Generator_ColumnPropNameInTable="CourseTypeIDColumn" msprop:Generator_UserColumnName="CourseTypeID" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -704,9 +707,9 @@ FROM students</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_student_courses_students" msdata:parent="studentsPrereg" msdata:child="StudentCourses" msdata:parentkey="ID" msdata:childkey="StudentID" msprop:Generator_UserChildTable="StudentCourses" msprop:Generator_ChildPropName="GetStudentCoursesRows" msprop:Generator_ParentPropName="studentsPreregRow" msprop:Generator_UserRelationName="FK_student_courses_students" msprop:Generator_RelationVarName="relationFK_student_courses_students" msprop:Generator_UserParentTable="studentsPrereg" />
-      <msdata:Relationship name="FK_deposit_list_students" msdata:parent="studentsPrereg" msdata:child="DepositList" msdata:parentkey="ID" msdata:childkey="StudentID" msprop:Generator_UserChildTable="DepositList" msprop:Generator_ChildPropName="GetDepositListRows" msprop:Generator_UserParentTable="studentsPrereg" msprop:Generator_UserRelationName="FK_deposit_list_students" msprop:Generator_RelationVarName="relationFK_deposit_list_students" msprop:Generator_ParentPropName="studentsPreregRow" />
-      <msdata:Relationship name="FK_student_cost_students" msdata:parent="studentsPrereg" msdata:child="StudentCost" msdata:parentkey="ID" msdata:childkey="StudentID" msprop:Generator_UserChildTable="StudentCost" msprop:Generator_ChildPropName="GetStudentCostRows" msprop:Generator_ParentPropName="studentsPreregRow" msprop:Generator_UserRelationName="FK_student_cost_students" msprop:Generator_RelationVarName="relationFK_student_cost_students" msprop:Generator_UserParentTable="studentsPrereg" />
+      <msdata:Relationship name="FK_student_courses_students" msdata:parent="studentsPrereg" msdata:child="StudentCourses" msdata:parentkey="ID" msdata:childkey="StudentID" msprop:Generator_UserChildTable="StudentCourses" msprop:Generator_ChildPropName="GetStudentCoursesRows" msprop:Generator_UserParentTable="studentsPrereg" msprop:Generator_UserRelationName="FK_student_courses_students" msprop:Generator_RelationVarName="relationFK_student_courses_students" msprop:Generator_ParentPropName="studentsPreregRow" />
+      <msdata:Relationship name="FK_deposit_list_students" msdata:parent="studentsPrereg" msdata:child="DepositList" msdata:parentkey="ID" msdata:childkey="StudentID" msprop:Generator_UserChildTable="DepositList" msprop:Generator_ChildPropName="GetDepositListRows" msprop:Generator_ParentPropName="studentsPreregRow" msprop:Generator_UserRelationName="FK_deposit_list_students" msprop:Generator_RelationVarName="relationFK_deposit_list_students" msprop:Generator_UserParentTable="studentsPrereg" />
+      <msdata:Relationship name="FK_student_cost_students" msdata:parent="studentsPrereg" msdata:child="StudentCost" msdata:parentkey="ID" msdata:childkey="StudentID" msprop:Generator_UserChildTable="StudentCost" msprop:Generator_ChildPropName="GetStudentCostRows" msprop:Generator_UserParentTable="studentsPrereg" msprop:Generator_UserRelationName="FK_student_cost_students" msprop:Generator_RelationVarName="relationFK_student_cost_students" msprop:Generator_ParentPropName="studentsPreregRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

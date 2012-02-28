@@ -38,8 +38,6 @@ namespace ShaoNianGong {
         
         private global::System.Data.DataRelation relationFK_course_time_classrooms;
         
-        private global::System.Data.DataRelation relationFK_courses_course_subtypes;
-        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -319,7 +317,6 @@ namespace ShaoNianGong {
                 }
             }
             this.relationFK_course_time_classrooms = this.Relations["FK_course_time_classrooms"];
-            this.relationFK_courses_course_subtypes = this.Relations["FK_courses_course_subtypes"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -346,10 +343,6 @@ namespace ShaoNianGong {
                         this.tableClassrooms.ClassroomIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableCourseTime.ClassroomIDColumn}, false);
             this.Relations.Add(this.relationFK_course_time_classrooms);
-            this.relationFK_courses_course_subtypes = new global::System.Data.DataRelation("FK_courses_course_subtypes", new global::System.Data.DataColumn[] {
-                        this.tableCoursesOfClassroom.IDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCourses.CourseSubTypeIDColumn}, false);
-            this.Relations.Add(this.relationFK_courses_course_subtypes);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -608,19 +601,16 @@ namespace ShaoNianGong {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CoursesRow AddCoursesRow(string CourseName, CoursesOfClassroomRow parentCoursesOfClassroomRowByFK_courses_course_subtypes, int ChargeType, int ChargeAmount, int TeacherID, int StudentCount) {
+            public CoursesRow AddCoursesRow(string CourseName, int CourseSubTypeID, int ChargeType, int ChargeAmount, int TeacherID, int StudentCount) {
                 CoursesRow rowCoursesRow = ((CoursesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CourseName,
                         null,
-                        null,
+                        CourseSubTypeID,
                         ChargeType,
                         ChargeAmount,
                         TeacherID,
                         StudentCount};
-                if ((parentCoursesOfClassroomRowByFK_courses_course_subtypes != null)) {
-                    columnValuesArray[2] = parentCoursesOfClassroomRowByFK_courses_course_subtypes[11];
-                }
                 rowCoursesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCoursesRow);
                 return rowCoursesRow;
@@ -2169,7 +2159,11 @@ namespace ShaoNianGong {
             
             private global::System.Data.DataColumn columnTeacherName;
             
-            private global::System.Data.DataColumn columnID;
+            private global::System.Data.DataColumn columnClassroomName;
+            
+            private global::System.Data.DataColumn columnDayOfWeekName;
+            
+            private global::System.Data.DataColumn columnDayOfWeekValue;
             
             private static System.DateTime columnBeginTime_defaultValue = global::System.DateTime.Parse("1900-01-01T00:00:00");
             
@@ -2298,9 +2292,25 @@ namespace ShaoNianGong {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IDColumn {
+            public global::System.Data.DataColumn ClassroomNameColumn {
                 get {
-                    return this.columnID;
+                    return this.columnClassroomName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DayOfWeekNameColumn {
+                get {
+                    return this.columnDayOfWeekName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DayOfWeekValueColumn {
+                get {
+                    return this.columnDayOfWeekValue;
                 }
             }
             
@@ -2341,7 +2351,7 @@ namespace ShaoNianGong {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CoursesOfClassroomRow AddCoursesOfClassroomRow(int CourseID, string CourseName, int CourseTypeID, string CourseTypeName, int CourseSubTypeID, string CourseSubtypeName, int ClassroomID, System.DateTime BeginTime, System.DateTime EndTime, int TeacherID, string TeacherName) {
+            public CoursesOfClassroomRow AddCoursesOfClassroomRow(int CourseID, string CourseName, int CourseTypeID, string CourseTypeName, int CourseSubTypeID, string CourseSubtypeName, int ClassroomID, System.DateTime BeginTime, System.DateTime EndTime, int TeacherID, string TeacherName, string ClassroomName, string DayOfWeekName, int DayOfWeekValue) {
                 CoursesOfClassroomRow rowCoursesOfClassroomRow = ((CoursesOfClassroomRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CourseID,
@@ -2355,17 +2365,12 @@ namespace ShaoNianGong {
                         EndTime,
                         TeacherID,
                         TeacherName,
-                        null};
+                        ClassroomName,
+                        DayOfWeekName,
+                        DayOfWeekValue};
                 rowCoursesOfClassroomRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCoursesOfClassroomRow);
                 return rowCoursesOfClassroomRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CoursesOfClassroomRow FindByID(int ID) {
-                return ((CoursesOfClassroomRow)(this.Rows.Find(new object[] {
-                            ID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2396,7 +2401,9 @@ namespace ShaoNianGong {
                 this.columnEndTime = base.Columns["EndTime"];
                 this.columnTeacherID = base.Columns["TeacherID"];
                 this.columnTeacherName = base.Columns["TeacherName"];
-                this.columnID = base.Columns["ID"];
+                this.columnClassroomName = base.Columns["ClassroomName"];
+                this.columnDayOfWeekName = base.Columns["DayOfWeekName"];
+                this.columnDayOfWeekValue = base.Columns["DayOfWeekValue"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2424,10 +2431,12 @@ namespace ShaoNianGong {
                 base.Columns.Add(this.columnTeacherID);
                 this.columnTeacherName = new global::System.Data.DataColumn("TeacherName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTeacherName);
-                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnID}, true));
+                this.columnClassroomName = new global::System.Data.DataColumn("ClassroomName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnClassroomName);
+                this.columnDayOfWeekName = new global::System.Data.DataColumn("DayOfWeekName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDayOfWeekName);
+                this.columnDayOfWeekValue = new global::System.Data.DataColumn("DayOfWeekValue", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDayOfWeekValue);
                 this.columnCourseID.AllowDBNull = false;
                 this.columnCourseName.AllowDBNull = false;
                 this.columnCourseName.MaxLength = 50;
@@ -2443,12 +2452,9 @@ namespace ShaoNianGong {
                 this.columnEndTime.AllowDBNull = false;
                 this.columnEndTime.DefaultValue = ((System.DateTime)(CoursesOfClassroomDataTable.columnEndTime_defaultValue));
                 this.columnTeacherName.MaxLength = 20;
-                this.columnID.AutoIncrement = true;
-                this.columnID.AutoIncrementSeed = -1;
-                this.columnID.AutoIncrementStep = -1;
-                this.columnID.AllowDBNull = false;
-                this.columnID.ReadOnly = true;
-                this.columnID.Unique = true;
+                this.columnClassroomName.AllowDBNull = false;
+                this.columnClassroomName.MaxLength = 20;
+                this.columnDayOfWeekName.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2673,17 +2679,6 @@ namespace ShaoNianGong {
                 }
                 set {
                     this[this.tableCourses.StudentCountColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CoursesOfClassroomRow CoursesOfClassroomRow {
-                get {
-                    return ((CoursesOfClassroomRow)(this.GetParentRow(this.Table.ParentRelations["FK_courses_course_subtypes"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_courses_course_subtypes"]);
                 }
             }
             
@@ -3256,12 +3251,44 @@ namespace ShaoNianGong {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int ID {
+            public string ClassroomName {
                 get {
-                    return ((int)(this[this.tableCoursesOfClassroom.IDColumn]));
+                    return ((string)(this[this.tableCoursesOfClassroom.ClassroomNameColumn]));
                 }
                 set {
-                    this[this.tableCoursesOfClassroom.IDColumn] = value;
+                    this[this.tableCoursesOfClassroom.ClassroomNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string DayOfWeekName {
+                get {
+                    try {
+                        return ((string)(this[this.tableCoursesOfClassroom.DayOfWeekNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“CoursesOfClassroom”中列“DayOfWeekName”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableCoursesOfClassroom.DayOfWeekNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int DayOfWeekValue {
+                get {
+                    try {
+                        return ((int)(this[this.tableCoursesOfClassroom.DayOfWeekValueColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“CoursesOfClassroom”中列“DayOfWeekValue”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableCoursesOfClassroom.DayOfWeekValueColumn] = value;
                 }
             }
             
@@ -3303,13 +3330,26 @@ namespace ShaoNianGong {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CoursesRow[] GetCoursesRows() {
-                if ((this.Table.ChildRelations["FK_courses_course_subtypes"] == null)) {
-                    return new CoursesRow[0];
-                }
-                else {
-                    return ((CoursesRow[])(base.GetChildRows(this.Table.ChildRelations["FK_courses_course_subtypes"])));
-                }
+            public bool IsDayOfWeekNameNull() {
+                return this.IsNull(this.tableCoursesOfClassroom.DayOfWeekNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDayOfWeekNameNull() {
+                this[this.tableCoursesOfClassroom.DayOfWeekNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDayOfWeekValueNull() {
+                return this.IsNull(this.tableCoursesOfClassroom.DayOfWeekValueColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDayOfWeekValueNull() {
+                this[this.tableCoursesOfClassroom.DayOfWeekValueColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5533,7 +5573,9 @@ FROM      courses INNER JOIN
             tableMapping.ColumnMappings.Add("EndTime", "EndTime");
             tableMapping.ColumnMappings.Add("TeacherID", "TeacherID");
             tableMapping.ColumnMappings.Add("TeacherName", "TeacherName");
-            tableMapping.ColumnMappings.Add("ID", "ID");
+            tableMapping.ColumnMappings.Add("ClassroomName", "ClassroomName");
+            tableMapping.ColumnMappings.Add("DayOfWeekName", "DayOfWeekName");
+            tableMapping.ColumnMappings.Add("DayOfWeekValue", "DayOfWeekValue");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -5547,36 +5589,74 @@ FROM      courses INNER JOIN
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT   course_time.ID, course_time.CourseID, v_course.CourseName, v_course.CourseTypeID, 
-                course_types.CourseTypeName, v_course.CourseSubTypeID, course_subtypes.CourseSubtypeName, 
-                course_time.ClassroomID, course_time.BeginTime, course_time.EndTime, v_course.TeacherID, 
-                tearchers.Name AS TeacherName
-FROM      course_time INNER JOIN
+            this._commandCollection[0].CommandText = @"SELECT   course_time.CourseID, v_course.CourseName, v_course.CourseTypeID, course_types.CourseTypeName, 
+                v_course.CourseSubTypeID, course_subtypes.CourseSubtypeName, course_time.ClassroomID, 
+                classrooms.ClassroomName, course_time.BeginTime, course_time.EndTime, day_of_week.DayOfWeekName, 
+                day_of_week.DayOfWeekValue, v_course.TeacherID, tearchers.Name AS TeacherName
+FROM      course_time LEFT OUTER JOIN
+                day_of_week ON day_of_week.DayOfWeekValue = course_time.DayOfWeek INNER JOIN
+                classrooms ON classrooms.ID = course_time.ClassroomID INNER JOIN
                 v_course ON v_course.ID = course_time.CourseID INNER JOIN
                 course_types ON course_types.ID = v_course.CourseTypeID INNER JOIN
                 course_subtypes ON course_subtypes.ID = v_course.CourseSubTypeID LEFT OUTER JOIN
                 tearchers ON tearchers.ID = v_course.TeacherID
-ORDER BY CONVERT(varchar(12), course_time.BeginTime, 108), course_time.ID";
+ORDER BY course_time.DayOfWeek, CONVERT(varchar(12), course_time.BeginTime, 108), v_course.ID";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT   course_time.ID, course_time.CourseID, v_course.CourseName, v_course.CourseTypeID, 
-                course_types.CourseTypeName, v_course.CourseSubTypeID, course_subtypes.CourseSubtypeName, 
-                course_time.ClassroomID, course_time.BeginTime, course_time.EndTime, v_course.TeacherID, 
-                tearchers.Name AS TeacherName
-FROM      course_time INNER JOIN
+            this._commandCollection[1].CommandText = @"SELECT   course_time.CourseID, v_course.CourseName, v_course.CourseTypeID, course_types.CourseTypeName, 
+                v_course.CourseSubTypeID, course_subtypes.CourseSubtypeName, course_time.ClassroomID, 
+                classrooms.ClassroomName, course_time.BeginTime, course_time.EndTime, day_of_week.DayOfWeekName, 
+                day_of_week.DayOfWeekValue, v_course.TeacherID, tearchers.Name AS TeacherName
+FROM      course_time LEFT OUTER JOIN
+                day_of_week ON day_of_week.DayOfWeekValue = course_time.DayOfWeek INNER JOIN
+                classrooms ON classrooms.ID = course_time.ClassroomID INNER JOIN
+                v_course ON v_course.ID = course_time.CourseID INNER JOIN
+                course_types ON course_types.ID = v_course.CourseTypeID INNER JOIN
+                course_subtypes ON course_subtypes.ID = v_course.CourseSubTypeID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = v_course.TeacherID
+WHERE   (course_time.ClassroomID = @ClassroomID)
+ORDER BY course_time.DayOfWeek, CONVERT(varchar(12), course_time.BeginTime, 108), v_course.ID";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClassroomID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ClassroomID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT   course_time.CourseID, v_course.CourseName, v_course.CourseTypeID, course_types.CourseTypeName, 
+                v_course.CourseSubTypeID, course_subtypes.CourseSubtypeName, course_time.ClassroomID, 
+                classrooms.ClassroomName, course_time.BeginTime, course_time.EndTime, day_of_week.DayOfWeekName, 
+                day_of_week.DayOfWeekValue, v_course.TeacherID, tearchers.Name AS TeacherName
+FROM      course_time LEFT OUTER JOIN
+                day_of_week ON day_of_week.DayOfWeekValue = course_time.DayOfWeek INNER JOIN
+                classrooms ON classrooms.ID = course_time.ClassroomID INNER JOIN
                 v_course ON v_course.ID = course_time.CourseID INNER JOIN
                 course_types ON course_types.ID = v_course.CourseTypeID INNER JOIN
                 course_subtypes ON course_subtypes.ID = v_course.CourseSubTypeID LEFT OUTER JOIN
                 tearchers ON tearchers.ID = v_course.TeacherID
 WHERE   (course_time.ClassroomID = @ClassroomID) AND (course_time.DayOfWeek = @DayOfWeek)
-ORDER BY CONVERT(varchar(12), course_time.BeginTime, 108), course_time.ID";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClassroomID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ClassroomID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DayOfWeek", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "DayOfWeek", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+ORDER BY course_time.DayOfWeek, CONVERT(varchar(12), course_time.BeginTime, 108), v_course.ID";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ClassroomID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ClassroomID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DayOfWeek", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "DayOfWeek", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"SELECT   course_time.CourseID, v_course.CourseName, v_course.CourseTypeID, course_types.CourseTypeName, 
+                v_course.CourseSubTypeID, course_subtypes.CourseSubtypeName, course_time.ClassroomID, 
+                classrooms.ClassroomName, course_time.BeginTime, course_time.EndTime, day_of_week.DayOfWeekName, 
+                day_of_week.DayOfWeekValue, v_course.TeacherID, tearchers.Name AS TeacherName
+FROM      course_time LEFT OUTER JOIN
+                day_of_week ON day_of_week.DayOfWeekValue = course_time.DayOfWeek INNER JOIN
+                classrooms ON classrooms.ID = course_time.ClassroomID INNER JOIN
+                v_course ON v_course.ID = course_time.CourseID INNER JOIN
+                course_types ON course_types.ID = v_course.CourseTypeID INNER JOIN
+                course_subtypes ON course_subtypes.ID = v_course.CourseSubTypeID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = v_course.TeacherID
+WHERE   (course_time.DayOfWeek = @DayOfWeek)
+ORDER BY course_time.DayOfWeek, CONVERT(varchar(12), course_time.BeginTime, 108), v_course.ID";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DayOfWeek", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "DayOfWeek", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5607,8 +5687,34 @@ ORDER BY CONVERT(varchar(12), course_time.BeginTime, 108), course_time.ID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByClassroomIDAndDayOfWeek(CoursesDataSet.CoursesOfClassroomDataTable dataTable, int ClassroomID, int DayOfWeek) {
+        public virtual int FillByClassroomID(CoursesDataSet.CoursesOfClassroomDataTable dataTable, int ClassroomID) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ClassroomID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual CoursesDataSet.CoursesOfClassroomDataTable GetDataByClassroomID(int ClassroomID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ClassroomID));
+            CoursesDataSet.CoursesOfClassroomDataTable dataTable = new CoursesDataSet.CoursesOfClassroomDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByClassroomIDAndDayOfWeek(CoursesDataSet.CoursesOfClassroomDataTable dataTable, int ClassroomID, int DayOfWeek) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ClassroomID));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(DayOfWeek));
             if ((this.ClearBeforeFill == true)) {
@@ -5623,9 +5729,35 @@ ORDER BY CONVERT(varchar(12), course_time.BeginTime, 108), course_time.ID";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual CoursesDataSet.CoursesOfClassroomDataTable GetDataByClassroomIDAndDayOfWeek(int ClassroomID, int DayOfWeek) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ClassroomID));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(DayOfWeek));
+            CoursesDataSet.CoursesOfClassroomDataTable dataTable = new CoursesDataSet.CoursesOfClassroomDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByDayOfWeek(CoursesDataSet.CoursesOfClassroomDataTable dataTable, int DayOfWeek) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(DayOfWeek));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual CoursesDataSet.CoursesOfClassroomDataTable GetDataByDayOfWeek(int DayOfWeek) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(DayOfWeek));
             CoursesDataSet.CoursesOfClassroomDataTable dataTable = new CoursesDataSet.CoursesOfClassroomDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -5812,21 +5944,21 @@ ORDER BY CONVERT(varchar(12), course_time.BeginTime, 108), course_time.ID";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._courseSubtypesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.CourseSubtypes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._courseSubtypesTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._courseTimeTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.CourseTime.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._courseTimeTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._courseSubtypesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.CourseSubtypes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._courseSubtypesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -5856,19 +5988,19 @@ ORDER BY CONVERT(varchar(12), course_time.BeginTime, 108), course_time.ID";
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._courseSubtypesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.CourseSubtypes.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._courseSubtypesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._courseTimeTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.CourseTime.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._courseTimeTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._courseSubtypesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.CourseSubtypes.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._courseSubtypesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -5882,19 +6014,19 @@ ORDER BY CONVERT(varchar(12), course_time.BeginTime, 108), course_time.ID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(CoursesDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._courseTimeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.CourseTime.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._courseTimeTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._courseSubtypesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.CourseSubtypes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._courseSubtypesTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._courseTimeTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.CourseTime.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._courseTimeTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
