@@ -76,7 +76,7 @@ namespace BanGongPingTai
                 int.Parse(row.Cells["materialIDColumn"].Value.ToString()));
             // 2> 添加购买记录
             materialsBuyTableAdapter.Insert(int.Parse(row.Cells["materialIDColumn"].Value.ToString()),
-                BuyCount, int.Parse(txtTotalPrice.Text), ActualCost, txtRemark.Text, dtBuyTime.Value);
+                BuyCount, int.Parse(txtTotalPrice.Text), ActualCost, txtRemark.Text, dtBuyTime.Value, User.CurrentUser.UserName);
 
             // 刷新界面
             row.Cells["materialCountColumn"].Value = newCount;

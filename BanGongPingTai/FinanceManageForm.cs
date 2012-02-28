@@ -18,13 +18,11 @@ namespace BanGongPingTai
 
         private void FinanceManageForm_Load(object sender, EventArgs e)
         {
-            // TODO: 这行代码将数据加载到表“financeManageDataSet.MaterialsBuy”中。您可以根据需要移动或删除它。
-            this.materialsBuyTableAdapter.Fill(this.financeManageDataSet.MaterialsBuy);
-
             DateTime beginDate = DateTime.Now;
             beginDate = new DateTime(beginDate.Year, beginDate.Month, 1, 0, 0, 0);
-            this.depositListTableAdapter.FillByBeginDate(this.depositListDataSet.DepositList, beginDate);
 
+            this.depositListTableAdapter.FillByBeginDate(this.depositListDataSet.DepositList, beginDate);
+            this.materialsBuyTableAdapter.FillByBeginDate(this.financeManageDataSet.MaterialsBuy);
         }
 
         private void depositListBindingSource_ListChanged(object sender, ListChangedEventArgs e)
@@ -39,11 +37,6 @@ namespace BanGongPingTai
 
             txtTotalDeposit.Text = totalDeposit.ToString();
             txtTotalPaid.Text = totalPaid.ToString();
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void materialsBuyBindingSource_ListChanged(object sender, ListChangedEventArgs e)
@@ -65,11 +58,21 @@ namespace BanGongPingTai
             this.depositListTableAdapter.Fill(this.depositListDataSet.DepositList);
         }
 
+        private void btnShowAllBuy_Click(object sender, EventArgs e)
+        {
+            this.materialsBuyTableAdapter.Fill(this.financeManageDataSet.MaterialsBuy);
+        }
+
         private void btnShowThisMonthDeposit_Click(object sender, EventArgs e)
         {
             DateTime beginDate = DateTime.Now;
             beginDate = new DateTime(beginDate.Year, beginDate.Month, 1, 0, 0, 0);
             this.depositListTableAdapter.FillByBeginDate(this.depositListDataSet.DepositList, beginDate);
+        }
+
+        private void btnShowThisMonthBuy_Click(object sender, EventArgs e)
+        {
+            this.materialsBuyTableAdapter.FillByBeginDate(this.financeManageDataSet.MaterialsBuy);
         }
 
         private void btnShowFilterDeposit_Click(object sender, EventArgs e)
@@ -81,9 +84,13 @@ namespace BanGongPingTai
             this.depositListTableAdapter.FillByBeginEndDate(this.depositListDataSet.DepositList, beginDate, endDate);
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void btnShowFilterBuy_Click(object sender, EventArgs e)
         {
-
+            DateTime beginDate = dtBuyBeginDate.Value;
+            beginDate = new DateTime(beginDate.Year, beginDate.Month, beginDate.Day, 0, 0, 0);
+            DateTime endDate = dtBuyEndDate.Value;
+            endDate = new DateTime(endDate.Year, endDate.Month, endDate.Day, 0, 0, 0);
+            this.materialsBuyTableAdapter.FillByBeginEndDate(this.financeManageDataSet.MaterialsBuy, beginDate, endDate);
         }
     }
 }
