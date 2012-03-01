@@ -81,6 +81,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FinanceManageDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="InputDialog\TeacherUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog\TeacherUpdateForm.Designer.cs">
+      <DependentUpon>TeacherUpdateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FinanceManageForm.resx">
       <DependentUpon>FinanceManageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog\TeacherUpdateForm.resx">
+      <DependentUpon>TeacherUpdateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

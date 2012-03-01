@@ -18,6 +18,28 @@ namespace BanGongPingTai
             InitializeComponent();
         }
 
+        private void TeachersManageForm_Load(object sender, EventArgs e)
+        {
+            this.teachersTableAdapter.Fill(this.teachersDataSet.Tearchers);
+            if (teachersDataSet.Tearchers.Rows.Count > 0)
+            {
+                teacherCoursesTableAdapter.Fill(teachersDataSet.TeacherCourses,
+                    teachersDataSet.Tearchers.Rows[0].Field<int>("ID"));
+            }
+        }
+
+        private void TeachersManageForm_Resize(object sender, EventArgs e)
+        {
+            dataGridView1.Width = this.Width - 630;
+            dataGridView1.Height = this.Height - 85;
+            dgvTeachers.Height = this.Height - 360;
+            btnAddTeacher.Top = this.Height - 90;
+            btnUpdateTeacher.Top = this.Height - 90;
+            btnDelTeacher.Top = this.Height - 90;
+            btnConnectCard.Top = this.Height - 90;
+            btnAddSalary.Top = this.Height - 90;
+        }
+
         private void btnAddTeacher_Click(object sender, EventArgs e)
         {
             TeacherAddingForm frmTeachersAdding = new TeacherAddingForm();
@@ -27,14 +49,58 @@ namespace BanGongPingTai
             teachersTableAdapter.Insert(frmTeachersAdding.Name,
                 frmTeachersAdding.Phone, null, frmTeachersAdding.Sex, frmTeachersAdding.Address, 0);
             teachersTableAdapter.Fill(teachersDataSet.Tearchers);
+            if (teachersDataSet.Tearchers.Rows.Count > 0)
+            {
+                teacherCoursesTableAdapter.Fill(teachersDataSet.TeacherCourses,
+                    teachersDataSet.Tearchers.Rows[0].Field<int>("ID"));
+            }
         }
 
-        private void TeachersManageForm_Load(object sender, EventArgs e)
+        private void btnUpdateTeacher_Click(object sender, EventArgs e)
         {
-            // TODO: 这行代码将数据加载到表“teachersDataSet.TeacherSalaryAdjust”中。您可以根据需要移动或删除它。
-            this.teacherSalaryAdjustTableAdapter.Fill(this.teachersDataSet.TeacherSalaryAdjust);
-            // TODO: 这行代码将数据加载到表“teachersDataSet.Tearchers”中。您可以根据需要移动或删除它。
-            this.teachersTableAdapter.Fill(this.teachersDataSet.Tearchers);
+            if (teachersBindingSource.Position < 0)
+                return;
+            int rowIndex = dgvTeachers.CurrentRow.Index;
+            TeacherUpdateForm frmTeacherUpdate = new TeacherUpdateForm();
+            frmTeacherUpdate.TeacherName = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Name");
+            frmTeacherUpdate.Sex = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Sex");
+            frmTeacherUpdate.Address = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Address");
+            frmTeacherUpdate.Phone = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Phone");
+            if (frmTeacherUpdate.ShowDialog() != DialogResult.OK)
+                return;
+            int teacherID = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<int>("ID");
+            teachersTableAdapter.UpdateByID(frmTeacherUpdate.TeacherName, frmTeacherUpdate.Phone, frmTeacherUpdate.Sex, frmTeacherUpdate.Address, teacherID);
+            teachersTableAdapter.Fill(teachersDataSet.Tearchers);
+            if (rowIndex >= 0)
+            {
+                this.dgvTeachers.Rows[rowIndex].Selected = true;
+                this.dgvTeachers.CurrentCell = this.dgvTeachers.Rows[rowIndex].Cells[0];
+            }
+        }
+
+        private void btnDelTeacher_Click(object sender, EventArgs e)
+        {
+            if (teachersBindingSource.Position < 0)
+                return;
+            if (teachersDataSet.TeacherCourses.Rows.Count > 0)
+            {
+                MessageBox.Show("该教师有授课，无法删除！");
+                return;
+            }
+            else
+            {
+                if (MessageBox.Show("您确定要删除该教师吗？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    int teacherID = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<int>("ID");
+                    teachersTableAdapter.DeleteByID(teacherID);
+                    teachersTableAdapter.Fill(teachersDataSet.Tearchers);
+                    if (teachersDataSet.Tearchers.Rows.Count > 0)
+                    {
+                        teacherCoursesTableAdapter.Fill(teachersDataSet.TeacherCourses,
+                            teachersDataSet.Tearchers.Rows[0].Field<int>("ID"));
+                    }
+                }
+            }
         }
 
         private void btnConnectCard_Click(object sender, EventArgs e)
@@ -52,6 +118,11 @@ namespace BanGongPingTai
             this.teachersTableAdapter.Fill(this.teachersDataSet.Tearchers);
         }
 
+        private void btnAddSalary_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void teachersBindingSource_PositionChanged(object sender, EventArgs e)
         {
             if (teachersBindingSource.Position < 0)
@@ -67,29 +138,16 @@ namespace BanGongPingTai
             }
         }
 
-        private void btnChangeSalary_Click(object sender, EventArgs e)
+        private void dgvTeachers_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            
-        /*
-            if (dgvTeachers.SelectedRows.Count <= 0)
-                return;
-            DataGridViewRow row = dgvTeachers.SelectedRows[0];
-            SalaryChangeForm frmSalaryChange = new SalaryChangeForm();
-            frmSalaryChange.TeacherName = row.Cells["teacherNameColumn"].Value.ToString();
-            frmSalaryChange.Sex = row.Cells["sexColumn"].Value.ToString();
-            frmSalaryChange.Address = row.Cells["addressColumn"].Value.ToString();
-            frmSalaryChange.Phone = row.Cells["phoneColumn"].Value.ToString();
-            frmSalaryChange.OriginalSalary = row.Cells["salaryColumn"].Value.ToString();
-            if (frmSalaryChange.ShowDialog() != DialogResult.OK)
-                return;
+            SolidBrush b = new SolidBrush(this.dgvTeachers.RowHeadersDefaultCellStyle.ForeColor);
+            e.Graphics.DrawString((e.RowIndex + 1).ToString(System.Globalization.CultureInfo.CurrentUICulture), this.dgvTeachers.DefaultCellStyle.Font, b, e.RowBounds.Location.X + 20, e.RowBounds.Location.Y + 4);
+        }
 
-            row.Cells["salaryColumn"].Value = frmSalaryChange.NewSalary.ToString();
-            // 1> Update teacher salary in database;
-            teachersTableAdapter.UpdateSalary(frmSalaryChange.NewSalary, int.Parse(txtID.Text));
-            // 2> Insert the update record in database;
-            teacherSalaryAdjustTableAdapter.Insert(int.Parse(txtID.Text), frmSalaryChange.AdjustDate,
-                frmSalaryChange.NewSalary);
-         */
+        private void dgvTeacherCourses_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            SolidBrush b = new SolidBrush(this.dgvTeacherCourses.RowHeadersDefaultCellStyle.ForeColor);
+            e.Graphics.DrawString((e.RowIndex + 1).ToString(System.Globalization.CultureInfo.CurrentUICulture), this.dgvTeacherCourses.DefaultCellStyle.Font, b, e.RowBounds.Location.X + 20, e.RowBounds.Location.Y + 4);
         }
     }
 }
