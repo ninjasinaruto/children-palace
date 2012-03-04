@@ -30,42 +30,42 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvTeachers = new System.Windows.Forms.DataGridView();
-            this.btnConnectCard = new System.Windows.Forms.Button();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.dgvTeacherCourses = new System.Windows.Forms.DataGridView();
-            this.btnAddTeacher = new System.Windows.Forms.Button();
-            this.btnAddSalary = new System.Windows.Forms.Button();
-            this.btnUpdateTeacher = new System.Windows.Forms.Button();
-            this.btnDelTeacher = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.cardNoColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teacherNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sexColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teachersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teachersDataSet = new BanGongPingTai.TeachersDataSet();
-            this.teacherCoursesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.teachersTableAdapter = new BanGongPingTai.TeachersDataSetTableAdapters.TearchersTableAdapter();
-            this.teacherCoursesTableAdapter = new BanGongPingTai.TeachersDataSetTableAdapters.TeacherCoursesTableAdapter();
-            this.teacherSalaryAdjustBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.teacherSalaryAdjustTableAdapter = new BanGongPingTai.TeachersDataSetTableAdapters.TeacherSalaryAdjustTableAdapter();
+            this.btnConnectCard = new System.Windows.Forms.Button();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.dgvTeacherCourses = new System.Windows.Forms.DataGridView();
             this.SEQ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseTypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseSubtypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chargeTypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chargeAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teacherCoursesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnAddTeacher = new System.Windows.Forms.Button();
+            this.btnAddSalary = new System.Windows.Forms.Button();
+            this.btnUpdateTeacher = new System.Windows.Forms.Button();
+            this.btnDelTeacher = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.teachersTableAdapter = new BanGongPingTai.TeachersDataSetTableAdapters.TearchersTableAdapter();
+            this.teacherCoursesTableAdapter = new BanGongPingTai.TeachersDataSetTableAdapters.TeacherCoursesTableAdapter();
+            this.teacherSalaryAdjustBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherSalaryAdjustTableAdapter = new BanGongPingTai.TeachersDataSetTableAdapters.TeacherSalaryAdjustTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeachers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTeacherCourses)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teachersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teachersDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTeacherCourses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherCoursesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSalaryAdjustBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,6 +94,60 @@
             this.dgvTeachers.Size = new System.Drawing.Size(597, 300);
             this.dgvTeachers.TabIndex = 3;
             this.dgvTeachers.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvTeachers_RowPostPaint);
+            // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.ID.HeaderText = "序号";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 54;
+            // 
+            // cardNoColumn
+            // 
+            this.cardNoColumn.DataPropertyName = "CardNo";
+            this.cardNoColumn.HeaderText = "卡号";
+            this.cardNoColumn.Name = "cardNoColumn";
+            this.cardNoColumn.ReadOnly = true;
+            // 
+            // teacherNameColumn
+            // 
+            this.teacherNameColumn.DataPropertyName = "Name";
+            this.teacherNameColumn.HeaderText = "姓名";
+            this.teacherNameColumn.Name = "teacherNameColumn";
+            this.teacherNameColumn.ReadOnly = true;
+            // 
+            // phoneColumn
+            // 
+            this.phoneColumn.DataPropertyName = "Phone";
+            this.phoneColumn.HeaderText = "电话";
+            this.phoneColumn.Name = "phoneColumn";
+            this.phoneColumn.ReadOnly = true;
+            // 
+            // sexColumn
+            // 
+            this.sexColumn.DataPropertyName = "Sex";
+            this.sexColumn.HeaderText = "性别";
+            this.sexColumn.Name = "sexColumn";
+            this.sexColumn.ReadOnly = true;
+            // 
+            // addressColumn
+            // 
+            this.addressColumn.DataPropertyName = "Address";
+            this.addressColumn.HeaderText = "地址";
+            this.addressColumn.Name = "addressColumn";
+            this.addressColumn.ReadOnly = true;
+            // 
+            // teachersBindingSource
+            // 
+            this.teachersBindingSource.DataMember = "Tearchers";
+            this.teachersBindingSource.DataSource = this.teachersDataSet;
+            this.teachersBindingSource.PositionChanged += new System.EventHandler(this.teachersBindingSource_PositionChanged);
+            // 
+            // teachersDataSet
+            // 
+            this.teachersDataSet.DataSetName = "TeachersDataSet";
+            this.teachersDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnConnectCard
             // 
@@ -141,165 +195,6 @@
             this.dgvTeacherCourses.TabIndex = 0;
             this.dgvTeacherCourses.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvTeacherCourses_RowPostPaint);
             // 
-            // btnAddTeacher
-            // 
-            this.btnAddTeacher.Location = new System.Drawing.Point(235, 565);
-            this.btnAddTeacher.Name = "btnAddTeacher";
-            this.btnAddTeacher.Size = new System.Drawing.Size(70, 36);
-            this.btnAddTeacher.TabIndex = 2;
-            this.btnAddTeacher.Text = "添加";
-            this.btnAddTeacher.UseVisualStyleBackColor = true;
-            this.btnAddTeacher.Click += new System.EventHandler(this.btnAddTeacher_Click);
-            // 
-            // btnAddSalary
-            // 
-            this.btnAddSalary.Location = new System.Drawing.Point(539, 565);
-            this.btnAddSalary.Name = "btnAddSalary";
-            this.btnAddSalary.Size = new System.Drawing.Size(70, 36);
-            this.btnAddSalary.TabIndex = 2;
-            this.btnAddSalary.Text = "添加工资";
-            this.btnAddSalary.UseVisualStyleBackColor = true;
-            this.btnAddSalary.Click += new System.EventHandler(this.btnAddSalary_Click);
-            // 
-            // btnUpdateTeacher
-            // 
-            this.btnUpdateTeacher.Location = new System.Drawing.Point(311, 565);
-            this.btnUpdateTeacher.Name = "btnUpdateTeacher";
-            this.btnUpdateTeacher.Size = new System.Drawing.Size(70, 36);
-            this.btnUpdateTeacher.TabIndex = 24;
-            this.btnUpdateTeacher.Text = "修改";
-            this.btnUpdateTeacher.UseVisualStyleBackColor = true;
-            this.btnUpdateTeacher.Click += new System.EventHandler(this.btnUpdateTeacher_Click);
-            // 
-            // btnDelTeacher
-            // 
-            this.btnDelTeacher.Location = new System.Drawing.Point(387, 565);
-            this.btnDelTeacher.Name = "btnDelTeacher";
-            this.btnDelTeacher.Size = new System.Drawing.Size(70, 36);
-            this.btnDelTeacher.TabIndex = 25;
-            this.btnDelTeacher.Text = "删除";
-            this.btnDelTeacher.UseVisualStyleBackColor = true;
-            this.btnDelTeacher.Click += new System.EventHandler(this.btnDelTeacher_Click);
-            // 
-            // ID
-            // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.ID.HeaderText = "序号";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 54;
-            // 
-            // addressColumn
-            // 
-            this.addressColumn.DataPropertyName = "Address";
-            this.addressColumn.HeaderText = "地址";
-            this.addressColumn.Name = "addressColumn";
-            this.addressColumn.ReadOnly = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "所授课程";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 241);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 28;
-            this.label2.Text = "教师列表";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(619, 12);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 12);
-            this.label3.TabIndex = 29;
-            this.label3.Text = "课量工资信息";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(621, 31);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(729, 570);
-            this.dataGridView1.TabIndex = 30;
-            // 
-            // cardNoColumn
-            // 
-            this.cardNoColumn.DataPropertyName = "CardNo";
-            this.cardNoColumn.HeaderText = "卡号";
-            this.cardNoColumn.Name = "cardNoColumn";
-            this.cardNoColumn.ReadOnly = true;
-            // 
-            // teacherNameColumn
-            // 
-            this.teacherNameColumn.DataPropertyName = "Name";
-            this.teacherNameColumn.HeaderText = "姓名";
-            this.teacherNameColumn.Name = "teacherNameColumn";
-            this.teacherNameColumn.ReadOnly = true;
-            // 
-            // phoneColumn
-            // 
-            this.phoneColumn.DataPropertyName = "Phone";
-            this.phoneColumn.HeaderText = "电话";
-            this.phoneColumn.Name = "phoneColumn";
-            this.phoneColumn.ReadOnly = true;
-            // 
-            // sexColumn
-            // 
-            this.sexColumn.DataPropertyName = "Sex";
-            this.sexColumn.HeaderText = "性别";
-            this.sexColumn.Name = "sexColumn";
-            this.sexColumn.ReadOnly = true;
-            // 
-            // teachersBindingSource
-            // 
-            this.teachersBindingSource.DataMember = "Tearchers";
-            this.teachersBindingSource.DataSource = this.teachersDataSet;
-            this.teachersBindingSource.PositionChanged += new System.EventHandler(this.teachersBindingSource_PositionChanged);
-            // 
-            // teachersDataSet
-            // 
-            this.teachersDataSet.DataSetName = "TeachersDataSet";
-            this.teachersDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // teacherCoursesBindingSource
-            // 
-            this.teacherCoursesBindingSource.DataMember = "TeacherCourses";
-            this.teacherCoursesBindingSource.DataSource = this.teachersDataSet;
-            // 
-            // teachersTableAdapter
-            // 
-            this.teachersTableAdapter.ClearBeforeFill = true;
-            // 
-            // teacherCoursesTableAdapter
-            // 
-            this.teacherCoursesTableAdapter.ClearBeforeFill = true;
-            // 
-            // teacherSalaryAdjustBindingSource
-            // 
-            this.teacherSalaryAdjustBindingSource.DataMember = "TeacherSalaryAdjust";
-            this.teacherSalaryAdjustBindingSource.DataSource = this.teachersDataSet;
-            // 
-            // teacherSalaryAdjustTableAdapter
-            // 
-            this.teacherSalaryAdjustTableAdapter.ClearBeforeFill = true;
-            // 
             // SEQ
             // 
             this.SEQ.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -344,6 +239,111 @@
             this.chargeAmountDataGridViewTextBoxColumn.Name = "chargeAmountDataGridViewTextBoxColumn";
             this.chargeAmountDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // teacherCoursesBindingSource
+            // 
+            this.teacherCoursesBindingSource.DataMember = "TeacherCourses";
+            this.teacherCoursesBindingSource.DataSource = this.teachersDataSet;
+            // 
+            // btnAddTeacher
+            // 
+            this.btnAddTeacher.Location = new System.Drawing.Point(235, 565);
+            this.btnAddTeacher.Name = "btnAddTeacher";
+            this.btnAddTeacher.Size = new System.Drawing.Size(70, 36);
+            this.btnAddTeacher.TabIndex = 2;
+            this.btnAddTeacher.Text = "添加";
+            this.btnAddTeacher.UseVisualStyleBackColor = true;
+            this.btnAddTeacher.Click += new System.EventHandler(this.btnAddTeacher_Click);
+            // 
+            // btnAddSalary
+            // 
+            this.btnAddSalary.Location = new System.Drawing.Point(539, 565);
+            this.btnAddSalary.Name = "btnAddSalary";
+            this.btnAddSalary.Size = new System.Drawing.Size(70, 36);
+            this.btnAddSalary.TabIndex = 2;
+            this.btnAddSalary.Text = "添加工资";
+            this.btnAddSalary.UseVisualStyleBackColor = true;
+            this.btnAddSalary.Click += new System.EventHandler(this.btnAddSalary_Click);
+            // 
+            // btnUpdateTeacher
+            // 
+            this.btnUpdateTeacher.Location = new System.Drawing.Point(311, 565);
+            this.btnUpdateTeacher.Name = "btnUpdateTeacher";
+            this.btnUpdateTeacher.Size = new System.Drawing.Size(70, 36);
+            this.btnUpdateTeacher.TabIndex = 24;
+            this.btnUpdateTeacher.Text = "修改";
+            this.btnUpdateTeacher.UseVisualStyleBackColor = true;
+            this.btnUpdateTeacher.Click += new System.EventHandler(this.btnUpdateTeacher_Click);
+            // 
+            // btnDelTeacher
+            // 
+            this.btnDelTeacher.Location = new System.Drawing.Point(387, 565);
+            this.btnDelTeacher.Name = "btnDelTeacher";
+            this.btnDelTeacher.Size = new System.Drawing.Size(70, 36);
+            this.btnDelTeacher.TabIndex = 25;
+            this.btnDelTeacher.Text = "删除";
+            this.btnDelTeacher.UseVisualStyleBackColor = true;
+            this.btnDelTeacher.Click += new System.EventHandler(this.btnDelTeacher_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "所授课程";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 241);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "教师列表";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(619, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 12);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "课量工资信息";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(621, 31);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(729, 570);
+            this.dataGridView1.TabIndex = 30;
+            // 
+            // teachersTableAdapter
+            // 
+            this.teachersTableAdapter.ClearBeforeFill = true;
+            // 
+            // teacherCoursesTableAdapter
+            // 
+            this.teacherCoursesTableAdapter.ClearBeforeFill = true;
+            // 
+            // teacherSalaryAdjustBindingSource
+            // 
+            this.teacherSalaryAdjustBindingSource.DataMember = "TeacherSalaryAdjust";
+            this.teacherSalaryAdjustBindingSource.DataSource = this.teachersDataSet;
+            // 
+            // teacherSalaryAdjustTableAdapter
+            // 
+            this.teacherSalaryAdjustTableAdapter.ClearBeforeFill = true;
+            // 
             // TeachersManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -367,11 +367,11 @@
             this.Load += new System.EventHandler(this.TeachersManageForm_Load);
             this.Resize += new System.EventHandler(this.TeachersManageForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeachers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTeacherCourses)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teachersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teachersDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTeacherCourses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherCoursesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSalaryAdjustBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
