@@ -38,6 +38,9 @@
     <ApplicationIcon>picasa.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar.Design">
+      <HintPath>..\Resource\DevComponents.DotNetBar.Design.dll</HintPath>
+    </Reference>
     <Reference Include="IrisSkin2">
       <HintPath>..\Resource\IrisSkin2.dll</HintPath>
     </Reference>
