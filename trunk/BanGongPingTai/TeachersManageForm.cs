@@ -120,7 +120,16 @@ namespace BanGongPingTai
 
         private void btnAddSalary_Click(object sender, EventArgs e)
         {
-
+            if (teachersBindingSource.Position < 0)
+                return;
+            int rowIndex = dgvTeachers.CurrentRow.Index;
+            int teacherID = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<int>("ID");
+            SalaryAddForm frmSalaryAdd = new SalaryAddForm();
+            frmSalaryAdd.TeacherName = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Name");
+            frmSalaryAdd.TeacherID = teacherID;
+            if (frmSalaryAdd.ShowDialog() != DialogResult.OK)
+                return;
+            
         }
 
         private void teachersBindingSource_PositionChanged(object sender, EventArgs e)
