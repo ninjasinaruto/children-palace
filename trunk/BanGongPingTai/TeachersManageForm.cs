@@ -129,7 +129,48 @@ namespace BanGongPingTai
             frmSalaryAdd.TeacherID = teacherID;
             if (frmSalaryAdd.ShowDialog() != DialogResult.OK)
                 return;
-            
+            DateTime wageTime = frmSalaryAdd.wageTime;
+            List<BasicWage> basicWageList = frmSalaryAdd.bwList;
+            double courseWageCoefficient = frmSalaryAdd.cwCoefficient;
+            List<CourseWage> courseWageList = frmSalaryAdd.cwList;
+            StudentAward studentAward = frmSalaryAdd.sa;
+            List<TeacherAward> teacherAwardList = frmSalaryAdd.taList;
+            List<ChargeBack> chargeBackList = frmSalaryAdd.cbList;
+
+            // 新增基本工资
+            for (int i = 0; i < basicWageList.Count; i++)
+            {
+                teacherBasicWageTableAdapter.Insert(teacherID, basicWageList[i].WageType, (decimal)basicWageList[i].WageStandard,
+                    basicWageList[i].WageNum, (decimal)basicWageList[i].WageAmount, basicWageList[i].Remark, wageTime,
+                    User.CurrentUser.UserName);
+            }
+            // 新增系数
+            teacherCoefficientTableAdapter.Insert(teacherID, courseWageCoefficient, wageTime, User.CurrentUser.UserName);
+            // 新增课量工资
+            for (int i = 0; i < courseWageList.Count; i++)
+            {
+                teacherCourseWageTableAdapter.Insert(teacherID, courseWageList[i].CourseType, courseWageList[i].CourseNum,
+                    (decimal)courseWageList[i].StandardPrice, (decimal)courseWageList[i].ActualPrice, (decimal)courseWageList[i].CourseAmount,
+                    courseWageList[i].Remark, wageTime, User.CurrentUser.UserName);
+            }
+            // 新增学生管理奖
+            teacherStudentAwardTableAdapter.Insert(teacherID, studentAward.TotalStudent, studentAward.ActualStudent, (decimal)studentAward.StandardPrice,
+                (decimal)studentAward.ActualPrice, (decimal)studentAward.Amount, wageTime, User.CurrentUser.UserName);
+            // 新增奖励工资
+            for (int i = 0; i < teacherAwardList.Count; i++)
+            {
+                teacherAwardTableAdapter.Insert(teacherID, teacherAwardList[i].AwardName, (decimal)teacherAwardList[i].StandardPrice,
+                    (decimal)teacherAwardList[i].ActualPrice, teacherAwardList[i].AwardNum, (decimal)teacherAwardList[i].AwardAmount,
+                    teacherAwardList[i].Remark, wageTime, User.CurrentUser.UserName);
+            }
+            // 新增扣款
+            for (int i = 0; i < chargeBackList.Count; i++)
+            {
+                teacherChargeBackTableAdapter.Insert(teacherID, chargeBackList[i].ChargeBackName, chargeBackList[i].ChargeBackType,
+                    (decimal)chargeBackList[i].StandardPrice, chargeBackList[i].ChargeBackNum, (decimal)chargeBackList[i].ChargeBackAmount,
+                    chargeBackList[i].Remark, wageTime, User.CurrentUser.UserName);
+            }
+            MessageBox.Show("添加工资成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void teachersBindingSource_PositionChanged(object sender, EventArgs e)

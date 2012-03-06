@@ -60,6 +60,19 @@
             this.teacherCoursesTableAdapter = new BanGongPingTai.TeachersDataSetTableAdapters.TeacherCoursesTableAdapter();
             this.teacherSalaryAdjustBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teacherSalaryAdjustTableAdapter = new BanGongPingTai.TeachersDataSetTableAdapters.TeacherSalaryAdjustTableAdapter();
+            this.teacherBasicWageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherWageDataSet = new BanGongPingTai.TeacherWageDataSet();
+            this.teacherBasicWageTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherBasicWageTableAdapter();
+            this.teacherCoefficientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherCoefficientTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherCoefficientTableAdapter();
+            this.teacherCourseWageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherCourseWageTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherCourseWageTableAdapter();
+            this.studentAwardBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherStudentAwardTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherStudentAwardTableAdapter();
+            this.teacherAwardBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherAwardTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherAwardTableAdapter();
+            this.chargeBackBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherChargeBackTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherChargeBackTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeachers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teachersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teachersDataSet)).BeginInit();
@@ -67,6 +80,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.teacherCoursesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSalaryAdjustBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherBasicWageBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherWageDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherCoefficientBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherCourseWageBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentAwardBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherAwardBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chargeBackBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvTeachers
@@ -307,9 +327,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(619, 12);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 12);
+            this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 29;
-            this.label3.Text = "课量工资信息";
+            this.label3.Text = "工资信息";
             // 
             // dataGridView1
             // 
@@ -317,14 +337,14 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(621, 31);
+            this.dataGridView1.Location = new System.Drawing.Point(621, 76);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(729, 570);
+            this.dataGridView1.Size = new System.Drawing.Size(729, 525);
             this.dataGridView1.TabIndex = 30;
             // 
             // teachersTableAdapter
@@ -343,6 +363,65 @@
             // teacherSalaryAdjustTableAdapter
             // 
             this.teacherSalaryAdjustTableAdapter.ClearBeforeFill = true;
+            // 
+            // teacherBasicWageBindingSource
+            // 
+            this.teacherBasicWageBindingSource.DataMember = "TeacherBasicWage";
+            this.teacherBasicWageBindingSource.DataSource = this.teacherWageDataSet;
+            // 
+            // teacherWageDataSet
+            // 
+            this.teacherWageDataSet.DataSetName = "TeacherWageDataSet";
+            this.teacherWageDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // teacherBasicWageTableAdapter
+            // 
+            this.teacherBasicWageTableAdapter.ClearBeforeFill = true;
+            // 
+            // teacherCoefficientBindingSource
+            // 
+            this.teacherCoefficientBindingSource.DataMember = "TeacherCoefficient";
+            this.teacherCoefficientBindingSource.DataSource = this.teacherWageDataSet;
+            // 
+            // teacherCoefficientTableAdapter
+            // 
+            this.teacherCoefficientTableAdapter.ClearBeforeFill = true;
+            // 
+            // teacherCourseWageBindingSource
+            // 
+            this.teacherCourseWageBindingSource.DataMember = "TeacherCourseWage";
+            this.teacherCourseWageBindingSource.DataSource = this.teacherWageDataSet;
+            // 
+            // teacherCourseWageTableAdapter
+            // 
+            this.teacherCourseWageTableAdapter.ClearBeforeFill = true;
+            // 
+            // studentAwardBindingSource
+            // 
+            this.studentAwardBindingSource.DataMember = "TeacherStudentAward";
+            this.studentAwardBindingSource.DataSource = this.teacherWageDataSet;
+            // 
+            // teacherStudentAwardTableAdapter
+            // 
+            this.teacherStudentAwardTableAdapter.ClearBeforeFill = true;
+            // 
+            // teacherAwardBindingSource
+            // 
+            this.teacherAwardBindingSource.DataMember = "TeacherAward";
+            this.teacherAwardBindingSource.DataSource = this.teacherWageDataSet;
+            // 
+            // teacherAwardTableAdapter
+            // 
+            this.teacherAwardTableAdapter.ClearBeforeFill = true;
+            // 
+            // chargeBackBindingSource
+            // 
+            this.chargeBackBindingSource.DataMember = "TeacherChargeBack";
+            this.chargeBackBindingSource.DataSource = this.teacherWageDataSet;
+            // 
+            // teacherChargeBackTableAdapter
+            // 
+            this.teacherChargeBackTableAdapter.ClearBeforeFill = true;
             // 
             // TeachersManageForm
             // 
@@ -373,6 +452,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.teacherCoursesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSalaryAdjustBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherBasicWageBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherWageDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherCoefficientBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherCourseWageBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentAwardBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherAwardBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chargeBackBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -411,5 +497,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn courseSubtypeNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn chargeTypeNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn chargeAmountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource teacherBasicWageBindingSource;
+        private TeacherWageDataSet teacherWageDataSet;
+        private TeacherWageDataSetTableAdapters.TeacherBasicWageTableAdapter teacherBasicWageTableAdapter;
+        private System.Windows.Forms.BindingSource teacherCoefficientBindingSource;
+        private TeacherWageDataSetTableAdapters.TeacherCoefficientTableAdapter teacherCoefficientTableAdapter;
+        private System.Windows.Forms.BindingSource teacherCourseWageBindingSource;
+        private TeacherWageDataSetTableAdapters.TeacherCourseWageTableAdapter teacherCourseWageTableAdapter;
+        private System.Windows.Forms.BindingSource studentAwardBindingSource;
+        private TeacherWageDataSetTableAdapters.TeacherStudentAwardTableAdapter teacherStudentAwardTableAdapter;
+        private System.Windows.Forms.BindingSource teacherAwardBindingSource;
+        private TeacherWageDataSetTableAdapters.TeacherAwardTableAdapter teacherAwardTableAdapter;
+        private System.Windows.Forms.BindingSource chargeBackBindingSource;
+        private TeacherWageDataSetTableAdapters.TeacherChargeBackTableAdapter teacherChargeBackTableAdapter;
     }
 }
