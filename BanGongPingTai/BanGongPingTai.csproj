@@ -64,6 +64,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Affair.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BasicWage.cs" />
+    <Compile Include="ChargeBack.cs" />
+    <Compile Include="CourseWage.cs" />
     <Compile Include="InputDialog\AffairDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +89,30 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FinanceManageDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InputDialog\ChargeBackAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog\ChargeBackAddForm.Designer.cs">
+      <DependentUpon>ChargeBackAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputDialog\ChargeBackUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog\ChargeBackUpdateForm.Designer.cs">
+      <DependentUpon>ChargeBackUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputDialog\CourseWageAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog\CourseWageAddForm.Designer.cs">
+      <DependentUpon>CourseWageAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputDialog\CourseWageUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog\CourseWageUpdateForm.Designer.cs">
+      <DependentUpon>CourseWageUpdateForm.cs</DependentUpon>
     </Compile>
     <Compile Include="InputDialog\SalaryAddForm.cs">
       <SubType>Form</SubType>
@@ -174,6 +201,8 @@
       <DependentUpon>PublishNoticeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="StudentAward.cs" />
+    <Compile Include="TeacherAward.cs" />
     <Compile Include="TeacherSalaryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +222,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TeacherWageDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TeacherWageDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <Compile Include="UsersDataSet.cs">
       <DependentUpon>UsersDataSet.xsd</DependentUpon>
@@ -226,6 +260,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FinanceManageForm.resx">
       <DependentUpon>FinanceManageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog\ChargeBackAddForm.resx">
+      <DependentUpon>ChargeBackAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog\ChargeBackUpdateForm.resx">
+      <DependentUpon>ChargeBackUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog\CourseWageAddForm.resx">
+      <DependentUpon>CourseWageAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog\CourseWageUpdateForm.resx">
+      <DependentUpon>CourseWageUpdateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InputDialog\SalaryAddForm.resx">
       <DependentUpon>SalaryAddForm.cs</DependentUpon>
@@ -348,6 +394,17 @@
     </None>
     <None Include="TeachersDataSet.xss">
       <DependentUpon>TeachersDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TeacherWageDataSet.xsc">
+      <DependentUpon>TeacherWageDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TeacherWageDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TeacherWageDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="TeacherWageDataSet.xss">
+      <DependentUpon>TeacherWageDataSet.xsd</DependentUpon>
     </None>
     <None Include="UsersDataSet.xsc">
       <DependentUpon>UsersDataSet.xsd</DependentUpon>

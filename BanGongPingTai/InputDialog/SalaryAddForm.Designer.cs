@@ -28,14 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtOtherSubsidyRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.txtWorkSubsidyRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.txtHolidaysSubsidyRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.txtInsuranceSubsidyRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.txtAgeSubsidyRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.txtJobWageRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.txtBasicWageRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtOtherSubsidyAmount = new DevComponents.Editors.DoubleInput();
             this.txtWorkSubsidyAmount = new DevComponents.Editors.DoubleInput();
             this.txtHolidaysSubsidyAmount = new DevComponents.Editors.DoubleInput();
@@ -83,7 +78,6 @@
             this.btnUpdateCourseWage = new System.Windows.Forms.Button();
             this.btnAddCourseWage = new System.Windows.Forms.Button();
             this.dgvCourseWage = new System.Windows.Forms.DataGridView();
-            this.txtCourseWageCoefficient = new DevComponents.Editors.IntegerInput();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtStudentAmount = new DevComponents.Editors.DoubleInput();
@@ -149,18 +143,28 @@
             this.shapeContainer4 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape4 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teacherBasicWageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherWageDataSet = new BanGongPingTai.TeacherWageDataSet();
+            this.teacherBasicWageTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherBasicWageTableAdapter();
+            this.txtBasicWageRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtJobWageRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtAgeSubsidyRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtInsuranceSubsidyRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtHolidaysSubsidyRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtWorkSubsidyRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtCourseWageCoefficient = new DevComponents.Editors.DoubleInput();
             this.CourseType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CourseNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StandardPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ActualPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CourseAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtOtherSubsidyAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWorkSubsidyAmount)).BeginInit();
@@ -185,7 +189,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBasicWage)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseWage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCourseWageCoefficient)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtStudentAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtStudentActualPrice)).BeginInit();
@@ -219,17 +222,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtFullAttendanceAwardNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFullAttendanceAwardActualPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFullAttendanceAwardStandardPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherBasicWageBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherWageDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCourseWageCoefficient)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtOtherSubsidyRemark);
             this.groupBox1.Controls.Add(this.txtWorkSubsidyRemark);
             this.groupBox1.Controls.Add(this.txtHolidaysSubsidyRemark);
             this.groupBox1.Controls.Add(this.txtInsuranceSubsidyRemark);
             this.groupBox1.Controls.Add(this.txtAgeSubsidyRemark);
             this.groupBox1.Controls.Add(this.txtJobWageRemark);
             this.groupBox1.Controls.Add(this.txtBasicWageRemark);
+            this.groupBox1.Controls.Add(this.txtOtherSubsidyRemark);
             this.groupBox1.Controls.Add(this.txtOtherSubsidyAmount);
             this.groupBox1.Controls.Add(this.txtWorkSubsidyAmount);
             this.groupBox1.Controls.Add(this.txtHolidaysSubsidyAmount);
@@ -282,78 +288,6 @@
             this.txtOtherSubsidyRemark.Name = "txtOtherSubsidyRemark";
             this.txtOtherSubsidyRemark.Size = new System.Drawing.Size(178, 21);
             this.txtOtherSubsidyRemark.TabIndex = 28;
-            // 
-            // txtWorkSubsidyRemark
-            // 
-            // 
-            // 
-            // 
-            this.txtWorkSubsidyRemark.Border.Class = "";
-            this.txtWorkSubsidyRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtWorkSubsidyRemark.Location = new System.Drawing.Point(340, 202);
-            this.txtWorkSubsidyRemark.Name = "txtWorkSubsidyRemark";
-            this.txtWorkSubsidyRemark.Size = new System.Drawing.Size(178, 21);
-            this.txtWorkSubsidyRemark.TabIndex = 24;
-            // 
-            // txtHolidaysSubsidyRemark
-            // 
-            // 
-            // 
-            // 
-            this.txtHolidaysSubsidyRemark.Border.Class = "";
-            this.txtHolidaysSubsidyRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtHolidaysSubsidyRemark.Location = new System.Drawing.Point(340, 172);
-            this.txtHolidaysSubsidyRemark.Name = "txtHolidaysSubsidyRemark";
-            this.txtHolidaysSubsidyRemark.Size = new System.Drawing.Size(178, 21);
-            this.txtHolidaysSubsidyRemark.TabIndex = 20;
-            // 
-            // txtInsuranceSubsidyRemark
-            // 
-            // 
-            // 
-            // 
-            this.txtInsuranceSubsidyRemark.Border.Class = "";
-            this.txtInsuranceSubsidyRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtInsuranceSubsidyRemark.Location = new System.Drawing.Point(340, 142);
-            this.txtInsuranceSubsidyRemark.Name = "txtInsuranceSubsidyRemark";
-            this.txtInsuranceSubsidyRemark.Size = new System.Drawing.Size(178, 21);
-            this.txtInsuranceSubsidyRemark.TabIndex = 16;
-            // 
-            // txtAgeSubsidyRemark
-            // 
-            // 
-            // 
-            // 
-            this.txtAgeSubsidyRemark.Border.Class = "";
-            this.txtAgeSubsidyRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtAgeSubsidyRemark.Location = new System.Drawing.Point(340, 110);
-            this.txtAgeSubsidyRemark.Name = "txtAgeSubsidyRemark";
-            this.txtAgeSubsidyRemark.Size = new System.Drawing.Size(178, 21);
-            this.txtAgeSubsidyRemark.TabIndex = 12;
-            // 
-            // txtJobWageRemark
-            // 
-            // 
-            // 
-            // 
-            this.txtJobWageRemark.Border.Class = "";
-            this.txtJobWageRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtJobWageRemark.Location = new System.Drawing.Point(340, 83);
-            this.txtJobWageRemark.Name = "txtJobWageRemark";
-            this.txtJobWageRemark.Size = new System.Drawing.Size(178, 21);
-            this.txtJobWageRemark.TabIndex = 8;
-            // 
-            // txtBasicWageRemark
-            // 
-            // 
-            // 
-            // 
-            this.txtBasicWageRemark.Border.Class = "";
-            this.txtBasicWageRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtBasicWageRemark.Location = new System.Drawing.Point(340, 53);
-            this.txtBasicWageRemark.Name = "txtBasicWageRemark";
-            this.txtBasicWageRemark.Size = new System.Drawing.Size(178, 21);
-            this.txtBasicWageRemark.TabIndex = 4;
             // 
             // txtOtherSubsidyAmount
             // 
@@ -934,11 +868,11 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtCourseWageCoefficient);
             this.groupBox2.Controls.Add(this.btnDelCourseWage);
             this.groupBox2.Controls.Add(this.btnUpdateCourseWage);
             this.groupBox2.Controls.Add(this.btnAddCourseWage);
             this.groupBox2.Controls.Add(this.dgvCourseWage);
-            this.groupBox2.Controls.Add(this.txtCourseWageCoefficient);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Location = new System.Drawing.Point(11, 319);
             this.groupBox2.Name = "groupBox2";
@@ -955,6 +889,7 @@
             this.btnDelCourseWage.TabIndex = 32;
             this.btnDelCourseWage.Text = "删除";
             this.btnDelCourseWage.UseVisualStyleBackColor = true;
+            this.btnDelCourseWage.Click += new System.EventHandler(this.btnDelCourseWage_Click);
             // 
             // btnUpdateCourseWage
             // 
@@ -964,6 +899,7 @@
             this.btnUpdateCourseWage.TabIndex = 31;
             this.btnUpdateCourseWage.Text = "修改";
             this.btnUpdateCourseWage.UseVisualStyleBackColor = true;
+            this.btnUpdateCourseWage.Click += new System.EventHandler(this.btnUpdateCourseWage_Click);
             // 
             // btnAddCourseWage
             // 
@@ -973,6 +909,7 @@
             this.btnAddCourseWage.TabIndex = 30;
             this.btnAddCourseWage.Text = "添加";
             this.btnAddCourseWage.UseVisualStyleBackColor = true;
+            this.btnAddCourseWage.Click += new System.EventHandler(this.btnAddCourseWage_Click);
             // 
             // dgvCourseWage
             // 
@@ -996,24 +933,7 @@
             this.dgvCourseWage.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCourseWage.Size = new System.Drawing.Size(503, 186);
             this.dgvCourseWage.TabIndex = 31;
-            // 
-            // txtCourseWageCoefficient
-            // 
-            this.txtCourseWageCoefficient.AllowEmptyState = false;
-            // 
-            // 
-            // 
-            this.txtCourseWageCoefficient.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.txtCourseWageCoefficient.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtCourseWageCoefficient.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.txtCourseWageCoefficient.Location = new System.Drawing.Point(59, 20);
-            this.txtCourseWageCoefficient.MinValue = 0;
-            this.txtCourseWageCoefficient.Name = "txtCourseWageCoefficient";
-            this.txtCourseWageCoefficient.Size = new System.Drawing.Size(45, 21);
-            this.txtCourseWageCoefficient.TabIndex = 29;
-            this.txtCourseWageCoefficient.Value = 1;
-            this.txtCourseWageCoefficient.WatermarkAlignment = DevComponents.Editors.eTextAlignment.Right;
-            this.txtCourseWageCoefficient.WatermarkText = "1";
+            this.dgvCourseWage.SelectionChanged += new System.EventHandler(this.dgvCourseWage_SelectionChanged);
             // 
             // label15
             // 
@@ -1209,7 +1129,7 @@
             this.groupBox4.Size = new System.Drawing.Size(674, 231);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "代扣处罚";
+            this.groupBox4.Text = "代扣处罚项目";
             // 
             // btnDelChargeback
             // 
@@ -1219,6 +1139,7 @@
             this.btnDelChargeback.TabIndex = 70;
             this.btnDelChargeback.Text = "删除";
             this.btnDelChargeback.UseVisualStyleBackColor = true;
+            this.btnDelChargeback.Click += new System.EventHandler(this.btnDelChargeback_Click);
             // 
             // dgvChargeback
             // 
@@ -1242,6 +1163,7 @@
             this.dgvChargeback.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvChargeback.Size = new System.Drawing.Size(638, 159);
             this.dgvChargeback.TabIndex = 33;
+            this.dgvChargeback.SelectionChanged += new System.EventHandler(this.dgvChargeback_SelectionChanged);
             // 
             // btnUpdateChargeback
             // 
@@ -1251,6 +1173,7 @@
             this.btnUpdateChargeback.TabIndex = 69;
             this.btnUpdateChargeback.Text = "修改";
             this.btnUpdateChargeback.UseVisualStyleBackColor = true;
+            this.btnUpdateChargeback.Click += new System.EventHandler(this.btnUpdateChargeback_Click);
             // 
             // btnAddChargeback
             // 
@@ -1260,6 +1183,7 @@
             this.btnAddChargeback.TabIndex = 68;
             this.btnAddChargeback.Text = "添加";
             this.btnAddChargeback.UseVisualStyleBackColor = true;
+            this.btnAddChargeback.Click += new System.EventHandler(this.btnAddChargeback_Click);
             // 
             // groupBox5
             // 
@@ -1960,9 +1884,154 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // teacherBasicWageBindingSource
+            // 
+            this.teacherBasicWageBindingSource.DataMember = "TeacherBasicWage";
+            this.teacherBasicWageBindingSource.DataSource = this.teacherWageDataSet;
+            // 
+            // teacherWageDataSet
+            // 
+            this.teacherWageDataSet.DataSetName = "TeacherWageDataSet";
+            this.teacherWageDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // teacherBasicWageTableAdapter
+            // 
+            this.teacherBasicWageTableAdapter.ClearBeforeFill = true;
+            // 
+            // txtBasicWageRemark
+            // 
+            // 
+            // 
+            // 
+            this.txtBasicWageRemark.Border.Class = "TextBoxBorder";
+            this.txtBasicWageRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtBasicWageRemark.Location = new System.Drawing.Point(340, 53);
+            this.txtBasicWageRemark.Name = "txtBasicWageRemark";
+            this.txtBasicWageRemark.Size = new System.Drawing.Size(178, 21);
+            this.txtBasicWageRemark.TabIndex = 4;
+            // 
+            // txtJobWageRemark
+            // 
+            // 
+            // 
+            // 
+            this.txtJobWageRemark.Border.Class = "TextBoxBorder";
+            this.txtJobWageRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtJobWageRemark.Location = new System.Drawing.Point(340, 83);
+            this.txtJobWageRemark.Name = "txtJobWageRemark";
+            this.txtJobWageRemark.Size = new System.Drawing.Size(178, 21);
+            this.txtJobWageRemark.TabIndex = 8;
+            // 
+            // txtAgeSubsidyRemark
+            // 
+            // 
+            // 
+            // 
+            this.txtAgeSubsidyRemark.Border.Class = "TextBoxBorder";
+            this.txtAgeSubsidyRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtAgeSubsidyRemark.Location = new System.Drawing.Point(340, 110);
+            this.txtAgeSubsidyRemark.Name = "txtAgeSubsidyRemark";
+            this.txtAgeSubsidyRemark.Size = new System.Drawing.Size(178, 21);
+            this.txtAgeSubsidyRemark.TabIndex = 12;
+            // 
+            // txtInsuranceSubsidyRemark
+            // 
+            // 
+            // 
+            // 
+            this.txtInsuranceSubsidyRemark.Border.Class = "TextBoxBorder";
+            this.txtInsuranceSubsidyRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtInsuranceSubsidyRemark.Location = new System.Drawing.Point(340, 142);
+            this.txtInsuranceSubsidyRemark.Name = "txtInsuranceSubsidyRemark";
+            this.txtInsuranceSubsidyRemark.Size = new System.Drawing.Size(178, 21);
+            this.txtInsuranceSubsidyRemark.TabIndex = 16;
+            // 
+            // txtHolidaysSubsidyRemark
+            // 
+            // 
+            // 
+            // 
+            this.txtHolidaysSubsidyRemark.Border.Class = "TextBoxBorder";
+            this.txtHolidaysSubsidyRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtHolidaysSubsidyRemark.Location = new System.Drawing.Point(340, 172);
+            this.txtHolidaysSubsidyRemark.Name = "txtHolidaysSubsidyRemark";
+            this.txtHolidaysSubsidyRemark.Size = new System.Drawing.Size(178, 21);
+            this.txtHolidaysSubsidyRemark.TabIndex = 20;
+            // 
+            // txtWorkSubsidyRemark
+            // 
+            // 
+            // 
+            // 
+            this.txtWorkSubsidyRemark.Border.Class = "TextBoxBorder";
+            this.txtWorkSubsidyRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtWorkSubsidyRemark.Location = new System.Drawing.Point(340, 202);
+            this.txtWorkSubsidyRemark.Name = "txtWorkSubsidyRemark";
+            this.txtWorkSubsidyRemark.Size = new System.Drawing.Size(178, 21);
+            this.txtWorkSubsidyRemark.TabIndex = 24;
+            // 
+            // txtCourseWageCoefficient
+            // 
+            this.txtCourseWageCoefficient.AllowEmptyState = false;
+            // 
+            // 
+            // 
+            this.txtCourseWageCoefficient.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.txtCourseWageCoefficient.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtCourseWageCoefficient.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.txtCourseWageCoefficient.Increment = 0.1D;
+            this.txtCourseWageCoefficient.Location = new System.Drawing.Point(59, 20);
+            this.txtCourseWageCoefficient.MinValue = 1D;
+            this.txtCourseWageCoefficient.Name = "txtCourseWageCoefficient";
+            this.txtCourseWageCoefficient.Size = new System.Drawing.Size(80, 21);
+            this.txtCourseWageCoefficient.TabIndex = 29;
+            this.txtCourseWageCoefficient.Value = 1D;
+            this.txtCourseWageCoefficient.WatermarkText = "1";
+            // 
+            // CourseType
+            // 
+            this.CourseType.HeaderText = "课程类型";
+            this.CourseType.Name = "CourseType";
+            this.CourseType.ReadOnly = true;
+            this.CourseType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // CourseNum
+            // 
+            this.CourseNum.HeaderText = "月实际上课次数（人数）";
+            this.CourseNum.Name = "CourseNum";
+            this.CourseNum.ReadOnly = true;
+            this.CourseNum.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // StandardPrice
+            // 
+            this.StandardPrice.HeaderText = "对应单价（标准）";
+            this.StandardPrice.Name = "StandardPrice";
+            this.StandardPrice.ReadOnly = true;
+            this.StandardPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ActualPrice
+            // 
+            this.ActualPrice.HeaderText = "对应单价（实际）";
+            this.ActualPrice.Name = "ActualPrice";
+            this.ActualPrice.ReadOnly = true;
+            this.ActualPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // CourseAmount
+            // 
+            this.CourseAmount.HeaderText = "课量工资（标准）";
+            this.CourseAmount.Name = "CourseAmount";
+            this.CourseAmount.ReadOnly = true;
+            this.CourseAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Remark
+            // 
+            this.Remark.HeaderText = "备注";
+            this.Remark.Name = "Remark";
+            this.Remark.ReadOnly = true;
+            this.Remark.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn1.HeaderText = "扣款项目";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -2002,50 +2071,6 @@
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // CourseType
-            // 
-            this.CourseType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.CourseType.HeaderText = "课程类型";
-            this.CourseType.Name = "CourseType";
-            this.CourseType.ReadOnly = true;
-            this.CourseType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.CourseType.Width = 59;
-            // 
-            // CourseNum
-            // 
-            this.CourseNum.HeaderText = "月实际上课次数（人数）";
-            this.CourseNum.Name = "CourseNum";
-            this.CourseNum.ReadOnly = true;
-            this.CourseNum.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // StandardPrice
-            // 
-            this.StandardPrice.HeaderText = "对应单价（标准）";
-            this.StandardPrice.Name = "StandardPrice";
-            this.StandardPrice.ReadOnly = true;
-            this.StandardPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ActualPrice
-            // 
-            this.ActualPrice.HeaderText = "对应单价（实际）";
-            this.ActualPrice.Name = "ActualPrice";
-            this.ActualPrice.ReadOnly = true;
-            this.ActualPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // CourseAmount
-            // 
-            this.CourseAmount.HeaderText = "课量工资（标准）";
-            this.CourseAmount.Name = "CourseAmount";
-            this.CourseAmount.ReadOnly = true;
-            this.CourseAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Remark
-            // 
-            this.Remark.HeaderText = "备注";
-            this.Remark.Name = "Remark";
-            this.Remark.ReadOnly = true;
-            this.Remark.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // SalaryAddForm
             // 
@@ -2096,7 +2121,6 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseWage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCourseWageCoefficient)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtStudentAmount)).EndInit();
@@ -2132,6 +2156,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtFullAttendanceAwardNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFullAttendanceAwardActualPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFullAttendanceAwardStandardPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherBasicWageBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherWageDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCourseWageCoefficient)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2175,12 +2202,6 @@
         private DevComponents.Editors.IntegerInput txtJobWageNum;
         private DevComponents.Editors.IntegerInput txtBasicWageNum;
         private DevComponents.DotNetBar.Controls.TextBoxX txtOtherSubsidyRemark;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtWorkSubsidyRemark;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtHolidaysSubsidyRemark;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtInsuranceSubsidyRemark;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtAgeSubsidyRemark;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtJobWageRemark;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtBasicWageRemark;
         private DevComponents.Editors.DoubleInput txtOtherSubsidyAmount;
         private DevComponents.Editors.DoubleInput txtWorkSubsidyAmount;
         private DevComponents.Editors.DoubleInput txtHolidaysSubsidyAmount;
@@ -2191,7 +2212,6 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label15;
-        private DevComponents.Editors.IntegerInput txtCourseWageCoefficient;
         private System.Windows.Forms.DataGridView dgvCourseWage;
         private System.Windows.Forms.Button btnAddCourseWage;
         private System.Windows.Forms.Button btnUpdateCourseWage;
@@ -2260,17 +2280,27 @@
         private System.Windows.Forms.Button btnUpdateChargeback;
         private System.Windows.Forms.Button btnAddChargeback;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.BindingSource teacherBasicWageBindingSource;
+        private TeacherWageDataSet teacherWageDataSet;
+        private TeacherWageDataSetTableAdapters.TeacherBasicWageTableAdapter teacherBasicWageTableAdapter;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtWorkSubsidyRemark;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtHolidaysSubsidyRemark;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtInsuranceSubsidyRemark;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtAgeSubsidyRemark;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtJobWageRemark;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtBasicWageRemark;
+        private DevComponents.Editors.DoubleInput txtCourseWageCoefficient;
         private System.Windows.Forms.DataGridViewTextBoxColumn CourseType;
         private System.Windows.Forms.DataGridViewTextBoxColumn CourseNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn StandardPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn ActualPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn CourseAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Remark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
     }
 }
