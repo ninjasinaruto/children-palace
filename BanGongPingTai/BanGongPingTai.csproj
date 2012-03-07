@@ -42,13 +42,20 @@
       <HintPath>..\Resource\DevComponents.DotNetBar.Design.dll</HintPath>
     </Reference>
     <Reference Include="DevComponents.DotNetBar2, Version=9.5.0.0, Culture=neutral, PublicKeyToken=d159a0cb0c2a1170, processorArchitecture=MSIL" />
+    <Reference Include="DotNetPrint40">
+      <HintPath>..\Resource\DotNetPrint40.dll</HintPath>
+    </Reference>
     <Reference Include="IrisSkin2">
       <HintPath>..\Resource\IrisSkin2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -194,6 +201,12 @@
     <Compile Include="InputDialog\NoticeDetailForm.Designer.cs">
       <DependentUpon>NoticeDetailForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintForm.designer.cs">
+      <DependentUpon>PrintForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PublishNoticeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InputDialog\NoticeDetailForm.resx">
       <DependentUpon>NoticeDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintForm.resx">
+      <DependentUpon>PrintForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PublishNoticeForm.resx">
       <DependentUpon>PublishNoticeForm.cs</DependentUpon>
