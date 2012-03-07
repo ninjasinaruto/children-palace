@@ -20,6 +20,8 @@ namespace BanGongPingTai
         public StudentAward sa;
         public List<TeacherAward> taList;
         public List<ChargeBack> cbList;
+        public double ShouldWages;
+        public double RealWages;
 
         public SalaryAddForm()
         {
@@ -410,6 +412,8 @@ namespace BanGongPingTai
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            double shouldWages = 0.0;
+            double minusWages = 0.0;
             // 1.新增基本工资
             List<BasicWage> basicWageList = new List<BasicWage>();
             BasicWage basic = new BasicWage();
@@ -419,6 +423,7 @@ namespace BanGongPingTai
             basic.WageAmount = txtBasicWageAmount.Value;
             basic.Remark = txtBasicWageRemark.Text;
             basicWageList.Add(basic);
+            shouldWages += txtBasicWageAmount.Value;
 
             BasicWage job = new BasicWage();
             job.WageType = "职务工资";
@@ -427,6 +432,7 @@ namespace BanGongPingTai
             job.WageAmount = txtJobWageAmount.Value;
             job.Remark = txtJobWageRemark.Text;
             basicWageList.Add(job);
+            shouldWages += txtJobWageAmount.Value;
 
             BasicWage age = new BasicWage();
             age.WageType = "工龄补贴";
@@ -435,6 +441,7 @@ namespace BanGongPingTai
             age.WageAmount = txtAgeSubsidyAmount.Value;
             age.Remark = txtAgeSubsidyRemark.Text;
             basicWageList.Add(age);
+            shouldWages += txtAgeSubsidyAmount.Value;
 
             BasicWage insurance = new BasicWage();
             insurance.WageType = "保险补贴";
@@ -443,6 +450,7 @@ namespace BanGongPingTai
             insurance.WageAmount = txtInsuranceSubsidyAmount.Value;
             insurance.Remark = txtInsuranceSubsidyRemark.Text;
             basicWageList.Add(insurance);
+            shouldWages += txtInsuranceSubsidyAmount.Value;
 
             BasicWage holiday = new BasicWage();
             holiday.WageType = "节假日补贴";
@@ -451,6 +459,7 @@ namespace BanGongPingTai
             holiday.WageAmount = txtHolidaysSubsidyAmount.Value;
             holiday.Remark = txtHolidaysSubsidyRemark.Text;
             basicWageList.Add(holiday);
+            shouldWages += txtHolidaysSubsidyAmount.Value;
 
             BasicWage work = new BasicWage();
             work.WageType = "加班补贴";
@@ -459,6 +468,7 @@ namespace BanGongPingTai
             work.WageAmount = txtWorkSubsidyAmount.Value;
             work.Remark = txtWorkSubsidyRemark.Text;
             basicWageList.Add(work);
+            shouldWages += txtWorkSubsidyAmount.Value;
 
             BasicWage other = new BasicWage();
             other.WageType = "其他补贴";
@@ -467,6 +477,7 @@ namespace BanGongPingTai
             other.WageAmount = txtOtherSubsidyAmount.Value;
             other.Remark = txtOtherSubsidyRemark.Text;
             basicWageList.Add(other);
+            shouldWages += txtOtherSubsidyAmount.Value;
 
             //2.教师系数
             double courseWageCoefficient = txtCourseWageCoefficient.Value;
@@ -484,6 +495,7 @@ namespace BanGongPingTai
                 courseWage.CourseAmount = double.Parse(courseWageDs.Tables[0].Rows[i][4]+"");
                 courseWage.Remark = courseWageDs.Tables[0].Rows[i][5] + "";
                 courseWageList.Add(courseWage);
+                shouldWages += double.Parse(courseWageDs.Tables[0].Rows[i][4] + "");
             }
 
             //4.学生管理奖
@@ -493,6 +505,7 @@ namespace BanGongPingTai
             studentAward.StandardPrice = txtStudentStandardPrice.Value;
             studentAward.ActualPrice = txtStudentActualPrice.Value;
             studentAward.Amount = txtStudentAmount.Value;
+            shouldWages += txtStudentAmount.Value;
 
             //5.奖励工资
             List<TeacherAward> teacherAwardList = new List<TeacherAward>();
@@ -504,6 +517,7 @@ namespace BanGongPingTai
             fullAttendanceAward.AwardAmount = txtFullAttendanceAwardAmount.Value;
             fullAttendanceAward.Remark = txtFullAttendanceAwardRemark.Text;
             teacherAwardList.Add(fullAttendanceAward);
+            shouldWages += txtFullAttendanceAwardAmount.Value;
 
             TeacherAward seasonSubsidyAward = new TeacherAward();
             seasonSubsidyAward.AwardName = "季节补贴";
@@ -513,6 +527,7 @@ namespace BanGongPingTai
             seasonSubsidyAward.AwardAmount = txtSeasonSubsidyAmount.Value;
             seasonSubsidyAward.Remark = txtSeasonSubsidyRemark.Text;
             teacherAwardList.Add(seasonSubsidyAward);
+            shouldWages += txtSeasonSubsidyAmount.Value;
 
             TeacherAward ableAward = new TeacherAward();
             ableAward.AwardName = "超生奖励";
@@ -522,6 +537,7 @@ namespace BanGongPingTai
             ableAward.AwardAmount = txtAbleAwardAmount.Value;
             ableAward.Remark = txtAbleAwardRemark.Text;
             teacherAwardList.Add(ableAward);
+            shouldWages += txtAbleAwardAmount.Value;
 
             TeacherAward travelAward = new TeacherAward();
             travelAward.AwardName = "出差补贴";
@@ -531,6 +547,7 @@ namespace BanGongPingTai
             travelAward.AwardAmount = txtTravelSubsidyAmount.Value;
             travelAward.Remark = txtTravelSubsidyRemark.Text;
             teacherAwardList.Add(travelAward);
+            shouldWages += txtTravelSubsidyAmount.Value;
 
             TeacherAward appraisalAward = new TeacherAward();
             appraisalAward.AwardName = "绩效考核奖";
@@ -540,6 +557,7 @@ namespace BanGongPingTai
             appraisalAward.AwardAmount = txtAppraisalAwardAmount.Value;
             appraisalAward.Remark = txtAppraisalAwardRemark.Text;
             teacherAwardList.Add(appraisalAward);
+            shouldWages += txtAppraisalAwardAmount.Value;
 
             TeacherAward otherAward = new TeacherAward();
             otherAward.AwardName = "其他";
@@ -549,6 +567,7 @@ namespace BanGongPingTai
             otherAward.AwardAmount = txtOtherAwardAmount.Value;
             otherAward.Remark = txtOtherAwardRemark.Text;
             teacherAwardList.Add(otherAward);
+            shouldWages += txtOtherAwardAmount.Value;
 
             //6.代扣处罚
             DataSet chargeBackDs = GetDataSetFromDataGridView(this.dgvChargeback);
@@ -563,6 +582,7 @@ namespace BanGongPingTai
                 chargeBack.ChargeBackAmount = double.Parse(chargeBackDs.Tables[0].Rows[i][4]+"");
                 chargeBack.Remark = chargeBackDs.Tables[0].Rows[i][5] + "";
                 chargeBackList.Add(chargeBack);
+                minusWages += double.Parse(chargeBackDs.Tables[0].Rows[i][4] + "");
             }
 
             if (txtCourseWageCoefficient.Text.Trim() == "")
@@ -591,6 +611,8 @@ namespace BanGongPingTai
             this.sa = studentAward;
             this.taList = teacherAwardList;
             this.cbList = chargeBackList;
+            this.ShouldWages = shouldWages;
+            this.RealWages = shouldWages - minusWages;
             this.DialogResult = DialogResult.OK;
         }
 
