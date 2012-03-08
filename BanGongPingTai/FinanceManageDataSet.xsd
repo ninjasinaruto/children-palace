@@ -53,7 +53,7 @@ ORDER BY materials_buy.BuyDate DESC</CommandText>
                 materials_buy.BuyDate, materials.MaterialName, materials.MaterialPrice, materials_buy.Operator
 FROM      materials_buy INNER JOIN
                 materials ON materials_buy.MaterialId = materials.MaterialID
-WHERE   (DATEDIFF(day, materials_buy.BuyDate, @BeginDate) &gt;= 0) AND (DATEDIFF(day, materials_buy.BuyDate, @EndDate) 
+WHERE   (DATEDIFF(day, @BeginDate, materials_buy.BuyDate) &gt;= 0) AND (DATEDIFF(day, @EndDate, materials_buy.BuyDate) 
                 &lt;= 0)
 ORDER BY materials_buy.BuyDate DESC</CommandText>
                     <Parameters>

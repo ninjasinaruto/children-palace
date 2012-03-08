@@ -12,6 +12,7 @@ namespace BanGongPingTai
     public partial class TeachersManageForm : Form
     {
         public string studentName = "";
+        public string printTitle = "";
 
         public TeachersManageForm()
         {
@@ -20,7 +21,8 @@ namespace BanGongPingTai
 
         private void TeachersManageForm_Load(object sender, EventArgs e)
         {
-            this.teacherWagesTableAdapter.FillByID(this.teacherWageDataSet.TeacherWages);
+            printTitle = "福鼎市青少年宫培训中心"+DateTime.Now.ToString("yyyy年MM月")+"工资表";
+            this.teacherWagesTableAdapter.FillByMonth(this.teacherWageDataSet.TeacherWages);
             this.teachersTableAdapter.Fill(this.teachersDataSet.Tearchers);
             if (teachersDataSet.Tearchers.Rows.Count > 0)
             {
@@ -33,13 +35,12 @@ namespace BanGongPingTai
         private void TeachersManageForm_Resize(object sender, EventArgs e)
         {
             dgvTeacherWages.Width = this.Width - 630;
-            dgvTeacherWages.Height = this.Height - 130;
+            dgvTeacherWages.Height = this.Height - 200;
             dgvTeachers.Height = this.Height - 360;
             btnAddTeacher.Top = this.Height - 90;
             btnUpdateTeacher.Top = this.Height - 90;
             btnDelTeacher.Top = this.Height - 90;
             btnConnectCard.Top = this.Height - 90;
-            btnAddSalary.Top = this.Height - 90;
         }
 
         private void btnAddTeacher_Click(object sender, EventArgs e)
@@ -121,6 +122,21 @@ namespace BanGongPingTai
             this.teachersTableAdapter.Fill(this.teachersDataSet.Tearchers);
         }
 
+        private void teachersBindingSource_PositionChanged(object sender, EventArgs e)
+        {
+            if (teachersBindingSource.Position < 0)
+                return;
+            try
+            {
+                teacherCoursesTableAdapter.Fill(teachersDataSet.TeacherCourses,
+                    int.Parse(txtID.Text));
+            }
+            catch
+            {
+                return;
+            }
+        }
+
         private void btnAddSalary_Click(object sender, EventArgs e)
         {
             if (teachersBindingSource.Position < 0)
@@ -175,35 +191,137 @@ namespace BanGongPingTai
                     chargeBackList[i].Remark);
             }
             MessageBox.Show("添加工资成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            printTitle = "福鼎市青少年宫培训中心" + DateTime.Now.ToString("yyyy年MM月") + "工资表";
+            this.teacherWagesTableAdapter.FillByMonth(this.teacherWageDataSet.TeacherWages);
         }
 
-        private void teachersBindingSource_PositionChanged(object sender, EventArgs e)
+        private void teacherWagesBindingSource_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            double totalShouldWages = 0.00;
+            double totalMinusWages = 0.00;
+            double totalRealWages = 0.00;
+      
+            foreach (DataRow row in teacherWageDataSet.TeacherWages.Rows)
+            {
+                totalShouldWages += (double)row.Field<decimal>("ShouldWages");
+                totalMinusWages += (double)row.Field<decimal>("MinusWages");
+                totalRealWages += (double)row.Field<decimal>("RealWages");
+            }
+            txtTotalShouldWages.Text = totalShouldWages.ToString();
+            txtTotalMinusWages.Text = totalMinusWages.ToString();
+            txtTotalRealWages.Text = totalRealWages.ToString();
+            if (teacherWageDataSet.TeacherWages.Rows.Count == 0)
+            {
+                btnPrint.Enabled = false;
+            }
+            else
+            {
+                btnPrint.Enabled = true;
+            }
+        }
+
+        private void btnSearchMonth_Click(object sender, EventArgs e)
+        {
+            printTitle = "福鼎市青少年宫培训中心" + DateTime.Now.ToString("yyyy年MM月") + "工资表";
+            this.teacherWagesTableAdapter.FillByMonth(this.teacherWageDataSet.TeacherWages);
+        }
+
+        private void btnSearchAll_Click(object sender, EventArgs e)
+        {
+            printTitle = "福鼎市青少年宫培训中心工资总表";
+            this.teacherWagesTableAdapter.Fill(this.teacherWageDataSet.TeacherWages);
+        }
+
+        private void btnSearchFilter_Click(object sender, EventArgs e)
+        {
+            DateTime beginDate = dtpSDate.Value;
+            beginDate = new DateTime(beginDate.Year, beginDate.Month, beginDate.Day, 0, 0, 0);
+            DateTime endDate = dtpEDate.Value;
+            endDate = new DateTime(endDate.Year, endDate.Month, endDate.Day, 0, 0, 0);
+            this.teacherWagesTableAdapter.FillByBeginAndEndDate(this.teacherWageDataSet.TeacherWages, beginDate, endDate);
+            printTitle = "福鼎市青少年宫培训中心" + beginDate.ToString("yyyy年MM月") +" - " + endDate.ToString("yyyy年MM月") + "工资表";
+        }
+
+        private void dgvTeacherWages_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if (dgvTeacherWages.Rows.Count > 0)
+                for (int i = 0; i < dgvTeacherWages.Rows.Count; i++)
+                {
+                    dgvTeacherWages.Rows[i].Cells[0].Value = i+1;
+                }
+                    
+        }
+
+        private void btnSearchByTeacher_Click(object sender, EventArgs e)
         {
             if (teachersBindingSource.Position < 0)
-                return;
-            try
             {
-                teacherCoursesTableAdapter.Fill(teachersDataSet.TeacherCourses,
-                    int.Parse(txtID.Text));
+                MessageBox.Show("请先选择左侧教师列表中的任意一名教师！");
+                return;
             }
-            catch
+            int teacherID = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<int>("ID");
+            string teacherName = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Name");
+            DateTime beginDate = dtpSDate.Value;
+            beginDate = new DateTime(beginDate.Year, beginDate.Month, beginDate.Day, 0, 0, 0);
+            DateTime endDate = dtpEDate.Value;
+            endDate = new DateTime(endDate.Year, endDate.Month, endDate.Day, 0, 0, 0);
+            this.teacherWagesTableAdapter.FillByBeginAndEndDateWithTeacherID(this.teacherWageDataSet.TeacherWages, beginDate, endDate, teacherID);
+            if (beginDate.ToString("yyyy年MM月").Equals(endDate.ToString("yyyy年MM月")))
             {
-                return;
+                printTitle = "福鼎市青少年宫培训中心[" + teacherName + "]" + beginDate.ToString("yyyy年MM月") + "工资表";
+            }
+            else
+            {
+                printTitle = "福鼎市青少年宫培训中心[" + teacherName + "]" + beginDate.ToString("yyyy年MM月") + "-" + endDate.ToString("yyyy年MM月") + "工资表";
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnTeacherCheckWage_Click(object sender, EventArgs e)
         {
-            //dgVprint1.MainTitle = "供应商明细表";
-            //dgVprint1.SubTitle = "这是子标题，当然也可以不设的";
-            //dgVprint1.PaperLandscape = true;//用横向打印，默认是纵向哦
-            //dgVprint1.Print(this.dgvTeacherWages, wageColumnsTree);
-            PrintForm newform;
-            newform = new PrintForm();
-            //传递要打印的内容
-            newform.dataGridView = dgvTeacherWages;
-            newform.treeView = wageColumnsTree;
-            newform.ShowDialog();//请注意Form2中编写的实现代码
+            if (teacherWagesBindingSource.Position < 0)
+                return;
+            int logID = teacherWageDataSet.TeacherWages.Rows[teacherWagesBindingSource.Position].Field<int>("LogID");
+            string teacherName = teacherWageDataSet.TeacherWages.Rows[teacherWagesBindingSource.Position].Field<string>("TeacherName");
+            string teacherPassword = teacherWageDataSet.TeacherWages.Rows[teacherWagesBindingSource.Position].Field<string>("TeacherPassword");
+            double realWages = (double)teacherWageDataSet.TeacherWages.Rows[teacherWagesBindingSource.Position].Field<decimal>("RealWages");
+            DateTime wageTime = teacherWageDataSet.TeacherWages.Rows[teacherWagesBindingSource.Position].Field<DateTime>("WageTime");
+
+            TeacherCheckWageForm frmTeacherCheckWage = new TeacherCheckWageForm();
+            frmTeacherCheckWage.TeacherName = teacherName;
+            frmTeacherCheckWage.TeacherPwd = teacherPassword;
+            frmTeacherCheckWage.TeacherWage = realWages;
+            frmTeacherCheckWage.wageTime = wageTime;
+
+            if (frmTeacherCheckWage.ShowDialog() != DialogResult.OK)
+                return;
+
+            this.teacherSalaryLogTableAdapter.UpdateByLogID(teacherName, logID);
+            MessageBox.Show("核实成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.teacherWagesTableAdapter.FillByMonth(this.teacherWageDataSet.TeacherWages);
+        }
+
+        private void teacherWagesBindingSource_PositionChanged(object sender, EventArgs e)
+        {
+            if (teacherWagesBindingSource.Position < 0)
+                return;
+            string checkName = teacherWageDataSet.TeacherWages.Rows[teacherWagesBindingSource.Position].Field<string>("CheckName");
+            if (checkName != null && !"".Equals(checkName))
+            {
+                btnTeacherCheckWage.Enabled = false;
+            }
+            else
+            {
+                btnTeacherCheckWage.Enabled = true;
+            }
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            WagePrintForm frmWagePrint = new WagePrintForm();
+            frmWagePrint.printTitle = printTitle;
+            frmWagePrint.dataGridView = dgvTeacherWages;
+            frmWagePrint.treeView = wageColumnsTree;
+            frmWagePrint.ShowDialog();
         }
     }
 }
