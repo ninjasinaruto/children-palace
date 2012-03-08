@@ -81,6 +81,7 @@
             this.vB2008Print1.ZDYButtonVisible = true;
             this.vB2008Print1.PrintDocument += new VBprinter40.VB2008Print.PrintDocumentEventHandler(this.vB2008Print1_PrintDocument);
             this.vB2008Print1.HeaderFooterOut += new VBprinter40.VB2008Print.HeaderFooterOutEventHandler(this.vB2008Print1_HeaderFooterOut);
+            this.vB2008Print1.EndPreView += new VBprinter40.VB2008Print.EndPreViewEventHandler(this.vB2008Print1_EndPreView);
             // 
             // PrintForm
             // 

@@ -33,7 +33,7 @@
 			// Add code to handle the SettingsSaving event here.
 			SqlConnectionStringBuilder ConnSb = new SqlConnectionStringBuilder();
 			ConnSb.ConnectionString = this["ChildrenPalaceConnectionString"].ToString();
-			ConnSb.Password = "woaicry";
+			ConnSb.Password = "";
 
 			this["ChildrenPalaceConnectionString"] = ConnSb.ConnectionString;
 		}

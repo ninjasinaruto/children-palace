@@ -39,11 +39,15 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtPassword);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.cmbSex);
             this.groupBox1.Controls.Add(this.txtAddress);
             this.groupBox1.Controls.Add(this.label1);
@@ -54,7 +58,7 @@
             this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(479, 104);
+            this.groupBox1.Size = new System.Drawing.Size(479, 131);
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "教师信息";
@@ -130,7 +134,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(418, 131);
+            this.btnCancel.Location = new System.Drawing.Point(418, 161);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 35);
             this.btnCancel.TabIndex = 30;
@@ -140,7 +144,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(332, 131);
+            this.btnOK.Location = new System.Drawing.Point(332, 161);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 35);
             this.btnOK.TabIndex = 28;
@@ -148,11 +152,28 @@
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(91, 96);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(137, 21);
+            this.txtPassword.TabIndex = 21;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(44, 99);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "密码：";
+            // 
             // TeacherUpdateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 178);
+            this.ClientSize = new System.Drawing.Size(505, 208);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
@@ -181,5 +202,7 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label label3;
     }
 }
