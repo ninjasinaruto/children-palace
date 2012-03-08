@@ -124,6 +124,12 @@
     <Compile Include="InputDialog\SalaryAddForm.Designer.cs">
       <DependentUpon>SalaryAddForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="InputDialog\TeacherCheckWageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog\TeacherCheckWageForm.Designer.cs">
+      <DependentUpon>TeacherCheckWageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InputDialog\TeacherUpdateForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +265,12 @@
     <Compile Include="InputDialog\ViewNoticeForm.Designer.cs">
       <DependentUpon>ViewNoticeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WagePrintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WagePrintForm.Designer.cs">
+      <DependentUpon>WagePrintForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="InputDialog\AffairDetailForm.resx">
       <DependentUpon>AffairDetailForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InputDialog\SalaryAddForm.resx">
       <DependentUpon>SalaryAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog\TeacherCheckWageForm.resx">
+      <DependentUpon>TeacherCheckWageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InputDialog\TeacherUpdateForm.resx">
       <DependentUpon>TeacherUpdateForm.cs</DependentUpon>
@@ -340,6 +355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InputDialog\ViewNoticeForm.resx">
       <DependentUpon>ViewNoticeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WagePrintForm.resx">
+      <DependentUpon>WagePrintForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Affair.xsc">
       <DependentUpon>Affair.xsd</DependentUpon>
