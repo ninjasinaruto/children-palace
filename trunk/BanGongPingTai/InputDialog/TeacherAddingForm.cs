@@ -15,6 +15,7 @@ namespace BanGongPingTai
         public string Sex;
         public string Address;
         public string Phone;
+        public string Password;
 
         public TeacherAddingForm()
         {
@@ -35,15 +36,23 @@ namespace BanGongPingTai
         {
             if (txtName.Text.Trim() == "")
             {
-                MessageBox.Show("请输入教师姓名", "请输入教师姓名", MessageBoxButtons.OK,
+                MessageBox.Show("请输入教师姓名！", "请输入教师姓名", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
                 txtName.Focus();
+                return;
+            }
+            if (txtPassword.Text.Trim() == "")
+            {
+                MessageBox.Show("请输入教师密码！", "请输入教师密码", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                txtPassword.Focus();
                 return;
             }
             this.Name = txtName.Text;
             this.Sex = cmbSex.Text;
             this.Address = txtAddress.Text;
             this.Phone = txtPhone.Text;
+            this.Password = txtPassword.Text;
             this.DialogResult = DialogResult.OK;
         }
     }

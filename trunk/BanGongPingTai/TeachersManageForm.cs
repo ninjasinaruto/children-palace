@@ -49,7 +49,7 @@ namespace BanGongPingTai
                 return;
 
             teachersTableAdapter.Insert(frmTeachersAdding.Name,
-                frmTeachersAdding.Phone, null, frmTeachersAdding.Sex, frmTeachersAdding.Address, 0);
+                frmTeachersAdding.Phone, null, frmTeachersAdding.Sex, frmTeachersAdding.Address, 0, frmTeachersAdding.Password);
             teachersTableAdapter.Fill(teachersDataSet.Tearchers);
             if (teachersDataSet.Tearchers.Rows.Count > 0)
             {
@@ -68,10 +68,11 @@ namespace BanGongPingTai
             frmTeacherUpdate.Sex = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Sex");
             frmTeacherUpdate.Address = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Address");
             frmTeacherUpdate.Phone = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Phone");
+            frmTeacherUpdate.Password = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Password");
             if (frmTeacherUpdate.ShowDialog() != DialogResult.OK)
                 return;
             int teacherID = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<int>("ID");
-            teachersTableAdapter.UpdateByID(frmTeacherUpdate.TeacherName, frmTeacherUpdate.Phone, frmTeacherUpdate.Sex, frmTeacherUpdate.Address, teacherID);
+            teachersTableAdapter.UpdateByID(frmTeacherUpdate.TeacherName, frmTeacherUpdate.Phone, frmTeacherUpdate.Sex, frmTeacherUpdate.Address, frmTeacherUpdate.Password, teacherID);
             teachersTableAdapter.Fill(teachersDataSet.Tearchers);
             if (rowIndex >= 0)
             {
@@ -191,20 +192,12 @@ namespace BanGongPingTai
             }
         }
 
-        private void dgvTeachers_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            SolidBrush b = new SolidBrush(this.dgvTeachers.RowHeadersDefaultCellStyle.ForeColor);
-            e.Graphics.DrawString((e.RowIndex + 1).ToString(System.Globalization.CultureInfo.CurrentUICulture), this.dgvTeachers.DefaultCellStyle.Font, b, e.RowBounds.Location.X + 20, e.RowBounds.Location.Y + 4);
-        }
-
-        private void dgvTeacherCourses_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            SolidBrush b = new SolidBrush(this.dgvTeacherCourses.RowHeadersDefaultCellStyle.ForeColor);
-            e.Graphics.DrawString((e.RowIndex + 1).ToString(System.Globalization.CultureInfo.CurrentUICulture), this.dgvTeacherCourses.DefaultCellStyle.Font, b, e.RowBounds.Location.X + 20, e.RowBounds.Location.Y + 4);
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
+            //dgVprint1.MainTitle = "供应商明细表";
+            //dgVprint1.SubTitle = "这是子标题，当然也可以不设的";
+            //dgVprint1.PaperLandscape = true;//用横向打印，默认是纵向哦
+            //dgVprint1.Print(this.dgvTeacherWages, wageColumnsTree);
             PrintForm newform;
             newform = new PrintForm();
             //传递要打印的内容
