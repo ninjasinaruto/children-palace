@@ -171,7 +171,6 @@
             this.teacherSalaryLogTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherSalaryLogTableAdapter();
             this.teacherWagesTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherWagesTableAdapter();
             this.btnPrint = new System.Windows.Forms.Button();
-            this.dgVprint1 = new VBprinter40.DGVprint(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -185,8 +184,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.dtpSDate = new System.Windows.Forms.DateTimePicker();
             this.dtpEDate = new System.Windows.Forms.DateTimePicker();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnUpdateSalary = new System.Windows.Forms.Button();
+            this.btnDelSalary = new System.Windows.Forms.Button();
             this.btnTeacherCheckWage = new System.Windows.Forms.Button();
             this.btnSearchByTeacher = new System.Windows.Forms.Button();
             this.btnAddSalary = new System.Windows.Forms.Button();
@@ -951,95 +950,9 @@
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 33);
             this.btnPrint.TabIndex = 33;
-            this.btnPrint.Text = "打印";
+            this.btnPrint.Text = "汇总打印";
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
-            // dgVprint1
-            // 
-            this.dgVprint1.Alignment = System.Drawing.StringAlignment.Center;
-            this.dgVprint1.AutoFormat = false;
-            this.dgVprint1.AutoResizeRowHeight = false;
-            this.dgVprint1.Border = "1111";
-            this.dgVprint1.CanEditPrintSettings = true;
-            this.dgVprint1.Columns = 2;
-            this.dgVprint1.ColumnSpace = 50F;
-            this.dgVprint1.DefaultColor = System.Drawing.Color.Black;
-            this.dgVprint1.DocuMentName = "DataGridView打印控件";
-            this.dgVprint1.FixedCols = 1;
-            this.dgVprint1.GridColor = System.Drawing.Color.Black;
-            this.dgVprint1.GroupColumn = "";
-            this.dgVprint1.GroupNewPage = false;
-            this.dgVprint1.IsAddRowID = false;
-            this.dgVprint1.IsAutoAddEmptyRow = false;
-            this.dgVprint1.IsDGVCellValignmentCenter = true;
-            this.dgVprint1.IsDrawmargin = true;
-            this.dgVprint1.IsDrawPageFooterLine = false;
-            this.dgVprint1.IsDrawPageHeaderLine = false;
-            this.dgVprint1.IsGroupNewRowID = false;
-            this.dgVprint1.IsImmediatePrint = false;
-            this.dgVprint1.IsImmediatePrintShowPrintDialog = true;
-            this.dgVprint1.IsPrintRowHeaderColumn = false;
-            this.dgVprint1.IsShowAboutPage = true;
-            this.dgVprint1.IsShowUnvisibleColum = true;
-            this.dgVprint1.IsUseAPIprintDialog = false;
-            this.dgVprint1.LastPageMode = true;
-            this.dgVprint1.LineSpace = 50F;
-            this.dgVprint1.MainTitle = "表格主标题";
-            this.dgVprint1.MainTitleFont = new System.Drawing.Font("黑体", 16F, System.Drawing.FontStyle.Bold);
-            this.dgVprint1.MinFontSize = 6F;
-            this.dgVprint1.PageFooterColor = System.Drawing.Color.Black;
-            this.dgVprint1.PageFooterFont = new System.Drawing.Font("华文行楷", 9F);
-            this.dgVprint1.PageFooterLeft = null;
-            this.dgVprint1.PageFooterMiddle = "共[总页数]页 第[页码]页";
-            this.dgVprint1.PageFooterRight = null;
-            this.dgVprint1.PageHeaderColor = System.Drawing.Color.Black;
-            this.dgVprint1.PageHeaderFont = new System.Drawing.Font("华文行楷", 9F);
-            this.dgVprint1.PageHeaderLeft = null;
-            this.dgVprint1.PageHeaderMiddle = null;
-            this.dgVprint1.PageHeaderRight = null;
-            this.dgVprint1.PaperKind = System.Drawing.Printing.PaperKind.A4;
-            this.dgVprint1.PaperLandscape = false;
-            this.dgVprint1.PaperMargins = new System.Drawing.Printing.Margins(254, 254, 254, 254);
-            this.dgVprint1.PaperName = "";
-            this.dgVprint1.PrintBackColor = true;
-            this.dgVprint1.PrinterName = "";
-            this.dgVprint1.PrintTitlePerPage = true;
-            this.dgVprint1.PrintType = VBprinter40.DGVprint.mytype.GeneralPrint;
-            this.dgVprint1.PrintZero = false;
-            this.dgVprint1.ShapeDepth = 18;
-            this.dgVprint1.SortColumn = "";
-            this.dgVprint1.SortMode = System.ComponentModel.ListSortDirection.Ascending;
-            this.dgVprint1.SubTitle = "";
-            this.dgVprint1.SubTitleFont = new System.Drawing.Font("宋体", 12F);
-            this.dgVprint1.SubTitleStyle = 0;
-            this.dgVprint1.SumBackColor = System.Drawing.Color.Empty;
-            this.dgVprint1.SumColumns = "";
-            this.dgVprint1.SumFont = null;
-            this.dgVprint1.SumForeColor = System.Drawing.Color.Empty;
-            this.dgVprint1.SumNumberAlign = System.Drawing.StringAlignment.Center;
-            this.dgVprint1.TableBottomLeftTitleAlign = System.Drawing.StringAlignment.Near;
-            this.dgVprint1.TableBottomMiddleTitleAlign = System.Drawing.StringAlignment.Center;
-            this.dgVprint1.TableBottomRightTitleAlign = System.Drawing.StringAlignment.Far;
-            this.dgVprint1.TableFooterFont = new System.Drawing.Font("宋体", 10F);
-            this.dgVprint1.TableFooterLeft = null;
-            this.dgVprint1.TableFooterMiddle = null;
-            this.dgVprint1.TableFooterRight = null;
-            this.dgVprint1.TableHeaderFont = new System.Drawing.Font("宋体", 10F);
-            this.dgVprint1.TableHeaderLeft = null;
-            this.dgVprint1.TableHeaderMiddle = null;
-            this.dgVprint1.TableHeaderRight = null;
-            this.dgVprint1.TableTopLeftTitleAlign = System.Drawing.StringAlignment.Near;
-            this.dgVprint1.TableTopMiddleTitleAlign = System.Drawing.StringAlignment.Center;
-            this.dgVprint1.TableTopRightTitleAlign = System.Drawing.StringAlignment.Far;
-            this.dgVprint1.TitleTextStyle = 0;
-            this.dgVprint1.WaterMarkColor = System.Drawing.Color.Red;
-            this.dgVprint1.WaterMarkFont = new System.Drawing.Font("华文行楷", 80F, System.Drawing.FontStyle.Bold);
-            this.dgVprint1.WaterMarkLandscape = true;
-            this.dgVprint1.WaterMarkOpacity = ((byte)(128));
-            this.dgVprint1.WaterMarkText = "";
-            this.dgVprint1.WindowTitle = "DataGridView打印预览窗口";
-            this.dgVprint1.ZoomToPaperWidth = true;
             // 
             // label4
             // 
@@ -1158,23 +1071,25 @@
             this.dtpEDate.Size = new System.Drawing.Size(82, 21);
             this.dtpEDate.TabIndex = 46;
             // 
-            // button3
+            // btnUpdateSalary
             // 
-            this.button3.Location = new System.Drawing.Point(697, 113);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(70, 24);
-            this.button3.TabIndex = 47;
-            this.button3.Text = "修改工资";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnUpdateSalary.Location = new System.Drawing.Point(697, 113);
+            this.btnUpdateSalary.Name = "btnUpdateSalary";
+            this.btnUpdateSalary.Size = new System.Drawing.Size(70, 24);
+            this.btnUpdateSalary.TabIndex = 47;
+            this.btnUpdateSalary.Text = "修改工资";
+            this.btnUpdateSalary.UseVisualStyleBackColor = true;
+            this.btnUpdateSalary.Click += new System.EventHandler(this.btnUpdateSalary_Click);
             // 
-            // button4
+            // btnDelSalary
             // 
-            this.button4.Location = new System.Drawing.Point(773, 113);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(70, 24);
-            this.button4.TabIndex = 48;
-            this.button4.Text = "删除工资";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnDelSalary.Location = new System.Drawing.Point(773, 113);
+            this.btnDelSalary.Name = "btnDelSalary";
+            this.btnDelSalary.Size = new System.Drawing.Size(70, 24);
+            this.btnDelSalary.TabIndex = 48;
+            this.btnDelSalary.Text = "删除工资";
+            this.btnDelSalary.UseVisualStyleBackColor = true;
+            this.btnDelSalary.Click += new System.EventHandler(this.btnDelSalary_Click);
             // 
             // btnTeacherCheckWage
             // 
@@ -1215,8 +1130,8 @@
             this.Controls.Add(this.btnAddSalary);
             this.Controls.Add(this.btnSearchByTeacher);
             this.Controls.Add(this.btnTeacherCheckWage);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnDelSalary);
+            this.Controls.Add(this.btnUpdateSalary);
             this.Controls.Add(this.dtpEDate);
             this.Controls.Add(this.dtpSDate);
             this.Controls.Add(this.label8);
@@ -1318,7 +1233,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sexColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn addressColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cardNoColumn;
-        private VBprinter40.DGVprint dgVprint1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -1332,8 +1246,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker dtpSDate;
         private System.Windows.Forms.DateTimePicker dtpEDate;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnUpdateSalary;
+        private System.Windows.Forms.Button btnDelSalary;
         private System.Windows.Forms.Button btnTeacherCheckWage;
         private System.Windows.Forms.Button btnSearchByTeacher;
         private System.Windows.Forms.Button btnAddSalary;

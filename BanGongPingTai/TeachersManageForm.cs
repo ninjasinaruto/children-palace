@@ -213,10 +213,14 @@ namespace BanGongPingTai
             if (teacherWageDataSet.TeacherWages.Rows.Count == 0)
             {
                 btnPrint.Enabled = false;
+                btnUpdateSalary.Enabled = false;
+                btnDelSalary.Enabled = false;
             }
             else
             {
                 btnPrint.Enabled = true;
+                btnUpdateSalary.Enabled = true;
+                btnDelSalary.Enabled = true;
             }
         }
 
@@ -322,6 +326,32 @@ namespace BanGongPingTai
             frmWagePrint.dataGridView = dgvTeacherWages;
             frmWagePrint.treeView = wageColumnsTree;
             frmWagePrint.ShowDialog();
+        }
+
+        private void btnDelSalary_Click(object sender, EventArgs e)
+        {
+            if (teacherWagesBindingSource.Position < 0)
+                return;
+            if (MessageBox.Show("您确定要删除该条工资吗？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                int logID = teacherWageDataSet.TeacherWages.Rows[teacherWagesBindingSource.Position].Field<int>("LogID");
+                teacherChargeBackTableAdapter.DeleteByLogID(logID);
+                teacherAwardTableAdapter.DeleteByLogID(logID);
+                teacherStudentAwardTableAdapter.DeleteByLogID(logID);
+                teacherCourseWageTableAdapter.DeleteByLogID(logID);
+                teacherCoefficientTableAdapter.DeleteByLogID(logID);
+                teacherBasicWageTableAdapter.DeleteByLogID(logID);
+                teacherSalaryLogTableAdapter.DeleteByLogID(logID);
+
+                MessageBox.Show("删除成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                printTitle = "福鼎市青少年宫培训中心" + DateTime.Now.ToString("yyyy年MM月") + "工资表";
+                this.teacherWagesTableAdapter.FillByMonth(this.teacherWageDataSet.TeacherWages);
+            }
+        }
+
+        private void btnUpdateSalary_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

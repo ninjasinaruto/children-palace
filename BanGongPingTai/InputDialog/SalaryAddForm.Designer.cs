@@ -29,7 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtWorkSubsidyRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtHolidaysSubsidyRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtInsuranceSubsidyRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtAgeSubsidyRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtJobWageRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtBasicWageRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtOtherSubsidyRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtOtherSubsidyAmount = new DevComponents.Editors.DoubleInput();
             this.txtWorkSubsidyAmount = new DevComponents.Editors.DoubleInput();
@@ -74,10 +85,17 @@
             this.dtpBasic = new System.Windows.Forms.DateTimePicker();
             this.btnAdd = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtCourseWageCoefficient = new DevComponents.Editors.DoubleInput();
             this.btnDelCourseWage = new System.Windows.Forms.Button();
             this.btnUpdateCourseWage = new System.Windows.Forms.Button();
             this.btnAddCourseWage = new System.Windows.Forms.Button();
             this.dgvCourseWage = new System.Windows.Forms.DataGridView();
+            this.CourseType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CourseNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StandardPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ActualPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CourseAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtStudentAmount = new DevComponents.Editors.DoubleInput();
@@ -146,19 +164,18 @@
             this.teacherBasicWageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teacherWageDataSet = new BanGongPingTai.TeacherWageDataSet();
             this.teacherBasicWageTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherBasicWageTableAdapter();
-            this.txtBasicWageRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.txtJobWageRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.txtAgeSubsidyRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.txtInsuranceSubsidyRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.txtHolidaysSubsidyRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.txtWorkSubsidyRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.txtCourseWageCoefficient = new DevComponents.Editors.DoubleInput();
-            this.CourseType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CourseNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StandardPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ActualPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CourseAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teacherSalaryLogBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherSalaryLogTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherSalaryLogTableAdapter();
+            this.teacherCoefficientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherCoefficientTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherCoefficientTableAdapter();
+            this.teacherCourseWageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherCourseWageTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherCourseWageTableAdapter();
+            this.teacherStudentAwardBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherStudentAwardTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherStudentAwardTableAdapter();
+            this.teacherAwardBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherAwardTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherAwardTableAdapter();
+            this.teacherChargeBackBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherChargeBackTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherChargeBackTableAdapter();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -188,6 +205,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtJobWage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBasicWage)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCourseWageCoefficient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseWage)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtStudentAmount)).BeginInit();
@@ -224,7 +242,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtFullAttendanceAwardStandardPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherBasicWageBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherWageDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCourseWageCoefficient)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherSalaryLogBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherCoefficientBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherCourseWageBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherStudentAwardBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherAwardBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherChargeBackBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -276,6 +299,78 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "基本工资";
+            // 
+            // txtWorkSubsidyRemark
+            // 
+            // 
+            // 
+            // 
+            this.txtWorkSubsidyRemark.Border.Class = "TextBoxBorder";
+            this.txtWorkSubsidyRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtWorkSubsidyRemark.Location = new System.Drawing.Point(340, 202);
+            this.txtWorkSubsidyRemark.Name = "txtWorkSubsidyRemark";
+            this.txtWorkSubsidyRemark.Size = new System.Drawing.Size(178, 21);
+            this.txtWorkSubsidyRemark.TabIndex = 24;
+            // 
+            // txtHolidaysSubsidyRemark
+            // 
+            // 
+            // 
+            // 
+            this.txtHolidaysSubsidyRemark.Border.Class = "TextBoxBorder";
+            this.txtHolidaysSubsidyRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtHolidaysSubsidyRemark.Location = new System.Drawing.Point(340, 172);
+            this.txtHolidaysSubsidyRemark.Name = "txtHolidaysSubsidyRemark";
+            this.txtHolidaysSubsidyRemark.Size = new System.Drawing.Size(178, 21);
+            this.txtHolidaysSubsidyRemark.TabIndex = 20;
+            // 
+            // txtInsuranceSubsidyRemark
+            // 
+            // 
+            // 
+            // 
+            this.txtInsuranceSubsidyRemark.Border.Class = "TextBoxBorder";
+            this.txtInsuranceSubsidyRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtInsuranceSubsidyRemark.Location = new System.Drawing.Point(340, 142);
+            this.txtInsuranceSubsidyRemark.Name = "txtInsuranceSubsidyRemark";
+            this.txtInsuranceSubsidyRemark.Size = new System.Drawing.Size(178, 21);
+            this.txtInsuranceSubsidyRemark.TabIndex = 16;
+            // 
+            // txtAgeSubsidyRemark
+            // 
+            // 
+            // 
+            // 
+            this.txtAgeSubsidyRemark.Border.Class = "TextBoxBorder";
+            this.txtAgeSubsidyRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtAgeSubsidyRemark.Location = new System.Drawing.Point(340, 110);
+            this.txtAgeSubsidyRemark.Name = "txtAgeSubsidyRemark";
+            this.txtAgeSubsidyRemark.Size = new System.Drawing.Size(178, 21);
+            this.txtAgeSubsidyRemark.TabIndex = 12;
+            // 
+            // txtJobWageRemark
+            // 
+            // 
+            // 
+            // 
+            this.txtJobWageRemark.Border.Class = "TextBoxBorder";
+            this.txtJobWageRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtJobWageRemark.Location = new System.Drawing.Point(340, 83);
+            this.txtJobWageRemark.Name = "txtJobWageRemark";
+            this.txtJobWageRemark.Size = new System.Drawing.Size(178, 21);
+            this.txtJobWageRemark.TabIndex = 8;
+            // 
+            // txtBasicWageRemark
+            // 
+            // 
+            // 
+            // 
+            this.txtBasicWageRemark.Border.Class = "TextBoxBorder";
+            this.txtBasicWageRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtBasicWageRemark.Location = new System.Drawing.Point(340, 53);
+            this.txtBasicWageRemark.Name = "txtBasicWageRemark";
+            this.txtBasicWageRemark.Size = new System.Drawing.Size(178, 21);
+            this.txtBasicWageRemark.TabIndex = 4;
             // 
             // txtOtherSubsidyRemark
             // 
@@ -881,6 +976,24 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "课量工资";
             // 
+            // txtCourseWageCoefficient
+            // 
+            this.txtCourseWageCoefficient.AllowEmptyState = false;
+            // 
+            // 
+            // 
+            this.txtCourseWageCoefficient.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.txtCourseWageCoefficient.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtCourseWageCoefficient.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.txtCourseWageCoefficient.Increment = 0.1D;
+            this.txtCourseWageCoefficient.Location = new System.Drawing.Point(59, 20);
+            this.txtCourseWageCoefficient.MinValue = 1D;
+            this.txtCourseWageCoefficient.Name = "txtCourseWageCoefficient";
+            this.txtCourseWageCoefficient.Size = new System.Drawing.Size(80, 21);
+            this.txtCourseWageCoefficient.TabIndex = 29;
+            this.txtCourseWageCoefficient.Value = 1D;
+            this.txtCourseWageCoefficient.WatermarkText = "1";
+            // 
             // btnDelCourseWage
             // 
             this.btnDelCourseWage.Location = new System.Drawing.Point(443, 246);
@@ -934,6 +1047,57 @@
             this.dgvCourseWage.Size = new System.Drawing.Size(503, 186);
             this.dgvCourseWage.TabIndex = 31;
             this.dgvCourseWage.SelectionChanged += new System.EventHandler(this.dgvCourseWage_SelectionChanged);
+            // 
+            // CourseType
+            // 
+            this.CourseType.HeaderText = "课程类型";
+            this.CourseType.Name = "CourseType";
+            this.CourseType.ReadOnly = true;
+            this.CourseType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // CourseNum
+            // 
+            this.CourseNum.HeaderText = "月实际上课次数（人数）";
+            this.CourseNum.Name = "CourseNum";
+            this.CourseNum.ReadOnly = true;
+            this.CourseNum.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // StandardPrice
+            // 
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.StandardPrice.DefaultCellStyle = dataGridViewCellStyle1;
+            this.StandardPrice.HeaderText = "对应单价（标准）";
+            this.StandardPrice.Name = "StandardPrice";
+            this.StandardPrice.ReadOnly = true;
+            this.StandardPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ActualPrice
+            // 
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.ActualPrice.DefaultCellStyle = dataGridViewCellStyle2;
+            this.ActualPrice.HeaderText = "对应单价（实际）";
+            this.ActualPrice.Name = "ActualPrice";
+            this.ActualPrice.ReadOnly = true;
+            this.ActualPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // CourseAmount
+            // 
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.CourseAmount.DefaultCellStyle = dataGridViewCellStyle3;
+            this.CourseAmount.HeaderText = "课量工资（标准）";
+            this.CourseAmount.Name = "CourseAmount";
+            this.CourseAmount.ReadOnly = true;
+            this.CourseAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Remark
+            // 
+            this.Remark.HeaderText = "备注";
+            this.Remark.Name = "Remark";
+            this.Remark.ReadOnly = true;
+            this.Remark.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // label15
             // 
@@ -1898,137 +2062,59 @@
             // 
             this.teacherBasicWageTableAdapter.ClearBeforeFill = true;
             // 
-            // txtBasicWageRemark
+            // teacherSalaryLogBindingSource
             // 
+            this.teacherSalaryLogBindingSource.DataMember = "TeacherSalaryLog";
+            this.teacherSalaryLogBindingSource.DataSource = this.teacherWageDataSet;
             // 
+            // teacherSalaryLogTableAdapter
             // 
+            this.teacherSalaryLogTableAdapter.ClearBeforeFill = true;
             // 
-            this.txtBasicWageRemark.Border.Class = "TextBoxBorder";
-            this.txtBasicWageRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtBasicWageRemark.Location = new System.Drawing.Point(340, 53);
-            this.txtBasicWageRemark.Name = "txtBasicWageRemark";
-            this.txtBasicWageRemark.Size = new System.Drawing.Size(178, 21);
-            this.txtBasicWageRemark.TabIndex = 4;
+            // teacherCoefficientBindingSource
             // 
-            // txtJobWageRemark
+            this.teacherCoefficientBindingSource.DataMember = "TeacherCoefficient";
+            this.teacherCoefficientBindingSource.DataSource = this.teacherWageDataSet;
             // 
+            // teacherCoefficientTableAdapter
             // 
+            this.teacherCoefficientTableAdapter.ClearBeforeFill = true;
             // 
+            // teacherCourseWageBindingSource
             // 
-            this.txtJobWageRemark.Border.Class = "TextBoxBorder";
-            this.txtJobWageRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtJobWageRemark.Location = new System.Drawing.Point(340, 83);
-            this.txtJobWageRemark.Name = "txtJobWageRemark";
-            this.txtJobWageRemark.Size = new System.Drawing.Size(178, 21);
-            this.txtJobWageRemark.TabIndex = 8;
+            this.teacherCourseWageBindingSource.DataMember = "TeacherCourseWage";
+            this.teacherCourseWageBindingSource.DataSource = this.teacherWageDataSet;
             // 
-            // txtAgeSubsidyRemark
+            // teacherCourseWageTableAdapter
             // 
+            this.teacherCourseWageTableAdapter.ClearBeforeFill = true;
             // 
+            // teacherStudentAwardBindingSource
             // 
+            this.teacherStudentAwardBindingSource.DataMember = "TeacherStudentAward";
+            this.teacherStudentAwardBindingSource.DataSource = this.teacherWageDataSet;
             // 
-            this.txtAgeSubsidyRemark.Border.Class = "TextBoxBorder";
-            this.txtAgeSubsidyRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtAgeSubsidyRemark.Location = new System.Drawing.Point(340, 110);
-            this.txtAgeSubsidyRemark.Name = "txtAgeSubsidyRemark";
-            this.txtAgeSubsidyRemark.Size = new System.Drawing.Size(178, 21);
-            this.txtAgeSubsidyRemark.TabIndex = 12;
+            // teacherStudentAwardTableAdapter
             // 
-            // txtInsuranceSubsidyRemark
+            this.teacherStudentAwardTableAdapter.ClearBeforeFill = true;
             // 
+            // teacherAwardBindingSource
             // 
+            this.teacherAwardBindingSource.DataMember = "TeacherAward";
+            this.teacherAwardBindingSource.DataSource = this.teacherWageDataSet;
             // 
+            // teacherAwardTableAdapter
             // 
-            this.txtInsuranceSubsidyRemark.Border.Class = "TextBoxBorder";
-            this.txtInsuranceSubsidyRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtInsuranceSubsidyRemark.Location = new System.Drawing.Point(340, 142);
-            this.txtInsuranceSubsidyRemark.Name = "txtInsuranceSubsidyRemark";
-            this.txtInsuranceSubsidyRemark.Size = new System.Drawing.Size(178, 21);
-            this.txtInsuranceSubsidyRemark.TabIndex = 16;
+            this.teacherAwardTableAdapter.ClearBeforeFill = true;
             // 
-            // txtHolidaysSubsidyRemark
+            // teacherChargeBackBindingSource
             // 
+            this.teacherChargeBackBindingSource.DataMember = "TeacherChargeBack";
+            this.teacherChargeBackBindingSource.DataSource = this.teacherWageDataSet;
             // 
+            // teacherChargeBackTableAdapter
             // 
-            // 
-            this.txtHolidaysSubsidyRemark.Border.Class = "TextBoxBorder";
-            this.txtHolidaysSubsidyRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtHolidaysSubsidyRemark.Location = new System.Drawing.Point(340, 172);
-            this.txtHolidaysSubsidyRemark.Name = "txtHolidaysSubsidyRemark";
-            this.txtHolidaysSubsidyRemark.Size = new System.Drawing.Size(178, 21);
-            this.txtHolidaysSubsidyRemark.TabIndex = 20;
-            // 
-            // txtWorkSubsidyRemark
-            // 
-            // 
-            // 
-            // 
-            this.txtWorkSubsidyRemark.Border.Class = "TextBoxBorder";
-            this.txtWorkSubsidyRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtWorkSubsidyRemark.Location = new System.Drawing.Point(340, 202);
-            this.txtWorkSubsidyRemark.Name = "txtWorkSubsidyRemark";
-            this.txtWorkSubsidyRemark.Size = new System.Drawing.Size(178, 21);
-            this.txtWorkSubsidyRemark.TabIndex = 24;
-            // 
-            // txtCourseWageCoefficient
-            // 
-            this.txtCourseWageCoefficient.AllowEmptyState = false;
-            // 
-            // 
-            // 
-            this.txtCourseWageCoefficient.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.txtCourseWageCoefficient.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtCourseWageCoefficient.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.txtCourseWageCoefficient.Increment = 0.1D;
-            this.txtCourseWageCoefficient.Location = new System.Drawing.Point(59, 20);
-            this.txtCourseWageCoefficient.MinValue = 1D;
-            this.txtCourseWageCoefficient.Name = "txtCourseWageCoefficient";
-            this.txtCourseWageCoefficient.Size = new System.Drawing.Size(80, 21);
-            this.txtCourseWageCoefficient.TabIndex = 29;
-            this.txtCourseWageCoefficient.Value = 1D;
-            this.txtCourseWageCoefficient.WatermarkText = "1";
-            // 
-            // CourseType
-            // 
-            this.CourseType.HeaderText = "课程类型";
-            this.CourseType.Name = "CourseType";
-            this.CourseType.ReadOnly = true;
-            this.CourseType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // CourseNum
-            // 
-            this.CourseNum.HeaderText = "月实际上课次数（人数）";
-            this.CourseNum.Name = "CourseNum";
-            this.CourseNum.ReadOnly = true;
-            this.CourseNum.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // StandardPrice
-            // 
-            this.StandardPrice.HeaderText = "对应单价（标准）";
-            this.StandardPrice.Name = "StandardPrice";
-            this.StandardPrice.ReadOnly = true;
-            this.StandardPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ActualPrice
-            // 
-            this.ActualPrice.HeaderText = "对应单价（实际）";
-            this.ActualPrice.Name = "ActualPrice";
-            this.ActualPrice.ReadOnly = true;
-            this.ActualPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // CourseAmount
-            // 
-            this.CourseAmount.HeaderText = "课量工资（标准）";
-            this.CourseAmount.Name = "CourseAmount";
-            this.CourseAmount.ReadOnly = true;
-            this.CourseAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Remark
-            // 
-            this.Remark.HeaderText = "备注";
-            this.Remark.Name = "Remark";
-            this.Remark.ReadOnly = true;
-            this.Remark.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.teacherChargeBackTableAdapter.ClearBeforeFill = true;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -2046,6 +2132,9 @@
             // 
             // dataGridViewTextBoxColumn3
             // 
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn3.HeaderText = "对应标准";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -2060,6 +2149,9 @@
             // 
             // dataGridViewTextBoxColumn5
             // 
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn5.HeaderText = "金额";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -2120,6 +2212,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBasicWage)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCourseWageCoefficient)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseWage)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -2158,7 +2251,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtFullAttendanceAwardStandardPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherBasicWageBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherWageDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCourseWageCoefficient)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherSalaryLogBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherCoefficientBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherCourseWageBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherStudentAwardBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherAwardBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherChargeBackBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2290,12 +2388,24 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txtJobWageRemark;
         private DevComponents.DotNetBar.Controls.TextBoxX txtBasicWageRemark;
         private DevComponents.Editors.DoubleInput txtCourseWageCoefficient;
+        private System.Windows.Forms.BindingSource teacherSalaryLogBindingSource;
+        private TeacherWageDataSetTableAdapters.TeacherSalaryLogTableAdapter teacherSalaryLogTableAdapter;
+        private System.Windows.Forms.BindingSource teacherCoefficientBindingSource;
+        private TeacherWageDataSetTableAdapters.TeacherCoefficientTableAdapter teacherCoefficientTableAdapter;
+        private System.Windows.Forms.BindingSource teacherCourseWageBindingSource;
+        private TeacherWageDataSetTableAdapters.TeacherCourseWageTableAdapter teacherCourseWageTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn CourseType;
         private System.Windows.Forms.DataGridViewTextBoxColumn CourseNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn StandardPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn ActualPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn CourseAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Remark;
+        private System.Windows.Forms.BindingSource teacherStudentAwardBindingSource;
+        private TeacherWageDataSetTableAdapters.TeacherStudentAwardTableAdapter teacherStudentAwardTableAdapter;
+        private System.Windows.Forms.BindingSource teacherAwardBindingSource;
+        private TeacherWageDataSetTableAdapters.TeacherAwardTableAdapter teacherAwardTableAdapter;
+        private System.Windows.Forms.BindingSource teacherChargeBackBindingSource;
+        private TeacherWageDataSetTableAdapters.TeacherChargeBackTableAdapter teacherChargeBackTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
