@@ -31,7 +31,8 @@ namespace BanGongPingTai
             //输出表格，注意是用PrintDGV（打印DataGridView表格），而不是 PrintDataGrid（用于打印古老的DataGrid表格）
             //vB2008Print1.PrintDGV(dataGridView, "福鼎市青少年宫培训中心2011年11月工资表", new Font("黑体", 18), StringAlignment.Center, "1111", true, true, 6, true, true, 0, 0, true, treeView);
             dataGridView.Columns["CreateDate"].Visible = false;
-            vB2008Print1.PrintDGV(dataGridView, "福鼎市青少年宫培训中心2011年11月工资表", new Font("黑体", 18), "   ", new Font("黑体", 28), StringAlignment.Center, "1111", true, true, new Font("黑体", 18), "", "", "", new Font("黑体", 18), "", "", "", 6, true, true, 0, 0, true, treeView);
+            //vB2008Print1.PrintDGV(dataGridView, "福鼎市青少年宫培训中心2011年11月工资表", new Font("黑体", 18), "   ", new Font("黑体", 28), StringAlignment.Center, "1111", true, true, new Font("黑体", 18), "", "", "", new Font("黑体", 18), "", "", "", 6, true, true, 0, 0, true, treeView);
+            vB2008Print1.PrintDGV(dataGridView, "福鼎市青少年宫培训中心2011年11月工资表", new Font("黑体", 18), "子标题", null, StringAlignment.Center, "1111", true, true, new Font("隶书", 10), "制表:游平", "地址:湖南省株洲市215信箱", "", null, null, Color.Red, Color.Yellow, "shouldWagesDataGridViewTextBoxColumn;MinusWagesDataGridViewTextBoxColumn;RealWagesDataGridViewTextBoxColumn", false, false, "", System.ComponentModel.ListSortDirection.Ascending, "", false, "", "中国航空动力机械研究所", "", 5, true, true, true, 0, 0, treeView);
             vB2008Print1.DrawImage(Image.FromFile(Application.StartupPath + "\\app.ico"), 1800, 100, 120, 120);
             //输出文本
             vB2008Print1.NewRow(100);//增加一点间距，请注意控件的PageUnits属性哦

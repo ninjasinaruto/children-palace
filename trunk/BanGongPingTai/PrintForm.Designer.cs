@@ -60,7 +60,7 @@
             this.vB2008Print1.Location = new System.Drawing.Point(0, 0);
             this.vB2008Print1.Name = "vB2008Print1";
             this.vB2008Print1.PageUnits = VBprinter40.VB2008Print.PageExportUnit.CentiMeter;
-            this.vB2008Print1.PaperKind = System.Drawing.Printing.PaperKind.A3;
+            this.vB2008Print1.PaperKind = System.Drawing.Printing.PaperKind.A4;
             this.vB2008Print1.PaperLandscape = true;
             this.vB2008Print1.PaperMargins = new System.Drawing.Printing.Margins(254, 254, 254, 254);
             this.vB2008Print1.PaperSize = ((System.Drawing.Printing.PaperSize)(resources.GetObject("vB2008Print1.PaperSize")));
