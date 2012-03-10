@@ -195,32 +195,130 @@ namespace BanGongPingTai
             this.teacherWagesTableAdapter.FillByMonth(this.teacherWageDataSet.TeacherWages);
         }
 
+        private void btnUpdateSalary_Click(object sender, EventArgs e)
+        {
+            if (teacherWagesBindingSource.Position < 0)
+                return;
+            int teacherID = teacherWageDataSet.TeacherWages.Rows[teacherWagesBindingSource.Position].Field<int>("TeacherID");
+            string teacherName = teacherWageDataSet.TeacherWages.Rows[teacherWagesBindingSource.Position].Field<string>("TeacherName");
+            int logID = teacherWageDataSet.TeacherWages.Rows[teacherWagesBindingSource.Position].Field<int>("LogID");
+
+            SalaryUpdateForm frmSalaryUpdate = new SalaryUpdateForm();
+            frmSalaryUpdate.LogID = logID;
+            frmSalaryUpdate.TeacherID = teacherID;
+            frmSalaryUpdate.TeacherName = teacherName;
+
+            if (frmSalaryUpdate.ShowDialog() != DialogResult.OK)
+                return;
+
+            DateTime wageTime = frmSalaryUpdate.wageTime;
+            List<BasicWage> basicWageList = frmSalaryUpdate.bwList;
+            double courseWageCoefficient = frmSalaryUpdate.cwCoefficient;
+            List<CourseWage> courseWageList = frmSalaryUpdate.cwList;
+            StudentAward studentAward = frmSalaryUpdate.sa;
+            List<TeacherAward> teacherAwardList = frmSalaryUpdate.taList;
+            List<ChargeBack> chargeBackList = frmSalaryUpdate.cbList;
+
+            teacherSalaryLogTableAdapter.UpdateWagesByLogID((decimal)frmSalaryUpdate.ShouldWages, (decimal)frmSalaryUpdate.RealWages, logID);
+            // 删除历史记录
+            teacherChargeBackTableAdapter.DeleteByLogID(logID);
+            teacherAwardTableAdapter.DeleteByLogID(logID);
+            teacherStudentAwardTableAdapter.DeleteByLogID(logID);
+            teacherCourseWageTableAdapter.DeleteByLogID(logID);
+            teacherCoefficientTableAdapter.DeleteByLogID(logID);
+            teacherBasicWageTableAdapter.DeleteByLogID(logID);
+
+            // 新增基本工资
+            for (int i = 0; i < basicWageList.Count; i++)
+            {
+                teacherBasicWageTableAdapter.Insert(logID, basicWageList[i].WageType, (decimal)basicWageList[i].WageStandard,
+                    basicWageList[i].WageNum, (decimal)basicWageList[i].WageAmount, basicWageList[i].Remark);
+            }
+            // 新增系数
+            teacherCoefficientTableAdapter.Insert(logID, courseWageCoefficient);
+            // 新增课量工资
+            for (int i = 0; i < courseWageList.Count; i++)
+            {
+                teacherCourseWageTableAdapter.Insert(logID, courseWageList[i].CourseType, courseWageList[i].CourseNum,
+                    (decimal)courseWageList[i].StandardPrice, (decimal)courseWageList[i].ActualPrice, (decimal)courseWageList[i].CourseAmount,
+                    courseWageList[i].Remark);
+            }
+            // 新增学生管理奖
+            teacherStudentAwardTableAdapter.Insert(logID, studentAward.TotalStudent, studentAward.ActualStudent, (decimal)studentAward.StandardPrice,
+                (decimal)studentAward.ActualPrice, (decimal)studentAward.Amount);
+            // 新增奖励工资
+            for (int i = 0; i < teacherAwardList.Count; i++)
+            {
+                teacherAwardTableAdapter.Insert(logID, teacherAwardList[i].AwardName, (decimal)teacherAwardList[i].StandardPrice,
+                    (decimal)teacherAwardList[i].ActualPrice, teacherAwardList[i].AwardNum, (decimal)teacherAwardList[i].AwardAmount,
+                    teacherAwardList[i].Remark);
+            }
+            // 新增扣款
+            for (int i = 0; i < chargeBackList.Count; i++)
+            {
+                teacherChargeBackTableAdapter.Insert(logID, chargeBackList[i].ChargeBackName, chargeBackList[i].ChargeBackType,
+                    (decimal)chargeBackList[i].StandardPrice, chargeBackList[i].ChargeBackNum, (decimal)chargeBackList[i].ChargeBackAmount,
+                    chargeBackList[i].Remark);
+            }
+            MessageBox.Show("修改工资成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            printTitle = "福鼎市青少年宫培训中心" + DateTime.Now.ToString("yyyy年MM月") + "工资表";
+            this.teacherWagesTableAdapter.FillByMonth(this.teacherWageDataSet.TeacherWages);
+        }
+
+        private void btnDelSalary_Click(object sender, EventArgs e)
+        {
+            if (teacherWagesBindingSource.Position < 0)
+                return;
+            if (MessageBox.Show("您确定要删除该条工资吗？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                int logID = teacherWageDataSet.TeacherWages.Rows[teacherWagesBindingSource.Position].Field<int>("LogID");
+                teacherChargeBackTableAdapter.DeleteByLogID(logID);
+                teacherAwardTableAdapter.DeleteByLogID(logID);
+                teacherStudentAwardTableAdapter.DeleteByLogID(logID);
+                teacherCourseWageTableAdapter.DeleteByLogID(logID);
+                teacherCoefficientTableAdapter.DeleteByLogID(logID);
+                teacherBasicWageTableAdapter.DeleteByLogID(logID);
+                teacherSalaryLogTableAdapter.DeleteByLogID(logID);
+
+                MessageBox.Show("删除成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                printTitle = "福鼎市青少年宫培训中心" + DateTime.Now.ToString("yyyy年MM月") + "工资表";
+                this.teacherWagesTableAdapter.FillByMonth(this.teacherWageDataSet.TeacherWages);
+            }
+        }
+
         private void teacherWagesBindingSource_ListChanged(object sender, ListChangedEventArgs e)
         {
             double totalShouldWages = 0.00;
             double totalMinusWages = 0.00;
             double totalRealWages = 0.00;
-      
+
             foreach (DataRow row in teacherWageDataSet.TeacherWages.Rows)
             {
-                totalShouldWages += (double)row.Field<decimal>("ShouldWages");
-                totalMinusWages += (double)row.Field<decimal>("MinusWages");
-                totalRealWages += (double)row.Field<decimal>("RealWages");
+                if (!row.IsNull("ShouldWages"))
+                    totalShouldWages += (double)row.Field<decimal>("ShouldWages");
+                if (!row.IsNull("MinusWages"))
+                    totalMinusWages += (double)row.Field<decimal>("MinusWages");
+                if (!row.IsNull("RealWages"))
+                    totalRealWages += (double)row.Field<decimal>("RealWages");
             }
+
             txtTotalShouldWages.Text = totalShouldWages.ToString();
             txtTotalMinusWages.Text = totalMinusWages.ToString();
             txtTotalRealWages.Text = totalRealWages.ToString();
             if (teacherWageDataSet.TeacherWages.Rows.Count == 0)
             {
                 btnPrint.Enabled = false;
+                btnPrintDetail.Enabled = false;
                 btnUpdateSalary.Enabled = false;
                 btnDelSalary.Enabled = false;
+                btnTeacherCheckWage.Enabled = false;
             }
             else
             {
                 btnPrint.Enabled = true;
-                btnUpdateSalary.Enabled = true;
+                btnPrintDetail.Enabled = true;
                 btnDelSalary.Enabled = true;
+                btnTeacherCheckWage.Enabled = true;
             }
         }
 
@@ -253,7 +351,6 @@ namespace BanGongPingTai
                 {
                     dgvTeacherWages.Rows[i].Cells[0].Value = i+1;
                 }
-                    
         }
 
         private void btnSearchByTeacher_Click(object sender, EventArgs e)
@@ -312,10 +409,12 @@ namespace BanGongPingTai
             if (checkName != null && !"".Equals(checkName))
             {
                 btnTeacherCheckWage.Enabled = false;
+                btnUpdateSalary.Enabled = false;
             }
             else
             {
                 btnTeacherCheckWage.Enabled = true;
+                btnUpdateSalary.Enabled = true;
             }
         }
 
@@ -325,33 +424,52 @@ namespace BanGongPingTai
             frmWagePrint.printTitle = printTitle;
             frmWagePrint.dataGridView = dgvTeacherWages;
             frmWagePrint.treeView = wageColumnsTree;
+            frmWagePrint.totalWages = decimal.Parse(txtTotalRealWages.Text);
             frmWagePrint.ShowDialog();
         }
 
-        private void btnDelSalary_Click(object sender, EventArgs e)
+        private void btnPrintDetail_Click(object sender, EventArgs e)
         {
             if (teacherWagesBindingSource.Position < 0)
                 return;
-            if (MessageBox.Show("您确定要删除该条工资吗？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-            {
-                int logID = teacherWageDataSet.TeacherWages.Rows[teacherWagesBindingSource.Position].Field<int>("LogID");
-                teacherChargeBackTableAdapter.DeleteByLogID(logID);
-                teacherAwardTableAdapter.DeleteByLogID(logID);
-                teacherStudentAwardTableAdapter.DeleteByLogID(logID);
-                teacherCourseWageTableAdapter.DeleteByLogID(logID);
-                teacherCoefficientTableAdapter.DeleteByLogID(logID);
-                teacherBasicWageTableAdapter.DeleteByLogID(logID);
-                teacherSalaryLogTableAdapter.DeleteByLogID(logID);
-
-                MessageBox.Show("删除成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                printTitle = "福鼎市青少年宫培训中心" + DateTime.Now.ToString("yyyy年MM月") + "工资表";
-                this.teacherWagesTableAdapter.FillByMonth(this.teacherWageDataSet.TeacherWages);
-            }
+            int teacherID = teacherWageDataSet.TeacherWages.Rows[teacherWagesBindingSource.Position].Field<int>("TeacherID");
+            string teacherName = teacherWageDataSet.TeacherWages.Rows[teacherWagesBindingSource.Position].Field<string>("TeacherName");
+            int logID = teacherWageDataSet.TeacherWages.Rows[teacherWagesBindingSource.Position].Field<int>("LogID");
+            double shouldWages = 0.0;
+            double realWages = 0.0;
+            if (!teacherWageDataSet.TeacherWages.Rows[teacherWagesBindingSource.Position].IsNull("ShouldWages"))
+                shouldWages += (double)teacherWageDataSet.TeacherWages.Rows[teacherWagesBindingSource.Position].Field<decimal>("ShouldWages");
+            if (!teacherWageDataSet.TeacherWages.Rows[teacherWagesBindingSource.Position].IsNull("RealWages"))
+                realWages += (double)teacherWageDataSet.TeacherWages.Rows[teacherWagesBindingSource.Position].Field<decimal>("RealWages");
+            DateTime wageTime = teacherWageDataSet.TeacherWages.Rows[teacherWagesBindingSource.Position].Field<DateTime>("WageTime");
+            WageDetailPrintForm frmWageDetailPrint = new WageDetailPrintForm();
+            frmWageDetailPrint.LogID = logID;
+            frmWageDetailPrint.TeacherID = teacherID;
+            frmWageDetailPrint.TeacherName = teacherName;
+            frmWageDetailPrint.printTitle = "青少年宫培训中心"+FirstDayOfMonth(wageTime).ToString("yyyy年MM月dd日")+"至"+LastDayOfMonth(wageTime).ToString("yyyy年MM月dd日")+"教师工资信息表";
+            frmWageDetailPrint.shouldWages = shouldWages;
+            frmWageDetailPrint.realWages = realWages;
+            frmWageDetailPrint.ShowDialog();
         }
 
-        private void btnUpdateSalary_Click(object sender, EventArgs e)
+        /// <summary>  
+        /// 取得某月的第一天  
+        /// </summary>  
+        /// <param name="datetime">要取得月份第一天的时间</param>  
+        /// <returns></returns>  
+        private DateTime FirstDayOfMonth(DateTime datetime)
+        {  
+            return datetime.AddDays(1 - datetime.Day);  
+        }  
+  
+        /// <summary>  
+        /// 取得某月的最后一天  
+        /// </summary>  
+        /// <param name="datetime">要取得月份最后一天的时间</param>  
+        /// <returns></returns>  
+        private DateTime LastDayOfMonth(DateTime datetime)  
         {
-
-        }
+            return datetime.AddDays(1 - datetime.Day).AddMonths(1).AddDays(-1);  
+        } 
     }
 }

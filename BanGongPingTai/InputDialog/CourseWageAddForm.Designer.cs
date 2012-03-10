@@ -151,6 +151,7 @@
             this.txtStandardPrice.Size = new System.Drawing.Size(174, 21);
             this.txtStandardPrice.TabIndex = 3;
             this.txtStandardPrice.WatermarkText = "0";
+            this.txtStandardPrice.ValueChanged += new System.EventHandler(this.txtStandardPrice_ValueChanged);
             // 
             // txtActualPrice
             // 

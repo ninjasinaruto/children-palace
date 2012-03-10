@@ -168,7 +168,6 @@ namespace BanGongPingTai
                             this.dgvChargeback.Rows.Add(dr);
                         }
                     }
-                    
                 }
             }
             lblTeacherName.Text = TeacherName;
@@ -769,7 +768,6 @@ namespace BanGongPingTai
             this.DialogResult = DialogResult.Cancel;
         }
 
-
         private static DataSet GetDataSetFromDataGridView(DataGridView dgv)
         {
             DataSet ds = new DataSet();
@@ -798,8 +796,20 @@ namespace BanGongPingTai
             return ds;
         }
 
-        
-
-        
+        private void txtCourseWageCoefficient_ValueChanged(object sender, EventArgs e)
+        {
+            if (txtCourseWageCoefficient.Text != null && txtCourseWageCoefficient.Text != null)
+            {
+                double coefficient = txtCourseWageCoefficient.Value;
+                if (dgvCourseWage.Rows.Count > 0)
+                {
+                    for (int i = 0; i < dgvCourseWage.Rows.Count; i++)
+                    {
+                        this.dgvCourseWage.Rows[i].Cells[3].Value = (double)this.dgvCourseWage.Rows[i].Cells[2].Value * coefficient;
+                        this.dgvCourseWage.Rows[i].Cells[4].Value = (int)this.dgvCourseWage.Rows[i].Cells[1].Value * (double)this.dgvCourseWage.Rows[i].Cells[2].Value * coefficient;
+                    }
+                }
+            }
+        }
     }
 }
