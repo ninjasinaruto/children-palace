@@ -155,21 +155,6 @@
             this.CheckName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teacherWagesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teacherWageDataSet = new BanGongPingTai.TeacherWageDataSet();
-            this.teacherBasicWageBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.teacherBasicWageTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherBasicWageTableAdapter();
-            this.teacherCoefficientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.teacherCoefficientTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherCoefficientTableAdapter();
-            this.teacherCourseWageBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.teacherCourseWageTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherCourseWageTableAdapter();
-            this.studentAwardBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.teacherStudentAwardTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherStudentAwardTableAdapter();
-            this.teacherAwardBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.teacherAwardTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherAwardTableAdapter();
-            this.chargeBackBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.teacherChargeBackTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherChargeBackTableAdapter();
-            this.teacherSalaryLogBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.teacherSalaryLogTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherSalaryLogTableAdapter();
-            this.teacherWagesTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherWagesTableAdapter();
             this.btnPrint = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -189,6 +174,22 @@
             this.btnTeacherCheckWage = new System.Windows.Forms.Button();
             this.btnSearchByTeacher = new System.Windows.Forms.Button();
             this.btnAddSalary = new System.Windows.Forms.Button();
+            this.teacherBasicWageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherBasicWageTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherBasicWageTableAdapter();
+            this.teacherCoefficientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherCoefficientTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherCoefficientTableAdapter();
+            this.teacherCourseWageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherCourseWageTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherCourseWageTableAdapter();
+            this.studentAwardBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherStudentAwardTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherStudentAwardTableAdapter();
+            this.teacherAwardBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherAwardTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherAwardTableAdapter();
+            this.chargeBackBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherChargeBackTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherChargeBackTableAdapter();
+            this.teacherSalaryLogBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherSalaryLogTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherSalaryLogTableAdapter();
+            this.teacherWagesTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherWagesTableAdapter();
+            this.btnPrintDetail = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeachers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teachersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teachersDataSet)).BeginInit();
@@ -517,7 +518,7 @@
             this.dgvTeacherWages.ColHeaderTreeView = null;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -575,6 +576,7 @@
             // dataGridViewTextBoxColumn1
             // 
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle2.Format = "N0";
             dataGridViewCellStyle2.NullValue = null;
             this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
@@ -588,6 +590,7 @@
             // 
             this.teacherNameDataGridViewTextBoxColumn.DataPropertyName = "TeacherName";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.teacherNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.teacherNameDataGridViewTextBoxColumn.HeaderText = "姓名";
             this.teacherNameDataGridViewTextBoxColumn.Name = "teacherNameDataGridViewTextBoxColumn";
@@ -618,7 +621,7 @@
             this.basicWageDataGridViewTextBoxColumn.Name = "basicWageDataGridViewTextBoxColumn";
             this.basicWageDataGridViewTextBoxColumn.ReadOnly = true;
             this.basicWageDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.basicWageDataGridViewTextBoxColumn.Width = 60;
+            this.basicWageDataGridViewTextBoxColumn.Width = 70;
             // 
             // ageWageDataGridViewTextBoxColumn
             // 
@@ -696,7 +699,7 @@
             this.courseAmountDataGridViewTextBoxColumn.Name = "courseAmountDataGridViewTextBoxColumn";
             this.courseAmountDataGridViewTextBoxColumn.ReadOnly = true;
             this.courseAmountDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.courseAmountDataGridViewTextBoxColumn.Width = 60;
+            this.courseAmountDataGridViewTextBoxColumn.Width = 70;
             // 
             // otherWageDataGridViewTextBoxColumn
             // 
@@ -794,6 +797,7 @@
             // 
             this.checkinChargeBackDataGridViewTextBoxColumn.DataPropertyName = "CheckinChargeBack";
             dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Red;
             dataGridViewCellStyle19.Format = "N2";
             dataGridViewCellStyle19.NullValue = null;
             this.checkinChargeBackDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle19;
@@ -807,6 +811,7 @@
             // 
             this.withholdChargeBackDataGridViewTextBoxColumn.DataPropertyName = "WithholdChargeBack";
             dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Red;
             dataGridViewCellStyle20.Format = "N2";
             dataGridViewCellStyle20.NullValue = null;
             this.withholdChargeBackDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle20;
@@ -820,6 +825,7 @@
             // 
             this.otherChargeBackDataGridViewTextBoxColumn.DataPropertyName = "OtherChargeBack";
             dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Red;
             dataGridViewCellStyle21.Format = "N2";
             dataGridViewCellStyle21.NullValue = null;
             this.otherChargeBackDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle21;
@@ -833,6 +839,7 @@
             // 
             this.minusWagesDataGridViewTextBoxColumn.DataPropertyName = "MinusWages";
             dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Red;
             dataGridViewCellStyle22.Format = "N2";
             dataGridViewCellStyle22.NullValue = null;
             this.minusWagesDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle22;
@@ -846,6 +853,7 @@
             // 
             this.realWagesDataGridViewTextBoxColumn.DataPropertyName = "RealWages";
             dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle23.Format = "N2";
             dataGridViewCellStyle23.NullValue = null;
             this.realWagesDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle23;
@@ -876,73 +884,6 @@
             // 
             this.teacherWageDataSet.DataSetName = "TeacherWageDataSet";
             this.teacherWageDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // teacherBasicWageBindingSource
-            // 
-            this.teacherBasicWageBindingSource.DataMember = "TeacherBasicWage";
-            this.teacherBasicWageBindingSource.DataSource = this.teacherWageDataSet;
-            // 
-            // teacherBasicWageTableAdapter
-            // 
-            this.teacherBasicWageTableAdapter.ClearBeforeFill = true;
-            // 
-            // teacherCoefficientBindingSource
-            // 
-            this.teacherCoefficientBindingSource.DataMember = "TeacherCoefficient";
-            this.teacherCoefficientBindingSource.DataSource = this.teacherWageDataSet;
-            // 
-            // teacherCoefficientTableAdapter
-            // 
-            this.teacherCoefficientTableAdapter.ClearBeforeFill = true;
-            // 
-            // teacherCourseWageBindingSource
-            // 
-            this.teacherCourseWageBindingSource.DataMember = "TeacherCourseWage";
-            this.teacherCourseWageBindingSource.DataSource = this.teacherWageDataSet;
-            // 
-            // teacherCourseWageTableAdapter
-            // 
-            this.teacherCourseWageTableAdapter.ClearBeforeFill = true;
-            // 
-            // studentAwardBindingSource
-            // 
-            this.studentAwardBindingSource.DataMember = "TeacherStudentAward";
-            this.studentAwardBindingSource.DataSource = this.teacherWageDataSet;
-            // 
-            // teacherStudentAwardTableAdapter
-            // 
-            this.teacherStudentAwardTableAdapter.ClearBeforeFill = true;
-            // 
-            // teacherAwardBindingSource
-            // 
-            this.teacherAwardBindingSource.DataMember = "TeacherAward";
-            this.teacherAwardBindingSource.DataSource = this.teacherWageDataSet;
-            // 
-            // teacherAwardTableAdapter
-            // 
-            this.teacherAwardTableAdapter.ClearBeforeFill = true;
-            // 
-            // chargeBackBindingSource
-            // 
-            this.chargeBackBindingSource.DataMember = "TeacherChargeBack";
-            this.chargeBackBindingSource.DataSource = this.teacherWageDataSet;
-            // 
-            // teacherChargeBackTableAdapter
-            // 
-            this.teacherChargeBackTableAdapter.ClearBeforeFill = true;
-            // 
-            // teacherSalaryLogBindingSource
-            // 
-            this.teacherSalaryLogBindingSource.DataMember = "TeacherSalaryLog";
-            this.teacherSalaryLogBindingSource.DataSource = this.teacherWageDataSet;
-            // 
-            // teacherSalaryLogTableAdapter
-            // 
-            this.teacherSalaryLogTableAdapter.ClearBeforeFill = true;
-            // 
-            // teacherWagesTableAdapter
-            // 
-            this.teacherWagesTableAdapter.ClearBeforeFill = true;
             // 
             // btnPrint
             // 
@@ -1073,6 +1014,7 @@
             // 
             // btnUpdateSalary
             // 
+            this.btnUpdateSalary.Enabled = false;
             this.btnUpdateSalary.Location = new System.Drawing.Point(697, 113);
             this.btnUpdateSalary.Name = "btnUpdateSalary";
             this.btnUpdateSalary.Size = new System.Drawing.Size(70, 24);
@@ -1122,11 +1064,89 @@
             this.btnAddSalary.UseVisualStyleBackColor = true;
             this.btnAddSalary.Click += new System.EventHandler(this.btnAddSalary_Click);
             // 
+            // teacherBasicWageBindingSource
+            // 
+            this.teacherBasicWageBindingSource.DataMember = "TeacherBasicWage";
+            this.teacherBasicWageBindingSource.DataSource = this.teacherWageDataSet;
+            // 
+            // teacherBasicWageTableAdapter
+            // 
+            this.teacherBasicWageTableAdapter.ClearBeforeFill = true;
+            // 
+            // teacherCoefficientBindingSource
+            // 
+            this.teacherCoefficientBindingSource.DataMember = "TeacherCoefficient";
+            this.teacherCoefficientBindingSource.DataSource = this.teacherWageDataSet;
+            // 
+            // teacherCoefficientTableAdapter
+            // 
+            this.teacherCoefficientTableAdapter.ClearBeforeFill = true;
+            // 
+            // teacherCourseWageBindingSource
+            // 
+            this.teacherCourseWageBindingSource.DataMember = "TeacherCourseWage";
+            this.teacherCourseWageBindingSource.DataSource = this.teacherWageDataSet;
+            // 
+            // teacherCourseWageTableAdapter
+            // 
+            this.teacherCourseWageTableAdapter.ClearBeforeFill = true;
+            // 
+            // studentAwardBindingSource
+            // 
+            this.studentAwardBindingSource.DataMember = "TeacherStudentAward";
+            this.studentAwardBindingSource.DataSource = this.teacherWageDataSet;
+            // 
+            // teacherStudentAwardTableAdapter
+            // 
+            this.teacherStudentAwardTableAdapter.ClearBeforeFill = true;
+            // 
+            // teacherAwardBindingSource
+            // 
+            this.teacherAwardBindingSource.DataMember = "TeacherAward";
+            this.teacherAwardBindingSource.DataSource = this.teacherWageDataSet;
+            // 
+            // teacherAwardTableAdapter
+            // 
+            this.teacherAwardTableAdapter.ClearBeforeFill = true;
+            // 
+            // chargeBackBindingSource
+            // 
+            this.chargeBackBindingSource.DataMember = "TeacherChargeBack";
+            this.chargeBackBindingSource.DataSource = this.teacherWageDataSet;
+            // 
+            // teacherChargeBackTableAdapter
+            // 
+            this.teacherChargeBackTableAdapter.ClearBeforeFill = true;
+            // 
+            // teacherSalaryLogBindingSource
+            // 
+            this.teacherSalaryLogBindingSource.DataMember = "TeacherSalaryLog";
+            this.teacherSalaryLogBindingSource.DataSource = this.teacherWageDataSet;
+            // 
+            // teacherSalaryLogTableAdapter
+            // 
+            this.teacherSalaryLogTableAdapter.ClearBeforeFill = true;
+            // 
+            // teacherWagesTableAdapter
+            // 
+            this.teacherWagesTableAdapter.ClearBeforeFill = true;
+            // 
+            // btnPrintDetail
+            // 
+            this.btnPrintDetail.Location = new System.Drawing.Point(926, 113);
+            this.btnPrintDetail.Name = "btnPrintDetail";
+            this.btnPrintDetail.Size = new System.Drawing.Size(70, 24);
+            this.btnPrintDetail.TabIndex = 52;
+            this.btnPrintDetail.Text = "详情打印";
+            this.btnPrintDetail.UseVisualStyleBackColor = true;
+            this.btnPrintDetail.Click += new System.EventHandler(this.btnPrintDetail_Click);
+            // 
             // TeachersManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 613);
+            this.Controls.Add(this.btnPrintDetail);
             this.Controls.Add(this.btnAddSalary);
             this.Controls.Add(this.btnSearchByTeacher);
             this.Controls.Add(this.btnTeacherCheckWage);
@@ -1274,5 +1294,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn minusWagesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn realWagesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckName;
+        private System.Windows.Forms.Button btnPrintDetail;
     }
 }

@@ -38,7 +38,15 @@ namespace BanGongPingTai
         {
             if (txtActualPrice.Text != null && txtCourseNum.Text != null)
             {
-                txtAmount.Text = txtActualPrice.Value * txtCourseNum.Value * Coefficient + "";
+                txtAmount.Text = txtActualPrice.Value * txtCourseNum.Value + "";
+            }
+        }
+
+        private void txtStandardPrice_ValueChanged(object sender, EventArgs e)
+        {
+            if (txtStandardPrice.Text != null)
+            {
+                txtActualPrice.Text = txtStandardPrice.Value * Coefficient + "";
             }
         }
 
@@ -46,7 +54,7 @@ namespace BanGongPingTai
         {
             if (txtActualPrice.Text != null && txtCourseNum.Text != null)
             {
-                txtAmount.Text = txtActualPrice.Value * txtCourseNum.Value * Coefficient + "";
+                txtAmount.Text = txtActualPrice.Value * txtCourseNum.Value + "";
             }
         }
 
