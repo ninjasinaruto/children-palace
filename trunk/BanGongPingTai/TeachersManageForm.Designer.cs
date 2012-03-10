@@ -36,7 +36,7 @@
             System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("工龄工资");
             System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("职务工资");
             System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("保险补贴");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("节假日补贴");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("岗位工资");
             System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("加班补贴");
             System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("课量工资");
             System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("其他");
@@ -456,7 +456,7 @@
             treeNode7.Name = "节点20";
             treeNode7.Text = "保险补贴";
             treeNode8.Name = "节点21";
-            treeNode8.Text = "节假日补贴";
+            treeNode8.Text = "岗位工资";
             treeNode9.Name = "节点22";
             treeNode9.Text = "加班补贴";
             treeNode10.Name = "节点23";
@@ -669,7 +669,7 @@
             dataGridViewCellStyle9.Format = "N2";
             dataGridViewCellStyle9.NullValue = null;
             this.holidayWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
-            this.holidayWageDataGridViewTextBoxColumn.HeaderText = "节假日补贴";
+            this.holidayWageDataGridViewTextBoxColumn.HeaderText = "岗位工资";
             this.holidayWageDataGridViewTextBoxColumn.Name = "holidayWageDataGridViewTextBoxColumn";
             this.holidayWageDataGridViewTextBoxColumn.ReadOnly = true;
             this.holidayWageDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -1271,6 +1271,7 @@
         private System.Windows.Forms.Button btnTeacherCheckWage;
         private System.Windows.Forms.Button btnSearchByTeacher;
         private System.Windows.Forms.Button btnAddSalary;
+        private System.Windows.Forms.Button btnPrintDetail;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn teacherNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreateDate;
@@ -1294,6 +1295,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn minusWagesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn realWagesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckName;
-        private System.Windows.Forms.Button btnPrintDetail;
     }
 }
