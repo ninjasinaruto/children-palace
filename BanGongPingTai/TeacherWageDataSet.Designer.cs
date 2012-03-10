@@ -6368,7 +6368,7 @@ SELECT ID, LogID, WageType, WageStandard, WageNum, WageAmount, Remark FROM teach
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = "SELECT   ID, LogID, WageType, WageStandard, WageNum, WageAmount, Remark\r\nFROM    " +
-                "  teacher_basic_wage\r\nWHERE   (LogID = @LogID) AND (WageType = \'节假日补贴\')";
+                "  teacher_basic_wage\r\nWHERE   (LogID = @LogID) AND (WageType = \'岗位工资\')";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LogID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "LogID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();

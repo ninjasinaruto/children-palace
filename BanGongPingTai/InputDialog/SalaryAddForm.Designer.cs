@@ -835,11 +835,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 177);
+            this.label7.Location = new System.Drawing.Point(13, 176);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 12);
+            this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 4;
-            this.label7.Text = "节假日补贴";
+            this.label7.Text = "岗位工资";
             // 
             // label6
             // 

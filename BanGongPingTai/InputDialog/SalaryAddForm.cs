@@ -599,7 +599,7 @@ namespace BanGongPingTai
                 shouldWages += txtInsuranceSubsidyAmount.Value;
 
                 BasicWage holiday = new BasicWage();
-                holiday.WageType = "节假日补贴";
+                holiday.WageType = "岗位工资";
                 holiday.WageStandard = txtHolidaysSubsidy.Value;
                 holiday.WageNum = txtHolidaysSubsidyNum.Value;
                 holiday.WageAmount = txtHolidaysSubsidyAmount.Value;
