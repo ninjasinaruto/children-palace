@@ -5615,7 +5615,7 @@ SELECT LogID, TeacherID, ShouldWages, RealWages, CreateDate, Operator, TeacherNa
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[7];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[8];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT LogID, TeacherID, ShouldWages, RealWages, CreateDate, Operator, TeacherNam" +
@@ -5630,42 +5630,52 @@ SELECT LogID, TeacherID, ShouldWages, RealWages, CreateDate, Operator, TeacherNa
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "SELECT   LogID, TeacherID, ShouldWages, RealWages, CreateDate, Operator, TeacherN" +
                 "ame, CheckDate\r\nFROM      teacher_salary_log\r\nWHERE   (DATEPART(mm, CreateDate) " +
-                "= DATEPART(mm, GETDATE()) - 1) AND (TeacherID = @TeacherID)";
+                "= DATEPART(mm, GETDATE()) - 2) AND (TeacherID = @TeacherID)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TeacherID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = "SELECT   LogID, TeacherID, ShouldWages, RealWages, CreateDate, Operator, TeacherN" +
                 "ame, CheckDate\r\nFROM      teacher_salary_log\r\nWHERE   (DATEDIFF(month, CreateDat" +
-                "e, @AddDate) = 0) AND (TeacherID = @TeacherID)";
+                "e, @AddDate) = 0) AND (TeacherID = @TeacherID) AND (LogID <> @LogID)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AddDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TeacherID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LogID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "LogID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "dbo.InsertQuery";
-            this._commandCollection[4].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TeacherID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShouldWages", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 19, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RealWages", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 19, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Operator", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].CommandText = "SELECT   LogID, TeacherID, ShouldWages, RealWages, CreateDate, Operator, TeacherN" +
+                "ame, CheckDate\r\nFROM      teacher_salary_log\r\nWHERE   (DATEDIFF(month, CreateDat" +
+                "e, @AddDate) = 0) AND (TeacherID = @TeacherID)";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AddDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TeacherID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "UPDATE  teacher_salary_log\r\nSET         TeacherName = @TeacherName, CheckDate = G" +
-                "ETDATE()\r\nWHERE   (LogID = @Original_LogID); ";
-            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TeacherName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LogID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "LogID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[5].CommandText = "dbo.InsertQuery";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TeacherID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShouldWages", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 19, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RealWages", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 19, 4, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Operator", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = "UPDATE  teacher_salary_log\r\nSET         ShouldWages = @ShouldWages, RealWages = @" +
-                "RealWages\r\nWHERE   (LogID = @Original_LogID)";
+            this._commandCollection[6].CommandText = "UPDATE  teacher_salary_log\r\nSET         TeacherName = @TeacherName, CheckDate = G" +
+                "ETDATE()\r\nWHERE   (LogID = @Original_LogID); ";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShouldWages", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "ShouldWages", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RealWages", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "RealWages", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TeacherName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LogID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "LogID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[7].Connection = this.Connection;
+            this._commandCollection[7].CommandText = "UPDATE  teacher_salary_log\r\nSET         ShouldWages = @ShouldWages, RealWages = @" +
+                "RealWages, CreateDate = @CreateDate\r\nWHERE   (LogID = @Original_LogID)";
+            this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShouldWages", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "ShouldWages", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RealWages", global::System.Data.SqlDbType.Money, 8, global::System.Data.ParameterDirection.Input, 0, 0, "RealWages", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LogID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "LogID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5722,8 +5732,38 @@ SELECT LogID, TeacherID, ShouldWages, RealWages, CreateDate, Operator, TeacherNa
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByThisMonthWithTeacherID(TeacherWageDataSet.TeacherSalaryLogDataTable dataTable, System.DateTime AddDate, int TeacherID) {
+        public virtual int FillByThisMonthNotLogIDWithTeacherID(TeacherWageDataSet.TeacherSalaryLogDataTable dataTable, System.DateTime AddDate, int TeacherID, int LogID) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(AddDate));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(TeacherID));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((int)(LogID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual TeacherWageDataSet.TeacherSalaryLogDataTable GetDataByThisMonthNotLogIDWithTeacherID(System.DateTime AddDate, int TeacherID, int LogID) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(AddDate));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(TeacherID));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((int)(LogID));
+            TeacherWageDataSet.TeacherSalaryLogDataTable dataTable = new TeacherWageDataSet.TeacherSalaryLogDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByThisMonthWithTeacherID(TeacherWageDataSet.TeacherSalaryLogDataTable dataTable, System.DateTime AddDate, int TeacherID) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(AddDate));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(TeacherID));
             if ((this.ClearBeforeFill == true)) {
@@ -5738,7 +5778,7 @@ SELECT LogID, TeacherID, ShouldWages, RealWages, CreateDate, Operator, TeacherNa
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual TeacherWageDataSet.TeacherSalaryLogDataTable GetDataByThisMonthWithTeacherID(System.DateTime AddDate, int TeacherID) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(AddDate));
             this.Adapter.SelectCommand.Parameters[1].Value = ((int)(TeacherID));
             TeacherWageDataSet.TeacherSalaryLogDataTable dataTable = new TeacherWageDataSet.TeacherSalaryLogDataTable();
@@ -6038,7 +6078,7 @@ SELECT LogID, TeacherID, ShouldWages, RealWages, CreateDate, Operator, TeacherNa
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual object InsertQuery(global::System.Nullable<int> TeacherID, global::System.Nullable<decimal> ShouldWages, global::System.Nullable<decimal> RealWages, global::System.Nullable<global::System.DateTime> CreateDate, string Operator) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
             if ((TeacherID.HasValue == true)) {
                 command.Parameters[1].Value = ((int)(TeacherID.Value));
             }
@@ -6097,7 +6137,7 @@ SELECT LogID, TeacherID, ShouldWages, RealWages, CreateDate, Operator, TeacherNa
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateByLogID(string TeacherName, int Original_LogID) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
             if ((TeacherName == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -6126,8 +6166,8 @@ SELECT LogID, TeacherID, ShouldWages, RealWages, CreateDate, Operator, TeacherNa
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateWagesByLogID(global::System.Nullable<decimal> ShouldWages, global::System.Nullable<decimal> RealWages, int Original_LogID) {
-            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
+        public virtual int UpdateWagesByLogID(global::System.Nullable<decimal> ShouldWages, global::System.Nullable<decimal> RealWages, System.DateTime CreateDate, int Original_LogID) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[7];
             if ((ShouldWages.HasValue == true)) {
                 command.Parameters[0].Value = ((decimal)(ShouldWages.Value));
             }
@@ -6140,7 +6180,8 @@ SELECT LogID, TeacherID, ShouldWages, RealWages, CreateDate, Operator, TeacherNa
             else {
                 command.Parameters[1].Value = global::System.DBNull.Value;
             }
-            command.Parameters[2].Value = ((int)(Original_LogID));
+            command.Parameters[2].Value = ((System.DateTime)(CreateDate));
+            command.Parameters[3].Value = ((int)(Original_LogID));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9488,26 +9529,31 @@ ORDER BY CASE WHEN ChargeBackName = '迟到处罚' THEN 1 WHEN ChargeBackName = 
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TeacherID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT CASE AgeWage WHEN 0 THEN NULL ELSE AgeWage END AS AgeWage, CASE AppraisalA" +
-                "ward WHEN 0 THEN NULL ELSE AppraisalAward END AS AppraisalAward, CASE Award WHEN" +
-                " 0 THEN NULL ELSE Award END AS Award, CASE BasicWage WHEN 0 THEN NULL ELSE Basic" +
-                "Wage END AS BasicWage, CheckName, CASE CheckinChargeBack WHEN 0 THEN NULL ELSE C" +
-                "heckinChargeBack END AS CheckinChargeBack, CASE CourseAmount WHEN 0 THEN NULL EL" +
-                "SE CourseAmount END AS CourseAmount, CreateDate, CASE FullAward WHEN 0 THEN NULL" +
-                " ELSE FullAward END AS FullAward, CASE HolidayWage WHEN 0 THEN NULL ELSE Holiday" +
-                "Wage END AS HolidayWage, CASE InsuranceWage WHEN 0 THEN NULL ELSE InsuranceWage " +
-                "END AS InsuranceWage, CASE JobWage WHEN 0 THEN NULL ELSE JobWage END AS JobWage," +
-                " LogID, CASE MinusWages WHEN 0 THEN NULL ELSE MinusWages END AS MinusWages, CASE" +
-                " OtherAward WHEN 0 THEN NULL ELSE OtherAward END AS OtherAward, CASE OtherCharge" +
-                "Back WHEN 0 THEN NULL ELSE OtherChargeBack END AS OtherChargeBack, CASE OtherWag" +
-                "e WHEN 0 THEN NULL ELSE OtherWage END AS OtherWage, CASE RealWages WHEN 0 THEN N" +
-                "ULL ELSE RealWages END AS RealWages, CASE ShouldWages WHEN 0 THEN NULL ELSE Shou" +
-                "ldWages END AS ShouldWages, CASE StudentAward WHEN 0 THEN NULL ELSE StudentAward" +
-                " END AS StudentAward, TeacherID, TeacherName, TeacherPassword, CASE TotalWage WH" +
-                "EN 0 THEN NULL ELSE TotalWage END AS TotalWage, WageTime, CASE WithholdChargeBac" +
-                "k WHEN 0 THEN NULL ELSE WithholdChargeBack END AS WithholdChargeBack, CASE WorkW" +
-                "age WHEN 0 THEN NULL ELSE WorkWage END AS WorkWage FROM v_teacher_wages WHERE (D" +
-                "ATEDIFF(month, WageTime, GETDATE()) = 0) ORDER BY CreateDate DESC, TeacherID";
+            this._commandCollection[3].CommandText = "SELECT   CASE AgeWage WHEN 0 THEN NULL ELSE AgeWage END AS AgeWage, CASE Appraisa" +
+                "lAward WHEN 0 THEN NULL \r\n                ELSE AppraisalAward END AS AppraisalAw" +
+                "ard, CASE Award WHEN 0 THEN NULL ELSE Award END AS Award, \r\n                CASE" +
+                " BasicWage WHEN 0 THEN NULL ELSE BasicWage END AS BasicWage, CheckName, \r\n      " +
+                "          CASE CheckinChargeBack WHEN 0 THEN NULL ELSE CheckinChargeBack END AS " +
+                "CheckinChargeBack, \r\n                CASE CourseAmount WHEN 0 THEN NULL ELSE Cou" +
+                "rseAmount END AS CourseAmount, CreateDate, \r\n                CASE FullAward WHEN" +
+                " 0 THEN NULL ELSE FullAward END AS FullAward, CASE HolidayWage WHEN 0 THEN NULL " +
+                "\r\n                ELSE HolidayWage END AS HolidayWage, CASE InsuranceWage WHEN 0" +
+                " THEN NULL \r\n                ELSE InsuranceWage END AS InsuranceWage, CASE JobWa" +
+                "ge WHEN 0 THEN NULL ELSE JobWage END AS JobWage, \r\n                LogID, CASE M" +
+                "inusWages WHEN 0 THEN NULL ELSE MinusWages END AS MinusWages, \r\n                " +
+                "CASE OtherAward WHEN 0 THEN NULL ELSE OtherAward END AS OtherAward, \r\n          " +
+                "      CASE OtherChargeBack WHEN 0 THEN NULL ELSE OtherChargeBack END AS OtherCha" +
+                "rgeBack, \r\n                CASE OtherWage WHEN 0 THEN NULL ELSE OtherWage END AS" +
+                " OtherWage, CASE RealWages WHEN 0 THEN NULL \r\n                ELSE RealWages END" +
+                " AS RealWages, CASE ShouldWages WHEN 0 THEN NULL \r\n                ELSE ShouldWa" +
+                "ges END AS ShouldWages, CASE StudentAward WHEN 0 THEN NULL \r\n                ELS" +
+                "E StudentAward END AS StudentAward, TeacherID, TeacherName, TeacherPassword, \r\n " +
+                "               CASE TotalWage WHEN 0 THEN NULL ELSE TotalWage END AS TotalWage, " +
+                "WageTime, \r\n                CASE WithholdChargeBack WHEN 0 THEN NULL ELSE Withho" +
+                "ldChargeBack END AS WithholdChargeBack, \r\n                CASE WorkWage WHEN 0 T" +
+                "HEN NULL ELSE WorkWage END AS WorkWage\r\nFROM      v_teacher_wages\r\nWHERE   (DATE" +
+                "PART(mm, WageTime) = DATEPART(mm, GETDATE()) - 1)\r\nORDER BY CreateDate DESC, Tea" +
+                "cherID";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -9597,7 +9643,7 @@ ORDER BY CASE WHEN ChargeBackName = '迟到处罚' THEN 1 WHEN ChargeBackName = 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByMonth(TeacherWageDataSet.TeacherWagesDataTable dataTable) {
+        public virtual int FillByLastMonth(TeacherWageDataSet.TeacherWagesDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -9610,7 +9656,7 @@ ORDER BY CASE WHEN ChargeBackName = '迟到处罚' THEN 1 WHEN ChargeBackName = 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual TeacherWageDataSet.TeacherWagesDataTable GetDataByMonth() {
+        public virtual TeacherWageDataSet.TeacherWagesDataTable GetDataByLastMonth() {
             this.Adapter.SelectCommand = this.CommandCollection[3];
             TeacherWageDataSet.TeacherWagesDataTable dataTable = new TeacherWageDataSet.TeacherWagesDataTable();
             this.Adapter.Fill(dataTable);

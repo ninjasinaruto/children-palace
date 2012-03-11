@@ -47,16 +47,31 @@ namespace BanGongPingTai
         {
             if (txtName.Text.Trim() == "")
             {
-                MessageBox.Show("请输入教师姓名！", "请输入教师姓名", MessageBoxButtons.OK,
+                MessageBox.Show("请输入姓名！", "提示", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
                 txtName.Focus();
                 return;
             }
             if (txtPassword.Text.Trim() == "")
             {
-                MessageBox.Show("请输入教师密码！", "请输入教师密码", MessageBoxButtons.OK,
+                MessageBox.Show("请输入密码！", "提示", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
                 txtPassword.Focus();
+                return;
+            }
+            if (txtPasswordConfirm.Text.Trim() == "")
+            {
+                MessageBox.Show("请输入确认密码！", "提示", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                txtPasswordConfirm.Focus();
+                return;
+            }
+            if (!txtPassword.Text.Trim().Equals(txtPasswordConfirm.Text.Trim()))
+            {
+                MessageBox.Show("两次输入的密码不一致，请重新输入！", "提示", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                txtPasswordConfirm.Text = "";
+                txtPasswordConfirm.Focus();
                 return;
             }
             this.TeacherName = txtName.Text;

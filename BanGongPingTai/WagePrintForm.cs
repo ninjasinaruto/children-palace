@@ -30,7 +30,8 @@ namespace BanGongPingTai
         {
             vbPrint.NewPage();
             dataGridView.Columns["CreateDate"].Visible = false;
-            vbPrint.PrintDGV(dataGridView, printTitle, new Font("黑体", 18), "", null, StringAlignment.Center, "1111",
+            //vbPrint.DrawImage(Image.FromFile(Application.StartupPath + "\\app.ico"), 0, 0, 120, 120, 120, 120);
+            vbPrint.PrintDGV(dataGridView, "", new Font("黑体", 18), "", null, StringAlignment.Center, "1111",
                 true, true, new Font("黑体", 10, FontStyle.Bold), "", "", "打印时间：" + DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString(), null, null, Color.Black, Color.WhiteSmoke, 
                 "shouldWagesDataGridViewTextBoxColumn;MinusWagesDataGridViewTextBoxColumn;RealWagesDataGridViewTextBoxColumn",
                 false, false, "", System.ComponentModel.ListSortDirection.Ascending, "", false, "",
@@ -51,7 +52,8 @@ namespace BanGongPingTai
 
         private void vbPrint_HeaderFooterOut(int pages, int curpage)
         {
-            vbPrint.PrintHeader(null, Image.FromFile(Application.StartupPath + "\\app.ico"), null);
+            vbPrint.PrintHeader(Image.FromFile(Application.StartupPath + "\\app.ico"), null, null);
+            vbPrint.PrintHeader("", printTitle, "", new Font("黑体", 18), Color.Black, 0);
             vbPrint.NewRow(40);
             vbPrint.PrintFooter("", "第" + curpage + "页 共" + pages + "页", "", new Font("宋体", 12), Color.Black, 0);
         }

@@ -21,8 +21,10 @@ namespace BanGongPingTai
 
         private void TeachersManageForm_Load(object sender, EventArgs e)
         {
-            printTitle = "福鼎市青少年宫培训中心"+DateTime.Now.ToString("yyyy年MM月")+"工资表";
-            this.teacherWagesTableAdapter.FillByMonth(this.teacherWageDataSet.TeacherWages);
+            if (User.CurrentUser.UserType > 1)
+                btnAddSalary.Enabled = true;
+            printTitle = "海鹰教育培训中心"+DateTime.Now.AddMonths(-1).ToString("yyyy年M月") + "工资表";
+            this.teacherWagesTableAdapter.FillByLastMonth(this.teacherWageDataSet.TeacherWages);
             this.teachersTableAdapter.Fill(this.teachersDataSet.Tearchers);
             if (teachersDataSet.Tearchers.Rows.Count > 0)
             {
@@ -34,13 +36,8 @@ namespace BanGongPingTai
 
         private void TeachersManageForm_Resize(object sender, EventArgs e)
         {
-            dgvTeacherWages.Width = this.Width - 630;
-            dgvTeacherWages.Height = this.Height - 200;
-            dgvTeachers.Height = this.Height - 360;
-            btnAddTeacher.Top = this.Height - 90;
-            btnUpdateTeacher.Top = this.Height - 90;
-            btnDelTeacher.Top = this.Height - 90;
-            btnConnectCard.Top = this.Height - 90;
+            dgvTeacherWages.Width = this.Width - 22;
+            dgvTeacherWages.Height = this.Height - 360;
         }
 
         private void btnAddTeacher_Click(object sender, EventArgs e)
@@ -80,6 +77,8 @@ namespace BanGongPingTai
                 this.dgvTeachers.Rows[rowIndex].Selected = true;
                 this.dgvTeachers.CurrentCell = this.dgvTeachers.Rows[rowIndex].Cells[0];
             }
+            printTitle = "海鹰教育培训中心" + DateTime.Now.AddMonths(-1).ToString("yyyy年M月") + "工资表";
+            this.teacherWagesTableAdapter.FillByLastMonth(this.teacherWageDataSet.TeacherWages);
         }
 
         private void btnDelTeacher_Click(object sender, EventArgs e)
@@ -191,8 +190,8 @@ namespace BanGongPingTai
                     chargeBackList[i].Remark);
             }
             MessageBox.Show("添加工资成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            printTitle = "福鼎市青少年宫培训中心" + DateTime.Now.ToString("yyyy年MM月") + "工资表";
-            this.teacherWagesTableAdapter.FillByMonth(this.teacherWageDataSet.TeacherWages);
+            printTitle = "海鹰教育培训中心" + DateTime.Now.AddMonths(-1).ToString("yyyy年M月") + "工资表";
+            this.teacherWagesTableAdapter.FillByLastMonth(this.teacherWageDataSet.TeacherWages);
         }
 
         private void btnUpdateSalary_Click(object sender, EventArgs e)
@@ -202,16 +201,17 @@ namespace BanGongPingTai
             int teacherID = teacherWageDataSet.TeacherWages.Rows[teacherWagesBindingSource.Position].Field<int>("TeacherID");
             string teacherName = teacherWageDataSet.TeacherWages.Rows[teacherWagesBindingSource.Position].Field<string>("TeacherName");
             int logID = teacherWageDataSet.TeacherWages.Rows[teacherWagesBindingSource.Position].Field<int>("LogID");
+            DateTime wageTime = teacherWageDataSet.TeacherWages.Rows[teacherWagesBindingSource.Position].Field<DateTime>("WageTime");
 
             SalaryUpdateForm frmSalaryUpdate = new SalaryUpdateForm();
             frmSalaryUpdate.LogID = logID;
+            frmSalaryUpdate.wageTime = wageTime;
             frmSalaryUpdate.TeacherID = teacherID;
             frmSalaryUpdate.TeacherName = teacherName;
 
             if (frmSalaryUpdate.ShowDialog() != DialogResult.OK)
                 return;
 
-            DateTime wageTime = frmSalaryUpdate.wageTime;
             List<BasicWage> basicWageList = frmSalaryUpdate.bwList;
             double courseWageCoefficient = frmSalaryUpdate.cwCoefficient;
             List<CourseWage> courseWageList = frmSalaryUpdate.cwList;
@@ -219,7 +219,7 @@ namespace BanGongPingTai
             List<TeacherAward> teacherAwardList = frmSalaryUpdate.taList;
             List<ChargeBack> chargeBackList = frmSalaryUpdate.cbList;
 
-            teacherSalaryLogTableAdapter.UpdateWagesByLogID((decimal)frmSalaryUpdate.ShouldWages, (decimal)frmSalaryUpdate.RealWages, logID);
+            teacherSalaryLogTableAdapter.UpdateWagesByLogID((decimal)frmSalaryUpdate.ShouldWages, (decimal)frmSalaryUpdate.RealWages, frmSalaryUpdate.wageTime, logID);
             // 删除历史记录
             teacherChargeBackTableAdapter.DeleteByLogID(logID);
             teacherAwardTableAdapter.DeleteByLogID(logID);
@@ -261,8 +261,8 @@ namespace BanGongPingTai
                     chargeBackList[i].Remark);
             }
             MessageBox.Show("修改工资成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            printTitle = "福鼎市青少年宫培训中心" + DateTime.Now.ToString("yyyy年MM月") + "工资表";
-            this.teacherWagesTableAdapter.FillByMonth(this.teacherWageDataSet.TeacherWages);
+            printTitle = "海鹰教育培训中心" + DateTime.Now.AddMonths(-1).ToString("yyyy年M月") + "工资表";
+            this.teacherWagesTableAdapter.FillByLastMonth(this.teacherWageDataSet.TeacherWages);
         }
 
         private void btnDelSalary_Click(object sender, EventArgs e)
@@ -281,8 +281,8 @@ namespace BanGongPingTai
                 teacherSalaryLogTableAdapter.DeleteByLogID(logID);
 
                 MessageBox.Show("删除成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                printTitle = "福鼎市青少年宫培训中心" + DateTime.Now.ToString("yyyy年MM月") + "工资表";
-                this.teacherWagesTableAdapter.FillByMonth(this.teacherWageDataSet.TeacherWages);
+                printTitle = "海鹰教育培训中心" + DateTime.Now.AddMonths(-1).ToString("yyyy年M月") + "工资表";
+                this.teacherWagesTableAdapter.FillByLastMonth(this.teacherWageDataSet.TeacherWages);
             }
         }
 
@@ -317,20 +317,23 @@ namespace BanGongPingTai
             {
                 btnPrint.Enabled = true;
                 btnPrintDetail.Enabled = true;
-                btnDelSalary.Enabled = true;
+                if (User.CurrentUser.UserType > 1)
+                {
+                    btnDelSalary.Enabled = true;
+                }
                 btnTeacherCheckWage.Enabled = true;
             }
         }
 
         private void btnSearchMonth_Click(object sender, EventArgs e)
         {
-            printTitle = "福鼎市青少年宫培训中心" + DateTime.Now.ToString("yyyy年MM月") + "工资表";
-            this.teacherWagesTableAdapter.FillByMonth(this.teacherWageDataSet.TeacherWages);
+            printTitle = "海鹰教育培训中心" + DateTime.Now.AddMonths(-1).ToString("yyyy年M月") + "工资表";
+            this.teacherWagesTableAdapter.FillByLastMonth(this.teacherWageDataSet.TeacherWages);
         }
 
         private void btnSearchAll_Click(object sender, EventArgs e)
         {
-            printTitle = "福鼎市青少年宫培训中心工资总表";
+            printTitle = "海鹰教育培训中心工资总表";
             this.teacherWagesTableAdapter.Fill(this.teacherWageDataSet.TeacherWages);
         }
 
@@ -341,7 +344,14 @@ namespace BanGongPingTai
             DateTime endDate = dtpEDate.Value;
             endDate = new DateTime(endDate.Year, endDate.Month, endDate.Day, 0, 0, 0);
             this.teacherWagesTableAdapter.FillByBeginAndEndDate(this.teacherWageDataSet.TeacherWages, beginDate, endDate);
-            printTitle = "福鼎市青少年宫培训中心" + beginDate.ToString("yyyy年MM月") +" - " + endDate.ToString("yyyy年MM月") + "工资表";
+            if (beginDate.ToString("yyyy年MM月").Equals(endDate.ToString("yyyy年MM月")))
+            {
+                printTitle = "海鹰教育培训中心" + beginDate.ToString("yyyy年M月") + "工资表";
+            }
+            else
+            {
+                printTitle = "海鹰教育培训中心" + beginDate.ToString("yyyy年M月") + "-" + endDate.ToString("yyyy年M月") + "工资表";
+            }
         }
 
         private void dgvTeacherWages_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -369,11 +379,11 @@ namespace BanGongPingTai
             this.teacherWagesTableAdapter.FillByBeginAndEndDateWithTeacherID(this.teacherWageDataSet.TeacherWages, beginDate, endDate, teacherID);
             if (beginDate.ToString("yyyy年MM月").Equals(endDate.ToString("yyyy年MM月")))
             {
-                printTitle = "福鼎市青少年宫培训中心[" + teacherName + "]" + beginDate.ToString("yyyy年MM月") + "工资表";
+                printTitle = "海鹰教育培训中心[" + teacherName + "]" + beginDate.ToString("yyyy年M月") + "工资表";
             }
             else
             {
-                printTitle = "福鼎市青少年宫培训中心[" + teacherName + "]" + beginDate.ToString("yyyy年MM月") + "-" + endDate.ToString("yyyy年MM月") + "工资表";
+                printTitle = "海鹰教育培训中心[" + teacherName + "]" + beginDate.ToString("yyyy年M月") + "-" + endDate.ToString("yyyy年M月") + "工资表";
             }
         }
 
@@ -398,7 +408,8 @@ namespace BanGongPingTai
 
             this.teacherSalaryLogTableAdapter.UpdateByLogID(teacherName, logID);
             MessageBox.Show("核实成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.teacherWagesTableAdapter.FillByMonth(this.teacherWageDataSet.TeacherWages);
+            printTitle = "海鹰教育培训中心" + DateTime.Now.AddMonths(-1).ToString("yyyy年M月") + "工资表";
+            this.teacherWagesTableAdapter.FillByLastMonth(this.teacherWageDataSet.TeacherWages);
         }
 
         private void teacherWagesBindingSource_PositionChanged(object sender, EventArgs e)
@@ -414,7 +425,10 @@ namespace BanGongPingTai
             else
             {
                 btnTeacherCheckWage.Enabled = true;
-                btnUpdateSalary.Enabled = true;
+                if (User.CurrentUser.UserType > 1)
+                {
+                    btnUpdateSalary.Enabled = true;
+                }
             }
         }
 
@@ -446,7 +460,7 @@ namespace BanGongPingTai
             frmWageDetailPrint.LogID = logID;
             frmWageDetailPrint.TeacherID = teacherID;
             frmWageDetailPrint.TeacherName = teacherName;
-            frmWageDetailPrint.printTitle = "青少年宫培训中心"+FirstDayOfMonth(wageTime).ToString("yyyy年MM月dd日")+"至"+LastDayOfMonth(wageTime).ToString("yyyy年MM月dd日")+"教师工资信息表";
+            frmWageDetailPrint.printTitle = "海鹰教育培训中心" + FirstDayOfMonth(wageTime).ToString("yyyy年M月d日") + "至" + LastDayOfMonth(wageTime).ToString("yyyy年M月d日") + "教师工资信息表";
             frmWageDetailPrint.shouldWages = shouldWages;
             frmWageDetailPrint.realWages = realWages;
             frmWageDetailPrint.ShowDialog();
