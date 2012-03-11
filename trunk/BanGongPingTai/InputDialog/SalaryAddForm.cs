@@ -30,6 +30,7 @@ namespace BanGongPingTai
 
         private void SalaryAddForm_Load(object sender, EventArgs e)
         {
+            dtpBasic.Value = DateTime.Now.AddMonths(-1);
             this.teacherSalaryLogTableAdapter.FillByLastMonthWithTeacherID(this.teacherWageDataSet.TeacherSalaryLog, TeacherID);
             {
 

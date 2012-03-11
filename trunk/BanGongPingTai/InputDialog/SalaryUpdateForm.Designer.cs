@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtOtherAwardRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtAppraisalAwardRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtTravelSubsidyRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -1295,9 +1295,9 @@
             // 
             // dataGridViewTextBoxColumn5
             // 
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn5.HeaderText = "金额";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -1831,9 +1831,9 @@
             // 
             // dataGridViewTextBoxColumn3
             // 
-            dataGridViewCellStyle7.Format = "N2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn3.HeaderText = "对应标准";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -1855,9 +1855,9 @@
             // 
             // ActualPrice
             // 
-            dataGridViewCellStyle8.Format = "N2";
-            dataGridViewCellStyle8.NullValue = null;
-            this.ActualPrice.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.ActualPrice.DefaultCellStyle = dataGridViewCellStyle3;
             this.ActualPrice.HeaderText = "对应单价（实际）";
             this.ActualPrice.Name = "ActualPrice";
             this.ActualPrice.ReadOnly = true;
@@ -1865,9 +1865,9 @@
             // 
             // StandardPrice
             // 
-            dataGridViewCellStyle9.Format = "N2";
-            dataGridViewCellStyle9.NullValue = null;
-            this.StandardPrice.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.StandardPrice.DefaultCellStyle = dataGridViewCellStyle4;
             this.StandardPrice.HeaderText = "对应单价（标准）";
             this.StandardPrice.Name = "StandardPrice";
             this.StandardPrice.ReadOnly = true;
@@ -1899,9 +1899,9 @@
             // 
             // CourseAmount
             // 
-            dataGridViewCellStyle10.Format = "N2";
-            dataGridViewCellStyle10.NullValue = null;
-            this.CourseAmount.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.CourseAmount.DefaultCellStyle = dataGridViewCellStyle5;
             this.CourseAmount.HeaderText = "课量工资（标准）";
             this.CourseAmount.Name = "CourseAmount";
             this.CourseAmount.ReadOnly = true;
@@ -2122,7 +2122,6 @@
             // dtpBasic
             // 
             this.dtpBasic.CustomFormat = "yyyy年MM月";
-            this.dtpBasic.Enabled = false;
             this.dtpBasic.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpBasic.Location = new System.Drawing.Point(234, 7);
             this.dtpBasic.Name = "dtpBasic";
