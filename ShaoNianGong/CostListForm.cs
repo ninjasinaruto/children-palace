@@ -159,5 +159,14 @@ namespace ShaoNianGong
             }
             txtShowRange.Text = frmCourseTypeSelect.CourseTypeName;
         }
+
+        private void dgvCost_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if (dgvCost.Rows.Count > 0)
+                for (int i = 0; i < dgvCost.Rows.Count; i++)
+                {
+                    dgvCost.Rows[i].Cells[0].Value = i + 1;
+                }
+        }
     }
 }
