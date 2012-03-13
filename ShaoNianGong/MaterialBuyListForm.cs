@@ -67,8 +67,17 @@ namespace ShaoNianGong
 
         private void MaterialBuyListForm_Resize(object sender, EventArgs e)
         {
-            dataGridView1.Width = this.Width - 20;
-            dataGridView1.Height = this.Height - 192;
+            dgvMaterials.Width = this.Width - 20;
+            dgvMaterials.Height = this.Height - 192;
+        }
+
+        private void dgvMaterials_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if (dgvMaterials.Rows.Count > 0)
+                for (int i = 0; i < dgvMaterials.Rows.Count; i++)
+                {
+                    dgvMaterials.Rows[i].Cells[0].Value = i + 1;
+                }
         }
     }
 }
