@@ -32,8 +32,8 @@ namespace ShaoNianGong
 
         private void LeftCourseForm_Resize(object sender, EventArgs e)
         {
-            dataGridView1.Width = this.Width - 20;
-            dataGridView1.Height = this.Height - 192;
+            dgvLeaveCourse.Width = this.Width - 20;
+            dgvLeaveCourse.Height = this.Height - 192;
         }
 
         private void btnSearchByCourseType_Click(object sender, EventArgs e)
@@ -87,6 +87,15 @@ namespace ShaoNianGong
             {
                 lblStudentsCount.Text = "0人";
             }
+        }
+
+        private void dgvLeaveCourse_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if (dgvLeaveCourse.Rows.Count > 0)
+                for (int i = 0; i < dgvLeaveCourse.Rows.Count; i++)
+                {
+                    dgvLeaveCourse.Rows[i].Cells[0].Value = i + 1;
+                }
         }
     }
 }

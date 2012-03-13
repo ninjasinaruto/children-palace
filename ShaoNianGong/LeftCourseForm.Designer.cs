@@ -29,18 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.OperatorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.dgvLeaveCourse = new System.Windows.Forms.DataGridView();
+            this.leaveCourseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.leaveCourseDataSet = new ShaoNianGong.LeaveCourseDataSet();
             this.btnSearchByCourseType = new System.Windows.Forms.Button();
             this.btnSearchByCourse = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblStudentsCount = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtShowRange = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnShowAll = new System.Windows.Forms.Button();
-            this.lblStudentsCount = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.leaveCourseTableAdapter = new ShaoNianGong.LeaveCourseDataSetTableAdapters.LeaveCourseTableAdapter();
+            this.序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.refundDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.refundReasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,23 +53,22 @@
             this.courseNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teacherNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expireTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.leaveCourseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.leaveCourseDataSet = new ShaoNianGong.LeaveCourseDataSet();
-            this.leaveCourseTableAdapter = new ShaoNianGong.LeaveCourseDataSetTableAdapters.LeaveCourseTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.OperatorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLeaveCourse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leaveCourseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leaveCourseDataSet)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvLeaveCourse
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvLeaveCourse.AllowUserToAddRows = false;
+            this.dgvLeaveCourse.AllowUserToDeleteRows = false;
+            this.dgvLeaveCourse.AllowUserToResizeRows = false;
+            this.dgvLeaveCourse.AutoGenerateColumns = false;
+            this.dgvLeaveCourse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLeaveCourse.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.序号,
             this.refundDateDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
             this.refundReasonDataGridViewTextBoxColumn,
@@ -77,23 +79,27 @@
             this.teacherNameDataGridViewTextBoxColumn,
             this.expireTimeDataGridViewTextBoxColumn,
             this.OperatorColumn});
-            this.dataGridView1.DataSource = this.leaveCourseBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 79);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1183, 439);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvLeaveCourse.DataSource = this.leaveCourseBindingSource;
+            this.dgvLeaveCourse.Location = new System.Drawing.Point(10, 79);
+            this.dgvLeaveCourse.MultiSelect = false;
+            this.dgvLeaveCourse.Name = "dgvLeaveCourse";
+            this.dgvLeaveCourse.ReadOnly = true;
+            this.dgvLeaveCourse.RowHeadersVisible = false;
+            this.dgvLeaveCourse.RowTemplate.Height = 23;
+            this.dgvLeaveCourse.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLeaveCourse.Size = new System.Drawing.Size(1183, 439);
+            this.dgvLeaveCourse.TabIndex = 0;
+            this.dgvLeaveCourse.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvLeaveCourse_DataBindingComplete);
             // 
-            // OperatorColumn
+            // leaveCourseBindingSource
             // 
-            this.OperatorColumn.DataPropertyName = "Operator";
-            this.OperatorColumn.HeaderText = "经办人";
-            this.OperatorColumn.Name = "OperatorColumn";
-            this.OperatorColumn.ReadOnly = true;
+            this.leaveCourseBindingSource.DataMember = "LeaveCourse";
+            this.leaveCourseBindingSource.DataSource = this.leaveCourseDataSet;
+            // 
+            // leaveCourseDataSet
+            // 
+            this.leaveCourseDataSet.DataSetName = "LeaveCourseDataSet";
+            this.leaveCourseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnSearchByCourseType
             // 
@@ -127,6 +133,25 @@
             this.panel1.Size = new System.Drawing.Size(1205, 48);
             this.panel1.TabIndex = 28;
             // 
+            // lblStudentsCount
+            // 
+            this.lblStudentsCount.AutoSize = true;
+            this.lblStudentsCount.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblStudentsCount.Location = new System.Drawing.Point(452, 11);
+            this.lblStudentsCount.Name = "lblStudentsCount";
+            this.lblStudentsCount.Size = new System.Drawing.Size(25, 12);
+            this.lblStudentsCount.TabIndex = 27;
+            this.lblStudentsCount.Text = "0人";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(381, 11);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 12);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "学生总数：";
+            // 
             // txtShowRange
             // 
             this.txtShowRange.AutoSize = true;
@@ -156,31 +181,22 @@
             this.btnShowAll.UseVisualStyleBackColor = true;
             this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
             // 
-            // lblStudentsCount
+            // leaveCourseTableAdapter
             // 
-            this.lblStudentsCount.AutoSize = true;
-            this.lblStudentsCount.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblStudentsCount.Location = new System.Drawing.Point(452, 11);
-            this.lblStudentsCount.Name = "lblStudentsCount";
-            this.lblStudentsCount.Size = new System.Drawing.Size(25, 12);
-            this.lblStudentsCount.TabIndex = 27;
-            this.lblStudentsCount.Text = "0人";
+            this.leaveCourseTableAdapter.ClearBeforeFill = true;
             // 
-            // label7
+            // 序号
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(381, 11);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 12);
-            this.label7.TabIndex = 26;
-            this.label7.Text = "学生总数：";
+            this.序号.HeaderText = "序号";
+            this.序号.Name = "序号";
+            this.序号.ReadOnly = true;
             // 
             // refundDateDataGridViewTextBoxColumn
             // 
             this.refundDateDataGridViewTextBoxColumn.DataPropertyName = "RefundDate";
-            dataGridViewCellStyle1.Format = "D";
-            dataGridViewCellStyle1.NullValue = null;
-            this.refundDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Format = "D";
+            dataGridViewCellStyle3.NullValue = null;
+            this.refundDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.refundDateDataGridViewTextBoxColumn.HeaderText = "离班日期";
             this.refundDateDataGridViewTextBoxColumn.Name = "refundDateDataGridViewTextBoxColumn";
             this.refundDateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -237,26 +253,19 @@
             // expireTimeDataGridViewTextBoxColumn
             // 
             this.expireTimeDataGridViewTextBoxColumn.DataPropertyName = "ExpireTime";
-            dataGridViewCellStyle2.Format = "D";
-            dataGridViewCellStyle2.NullValue = null;
-            this.expireTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Format = "D";
+            dataGridViewCellStyle4.NullValue = null;
+            this.expireTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.expireTimeDataGridViewTextBoxColumn.HeaderText = "缴费到期时间";
             this.expireTimeDataGridViewTextBoxColumn.Name = "expireTimeDataGridViewTextBoxColumn";
             this.expireTimeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // leaveCourseBindingSource
+            // OperatorColumn
             // 
-            this.leaveCourseBindingSource.DataMember = "LeaveCourse";
-            this.leaveCourseBindingSource.DataSource = this.leaveCourseDataSet;
-            // 
-            // leaveCourseDataSet
-            // 
-            this.leaveCourseDataSet.DataSetName = "LeaveCourseDataSet";
-            this.leaveCourseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // leaveCourseTableAdapter
-            // 
-            this.leaveCourseTableAdapter.ClearBeforeFill = true;
+            this.OperatorColumn.DataPropertyName = "Operator";
+            this.OperatorColumn.HeaderText = "经办人";
+            this.OperatorColumn.Name = "OperatorColumn";
+            this.OperatorColumn.ReadOnly = true;
             // 
             // LeftCourseForm
             // 
@@ -267,26 +276,35 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnSearchByCourseType);
             this.Controls.Add(this.btnSearchByCourse);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvLeaveCourse);
             this.Name = "LeftCourseForm";
             this.Text = "离班记录汇总";
             this.Load += new System.EventHandler(this.LeftCourseForm_Load);
             this.Resize += new System.EventHandler(this.LeftCourseForm_Resize);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLeaveCourse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leaveCourseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leaveCourseDataSet)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvLeaveCourse;
         private LeaveCourseDataSet leaveCourseDataSet;
         private System.Windows.Forms.BindingSource leaveCourseBindingSource;
         private LeaveCourseDataSetTableAdapters.LeaveCourseTableAdapter leaveCourseTableAdapter;
+        private System.Windows.Forms.Button btnSearchByCourseType;
+        private System.Windows.Forms.Button btnSearchByCourse;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label txtShowRange;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnShowAll;
+        private System.Windows.Forms.Label lblStudentsCount;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 序号;
         private System.Windows.Forms.DataGridViewTextBoxColumn refundDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn refundReasonDataGridViewTextBoxColumn;
@@ -297,13 +315,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn teacherNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn expireTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn OperatorColumn;
-        private System.Windows.Forms.Button btnSearchByCourseType;
-        private System.Windows.Forms.Button btnSearchByCourse;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label txtShowRange;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnShowAll;
-        private System.Windows.Forms.Label lblStudentsCount;
-        private System.Windows.Forms.Label label7;
     }
 }
