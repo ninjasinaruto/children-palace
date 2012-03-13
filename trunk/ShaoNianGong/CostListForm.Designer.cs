@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtTotalPaid = new System.Windows.Forms.TextBox();
             this.txtTotalCost = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,6 +50,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvCost = new System.Windows.Forms.DataGridView();
+            this.costListDataSet = new ShaoNianGong.CostListDataSet();
+            this.costListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.costListTableAdapter = new ShaoNianGong.CostListDataSetTableAdapters.CostListTableAdapter();
+            this.序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExpireTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,9 +67,6 @@
             this.courseNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chargeTypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OperatorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costListDataSet = new ShaoNianGong.CostListDataSet();
-            this.costListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.costListTableAdapter = new ShaoNianGong.CostListDataSetTableAdapters.CostListTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.costListDataSet)).BeginInit();
@@ -246,6 +247,7 @@
             this.dgvCost.AutoGenerateColumns = false;
             this.dgvCost.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCost.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.序号,
             this.costDateDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
             this.ExpireTimeColumn,
@@ -270,13 +272,35 @@
             this.dgvCost.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCost.Size = new System.Drawing.Size(1183, 439);
             this.dgvCost.TabIndex = 1;
+            this.dgvCost.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvCost_DataBindingComplete);
+            // 
+            // costListDataSet
+            // 
+            this.costListDataSet.DataSetName = "CostListDataSet";
+            this.costListDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // costListBindingSource
+            // 
+            this.costListBindingSource.DataMember = "CostList";
+            this.costListBindingSource.DataSource = this.costListDataSet;
+            this.costListBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.costListBindingSource_ListChanged);
+            // 
+            // costListTableAdapter
+            // 
+            this.costListTableAdapter.ClearBeforeFill = true;
+            // 
+            // 序号
+            // 
+            this.序号.HeaderText = "序号";
+            this.序号.Name = "序号";
+            this.序号.ReadOnly = true;
             // 
             // costDateDataGridViewTextBoxColumn
             // 
             this.costDateDataGridViewTextBoxColumn.DataPropertyName = "CostDate";
-            dataGridViewCellStyle1.Format = "F";
-            dataGridViewCellStyle1.NullValue = null;
-            this.costDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Format = "F";
+            dataGridViewCellStyle3.NullValue = null;
+            this.costDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.costDateDataGridViewTextBoxColumn.HeaderText = "收费日期";
             this.costDateDataGridViewTextBoxColumn.Name = "costDateDataGridViewTextBoxColumn";
             this.costDateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -292,9 +316,9 @@
             // ExpireTimeColumn
             // 
             this.ExpireTimeColumn.DataPropertyName = "ExpireTime";
-            dataGridViewCellStyle2.Format = "D";
-            dataGridViewCellStyle2.NullValue = null;
-            this.ExpireTimeColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Format = "D";
+            dataGridViewCellStyle4.NullValue = null;
+            this.ExpireTimeColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.ExpireTimeColumn.HeaderText = "缴费到期时间";
             this.ExpireTimeColumn.Name = "ExpireTimeColumn";
             this.ExpireTimeColumn.ReadOnly = true;
@@ -371,21 +395,6 @@
             this.OperatorColumn.Name = "OperatorColumn";
             this.OperatorColumn.ReadOnly = true;
             // 
-            // costListDataSet
-            // 
-            this.costListDataSet.DataSetName = "CostListDataSet";
-            this.costListDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // costListBindingSource
-            // 
-            this.costListBindingSource.DataMember = "CostList";
-            this.costListBindingSource.DataSource = this.costListDataSet;
-            this.costListBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.costListBindingSource_ListChanged);
-            // 
-            // costListTableAdapter
-            // 
-            this.costListTableAdapter.ClearBeforeFill = true;
-            // 
             // CostListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -437,6 +446,14 @@
         private System.Windows.Forms.Button btnShowFilterDeposit;
         private System.Windows.Forms.Button btnShowAllDeposit;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnSearchByCourse;
+        private System.Windows.Forms.Button btnSearchByCourseType;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblCostCount;
+        private System.Windows.Forms.Label txtShowRange;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 序号;
         private System.Windows.Forms.DataGridViewTextBoxColumn costDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExpireTimeColumn;
@@ -450,12 +467,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn courseNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn chargeTypeNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn OperatorColumn;
-        private System.Windows.Forms.Button btnSearchByCourse;
-        private System.Windows.Forms.Button btnSearchByCourseType;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblCostCount;
-        private System.Windows.Forms.Label txtShowRange;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label2;
     }
 }
