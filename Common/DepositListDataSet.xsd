@@ -174,6 +174,226 @@ ORDER BY deposit_list.DepositDate DESC</CommandText>
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="StudentDepositListTableAdapter" GeneratorDataComponentClassName="StudentDepositListTableAdapter" Name="StudentDepositList" UserDataComponentName="StudentDepositListTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   deposit_list.StudentID, deposit_list.DepositAmount, deposit_list.DepositDate, students.Name, deposit_list.ID, 
+                deposit_list.ActualPaidAmount, students.ExpireTime, course_types.CourseTypeName, 
+                course_subtypes.CourseSubtypeName, courses.CourseName, charge_type.ChargeTypeName, 
+                tearchers.Name AS TeacherName, deposit_list.Operator
+FROM      deposit_list INNER JOIN
+                students ON deposit_list.StudentID = students.ID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS NUM
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID LEFT OUTER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID LEFT OUTER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID LEFT OUTER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID
+ORDER BY deposit_list.DepositDate DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="StudentID" DataSetColumn="StudentID" />
+              <Mapping SourceColumn="DepositAmount" DataSetColumn="DepositAmount" />
+              <Mapping SourceColumn="DepositDate" DataSetColumn="DepositDate" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="ActualPaidAmount" DataSetColumn="ActualPaidAmount" />
+              <Mapping SourceColumn="ExpireTime" DataSetColumn="ExpireTime" />
+              <Mapping SourceColumn="CourseTypeName" DataSetColumn="CourseTypeName" />
+              <Mapping SourceColumn="CourseSubtypeName" DataSetColumn="CourseSubtypeName" />
+              <Mapping SourceColumn="CourseName" DataSetColumn="CourseName" />
+              <Mapping SourceColumn="ChargeTypeName" DataSetColumn="ChargeTypeName" />
+              <Mapping SourceColumn="TeacherName" DataSetColumn="TeacherName" />
+              <Mapping SourceColumn="Operator" DataSetColumn="Operator" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByBeginEndDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByBeginEndDate" GeneratorSourceName="FillByBeginEndDate" GetMethodModifier="Public" GetMethodName="GetDataByBeginEndDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByBeginEndDate" UserSourceName="FillByBeginEndDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   deposit_list.StudentID, deposit_list.DepositAmount, deposit_list.DepositDate, students.Name, deposit_list.ID, 
+                deposit_list.ActualPaidAmount, students.ExpireTime, course_types.CourseTypeName, 
+                course_subtypes.CourseSubtypeName, courses.CourseName, charge_type.ChargeTypeName, 
+                tearchers.Name AS TeacherName, deposit_list.Operator
+FROM      deposit_list INNER JOIN
+                students ON deposit_list.StudentID = students.ID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS NUM
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID LEFT OUTER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID LEFT OUTER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID LEFT OUTER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID
+WHERE   (DATEDIFF(day, @BeginDate, deposit_list.DepositDate) &gt;= 0) AND (DATEDIFF(day, @EndDate, deposit_list.DepositDate) 
+                &lt;= 0)
+ORDER BY deposit_list.DepositDate DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="EndDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByCourseIDWithDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByCourseIDWithDate" GeneratorSourceName="FillByCourseIDWithDate" GetMethodModifier="Public" GetMethodName="GetDataByCourseIDWithDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByCourseIDWithDate" UserSourceName="FillByCourseIDWithDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   deposit_list.StudentID, deposit_list.DepositAmount, deposit_list.DepositDate, students.Name, deposit_list.ID, 
+                deposit_list.ActualPaidAmount, students.ExpireTime, course_types.CourseTypeName, 
+                course_subtypes.CourseSubtypeName, courses.CourseName, charge_type.ChargeTypeName, 
+                tearchers.Name AS TeacherName, deposit_list.Operator
+FROM      deposit_list INNER JOIN
+                students ON deposit_list.StudentID = students.ID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS NUM
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID LEFT OUTER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID LEFT OUTER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID LEFT OUTER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID
+WHERE   (courses.ID = @CourseID) AND (DATEDIFF(day, @BeginDate, deposit_list.DepositDate) &gt;= 0) AND (DATEDIFF(day, 
+                @EndDate, deposit_list.DepositDate) &lt;= 0)
+ORDER BY deposit_list.DepositDate DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="CourseID" ColumnName="ID" DataSourceName="ChildrenPalace.dbo.courses" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@CourseID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="EndDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByCourseTypeWithDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByCourseTypeWithDate" GeneratorSourceName="FillByCourseTypeWithDate" GetMethodModifier="Public" GetMethodName="GetDataByCourseTypeWithDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByCourseTypeWithDate" UserSourceName="FillByCourseTypeWithDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   deposit_list.StudentID, deposit_list.DepositAmount, deposit_list.DepositDate, students.Name, deposit_list.ID, 
+                deposit_list.ActualPaidAmount, students.ExpireTime, course_types.CourseTypeName, 
+                course_subtypes.CourseSubtypeName, courses.CourseName, charge_type.ChargeTypeName, 
+                tearchers.Name AS TeacherName, deposit_list.Operator
+FROM      deposit_list INNER JOIN
+                students ON deposit_list.StudentID = students.ID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS NUM
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID LEFT OUTER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID LEFT OUTER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID LEFT OUTER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID
+WHERE   (course_types.ID = @CourseTypeID) AND (DATEDIFF(day, @BeginDate, deposit_list.DepositDate) &gt;= 0) AND 
+                (DATEDIFF(day, @EndDate, deposit_list.DepositDate) &lt;= 0)
+ORDER BY deposit_list.DepositDate DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="CourseTypeID" ColumnName="ID" DataSourceName="ChildrenPalace.dbo.course_types" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@CourseTypeID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="EndDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByMonth" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByMonth" GeneratorSourceName="FillByMonth" GetMethodModifier="Public" GetMethodName="GetDataByMonth" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByMonth" UserSourceName="FillByMonth">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   deposit_list.StudentID, deposit_list.DepositAmount, deposit_list.DepositDate, students.Name, deposit_list.ID, 
+                deposit_list.ActualPaidAmount, students.ExpireTime, course_types.CourseTypeName, 
+                course_subtypes.CourseSubtypeName, courses.CourseName, charge_type.ChargeTypeName, 
+                tearchers.Name AS TeacherName, deposit_list.Operator
+FROM      deposit_list INNER JOIN
+                students ON deposit_list.StudentID = students.ID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS NUM
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID LEFT OUTER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID LEFT OUTER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID LEFT OUTER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID
+WHERE   (DATEDIFF(month, deposit_list.DepositDate, GETDATE()) = 0)
+ORDER BY deposit_list.DepositDate DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByUserNameCourseIDWithDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByUserNameCourseIDWithDate" GeneratorSourceName="FillByUserNameCourseIDWithDate" GetMethodModifier="Public" GetMethodName="GetDataByUserNameCourseIDWithDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByUserNameCourseIDWithDate" UserSourceName="FillByUserNameCourseIDWithDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   deposit_list.StudentID, deposit_list.DepositAmount, deposit_list.DepositDate, students.Name, deposit_list.ID, 
+                deposit_list.ActualPaidAmount, students.ExpireTime, course_types.CourseTypeName, 
+                course_subtypes.CourseSubtypeName, courses.CourseName, charge_type.ChargeTypeName, 
+                tearchers.Name AS TeacherName, deposit_list.Operator
+FROM      deposit_list INNER JOIN
+                students ON deposit_list.StudentID = students.ID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS NUM
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID LEFT OUTER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID LEFT OUTER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID LEFT OUTER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID
+WHERE   (courses.ID IN
+                    (SELECT   CourseId
+                     FROM      users_course_privilege
+                     WHERE   (UserName = @UserName))) AND (DATEDIFF(day, @BeginDate, deposit_list.DepositDate) &gt;= 0) AND 
+                (DATEDIFF(day, @EndDate, deposit_list.DepositDate) &lt;= 0) AND (courses.ID = @CourseID)
+ORDER BY deposit_list.DepositDate DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="EndDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="CourseID" ColumnName="ID" DataSourceName="ChildrenPalace.dbo.courses" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@CourseID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="UserName" ColumnName="" DataSourceName="" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@UserName" Precision="0" Scale="0" Size="50" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByUserNameCourseTypeWithDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByUserNameCourseTypeWithDate" GeneratorSourceName="FillByUserNameCourseTypeWithDate" GetMethodModifier="Public" GetMethodName="GetDataByUserNameCourseTypeWithDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByUserNameCourseTypeWithDate" UserSourceName="FillByUserNameCourseTypeWithDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   deposit_list.StudentID, deposit_list.DepositAmount, deposit_list.DepositDate, students.Name, deposit_list.ID, 
+                deposit_list.ActualPaidAmount, students.ExpireTime, course_types.CourseTypeName, 
+                course_subtypes.CourseSubtypeName, courses.CourseName, charge_type.ChargeTypeName, 
+                tearchers.Name AS TeacherName, deposit_list.Operator
+FROM      deposit_list INNER JOIN
+                students ON deposit_list.StudentID = students.ID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS NUM
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID LEFT OUTER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID LEFT OUTER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID LEFT OUTER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID
+WHERE   (courses.ID IN
+                    (SELECT   CourseId
+                     FROM      users_course_privilege
+                     WHERE   (UserName = @UserName))) AND (course_types.ID = @CourseTypeID) AND (DATEDIFF(day, @BeginDate, 
+                deposit_list.DepositDate) &gt;= 0) AND (DATEDIFF(day, @EndDate, deposit_list.DepositDate) &lt;= 0)
+ORDER BY deposit_list.DepositDate DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="CourseTypeID" ColumnName="ID" DataSourceName="ChildrenPalace.dbo.course_types" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@CourseTypeID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="EndDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="UserName" ColumnName="" DataSourceName="" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@UserName" Precision="0" Scale="0" Size="50" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -222,10 +442,75 @@ ORDER BY deposit_list.DepositDate DESC</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="StudentDepositList" msprop:Generator_TableClassName="StudentDepositListDataTable" msprop:Generator_TableVarName="tableStudentDepositList" msprop:Generator_TablePropName="StudentDepositList" msprop:Generator_RowDeletingName="StudentDepositListRowDeleting" msprop:Generator_UserTableName="StudentDepositList" msprop:Generator_RowChangingName="StudentDepositListRowChanging" msprop:Generator_RowEvHandlerName="StudentDepositListRowChangeEventHandler" msprop:Generator_RowDeletedName="StudentDepositListRowDeleted" msprop:Generator_RowEvArgName="StudentDepositListRowChangeEvent" msprop:Generator_RowChangedName="StudentDepositListRowChanged" msprop:Generator_RowClassName="StudentDepositListRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="StudentID" msprop:Generator_ColumnVarNameInTable="columnStudentID" msprop:Generator_ColumnPropNameInRow="StudentID" msprop:Generator_ColumnPropNameInTable="StudentIDColumn" msprop:Generator_UserColumnName="StudentID" type="xs:int" />
+              <xs:element name="DepositAmount" msprop:Generator_ColumnVarNameInTable="columnDepositAmount" msprop:Generator_ColumnPropNameInRow="DepositAmount" msprop:Generator_ColumnPropNameInTable="DepositAmountColumn" msprop:Generator_UserColumnName="DepositAmount" type="xs:int" />
+              <xs:element name="DepositDate" msprop:Generator_ColumnVarNameInTable="columnDepositDate" msprop:Generator_ColumnPropNameInRow="DepositDate" msprop:Generator_ColumnPropNameInTable="DepositDateColumn" msprop:Generator_UserColumnName="DepositDate" type="xs:dateTime" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="ActualPaidAmount" msprop:Generator_ColumnVarNameInTable="columnActualPaidAmount" msprop:Generator_ColumnPropNameInRow="ActualPaidAmount" msprop:Generator_ColumnPropNameInTable="ActualPaidAmountColumn" msprop:Generator_UserColumnName="ActualPaidAmount" type="xs:int" />
+              <xs:element name="ExpireTime" msprop:Generator_ColumnVarNameInTable="columnExpireTime" msprop:Generator_ColumnPropNameInRow="ExpireTime" msprop:Generator_ColumnPropNameInTable="ExpireTimeColumn" msprop:Generator_UserColumnName="ExpireTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CourseTypeName" msprop:Generator_ColumnVarNameInTable="columnCourseTypeName" msprop:Generator_ColumnPropNameInRow="CourseTypeName" msprop:Generator_ColumnPropNameInTable="CourseTypeNameColumn" msprop:Generator_UserColumnName="CourseTypeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CourseSubtypeName" msprop:Generator_ColumnVarNameInTable="columnCourseSubtypeName" msprop:Generator_ColumnPropNameInRow="CourseSubtypeName" msprop:Generator_ColumnPropNameInTable="CourseSubtypeNameColumn" msprop:Generator_UserColumnName="CourseSubtypeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CourseName" msprop:Generator_ColumnVarNameInTable="columnCourseName" msprop:Generator_ColumnPropNameInRow="CourseName" msprop:Generator_ColumnPropNameInTable="CourseNameColumn" msprop:Generator_UserColumnName="CourseName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ChargeTypeName" msprop:Generator_ColumnVarNameInTable="columnChargeTypeName" msprop:Generator_ColumnPropNameInRow="ChargeTypeName" msprop:Generator_ColumnPropNameInTable="ChargeTypeNameColumn" msprop:Generator_UserColumnName="ChargeTypeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TeacherName" msprop:Generator_ColumnVarNameInTable="columnTeacherName" msprop:Generator_ColumnPropNameInRow="TeacherName" msprop:Generator_ColumnPropNameInTable="TeacherNameColumn" msprop:Generator_UserColumnName="TeacherName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Operator" msprop:Generator_ColumnVarNameInTable="columnOperator" msprop:Generator_ColumnPropNameInRow="Operator" msprop:Generator_ColumnPropNameInTable="OperatorColumn" msprop:Generator_UserColumnName="Operator" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:DepositList" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="StudentDepositList_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:StudentDepositList" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
   </xs:element>
