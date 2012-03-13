@@ -94,7 +94,6 @@ namespace ShaoNianGong
 
         private void btnShowFilterDeposit_Click(object sender, EventArgs e)
         {
-           
             DateTime beginDate = dtDepositBeginDate.Value;
             beginDate = new DateTime(beginDate.Year, beginDate.Month, beginDate.Day, 0, 0, 0);
             DateTime endDate = dtDepositEndDate.Value;
@@ -115,6 +114,10 @@ namespace ShaoNianGong
         private void btnSearchByCourse_Click(object sender, EventArgs e)
         {
             CourseSelectForm frmCourseSelect = new CourseSelectForm();
+            DateTime beginDate = dtDepositBeginDate.Value;
+            beginDate = new DateTime(beginDate.Year, beginDate.Month, beginDate.Day, 0, 0, 0);
+            DateTime endDate = dtDepositEndDate.Value;
+            endDate = new DateTime(endDate.Year, endDate.Month, endDate.Day, 0, 0, 0);
             if (UserType == 0)
             {
                 frmCourseSelect.isPrivate = true;
@@ -123,7 +126,8 @@ namespace ShaoNianGong
                 {
                     return;
                 }
-                this.costListTableAdapter.FillByUserNameCourseID(this.costListDataSet.CostList, frmCourseSelect.CourseID, this.UserName);
+                //this.costListTableAdapter.FillByUserNameCourseID(this.costListDataSet.CostList, frmCourseSelect.CourseID, this.UserName);
+                this.costListTableAdapter.FillByUserNameCourseIDWithDate(this.costListDataSet.CostList, frmCourseSelect.CourseID, this.UserName, beginDate, endDate);
             }
             else
             {
@@ -131,7 +135,8 @@ namespace ShaoNianGong
                 {
                     return;
                 }
-                this.costListTableAdapter.FillByCourseID(this.costListDataSet.CostList, frmCourseSelect.CourseID);
+                //this.costListTableAdapter.FillByCourseID(this.costListDataSet.CostList, frmCourseSelect.CourseID);
+                this.costListTableAdapter.FillByCourseIDWithDate(this.costListDataSet.CostList, frmCourseSelect.CourseID, beginDate, endDate);
             }
             txtShowRange.Text = frmCourseSelect.CourseTypeName + " - " + frmCourseSelect.CourseSubtypeName + " - " + frmCourseSelect.CourseName;
         }
@@ -139,6 +144,10 @@ namespace ShaoNianGong
         private void btnSearchByCourseType_Click(object sender, EventArgs e)
         {
             CourseTypeSelectForm frmCourseTypeSelect = new CourseTypeSelectForm();
+            DateTime beginDate = dtDepositBeginDate.Value;
+            beginDate = new DateTime(beginDate.Year, beginDate.Month, beginDate.Day, 0, 0, 0);
+            DateTime endDate = dtDepositEndDate.Value;
+            endDate = new DateTime(endDate.Year, endDate.Month, endDate.Day, 0, 0, 0);
             if (UserType == 0)
             {
                 frmCourseTypeSelect.isPrivate = true;
@@ -147,7 +156,8 @@ namespace ShaoNianGong
                 {
                     return;
                 }
-                this.costListTableAdapter.FillByUserNameCourseType(this.costListDataSet.CostList, frmCourseTypeSelect.CourseTypeId, this.UserName);
+                //this.costListTableAdapter.FillByUserNameCourseType(this.costListDataSet.CostList, frmCourseTypeSelect.CourseTypeId, this.UserName);
+                this.costListTableAdapter.FillByUserNameCourseTypeWithDate(this.costListDataSet.CostList, frmCourseTypeSelect.CourseTypeId, this.UserName, beginDate, endDate);
             }
             else
             {
@@ -155,7 +165,8 @@ namespace ShaoNianGong
                 {
                     return;
                 }
-                this.costListTableAdapter.FillByCourseType(this.costListDataSet.CostList, frmCourseTypeSelect.CourseTypeId);
+                //this.costListTableAdapter.FillByCourseType(this.costListDataSet.CostList, frmCourseTypeSelect.CourseTypeId);
+                this.costListTableAdapter.FillByCourseTypeWithDate(this.costListDataSet.CostList, beginDate, endDate, frmCourseTypeSelect.CourseTypeId);
             }
             txtShowRange.Text = frmCourseTypeSelect.CourseTypeName;
         }
