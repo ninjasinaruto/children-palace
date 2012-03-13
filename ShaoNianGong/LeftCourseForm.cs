@@ -11,6 +11,9 @@ namespace ShaoNianGong
 {
     public partial class LeftCourseForm : Form
     {
+        public string UserName;
+        public int UserType;
+
         public LeftCourseForm()
         {
             InitializeComponent();
@@ -18,8 +21,7 @@ namespace ShaoNianGong
 
         private void LeftCourseForm_Load(object sender, EventArgs e)
         {
-            // TODO: 这行代码将数据加载到表“leaveCourseDataSet.LeaveCourse”中。您可以根据需要移动或删除它。
-            this.leaveCourseTableAdapter.Fill(this.leaveCourseDataSet.LeaveCourse);
+            this.leaveCourseTableAdapter.FillByBeginDate(this.leaveCourseDataSet.LeaveCourse);
             if (leaveCourseDataSet.LeaveCourse.Rows.Count > 0)
             {
                 lblStudentsCount.Text = leaveCourseDataSet.LeaveCourse.Rows[0].Field<int>("StudentCount") + "人";
@@ -28,6 +30,7 @@ namespace ShaoNianGong
             {
                 lblStudentsCount.Text = "0人";
             }
+            txtShowRange.Text = "本月";
         }
 
         private void LeftCourseForm_Resize(object sender, EventArgs e)
@@ -39,11 +42,29 @@ namespace ShaoNianGong
         private void btnSearchByCourseType_Click(object sender, EventArgs e)
         {
             CourseTypeSelectForm frmCourseTypeSelect = new CourseTypeSelectForm();
-            if (frmCourseTypeSelect.ShowDialog() != DialogResult.OK)
+            DateTime beginDate = dtRefundBeginDate.Value;
+            beginDate = new DateTime(beginDate.Year, beginDate.Month, beginDate.Day, 0, 0, 0);
+            DateTime endDate = dtRefundEndDate.Value;
+            endDate = new DateTime(endDate.Year, endDate.Month, endDate.Day, 0, 0, 0);
+            if (UserType == 0)
             {
-                return;
+                frmCourseTypeSelect.isPrivate = true;
+                frmCourseTypeSelect.userName = this.UserName;
+                if (frmCourseTypeSelect.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+                this.leaveCourseTableAdapter.FillByUserNameCourseTypeWithDate(leaveCourseDataSet.LeaveCourse, frmCourseTypeSelect.CourseTypeId, beginDate, endDate, this.UserName);
             }
-            leaveCourseTableAdapter.FillByCourseType(leaveCourseDataSet.LeaveCourse, frmCourseTypeSelect.CourseTypeId);
+            else
+            {
+                if (frmCourseTypeSelect.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+                this.leaveCourseTableAdapter.FillByCourseTypeWithDate(leaveCourseDataSet.LeaveCourse, frmCourseTypeSelect.CourseTypeId, beginDate, endDate);
+            }
+
             txtShowRange.Text = frmCourseTypeSelect.CourseTypeName;
             if (leaveCourseDataSet.LeaveCourse.Rows.Count > 0)
             {
@@ -58,11 +79,28 @@ namespace ShaoNianGong
         private void btnSearchByCourse_Click(object sender, EventArgs e)
         {
             CourseSelectForm frmCourseSelect = new CourseSelectForm();
-            if (frmCourseSelect.ShowDialog() != DialogResult.OK)
+            DateTime beginDate = dtRefundBeginDate.Value;
+            beginDate = new DateTime(beginDate.Year, beginDate.Month, beginDate.Day, 0, 0, 0);
+            DateTime endDate = dtRefundEndDate.Value;
+            endDate = new DateTime(endDate.Year, endDate.Month, endDate.Day, 0, 0, 0);
+            if (UserType == 0)
             {
-                return;
+                frmCourseSelect.isPrivate = true;
+                frmCourseSelect.userName = this.UserName;
+                if (frmCourseSelect.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+                this.leaveCourseTableAdapter.FillByUserNameCourseWithDate(this.leaveCourseDataSet.LeaveCourse, frmCourseSelect.CourseID, beginDate, endDate, this.UserName);
             }
-            leaveCourseTableAdapter.FillByCourse(leaveCourseDataSet.LeaveCourse, frmCourseSelect.CourseID);
+            else
+            {
+                if (frmCourseSelect.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+                this.leaveCourseTableAdapter.FillByCourseWithDate(this.leaveCourseDataSet.LeaveCourse, frmCourseSelect.CourseID, beginDate, endDate);
+            }
             txtShowRange.Text = frmCourseSelect.CourseTypeName + " - " +
                 frmCourseSelect.CourseSubtypeName + " - " + frmCourseSelect.CourseName;
             if (leaveCourseDataSet.LeaveCourse.Rows.Count > 0)
@@ -96,6 +134,48 @@ namespace ShaoNianGong
                 {
                     dgvLeaveCourse.Rows[i].Cells[0].Value = i + 1;
                 }
+        }
+
+        private void leaveCourseBindingSource_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            int totalRefundAmount = 0;
+            foreach (DataRow row in leaveCourseDataSet.LeaveCourse.Rows)
+            {
+                totalRefundAmount += row.Field<int>("RefundAmount");
+            }
+            txtTotalRefundAmount.Text = totalRefundAmount.ToString();
+        }
+
+        private void btnShowThisMonthBuy_Click(object sender, EventArgs e)
+        {
+            this.leaveCourseTableAdapter.FillByBeginDate(this.leaveCourseDataSet.LeaveCourse);
+            if (leaveCourseDataSet.LeaveCourse.Rows.Count > 0)
+            {
+                lblStudentsCount.Text = leaveCourseDataSet.LeaveCourse.Rows[0].Field<int>("StudentCount") + "人";
+            }
+            else
+            {
+                lblStudentsCount.Text = "0人";
+            }
+            txtShowRange.Text = "本月";
+        }
+
+        private void btnShowFilterBuy_Click(object sender, EventArgs e)
+        {
+            DateTime beginDate = dtRefundBeginDate.Value;
+            beginDate = new DateTime(beginDate.Year, beginDate.Month, beginDate.Day, 0, 0, 0);
+            DateTime endDate = dtRefundEndDate.Value;
+            endDate = new DateTime(endDate.Year, endDate.Month, endDate.Day, 0, 0, 0);
+            this.leaveCourseTableAdapter.FillByBeginEndDate(this.leaveCourseDataSet.LeaveCourse, beginDate, endDate);
+            if (leaveCourseDataSet.LeaveCourse.Rows.Count > 0)
+            {
+                lblStudentsCount.Text = leaveCourseDataSet.LeaveCourse.Rows[0].Field<int>("StudentCount") + "人";
+            }
+            else
+            {
+                lblStudentsCount.Text = "0人";
+            }
+            txtShowRange.Text = beginDate.ToShortDateString() + " - " + endDate.ToShortDateString();
         }
     }
 }

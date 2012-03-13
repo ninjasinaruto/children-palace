@@ -207,6 +207,8 @@ namespace ShaoNianGong
                 currentForm.Dispose();
             }
             currentForm = new DepositListForm();
+            (currentForm as DepositListForm).UserType = this.UserType;
+            (currentForm as DepositListForm).UserName = this.UserName;
             currentForm.MdiParent = this;
             currentForm.WindowState = FormWindowState.Maximized;
             currentForm.Show();
@@ -226,6 +228,8 @@ namespace ShaoNianGong
                 currentForm.Dispose();
             }
             currentForm = new MaterialBuyListForm();
+            (currentForm as MaterialBuyListForm).UserType = this.UserType;
+            (currentForm as MaterialBuyListForm).UserName = this.UserName;
             currentForm.MdiParent = this;
             currentForm.WindowState = FormWindowState.Maximized;
             currentForm.Show();
@@ -266,6 +270,8 @@ namespace ShaoNianGong
                 currentForm.Dispose();
             }
             currentForm = new LeftCourseForm();
+            (currentForm as LeftCourseForm).UserType = this.UserType;
+            (currentForm as LeftCourseForm).UserName = this.UserName;
             currentForm.MdiParent = this;
             currentForm.WindowState = FormWindowState.Maximized;
             currentForm.Show();

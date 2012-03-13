@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvMaterials = new System.Windows.Forms.DataGridView();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.materialsDataSet1 = new ShaoNianGong.MaterialsDataSet();
-            this.studentMaterialsTableAdapter = new ShaoNianGong.MaterialsDataSetTableAdapters.StudentMaterialsTableAdapter();
             this.dtBuyEndDate = new System.Windows.Forms.DateTimePicker();
             this.dtBuyBeginDate = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,18 +48,28 @@
             this.txtShowRange = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnSearchByCourseType = new System.Windows.Forms.Button();
+            this.btnSearchByCourse = new System.Windows.Forms.Button();
+            this.materialsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.materialsDataSet = new ShaoNianGong.MaterialsDataSet();
+            this.studentMaterialsTableAdapter = new ShaoNianGong.MaterialsDataSetTableAdapters.StudentMaterialsTableAdapter();
             this.序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuyTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpireTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaterialName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaterialPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BuyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BuyTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CourseTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CourseSubtypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChargeTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.operatorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterials)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.materialsDataSet1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.materialsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materialsDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvMaterials
@@ -72,14 +81,19 @@
             this.dgvMaterials.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMaterials.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.序号,
+            this.BuyTime,
             this.Column1,
+            this.ExpireTime,
             this.MaterialName,
             this.MaterialPrice,
             this.BuyCount,
-            this.BuyTime,
             this.TotalCost,
+            this.CourseTypeName,
+            this.CourseSubtypeName,
+            this.CourseName,
+            this.ChargeTypeName,
             this.operatorDataGridViewTextBoxColumn});
-            this.dgvMaterials.DataSource = this.bindingSource1;
+            this.dgvMaterials.DataSource = this.materialsBindingSource;
             this.dgvMaterials.Location = new System.Drawing.Point(10, 79);
             this.dgvMaterials.MultiSelect = false;
             this.dgvMaterials.Name = "dgvMaterials";
@@ -91,31 +105,16 @@
             this.dgvMaterials.TabIndex = 0;
             this.dgvMaterials.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvMaterials_DataBindingComplete);
             // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataMember = "StudentMaterials";
-            this.bindingSource1.DataSource = this.materialsDataSet1;
-            this.bindingSource1.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.bindingSource1_ListChanged);
-            // 
-            // materialsDataSet1
-            // 
-            this.materialsDataSet1.DataSetName = "MaterialsDataSet";
-            this.materialsDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // studentMaterialsTableAdapter
-            // 
-            this.studentMaterialsTableAdapter.ClearBeforeFill = true;
-            // 
             // dtBuyEndDate
             // 
-            this.dtBuyEndDate.Location = new System.Drawing.Point(547, 41);
+            this.dtBuyEndDate.Location = new System.Drawing.Point(747, 41);
             this.dtBuyEndDate.Name = "dtBuyEndDate";
             this.dtBuyEndDate.Size = new System.Drawing.Size(119, 21);
             this.dtBuyEndDate.TabIndex = 19;
             // 
             // dtBuyBeginDate
             // 
-            this.dtBuyBeginDate.Location = new System.Drawing.Point(547, 16);
+            this.dtBuyBeginDate.Location = new System.Drawing.Point(747, 16);
             this.dtBuyBeginDate.Name = "dtBuyBeginDate";
             this.dtBuyBeginDate.Size = new System.Drawing.Size(119, 21);
             this.dtBuyBeginDate.TabIndex = 20;
@@ -123,7 +122,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(476, 46);
+            this.label4.Location = new System.Drawing.Point(676, 46);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 12);
             this.label4.TabIndex = 17;
@@ -132,7 +131,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(476, 20);
+            this.label3.Location = new System.Drawing.Point(676, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 18;
@@ -150,7 +149,7 @@
             // 
             // btnShowFilterBuy
             // 
-            this.btnShowFilterBuy.Location = new System.Drawing.Point(682, 16);
+            this.btnShowFilterBuy.Location = new System.Drawing.Point(882, 16);
             this.btnShowFilterBuy.Name = "btnShowFilterBuy";
             this.btnShowFilterBuy.Size = new System.Drawing.Size(96, 36);
             this.btnShowFilterBuy.TabIndex = 15;
@@ -252,11 +251,57 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "当前显示范围：";
             // 
+            // btnSearchByCourseType
+            // 
+            this.btnSearchByCourseType.Location = new System.Drawing.Point(451, 16);
+            this.btnSearchByCourseType.Name = "btnSearchByCourseType";
+            this.btnSearchByCourseType.Size = new System.Drawing.Size(96, 36);
+            this.btnSearchByCourseType.TabIndex = 32;
+            this.btnSearchByCourseType.Text = "按分类查询";
+            this.btnSearchByCourseType.UseVisualStyleBackColor = true;
+            this.btnSearchByCourseType.Click += new System.EventHandler(this.btnSearchByCourseType_Click);
+            // 
+            // btnSearchByCourse
+            // 
+            this.btnSearchByCourse.Location = new System.Drawing.Point(553, 16);
+            this.btnSearchByCourse.Name = "btnSearchByCourse";
+            this.btnSearchByCourse.Size = new System.Drawing.Size(96, 36);
+            this.btnSearchByCourse.TabIndex = 31;
+            this.btnSearchByCourse.Text = "按课程查询";
+            this.btnSearchByCourse.UseVisualStyleBackColor = true;
+            this.btnSearchByCourse.Click += new System.EventHandler(this.btnSearchByCourse_Click);
+            // 
+            // materialsBindingSource
+            // 
+            this.materialsBindingSource.DataMember = "StudentMaterials";
+            this.materialsBindingSource.DataSource = this.materialsDataSet;
+            this.materialsBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.materialsBindingSource_ListChanged);
+            // 
+            // materialsDataSet
+            // 
+            this.materialsDataSet.DataSetName = "MaterialsDataSet";
+            this.materialsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // studentMaterialsTableAdapter
+            // 
+            this.studentMaterialsTableAdapter.ClearBeforeFill = true;
+            // 
             // 序号
             // 
             this.序号.HeaderText = "序号";
             this.序号.Name = "序号";
             this.序号.ReadOnly = true;
+            // 
+            // BuyTime
+            // 
+            this.BuyTime.DataPropertyName = "BuyTime";
+            dataGridViewCellStyle3.Format = "F";
+            dataGridViewCellStyle3.NullValue = null;
+            this.BuyTime.DefaultCellStyle = dataGridViewCellStyle3;
+            this.BuyTime.HeaderText = "购买日期";
+            this.BuyTime.Name = "BuyTime";
+            this.BuyTime.ReadOnly = true;
+            this.BuyTime.Width = 150;
             // 
             // Column1
             // 
@@ -264,6 +309,16 @@
             this.Column1.HeaderText = "学生姓名";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            // 
+            // ExpireTime
+            // 
+            this.ExpireTime.DataPropertyName = "ExpireTime";
+            dataGridViewCellStyle4.Format = "D";
+            dataGridViewCellStyle4.NullValue = null;
+            this.ExpireTime.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ExpireTime.HeaderText = "缴费到期日期";
+            this.ExpireTime.Name = "ExpireTime";
+            this.ExpireTime.ReadOnly = true;
             // 
             // MaterialName
             // 
@@ -286,19 +341,40 @@
             this.BuyCount.Name = "BuyCount";
             this.BuyCount.ReadOnly = true;
             // 
-            // BuyTime
-            // 
-            this.BuyTime.DataPropertyName = "BuyTime";
-            this.BuyTime.HeaderText = "购买时间";
-            this.BuyTime.Name = "BuyTime";
-            this.BuyTime.ReadOnly = true;
-            // 
             // TotalCost
             // 
             this.TotalCost.DataPropertyName = "TotalCost";
-            this.TotalCost.HeaderText = "总价格";
+            this.TotalCost.HeaderText = "总金额";
             this.TotalCost.Name = "TotalCost";
             this.TotalCost.ReadOnly = true;
+            // 
+            // CourseTypeName
+            // 
+            this.CourseTypeName.DataPropertyName = "CourseTypeName";
+            this.CourseTypeName.HeaderText = "课程类别";
+            this.CourseTypeName.Name = "CourseTypeName";
+            this.CourseTypeName.ReadOnly = true;
+            // 
+            // CourseSubtypeName
+            // 
+            this.CourseSubtypeName.DataPropertyName = "CourseSubtypeName";
+            this.CourseSubtypeName.HeaderText = "课程科目";
+            this.CourseSubtypeName.Name = "CourseSubtypeName";
+            this.CourseSubtypeName.ReadOnly = true;
+            // 
+            // CourseName
+            // 
+            this.CourseName.DataPropertyName = "CourseName";
+            this.CourseName.HeaderText = "课程名称";
+            this.CourseName.Name = "CourseName";
+            this.CourseName.ReadOnly = true;
+            // 
+            // ChargeTypeName
+            // 
+            this.ChargeTypeName.DataPropertyName = "ChargeTypeName";
+            this.ChargeTypeName.HeaderText = "课程收费类型";
+            this.ChargeTypeName.Name = "ChargeTypeName";
+            this.ChargeTypeName.ReadOnly = true;
             // 
             // operatorDataGridViewTextBoxColumn
             // 
@@ -312,6 +388,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1205, 572);
+            this.Controls.Add(this.btnSearchByCourseType);
+            this.Controls.Add(this.btnSearchByCourse);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dtBuyEndDate);
             this.Controls.Add(this.dtBuyBeginDate);
@@ -330,10 +408,10 @@
             this.Load += new System.EventHandler(this.MaterialBuyListForm_Load);
             this.Resize += new System.EventHandler(this.MaterialBuyListForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterials)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.materialsDataSet1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.materialsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materialsDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -342,8 +420,8 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvMaterials;
-        private MaterialsDataSet materialsDataSet1;
-        private System.Windows.Forms.BindingSource bindingSource1;
+        private MaterialsDataSet materialsDataSet;
+        private System.Windows.Forms.BindingSource materialsBindingSource;
         private MaterialsDataSetTableAdapters.StudentMaterialsTableAdapter studentMaterialsTableAdapter;
         private System.Windows.Forms.DateTimePicker dtBuyEndDate;
         private System.Windows.Forms.DateTimePicker dtBuyBeginDate;
@@ -361,13 +439,20 @@
         private System.Windows.Forms.Label txtShowRange;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnSearchByCourseType;
+        private System.Windows.Forms.Button btnSearchByCourse;
         private System.Windows.Forms.DataGridViewTextBoxColumn 序号;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BuyTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExpireTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaterialName;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaterialPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn BuyCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BuyTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CourseTypeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CourseSubtypeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CourseName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChargeTypeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn operatorDataGridViewTextBoxColumn;
     }
 }

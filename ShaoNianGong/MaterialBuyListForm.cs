@@ -11,6 +11,9 @@ namespace ShaoNianGong
 {
     public partial class MaterialBuyListForm : Form
     {
+        public string UserName;
+        public int UserType;
+
         public MaterialBuyListForm()
         {
             InitializeComponent();
@@ -18,25 +21,19 @@ namespace ShaoNianGong
 
         private void MaterialBuyListForm_Load(object sender, EventArgs e)
         {
-            //DateTime beginDate = DateTime.Now;
-            //beginDate = new DateTime(beginDate.Year, beginDate.Month, 1, 0, 0, 0);
-            // TODO: 这行代码将数据加载到表“materialsDataSet1.StudentMaterials”中。您可以根据需要移动或删除它。
-            //this.studentMaterialsTableAdapter.Fill(this.materialsDataSet1.StudentMaterials);
-            this.studentMaterialsTableAdapter.FillByBeginDate(this.materialsDataSet1.StudentMaterials);
+            this.studentMaterialsTableAdapter.FillByBeginDate(this.materialsDataSet.StudentMaterials);
             txtShowRange.Text = "本月";
         }
 
         private void btnShowThisMonthBuy_Click(object sender, EventArgs e)
         {
-            //DateTime beginDate = DateTime.Now;
-            //beginDate = new DateTime(beginDate.Year, beginDate.Month, 1, 0, 0, 0);
-            this.studentMaterialsTableAdapter.FillByBeginDate(this.materialsDataSet1.StudentMaterials);
+            this.studentMaterialsTableAdapter.FillByBeginDate(this.materialsDataSet.StudentMaterials);
             txtShowRange.Text = "本月";
         }
 
         private void btnShowAllBuy_Click(object sender, EventArgs e)
         {
-            this.studentMaterialsTableAdapter.Fill(this.materialsDataSet1.StudentMaterials);
+            this.studentMaterialsTableAdapter.Fill(this.materialsDataSet.StudentMaterials);
             txtShowRange.Text = "所有";
         }
 
@@ -46,23 +43,13 @@ namespace ShaoNianGong
             beginDate = new DateTime(beginDate.Year, beginDate.Month, beginDate.Day, 0, 0, 0);
             DateTime endDate = dtBuyEndDate.Value;
             endDate = new DateTime(endDate.Year, endDate.Month, endDate.Day, 0, 0, 0);
-            this.studentMaterialsTableAdapter.FillByBeginEndDate(this.materialsDataSet1.StudentMaterials, beginDate, endDate);
+            this.studentMaterialsTableAdapter.FillByBeginEndDate(this.materialsDataSet.StudentMaterials, beginDate, endDate);
             txtShowRange.Text = beginDate.ToShortDateString() + " - " + endDate.ToShortDateString();
         }
 
         private void bindingSource1_ListChanged(object sender, EventArgs e)
         {
-            int totalBuy = 0;
-            int totalPaid = 0;
-            foreach (DataRow row in materialsDataSet1.StudentMaterials.Rows)
-            {
-                totalBuy += row.Field<int>("MaterialPrice") * row.Field<int>("BuyCount");
-                totalPaid += row.Field<int>("TotalCost");
-            }
-
-            txtTotalBuy.Text = totalBuy.ToString();
-            txtTotalPaid.Text = totalPaid.ToString();
-            lblBuyCount.Text = this.materialsDataSet1.StudentMaterials.Rows.Count + "条";
+            
         }
 
         private void MaterialBuyListForm_Resize(object sender, EventArgs e)
@@ -78,6 +65,77 @@ namespace ShaoNianGong
                 {
                     dgvMaterials.Rows[i].Cells[0].Value = i + 1;
                 }
+        }
+
+        private void materialsBindingSource_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            int totalBuy = 0;
+            int totalPaid = 0;
+            foreach (DataRow row in materialsDataSet.StudentMaterials.Rows)
+            {
+                totalBuy += row.Field<int>("MaterialPrice") * row.Field<int>("BuyCount");
+                totalPaid += row.Field<int>("TotalCost");
+            }
+
+            txtTotalBuy.Text = totalBuy.ToString();
+            txtTotalPaid.Text = totalPaid.ToString();
+            lblBuyCount.Text = this.materialsDataSet.StudentMaterials.Rows.Count + "条";
+        }
+
+        private void btnSearchByCourseType_Click(object sender, EventArgs e)
+        {
+            CourseTypeSelectForm frmCourseTypeSelect = new CourseTypeSelectForm();
+            DateTime beginDate = dtBuyBeginDate.Value;
+            beginDate = new DateTime(beginDate.Year, beginDate.Month, beginDate.Day, 0, 0, 0);
+            DateTime endDate = dtBuyEndDate.Value;
+            endDate = new DateTime(endDate.Year, endDate.Month, endDate.Day, 0, 0, 0);
+            if (UserType == 0)
+            {
+                frmCourseTypeSelect.isPrivate = true;
+                frmCourseTypeSelect.userName = this.UserName;
+                if (frmCourseTypeSelect.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+                this.studentMaterialsTableAdapter.FillByUserNameCourseTypeWithDate(this.materialsDataSet.StudentMaterials, frmCourseTypeSelect.CourseTypeId, beginDate, endDate, this.UserName);
+            }
+            else
+            {
+                if (frmCourseTypeSelect.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+                this.studentMaterialsTableAdapter.FillByCourseTypeWithDate(this.materialsDataSet.StudentMaterials, frmCourseTypeSelect.CourseTypeId, beginDate, endDate);
+            }
+            txtShowRange.Text = frmCourseTypeSelect.CourseTypeName;
+        }
+
+        private void btnSearchByCourse_Click(object sender, EventArgs e)
+        {
+            CourseSelectForm frmCourseSelect = new CourseSelectForm();
+            DateTime beginDate = dtBuyBeginDate.Value;
+            beginDate = new DateTime(beginDate.Year, beginDate.Month, beginDate.Day, 0, 0, 0);
+            DateTime endDate = dtBuyEndDate.Value;
+            endDate = new DateTime(endDate.Year, endDate.Month, endDate.Day, 0, 0, 0);
+            if (UserType == 0)
+            {
+                frmCourseSelect.isPrivate = true;
+                frmCourseSelect.userName = this.UserName;
+                if (frmCourseSelect.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+                this.studentMaterialsTableAdapter.FillByUserNameCourseIDWithDate(this.materialsDataSet.StudentMaterials, frmCourseSelect.CourseID, beginDate, endDate, this.UserName);
+            }
+            else
+            {
+                if (frmCourseSelect.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+                this.studentMaterialsTableAdapter.FillByCourseIDWithDate(this.materialsDataSet.StudentMaterials, frmCourseSelect.CourseID, beginDate, endDate);
+            }
+            txtShowRange.Text = frmCourseSelect.CourseTypeName + " - " + frmCourseSelect.CourseSubtypeName + " - " + frmCourseSelect.CourseName;
         }
     }
 }
