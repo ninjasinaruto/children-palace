@@ -29,14 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaterialName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaterialPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BuyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BuyTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.operatorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvMaterials = new System.Windows.Forms.DataGridView();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.materialsDataSet1 = new ShaoNianGong.MaterialsDataSet();
             this.studentMaterialsTableAdapter = new ShaoNianGong.MaterialsDataSetTableAdapters.StudentMaterialsTableAdapter();
@@ -56,20 +49,29 @@
             this.txtShowRange = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaterialName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaterialPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuyTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operatorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMaterials)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialsDataSet1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvMaterials
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvMaterials.AllowUserToAddRows = false;
+            this.dgvMaterials.AllowUserToDeleteRows = false;
+            this.dgvMaterials.AllowUserToResizeRows = false;
+            this.dgvMaterials.AutoGenerateColumns = false;
+            this.dgvMaterials.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMaterials.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.序号,
             this.Column1,
             this.MaterialName,
             this.MaterialPrice,
@@ -77,65 +79,17 @@
             this.BuyTime,
             this.TotalCost,
             this.operatorDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.bindingSource1;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 79);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1183, 439);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "Name";
-            this.Column1.HeaderText = "学生姓名";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // MaterialName
-            // 
-            this.MaterialName.DataPropertyName = "MaterialName";
-            this.MaterialName.HeaderText = "材料名称";
-            this.MaterialName.Name = "MaterialName";
-            this.MaterialName.ReadOnly = true;
-            // 
-            // MaterialPrice
-            // 
-            this.MaterialPrice.DataPropertyName = "MaterialPrice";
-            this.MaterialPrice.HeaderText = "材料价格";
-            this.MaterialPrice.Name = "MaterialPrice";
-            this.MaterialPrice.ReadOnly = true;
-            // 
-            // BuyCount
-            // 
-            this.BuyCount.DataPropertyName = "BuyCount";
-            this.BuyCount.HeaderText = "购买数量";
-            this.BuyCount.Name = "BuyCount";
-            this.BuyCount.ReadOnly = true;
-            // 
-            // BuyTime
-            // 
-            this.BuyTime.DataPropertyName = "BuyTime";
-            this.BuyTime.HeaderText = "购买时间";
-            this.BuyTime.Name = "BuyTime";
-            this.BuyTime.ReadOnly = true;
-            // 
-            // TotalCost
-            // 
-            this.TotalCost.DataPropertyName = "TotalCost";
-            this.TotalCost.HeaderText = "总价格";
-            this.TotalCost.Name = "TotalCost";
-            this.TotalCost.ReadOnly = true;
-            // 
-            // operatorDataGridViewTextBoxColumn
-            // 
-            this.operatorDataGridViewTextBoxColumn.DataPropertyName = "Operator";
-            this.operatorDataGridViewTextBoxColumn.HeaderText = "经办人";
-            this.operatorDataGridViewTextBoxColumn.Name = "operatorDataGridViewTextBoxColumn";
-            this.operatorDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dgvMaterials.DataSource = this.bindingSource1;
+            this.dgvMaterials.Location = new System.Drawing.Point(10, 79);
+            this.dgvMaterials.MultiSelect = false;
+            this.dgvMaterials.Name = "dgvMaterials";
+            this.dgvMaterials.ReadOnly = true;
+            this.dgvMaterials.RowHeadersVisible = false;
+            this.dgvMaterials.RowTemplate.Height = 23;
+            this.dgvMaterials.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMaterials.Size = new System.Drawing.Size(1183, 439);
+            this.dgvMaterials.TabIndex = 0;
+            this.dgvMaterials.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvMaterials_DataBindingComplete);
             // 
             // bindingSource1
             // 
@@ -298,6 +252,61 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "当前显示范围：";
             // 
+            // 序号
+            // 
+            this.序号.HeaderText = "序号";
+            this.序号.Name = "序号";
+            this.序号.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Name";
+            this.Column1.HeaderText = "学生姓名";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // MaterialName
+            // 
+            this.MaterialName.DataPropertyName = "MaterialName";
+            this.MaterialName.HeaderText = "材料名称";
+            this.MaterialName.Name = "MaterialName";
+            this.MaterialName.ReadOnly = true;
+            // 
+            // MaterialPrice
+            // 
+            this.MaterialPrice.DataPropertyName = "MaterialPrice";
+            this.MaterialPrice.HeaderText = "材料价格";
+            this.MaterialPrice.Name = "MaterialPrice";
+            this.MaterialPrice.ReadOnly = true;
+            // 
+            // BuyCount
+            // 
+            this.BuyCount.DataPropertyName = "BuyCount";
+            this.BuyCount.HeaderText = "购买数量";
+            this.BuyCount.Name = "BuyCount";
+            this.BuyCount.ReadOnly = true;
+            // 
+            // BuyTime
+            // 
+            this.BuyTime.DataPropertyName = "BuyTime";
+            this.BuyTime.HeaderText = "购买时间";
+            this.BuyTime.Name = "BuyTime";
+            this.BuyTime.ReadOnly = true;
+            // 
+            // TotalCost
+            // 
+            this.TotalCost.DataPropertyName = "TotalCost";
+            this.TotalCost.HeaderText = "总价格";
+            this.TotalCost.Name = "TotalCost";
+            this.TotalCost.ReadOnly = true;
+            // 
+            // operatorDataGridViewTextBoxColumn
+            // 
+            this.operatorDataGridViewTextBoxColumn.DataPropertyName = "Operator";
+            this.operatorDataGridViewTextBoxColumn.HeaderText = "经办人";
+            this.operatorDataGridViewTextBoxColumn.Name = "operatorDataGridViewTextBoxColumn";
+            this.operatorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // MaterialBuyListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -315,12 +324,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtTotalBuy);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvMaterials);
             this.Name = "MaterialBuyListForm";
             this.Text = "材料购买汇总";
             this.Load += new System.EventHandler(this.MaterialBuyListForm_Load);
             this.Resize += new System.EventHandler(this.MaterialBuyListForm_Resize);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMaterials)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialsDataSet1)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -332,17 +341,10 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvMaterials;
         private MaterialsDataSet materialsDataSet1;
         private System.Windows.Forms.BindingSource bindingSource1;
         private MaterialsDataSetTableAdapters.StudentMaterialsTableAdapter studentMaterialsTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaterialName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaterialPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BuyCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BuyTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalCost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn operatorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DateTimePicker dtBuyEndDate;
         private System.Windows.Forms.DateTimePicker dtBuyBeginDate;
         private System.Windows.Forms.Label label4;
@@ -359,5 +361,13 @@
         private System.Windows.Forms.Label txtShowRange;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 序号;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaterialName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaterialPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BuyCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BuyTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn operatorDataGridViewTextBoxColumn;
     }
 }
