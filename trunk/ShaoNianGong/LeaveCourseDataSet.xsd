@@ -59,6 +59,74 @@ ORDER BY student_refund_1.RefundDate DESC</CommandText>
               <Mapping SourceColumn="StudentCount" DataSetColumn="StudentCount" />
             </Mappings>
             <Sources>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByBeginDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByBeginDate" GeneratorSourceName="FillByBeginDate" GetMethodModifier="Public" GetMethodName="GetDataByBeginDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByBeginDate" UserSourceName="FillByBeginDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.ExpireTime, 
+                student_refund_1.RefundReason, student_refund_1.RefundDate, student_refund_1.RefundAmount, 
+                course_types_1.ID AS CourseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, 
+                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Name AS TeacherName, student_refund_1.Operator,
+                    (SELECT   COUNT(0) AS Expr1
+                     FROM      (SELECT DISTINCT student_refund.StudentID
+                                      FROM      student_refund INNER JOIN
+                                                      student_refund AS sr ON sr.StudentID = student_refund.StudentID INNER JOIN
+                                                      courses ON student_refund.CourseID = courses.ID INNER JOIN
+                                                      course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
+                                                      course_types ON course_subtypes.CourseTypeID = course_types.ID INNER JOIN
+                                                      students ON student_refund.StudentID = students.ID LEFT OUTER JOIN
+                                                      tearchers ON courses.TeacherID = tearchers.ID) AS ct) AS StudentCount
+FROM      student_refund AS student_refund_1 INNER JOIN
+                courses AS courses_1 ON student_refund_1.CourseID = courses_1.ID INNER JOIN
+                course_subtypes AS course_subtypes_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN
+                course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_types_1.ID INNER JOIN
+                students AS students_1 ON student_refund_1.StudentID = students_1.ID LEFT OUTER JOIN
+                tearchers AS tearchers_1 ON courses_1.TeacherID = tearchers_1.ID
+WHERE   (student_refund_1.ID =
+                    (SELECT   MAX(ID) AS MaxID
+                     FROM      student_refund AS sr
+                     WHERE   (student_refund_1.StudentID = StudentID) AND (student_refund_1.CourseID = CourseID))) AND 
+                (DATEDIFF(month, student_refund_1.RefundDate, GETDATE()) = 0)
+ORDER BY student_refund_1.RefundDate DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByBeginEndDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByBeginEndDate" GeneratorSourceName="FillByBeginEndDate" GetMethodModifier="Public" GetMethodName="GetDataByBeginEndDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByBeginEndDate" UserSourceName="FillByBeginEndDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.ExpireTime, 
+                student_refund_1.RefundReason, student_refund_1.RefundDate, student_refund_1.RefundAmount, 
+                course_types_1.ID AS CourseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, 
+                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Name AS TeacherName, student_refund_1.Operator,
+                    (SELECT   COUNT(0) AS Expr1
+                     FROM      (SELECT DISTINCT student_refund.StudentID
+                                      FROM      student_refund INNER JOIN
+                                                      student_refund AS sr ON sr.StudentID = student_refund.StudentID INNER JOIN
+                                                      courses ON student_refund.CourseID = courses.ID INNER JOIN
+                                                      course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
+                                                      course_types ON course_subtypes.CourseTypeID = course_types.ID INNER JOIN
+                                                      students ON student_refund.StudentID = students.ID LEFT OUTER JOIN
+                                                      tearchers ON courses.TeacherID = tearchers.ID) AS ct) AS StudentCount
+FROM      student_refund AS student_refund_1 INNER JOIN
+                courses AS courses_1 ON student_refund_1.CourseID = courses_1.ID INNER JOIN
+                course_subtypes AS course_subtypes_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN
+                course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_types_1.ID INNER JOIN
+                students AS students_1 ON student_refund_1.StudentID = students_1.ID LEFT OUTER JOIN
+                tearchers AS tearchers_1 ON courses_1.TeacherID = tearchers_1.ID
+WHERE   (student_refund_1.ID =
+                    (SELECT   MAX(ID) AS MaxID
+                     FROM      student_refund AS sr
+                     WHERE   (student_refund_1.StudentID = StudentID) AND (student_refund_1.CourseID = CourseID))) AND 
+                (DATEDIFF(day, @BeginDate, student_refund_1.RefundDate) &gt;= 0) AND (DATEDIFF(day, @EndDate, 
+                student_refund_1.RefundDate) &lt;= 0)
+ORDER BY student_refund_1.RefundDate DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="EndDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByCourse" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByCourse" GeneratorSourceName="FillByCourse" GetMethodModifier="Public" GetMethodName="GetDataByCourse" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByCourse" UserSourceName="FillByCourse">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -129,6 +197,82 @@ ORDER BY student_refund_1.RefundDate DESC</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByCourseTypeWithDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByCourseTypeWithDate" GeneratorSourceName="FillByCourseTypeWithDate" GetMethodModifier="Public" GetMethodName="GetDataByCourseTypeWithDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByCourseTypeWithDate" UserSourceName="FillByCourseTypeWithDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.ExpireTime, 
+                student_refund_1.RefundReason, student_refund_1.RefundDate, student_refund_1.RefundAmount, 
+                course_types_1.ID AS CourseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, 
+                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Name AS TeacherName, student_refund_1.Operator,
+                    (SELECT   COUNT(0) AS Expr1
+                     FROM      (SELECT DISTINCT student_refund.StudentID
+                                      FROM      student_refund INNER JOIN
+                                                      student_refund AS sr ON sr.StudentID = student_refund.StudentID INNER JOIN
+                                                      courses ON student_refund.CourseID = courses.ID INNER JOIN
+                                                      course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
+                                                      course_types ON course_subtypes.CourseTypeID = course_types.ID INNER JOIN
+                                                      students ON student_refund.StudentID = students.ID LEFT OUTER JOIN
+                                                      tearchers ON courses.TeacherID = tearchers.ID
+                                      WHERE   (course_subtypes.CourseTypeID = @CourseTypeID)) AS ct) AS StudentCount
+FROM      student_refund AS student_refund_1 INNER JOIN
+                courses AS courses_1 ON student_refund_1.CourseID = courses_1.ID INNER JOIN
+                course_subtypes AS course_subtypes_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN
+                course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_types_1.ID INNER JOIN
+                students AS students_1 ON student_refund_1.StudentID = students_1.ID LEFT OUTER JOIN
+                tearchers AS tearchers_1 ON courses_1.TeacherID = tearchers_1.ID
+WHERE   (student_refund_1.ID =
+                    (SELECT   MAX(ID) AS MaxID
+                     FROM      student_refund AS sr
+                     WHERE   (student_refund_1.StudentID = StudentID) AND (student_refund_1.CourseID = CourseID))) AND 
+                (course_subtypes_1.CourseTypeID = @CourseTypeID) AND (DATEDIFF(day, @BeginDate, student_refund_1.RefundDate) 
+                &gt;= 0) AND (DATEDIFF(day, @EndDate, student_refund_1.RefundDate) &lt;= 0)
+ORDER BY student_refund_1.RefundDate DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="CourseTypeID" ColumnName="CourseTypeID" DataSourceName="ChildrenPalace.dbo.course_subtypes" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@CourseTypeID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="CourseTypeID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="EndDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByCourseWithDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByCourseWithDate" GeneratorSourceName="FillByCourseWithDate" GetMethodModifier="Public" GetMethodName="GetDataByCourseWithDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByCourseWithDate" UserSourceName="FillByCourseWithDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.ExpireTime, 
+                student_refund_1.RefundReason, student_refund_1.RefundDate, student_refund_1.RefundAmount, 
+                course_types_1.ID AS CourseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, 
+                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Name AS TeacherName, student_refund_1.Operator,
+                    (SELECT   COUNT(0) AS Expr1
+                     FROM      (SELECT DISTINCT student_refund.StudentID
+                                      FROM      student_refund INNER JOIN
+                                                      student_refund AS sr ON sr.StudentID = student_refund.StudentID INNER JOIN
+                                                      courses ON student_refund.CourseID = courses.ID INNER JOIN
+                                                      course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
+                                                      course_types ON course_subtypes.CourseTypeID = course_types.ID INNER JOIN
+                                                      students ON student_refund.StudentID = students.ID LEFT OUTER JOIN
+                                                      tearchers ON courses.TeacherID = tearchers.ID
+                                      WHERE   (student_refund.CourseID = @CourseID)) AS ct) AS StudentCount
+FROM      student_refund AS student_refund_1 INNER JOIN
+                courses AS courses_1 ON student_refund_1.CourseID = courses_1.ID INNER JOIN
+                course_subtypes AS course_subtypes_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN
+                course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_types_1.ID INNER JOIN
+                students AS students_1 ON student_refund_1.StudentID = students_1.ID LEFT OUTER JOIN
+                tearchers AS tearchers_1 ON courses_1.TeacherID = tearchers_1.ID
+WHERE   (student_refund_1.ID =
+                    (SELECT   MAX(ID) AS MaxID
+                     FROM      student_refund AS sr
+                     WHERE   (student_refund_1.StudentID = StudentID) AND (student_refund_1.CourseID = CourseID))) AND 
+                (student_refund_1.CourseID = @CourseID) AND (DATEDIFF(day, @BeginDate, student_refund_1.RefundDate) &gt;= 0) AND 
+                (DATEDIFF(day, @EndDate, student_refund_1.RefundDate) &lt;= 0)
+ORDER BY student_refund_1.RefundDate DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="CourseID" ColumnName="CourseID" DataSourceName="ChildrenPalace.dbo.student_refund" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@CourseID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="CourseID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="EndDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByStudentID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByStudentID" GeneratorSourceName="FillByStudentID" GetMethodModifier="Public" GetMethodName="GetDataByStudentID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByStudentID" UserSourceName="FillByStudentID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
@@ -160,6 +304,90 @@ WHERE   (student_refund_1.ID =
 ORDER BY student_refund_1.RefundDate DESC</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="StudentID" ColumnName="StudentID" DataSourceName="ChildrenPalace.dbo.student_refund" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@StudentID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="StudentID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByUserNameCourseTypeWithDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByUserNameCourseTypeWithDate" GeneratorSourceName="FillByUserNameCourseTypeWithDate" GetMethodModifier="Public" GetMethodName="GetDataByUserNameCourseTypeWithDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByUserNameCourseTypeWithDate" UserSourceName="FillByUserNameCourseTypeWithDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.ExpireTime, 
+                student_refund_1.RefundReason, student_refund_1.RefundDate, student_refund_1.RefundAmount, 
+                course_types_1.ID AS CourseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, 
+                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Name AS TeacherName, student_refund_1.Operator,
+                    (SELECT   COUNT(0) AS Expr1
+                     FROM      (SELECT DISTINCT student_refund.StudentID
+                                      FROM      student_refund INNER JOIN
+                                                      student_refund AS sr ON sr.StudentID = student_refund.StudentID INNER JOIN
+                                                      courses ON student_refund.CourseID = courses.ID INNER JOIN
+                                                      course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
+                                                      course_types ON course_subtypes.CourseTypeID = course_types.ID INNER JOIN
+                                                      students ON student_refund.StudentID = students.ID LEFT OUTER JOIN
+                                                      tearchers ON courses.TeacherID = tearchers.ID
+                                      WHERE   (course_subtypes.CourseTypeID = @CourseTypeID)) AS ct) AS StudentCount
+FROM      student_refund AS student_refund_1 INNER JOIN
+                courses AS courses_1 ON student_refund_1.CourseID = courses_1.ID INNER JOIN
+                course_subtypes AS course_subtypes_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN
+                course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_types_1.ID INNER JOIN
+                students AS students_1 ON student_refund_1.StudentID = students_1.ID LEFT OUTER JOIN
+                tearchers AS tearchers_1 ON courses_1.TeacherID = tearchers_1.ID
+WHERE   (student_refund_1.ID =
+                    (SELECT   MAX(ID) AS MaxID
+                     FROM      student_refund AS sr
+                     WHERE   (student_refund_1.StudentID = StudentID) AND (student_refund_1.CourseID = CourseID))) AND 
+                (course_subtypes_1.CourseTypeID = @CourseTypeID) AND (DATEDIFF(day, @BeginDate, student_refund_1.RefundDate) 
+                &gt;= 0) AND (DATEDIFF(day, @EndDate, student_refund_1.RefundDate) &lt;= 0) AND (courses_1.ID IN
+                    ((SELECT   CourseId
+                      FROM      users_course_privilege
+                      WHERE   (UserName = @UserName))))
+ORDER BY student_refund_1.RefundDate DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="CourseTypeID" ColumnName="CourseTypeID" DataSourceName="ChildrenPalace.dbo.course_subtypes" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@CourseTypeID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="CourseTypeID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="EndDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="UserName" ColumnName="" DataSourceName="" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@UserName" Precision="0" Scale="0" Size="50" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByUserNameCourseWithDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByUserNameCourseWithDate" GeneratorSourceName="FillByUserNameCourseWithDate" GetMethodModifier="Public" GetMethodName="GetDataByUserNameCourseWithDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByUserNameCourseWithDate" UserSourceName="FillByUserNameCourseWithDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.ExpireTime, 
+                student_refund_1.RefundReason, student_refund_1.RefundDate, student_refund_1.RefundAmount, 
+                course_types_1.ID AS CourseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, 
+                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Name AS TeacherName, student_refund_1.Operator,
+                    (SELECT   COUNT(0) AS Expr1
+                     FROM      (SELECT DISTINCT student_refund.StudentID
+                                      FROM      student_refund INNER JOIN
+                                                      student_refund AS sr ON sr.StudentID = student_refund.StudentID INNER JOIN
+                                                      courses ON student_refund.CourseID = courses.ID INNER JOIN
+                                                      course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
+                                                      course_types ON course_subtypes.CourseTypeID = course_types.ID INNER JOIN
+                                                      students ON student_refund.StudentID = students.ID LEFT OUTER JOIN
+                                                      tearchers ON courses.TeacherID = tearchers.ID
+                                      WHERE   (student_refund.CourseID = @CourseID)) AS ct) AS StudentCount
+FROM      student_refund AS student_refund_1 INNER JOIN
+                courses AS courses_1 ON student_refund_1.CourseID = courses_1.ID INNER JOIN
+                course_subtypes AS course_subtypes_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN
+                course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_types_1.ID INNER JOIN
+                students AS students_1 ON student_refund_1.StudentID = students_1.ID LEFT OUTER JOIN
+                tearchers AS tearchers_1 ON courses_1.TeacherID = tearchers_1.ID
+WHERE   (student_refund_1.ID =
+                    (SELECT   MAX(ID) AS MaxID
+                     FROM      student_refund AS sr
+                     WHERE   (student_refund_1.StudentID = StudentID) AND (student_refund_1.CourseID = CourseID))) AND 
+                (student_refund_1.CourseID = @CourseID) AND (DATEDIFF(day, @BeginDate, student_refund_1.RefundDate) &gt;= 0) AND 
+                (DATEDIFF(day, @EndDate, student_refund_1.RefundDate) &lt;= 0) AND (courses_1.ID IN
+                    ((SELECT   CourseId
+                      FROM      users_course_privilege
+                      WHERE   (UserName = @UserName))))
+ORDER BY student_refund_1.RefundDate DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="CourseID" ColumnName="CourseID" DataSourceName="ChildrenPalace.dbo.student_refund" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@CourseID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="CourseID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="EndDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="UserName" ColumnName="" DataSourceName="" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@UserName" Precision="0" Scale="0" Size="50" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>

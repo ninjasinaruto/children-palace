@@ -161,15 +161,24 @@ SELECT ID, StudentID, MaterialID, MaterialPrice, BuyCount, TotalCost, BuyTime FR
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="StudentMaterialsTableAdapter" GeneratorDataComponentClassName="StudentMaterialsTableAdapter" Name="StudentMaterials" UserDataComponentName="StudentMaterialsTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT students.Name, materials_cost.MaterialPrice, materials_cost.BuyCount, 
-      materials.MaterialName, materials_cost.TotalCost, materials_cost.BuyTime, 
-      materials_cost.Operator
-FROM materials INNER JOIN
-      materials_cost ON materials.MaterialID = materials_cost.MaterialID INNER JOIN
-      students ON materials_cost.StudentID = students.ID</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   materials_cost.BuyTime, students.Name, students.ExpireTime, materials.MaterialName, materials_cost.MaterialPrice, 
+                materials_cost.BuyCount, materials_cost.TotalCost, materials_cost.Operator, course_types.CourseTypeName, 
+                course_subtypes.CourseSubtypeName, courses.CourseName, charge_type.ChargeTypeName
+FROM      materials INNER JOIN
+                materials_cost ON materials.MaterialID = materials_cost.MaterialID INNER JOIN
+                students ON materials_cost.StudentID = students.ID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS NUM
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID LEFT OUTER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID LEFT OUTER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID LEFT OUTER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -183,17 +192,32 @@ FROM materials INNER JOIN
               <Mapping SourceColumn="TotalCost" DataSetColumn="TotalCost" />
               <Mapping SourceColumn="BuyTime" DataSetColumn="BuyTime" />
               <Mapping SourceColumn="Operator" DataSetColumn="Operator" />
+              <Mapping SourceColumn="ExpireTime" DataSetColumn="ExpireTime" />
+              <Mapping SourceColumn="CourseTypeName" DataSetColumn="CourseTypeName" />
+              <Mapping SourceColumn="CourseSubtypeName" DataSetColumn="CourseSubtypeName" />
+              <Mapping SourceColumn="CourseName" DataSetColumn="CourseName" />
+              <Mapping SourceColumn="ChargeTypeName" DataSetColumn="ChargeTypeName" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByBeginDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByBeginDate" GeneratorSourceName="FillByBeginDate" GetMethodModifier="Public" GetMethodName="GetDataByBeginDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByBeginDate" UserSourceName="FillByBeginDate">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT   students.Name, materials_cost.MaterialPrice, materials_cost.BuyCount, materials.MaterialName, 
-                materials_cost.TotalCost, materials_cost.BuyTime, materials_cost.Operator
+                    <CommandText>SELECT   materials_cost.BuyTime, students.Name, students.ExpireTime, materials.MaterialName, materials_cost.MaterialPrice, 
+                materials_cost.BuyCount, materials_cost.TotalCost, materials_cost.Operator, course_types.CourseTypeName, 
+                course_subtypes.CourseSubtypeName, courses.CourseName, charge_type.ChargeTypeName
 FROM      materials INNER JOIN
                 materials_cost ON materials.MaterialID = materials_cost.MaterialID INNER JOIN
-                students ON materials_cost.StudentID = students.ID
-WHERE   datediff(month,materials_cost.BuyTime,getdate())=0    
+                students ON materials_cost.StudentID = students.ID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS NUM
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID LEFT OUTER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID LEFT OUTER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID LEFT OUTER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID
+WHERE   (DATEDIFF(month, materials_cost.BuyTime, GETDATE()) = 0)
 ORDER BY materials_cost.BuyTime DESC</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -202,16 +226,85 @@ ORDER BY materials_cost.BuyTime DESC</CommandText>
               <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByBeginEndDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByBeginEndDate" GeneratorSourceName="FillByBeginEndDate" GetMethodModifier="Public" GetMethodName="GetDataByBeginEndDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByBeginEndDate" UserSourceName="FillByBeginEndDate">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT   students.Name, materials_cost.MaterialPrice, materials_cost.BuyCount, materials.MaterialName, 
-                materials_cost.TotalCost, materials_cost.BuyTime, materials_cost.Operator
+                    <CommandText>SELECT   materials_cost.BuyTime, students.Name, students.ExpireTime, materials.MaterialName, materials_cost.MaterialPrice, 
+                materials_cost.BuyCount, materials_cost.TotalCost, materials_cost.Operator, course_types.CourseTypeName, 
+                course_subtypes.CourseSubtypeName, courses.CourseName, charge_type.ChargeTypeName
 FROM      materials INNER JOIN
                 materials_cost ON materials.MaterialID = materials_cost.MaterialID INNER JOIN
-                students ON materials_cost.StudentID = students.ID
-WHERE   (materials_cost.BuyTime &gt; @BeginDate) AND (materials_cost.BuyTime &lt; @EndDate)
+                students ON materials_cost.StudentID = students.ID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS NUM
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID LEFT OUTER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID LEFT OUTER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID LEFT OUTER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID
+WHERE   (DATEDIFF(day, @BeginDate, materials_cost.BuyTime) &gt;= 0) AND (DATEDIFF(day, @EndDate, materials_cost.BuyTime) 
+                &lt;= 0)
 ORDER BY materials_cost.BuyTime DESC</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="BeginDate" ColumnName="BuyTime" DataSourceName="ChildrenPalace.dbo.materials_cost" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="BuyTime" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="EndDate" ColumnName="BuyTime" DataSourceName="ChildrenPalace.dbo.materials_cost" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="DateTime" Scale="0" Size="8" SourceColumn="BuyTime" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="EndDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByCourseIDWithDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByCourseIDWithDate" GeneratorSourceName="FillByCourseIDWithDate" GetMethodModifier="Public" GetMethodName="GetDataByCourseIDWithDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByCourseIDWithDate" UserSourceName="FillByCourseIDWithDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   materials_cost.BuyTime, students.Name, students.ExpireTime, materials.MaterialName, materials_cost.MaterialPrice, 
+                materials_cost.BuyCount, materials_cost.TotalCost, materials_cost.Operator, course_types.CourseTypeName, 
+                course_subtypes.CourseSubtypeName, courses.CourseName, charge_type.ChargeTypeName
+FROM      materials INNER JOIN
+                materials_cost ON materials.MaterialID = materials_cost.MaterialID INNER JOIN
+                students ON materials_cost.StudentID = students.ID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS NUM
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID LEFT OUTER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID LEFT OUTER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID LEFT OUTER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID
+WHERE   (courses.ID = @CourseID) AND (DATEDIFF(day, @BeginDate, materials_cost.BuyTime) &gt;= 0) AND (DATEDIFF(day, 
+                @EndDate, materials_cost.BuyTime) &lt;= 0)
+ORDER BY materials_cost.BuyTime DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="CourseID" ColumnName="ID" DataSourceName="ChildrenPalace.dbo.courses" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@CourseID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="EndDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByCourseTypeWithDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByCourseTypeWithDate" GeneratorSourceName="FillByCourseTypeWithDate" GetMethodModifier="Public" GetMethodName="GetDataByCourseTypeWithDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByCourseTypeWithDate" UserSourceName="FillByCourseTypeWithDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   materials_cost.BuyTime, students.Name, students.ExpireTime, materials.MaterialName, materials_cost.MaterialPrice, 
+                materials_cost.BuyCount, materials_cost.TotalCost, materials_cost.Operator, course_types.CourseTypeName, 
+                course_subtypes.CourseSubtypeName, courses.CourseName, charge_type.ChargeTypeName
+FROM      materials INNER JOIN
+                materials_cost ON materials.MaterialID = materials_cost.MaterialID INNER JOIN
+                students ON materials_cost.StudentID = students.ID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS NUM
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID LEFT OUTER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID LEFT OUTER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID LEFT OUTER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID
+WHERE   (course_types.ID = @CourseTypeID) AND (DATEDIFF(day, @BeginDate, materials_cost.BuyTime) &gt;= 0) AND 
+                (DATEDIFF(day, @EndDate, materials_cost.BuyTime) &lt;= 0)
+ORDER BY materials_cost.BuyTime DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="CourseTypeID" ColumnName="ID" DataSourceName="ChildrenPalace.dbo.course_types" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@CourseTypeID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="EndDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -219,15 +312,91 @@ ORDER BY materials_cost.BuyTime DESC</CommandText>
               <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByStudentID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByStudentID" GeneratorSourceName="FillByStudentID" GetMethodModifier="Public" GetMethodName="GetDataByStudentID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByStudentID" UserSourceName="FillByStudentID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT students.Name, materials_cost.MaterialPrice, materials_cost.BuyCount, 
-      materials.MaterialName, materials_cost.TotalCost, materials_cost.BuyTime, 
-      materials_cost.Operator
-FROM materials INNER JOIN
-      materials_cost ON materials.MaterialID = materials_cost.MaterialID INNER JOIN
-      students ON materials_cost.StudentID = students.ID
-WHERE (materials_cost.StudentID = @StudentID)</CommandText>
+                    <CommandText>SELECT   materials_cost.BuyTime, students.Name, students.ExpireTime, materials.MaterialName, materials_cost.MaterialPrice, 
+                materials_cost.BuyCount, materials_cost.TotalCost, materials_cost.Operator, course_types.CourseTypeName, 
+                course_subtypes.CourseSubtypeName, courses.CourseName, charge_type.ChargeTypeName
+FROM      materials INNER JOIN
+                materials_cost ON materials.MaterialID = materials_cost.MaterialID INNER JOIN
+                students ON materials_cost.StudentID = students.ID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS NUM
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID LEFT OUTER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID LEFT OUTER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID LEFT OUTER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID
+WHERE   (materials_cost.StudentID = @StudentID)
+ORDER BY materials_cost.BuyTime DESC</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="StudentID" ColumnName="StudentID" DataSourceName="ChildrenPalace.dbo.materials_cost" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@StudentID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="StudentID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByUserNameCourseIDWithDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByUserNameCourseIDWithDate" GeneratorSourceName="FillByUserNameCourseIDWithDate" GetMethodModifier="Public" GetMethodName="GetDataByUserNameCourseIDWithDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByUserNameCourseIDWithDate" UserSourceName="FillByUserNameCourseIDWithDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   materials_cost.BuyTime, students.Name, students.ExpireTime, materials.MaterialName, materials_cost.MaterialPrice, 
+                materials_cost.BuyCount, materials_cost.TotalCost, materials_cost.Operator, course_types.CourseTypeName, 
+                course_subtypes.CourseSubtypeName, courses.CourseName, charge_type.ChargeTypeName
+FROM      materials INNER JOIN
+                materials_cost ON materials.MaterialID = materials_cost.MaterialID INNER JOIN
+                students ON materials_cost.StudentID = students.ID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS NUM
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID LEFT OUTER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID LEFT OUTER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID LEFT OUTER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID
+WHERE   (courses.ID IN
+                    (SELECT   CourseId
+                     FROM      users_course_privilege
+                     WHERE   (UserName = @UserName))) AND (courses.ID = @CourseID) AND (DATEDIFF(day, @BeginDate, 
+                materials_cost.BuyTime) &gt;= 0) AND (DATEDIFF(day, @EndDate, materials_cost.BuyTime) &lt;= 0)
+ORDER BY materials_cost.BuyTime DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="CourseID" ColumnName="ID" DataSourceName="ChildrenPalace.dbo.courses" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@CourseID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="EndDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="UserName" ColumnName="" DataSourceName="" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@UserName" Precision="0" Scale="0" Size="50" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByUserNameCourseTypeWithDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByUserNameCourseTypeWithDate" GeneratorSourceName="FillByUserNameCourseTypeWithDate" GetMethodModifier="Public" GetMethodName="GetDataByUserNameCourseTypeWithDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByUserNameCourseTypeWithDate" UserSourceName="FillByUserNameCourseTypeWithDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   materials_cost.BuyTime, students.Name, students.ExpireTime, materials.MaterialName, materials_cost.MaterialPrice, 
+                materials_cost.BuyCount, materials_cost.TotalCost, materials_cost.Operator, course_types.CourseTypeName, 
+                course_subtypes.CourseSubtypeName, courses.CourseName, charge_type.ChargeTypeName
+FROM      materials INNER JOIN
+                materials_cost ON materials.MaterialID = materials_cost.MaterialID INNER JOIN
+                students ON materials_cost.StudentID = students.ID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS NUM
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID LEFT OUTER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID LEFT OUTER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID LEFT OUTER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID
+WHERE   (courses.ID IN
+                    (SELECT   CourseId
+                     FROM      users_course_privilege
+                     WHERE   (UserName = @UserName))) AND (course_types.ID = @CourseTypeID) AND (DATEDIFF(day, @BeginDate, 
+                materials_cost.BuyTime) &gt;= 0) AND (DATEDIFF(day, @EndDate, materials_cost.BuyTime) &lt;= 0)
+ORDER BY materials_cost.BuyTime DESC</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="CourseTypeID" ColumnName="ID" DataSourceName="ChildrenPalace.dbo.course_types" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@CourseTypeID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="EndDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="UserName" ColumnName="" DataSourceName="" DataTypeServer="varchar(50)" DbType="AnsiString" Direction="Input" ParameterName="@UserName" Precision="0" Scale="0" Size="50" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -303,6 +472,35 @@ WHERE (materials_cost.StudentID = @StudentID)</CommandText>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ExpireTime" msprop:Generator_ColumnVarNameInTable="columnExpireTime" msprop:Generator_ColumnPropNameInRow="ExpireTime" msprop:Generator_ColumnPropNameInTable="ExpireTimeColumn" msprop:Generator_UserColumnName="ExpireTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CourseTypeName" msprop:Generator_ColumnVarNameInTable="columnCourseTypeName" msprop:Generator_ColumnPropNameInRow="CourseTypeName" msprop:Generator_ColumnPropNameInTable="CourseTypeNameColumn" msprop:Generator_UserColumnName="CourseTypeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CourseSubtypeName" msprop:Generator_ColumnVarNameInTable="columnCourseSubtypeName" msprop:Generator_ColumnPropNameInRow="CourseSubtypeName" msprop:Generator_ColumnPropNameInTable="CourseSubtypeNameColumn" msprop:Generator_UserColumnName="CourseSubtypeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CourseName" msprop:Generator_ColumnVarNameInTable="columnCourseName" msprop:Generator_ColumnPropNameInRow="CourseName" msprop:Generator_ColumnPropNameInTable="CourseNameColumn" msprop:Generator_UserColumnName="CourseName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ChargeTypeName" msprop:Generator_ColumnVarNameInTable="columnChargeTypeName" msprop:Generator_ColumnPropNameInRow="ChargeTypeName" msprop:Generator_ColumnPropNameInTable="ChargeTypeNameColumn" msprop:Generator_UserColumnName="ChargeTypeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
