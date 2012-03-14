@@ -943,7 +943,7 @@ namespace BanGongPingTai.FinanceManageDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT   materials_buy.BuyAmount, materials_buy.TotalCost, materials_buy.ActualPay, materials_buy.Remark, 
@@ -973,6 +973,29 @@ ORDER BY materials_buy.BuyDate DESC";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"SELECT   materials_buy.BuyAmount, materials_buy.TotalCost, materials_buy.ActualPay, materials_buy.Remark, 
+                materials_buy.BuyDate, materials.MaterialName, materials.MaterialPrice, materials_buy.Operator
+FROM      materials_buy INNER JOIN
+                materials ON materials_buy.MaterialId = materials.MaterialID
+WHERE   (materials_buy.MaterialId = @MaterialId)
+ORDER BY materials_buy.BuyDate DESC";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaterialId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "MaterialId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"SELECT   materials_buy.BuyAmount, materials_buy.TotalCost, materials_buy.ActualPay, materials_buy.Remark, 
+                materials_buy.BuyDate, materials.MaterialName, materials.MaterialPrice, materials_buy.Operator
+FROM      materials_buy INNER JOIN
+                materials ON materials_buy.MaterialId = materials.MaterialID
+WHERE   (materials_buy.MaterialId = @MaterialId) AND (DATEDIFF(day, @BeginDate, materials_buy.BuyDate) >= 0) AND 
+                (DATEDIFF(day, @EndDate, materials_buy.BuyDate) <= 0)
+ORDER BY materials_buy.BuyDate DESC";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MaterialId", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "MaterialId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1046,6 +1069,62 @@ ORDER BY materials_buy.BuyDate DESC";
             this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(BeginDate));
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(EndDate));
+            FinanceManageDataSet.MaterialsBuyDataTable dataTable = new FinanceManageDataSet.MaterialsBuyDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByMaterialID(FinanceManageDataSet.MaterialsBuyDataTable dataTable, int MaterialId) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(MaterialId));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual FinanceManageDataSet.MaterialsBuyDataTable GetDataByMaterialID(int MaterialId) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(MaterialId));
+            FinanceManageDataSet.MaterialsBuyDataTable dataTable = new FinanceManageDataSet.MaterialsBuyDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByMaterialIDWithDate(FinanceManageDataSet.MaterialsBuyDataTable dataTable, int MaterialId, System.DateTime BeginDate, System.DateTime EndDate) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(MaterialId));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(BeginDate));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(EndDate));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual FinanceManageDataSet.MaterialsBuyDataTable GetDataByMaterialIDWithDate(int MaterialId, System.DateTime BeginDate, System.DateTime EndDate) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(MaterialId));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(BeginDate));
+            this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(EndDate));
             FinanceManageDataSet.MaterialsBuyDataTable dataTable = new FinanceManageDataSet.MaterialsBuyDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

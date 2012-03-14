@@ -145,7 +145,10 @@ namespace BanGongPingTai
             }
 
             currentForm = new FinanceManageForm();
+            (currentForm as FinanceManageForm).UserType = User.CurrentUser.UserType;
+            (currentForm as FinanceManageForm).UserName = User.CurrentUser.UserName;
             currentForm.MdiParent = this;
+            currentForm.WindowState = FormWindowState.Maximized;
             currentForm.Show();
             currentForm.Location = new Point(0, 0);
 

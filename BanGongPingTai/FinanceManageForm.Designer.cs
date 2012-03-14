@@ -29,12 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtTotalPaid = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblDepositCount = new System.Windows.Forms.Label();
+            this.txtShowDepositRange = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btnSearchDepositByCourseWithDate = new System.Windows.Forms.Button();
+            this.btnSearchDepositByCourseTypeWithDate = new System.Windows.Forms.Button();
+            this.btnSearchDepositByCourseType = new System.Windows.Forms.Button();
+            this.btnSearchDepositByCourse = new System.Windows.Forms.Button();
             this.dtDepositEndDate = new System.Windows.Forms.DateTimePicker();
             this.dtDepositBeginDate = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
@@ -44,21 +52,32 @@
             this.btnShowAllDeposit = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDeposit = new System.Windows.Forms.DataGridView();
+            this.序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.depositDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DepositDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.depositAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ActualPaidAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExpireTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.depositAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ActualPaidAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CourseTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CourseSubtypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChargeTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TeacherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OperatorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.depositListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentDepositBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.depositListDataSet = new Common.DepositListDataSet();
             this.txtTotalDeposit = new System.Windows.Forms.TextBox();
+            this.depositListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.financeManageDataSet = new BanGongPingTai.FinanceManageDataSet();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnSearchBuyByMaterialNameWithDate = new System.Windows.Forms.Button();
+            this.btnSearchBuyByMaterialName = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblBuyCount = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtShowBuyRange = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.dtBuyEndDate = new System.Windows.Forms.DateTimePicker();
             this.txtOriginalCost = new System.Windows.Forms.TextBox();
             this.dtBuyBeginDate = new System.Windows.Forms.DateTimePicker();
@@ -68,13 +87,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnShowThisMonthBuy = new System.Windows.Forms.Button();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dgvBuy = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buyDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.actualPayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.actualPayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buyAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remarkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Operator = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialsBuyBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -82,13 +102,17 @@
             this.btnShowAllBuy = new System.Windows.Forms.Button();
             this.materialsBuyTableAdapter = new BanGongPingTai.FinanceManageDataSetTableAdapters.MaterialsBuyTableAdapter();
             this.depositListTableAdapter = new Common.DepositListDataSetTableAdapters.DepositListTableAdapter();
+            this.studentDepositListTableAdapter = new Common.DepositListDataSetTableAdapters.StudentDepositListTableAdapter();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.depositListBindingSource)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDeposit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentDepositBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.depositListDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.depositListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeManageDataSet)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBuy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialsBuyBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,6 +126,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.panel1);
+            this.groupBox1.Controls.Add(this.btnSearchDepositByCourseWithDate);
+            this.groupBox1.Controls.Add(this.btnSearchDepositByCourseTypeWithDate);
+            this.groupBox1.Controls.Add(this.btnSearchDepositByCourseType);
+            this.groupBox1.Controls.Add(this.btnSearchDepositByCourse);
             this.groupBox1.Controls.Add(this.dtDepositEndDate);
             this.groupBox1.Controls.Add(this.dtDepositBeginDate);
             this.groupBox1.Controls.Add(this.label5);
@@ -111,26 +140,115 @@
             this.groupBox1.Controls.Add(this.btnShowAllDeposit);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.dgvDeposit);
             this.groupBox1.Controls.Add(this.txtTotalDeposit);
             this.groupBox1.Controls.Add(this.txtTotalPaid);
             this.groupBox1.Location = new System.Drawing.Point(10, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(911, 345);
+            this.groupBox1.Size = new System.Drawing.Size(1183, 345);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "收入汇总";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblDepositCount);
+            this.panel1.Controls.Add(this.txtShowDepositRange);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Location = new System.Drawing.Point(6, 306);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1171, 33);
+            this.panel1.TabIndex = 37;
+            // 
+            // lblDepositCount
+            // 
+            this.lblDepositCount.AutoSize = true;
+            this.lblDepositCount.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblDepositCount.Location = new System.Drawing.Point(793, 11);
+            this.lblDepositCount.Name = "lblDepositCount";
+            this.lblDepositCount.Size = new System.Drawing.Size(25, 12);
+            this.lblDepositCount.TabIndex = 28;
+            this.lblDepositCount.Text = "0条";
+            // 
+            // txtShowDepositRange
+            // 
+            this.txtShowDepositRange.AutoSize = true;
+            this.txtShowDepositRange.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtShowDepositRange.Location = new System.Drawing.Point(105, 11);
+            this.txtShowDepositRange.Name = "txtShowDepositRange";
+            this.txtShowDepositRange.Size = new System.Drawing.Size(31, 12);
+            this.txtShowDepositRange.TabIndex = 29;
+            this.txtShowDepositRange.Text = "所有";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(697, 11);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(89, 12);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "充值记录总数：";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(5, 11);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(89, 12);
+            this.label10.TabIndex = 27;
+            this.label10.Text = "当前显示范围：";
+            // 
+            // btnSearchDepositByCourseWithDate
+            // 
+            this.btnSearchDepositByCourseWithDate.Location = new System.Drawing.Point(763, 26);
+            this.btnSearchDepositByCourseWithDate.Name = "btnSearchDepositByCourseWithDate";
+            this.btnSearchDepositByCourseWithDate.Size = new System.Drawing.Size(102, 36);
+            this.btnSearchDepositByCourseWithDate.TabIndex = 36;
+            this.btnSearchDepositByCourseWithDate.Text = "按课程日期查询";
+            this.btnSearchDepositByCourseWithDate.UseVisualStyleBackColor = true;
+            this.btnSearchDepositByCourseWithDate.Click += new System.EventHandler(this.btnSearchDepositByCourseWithDate_Click);
+            // 
+            // btnSearchDepositByCourseTypeWithDate
+            // 
+            this.btnSearchDepositByCourseTypeWithDate.Location = new System.Drawing.Point(651, 26);
+            this.btnSearchDepositByCourseTypeWithDate.Name = "btnSearchDepositByCourseTypeWithDate";
+            this.btnSearchDepositByCourseTypeWithDate.Size = new System.Drawing.Size(106, 36);
+            this.btnSearchDepositByCourseTypeWithDate.TabIndex = 35;
+            this.btnSearchDepositByCourseTypeWithDate.Text = "按分类日期查询";
+            this.btnSearchDepositByCourseTypeWithDate.UseVisualStyleBackColor = true;
+            this.btnSearchDepositByCourseTypeWithDate.Click += new System.EventHandler(this.btnSearchDepositByCourseTypeWithDate_Click);
+            // 
+            // btnSearchDepositByCourseType
+            // 
+            this.btnSearchDepositByCourseType.Location = new System.Drawing.Point(447, 26);
+            this.btnSearchDepositByCourseType.Name = "btnSearchDepositByCourseType";
+            this.btnSearchDepositByCourseType.Size = new System.Drawing.Size(96, 36);
+            this.btnSearchDepositByCourseType.TabIndex = 34;
+            this.btnSearchDepositByCourseType.Text = "按分类查询";
+            this.btnSearchDepositByCourseType.UseVisualStyleBackColor = true;
+            this.btnSearchDepositByCourseType.Click += new System.EventHandler(this.btnSearchDepositByCourseType_Click);
+            // 
+            // btnSearchDepositByCourse
+            // 
+            this.btnSearchDepositByCourse.Location = new System.Drawing.Point(549, 26);
+            this.btnSearchDepositByCourse.Name = "btnSearchDepositByCourse";
+            this.btnSearchDepositByCourse.Size = new System.Drawing.Size(96, 36);
+            this.btnSearchDepositByCourse.TabIndex = 33;
+            this.btnSearchDepositByCourse.Text = "按课程查询";
+            this.btnSearchDepositByCourse.UseVisualStyleBackColor = true;
+            this.btnSearchDepositByCourse.Click += new System.EventHandler(this.btnSearchDepositByCourse_Click);
+            // 
             // dtDepositEndDate
             // 
-            this.dtDepositEndDate.Location = new System.Drawing.Point(557, 51);
+            this.dtDepositEndDate.Location = new System.Drawing.Point(946, 47);
             this.dtDepositEndDate.Name = "dtDepositEndDate";
             this.dtDepositEndDate.Size = new System.Drawing.Size(119, 21);
             this.dtDepositEndDate.TabIndex = 24;
             // 
             // dtDepositBeginDate
             // 
-            this.dtDepositBeginDate.Location = new System.Drawing.Point(557, 26);
+            this.dtDepositBeginDate.Location = new System.Drawing.Point(946, 22);
             this.dtDepositBeginDate.Name = "dtDepositBeginDate";
             this.dtDepositBeginDate.Size = new System.Drawing.Size(119, 21);
             this.dtDepositBeginDate.TabIndex = 25;
@@ -138,7 +256,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(486, 56);
+            this.label5.Location = new System.Drawing.Point(875, 52);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 12);
             this.label5.TabIndex = 22;
@@ -147,7 +265,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(486, 30);
+            this.label6.Location = new System.Drawing.Point(875, 26);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 12);
             this.label6.TabIndex = 23;
@@ -155,7 +273,7 @@
             // 
             // btnShowThisMonthDeposit
             // 
-            this.btnShowThisMonthDeposit.Location = new System.Drawing.Point(257, 26);
+            this.btnShowThisMonthDeposit.Location = new System.Drawing.Point(243, 26);
             this.btnShowThisMonthDeposit.Name = "btnShowThisMonthDeposit";
             this.btnShowThisMonthDeposit.Size = new System.Drawing.Size(96, 36);
             this.btnShowThisMonthDeposit.TabIndex = 21;
@@ -165,7 +283,7 @@
             // 
             // btnShowFilterDeposit
             // 
-            this.btnShowFilterDeposit.Location = new System.Drawing.Point(692, 26);
+            this.btnShowFilterDeposit.Location = new System.Drawing.Point(1081, 26);
             this.btnShowFilterDeposit.Name = "btnShowFilterDeposit";
             this.btnShowFilterDeposit.Size = new System.Drawing.Size(96, 36);
             this.btnShowFilterDeposit.TabIndex = 20;
@@ -175,7 +293,7 @@
             // 
             // btnShowAllDeposit
             // 
-            this.btnShowAllDeposit.Location = new System.Drawing.Point(359, 26);
+            this.btnShowAllDeposit.Location = new System.Drawing.Point(345, 26);
             this.btnShowAllDeposit.Name = "btnShowAllDeposit";
             this.btnShowAllDeposit.Size = new System.Drawing.Size(96, 36);
             this.btnShowAllDeposit.TabIndex = 19;
@@ -201,52 +319,71 @@
             this.label8.TabIndex = 15;
             this.label8.Text = "充值金额汇总：";
             // 
-            // dataGridView1
+            // dgvDeposit
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvDeposit.AllowUserToAddRows = false;
+            this.dgvDeposit.AllowUserToDeleteRows = false;
+            this.dgvDeposit.AllowUserToResizeRows = false;
+            this.dgvDeposit.AutoGenerateColumns = false;
+            this.dgvDeposit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDeposit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.序号,
             this.depositDateDataGridViewTextBoxColumn,
-            this.DepositDate,
-            this.depositAmountDataGridViewTextBoxColumn,
-            this.ActualPaidAmount,
             this.nameDataGridViewTextBoxColumn,
             this.ExpireTimeColumn,
+            this.depositAmountDataGridViewTextBoxColumn,
+            this.ActualPaidAmount,
+            this.CourseTypeName,
+            this.CourseSubtypeName,
             this.CourseName,
+            this.ChargeTypeName,
             this.TeacherName,
             this.OperatorColumn});
-            this.dataGridView1.DataSource = this.depositListBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 82);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(896, 257);
-            this.dataGridView1.TabIndex = 14;
+            this.dgvDeposit.DataSource = this.studentDepositBindingSource;
+            this.dgvDeposit.Location = new System.Drawing.Point(6, 82);
+            this.dgvDeposit.MultiSelect = false;
+            this.dgvDeposit.Name = "dgvDeposit";
+            this.dgvDeposit.ReadOnly = true;
+            this.dgvDeposit.RowHeadersVisible = false;
+            this.dgvDeposit.RowTemplate.Height = 23;
+            this.dgvDeposit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDeposit.Size = new System.Drawing.Size(1171, 218);
+            this.dgvDeposit.TabIndex = 14;
+            this.dgvDeposit.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvDeposit_DataBindingComplete);
+            // 
+            // 序号
+            // 
+            this.序号.HeaderText = "序号";
+            this.序号.Name = "序号";
+            this.序号.ReadOnly = true;
             // 
             // depositDateDataGridViewTextBoxColumn
             // 
             this.depositDateDataGridViewTextBoxColumn.DataPropertyName = "DepositDate";
-            dataGridViewCellStyle1.Format = "D";
-            dataGridViewCellStyle1.NullValue = null;
-            this.depositDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Format = "F";
+            dataGridViewCellStyle10.NullValue = null;
+            this.depositDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
             this.depositDateDataGridViewTextBoxColumn.HeaderText = "充值日期";
             this.depositDateDataGridViewTextBoxColumn.Name = "depositDateDataGridViewTextBoxColumn";
             this.depositDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.depositDateDataGridViewTextBoxColumn.Width = 150;
             // 
-            // DepositDate
+            // nameDataGridViewTextBoxColumn
             // 
-            this.DepositDate.DataPropertyName = "DepositDate";
-            dataGridViewCellStyle2.Format = "t";
-            this.DepositDate.DefaultCellStyle = dataGridViewCellStyle2;
-            this.DepositDate.HeaderText = "充值时间";
-            this.DepositDate.Name = "DepositDate";
-            this.DepositDate.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "学生姓名";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ExpireTimeColumn
+            // 
+            this.ExpireTimeColumn.DataPropertyName = "ExpireTime";
+            dataGridViewCellStyle11.Format = "D";
+            dataGridViewCellStyle11.NullValue = null;
+            this.ExpireTimeColumn.DefaultCellStyle = dataGridViewCellStyle11;
+            this.ExpireTimeColumn.HeaderText = "缴费到期时间";
+            this.ExpireTimeColumn.Name = "ExpireTimeColumn";
+            this.ExpireTimeColumn.ReadOnly = true;
             // 
             // depositAmountDataGridViewTextBoxColumn
             // 
@@ -262,29 +399,33 @@
             this.ActualPaidAmount.Name = "ActualPaidAmount";
             this.ActualPaidAmount.ReadOnly = true;
             // 
-            // nameDataGridViewTextBoxColumn
+            // CourseTypeName
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "学生姓名";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.CourseTypeName.DataPropertyName = "CourseTypeName";
+            this.CourseTypeName.HeaderText = "课程类别";
+            this.CourseTypeName.Name = "CourseTypeName";
+            this.CourseTypeName.ReadOnly = true;
             // 
-            // ExpireTimeColumn
+            // CourseSubtypeName
             // 
-            this.ExpireTimeColumn.DataPropertyName = "ExpireTime";
-            dataGridViewCellStyle3.Format = "D";
-            dataGridViewCellStyle3.NullValue = null;
-            this.ExpireTimeColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ExpireTimeColumn.HeaderText = "缴费到期时间";
-            this.ExpireTimeColumn.Name = "ExpireTimeColumn";
-            this.ExpireTimeColumn.ReadOnly = true;
+            this.CourseSubtypeName.DataPropertyName = "CourseSubtypeName";
+            this.CourseSubtypeName.HeaderText = "课程科目";
+            this.CourseSubtypeName.Name = "CourseSubtypeName";
+            this.CourseSubtypeName.ReadOnly = true;
             // 
             // CourseName
             // 
             this.CourseName.DataPropertyName = "CourseName";
-            this.CourseName.HeaderText = "所学课程";
+            this.CourseName.HeaderText = "课程名称";
             this.CourseName.Name = "CourseName";
             this.CourseName.ReadOnly = true;
+            // 
+            // ChargeTypeName
+            // 
+            this.ChargeTypeName.DataPropertyName = "ChargeTypeName";
+            this.ChargeTypeName.HeaderText = "课程收费类型";
+            this.ChargeTypeName.Name = "ChargeTypeName";
+            this.ChargeTypeName.ReadOnly = true;
             // 
             // TeacherName
             // 
@@ -300,11 +441,11 @@
             this.OperatorColumn.Name = "OperatorColumn";
             this.OperatorColumn.ReadOnly = true;
             // 
-            // depositListBindingSource
+            // studentDepositBindingSource
             // 
-            this.depositListBindingSource.DataMember = "DepositList";
-            this.depositListBindingSource.DataSource = this.depositListDataSet;
-            this.depositListBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.depositListBindingSource_ListChanged);
+            this.studentDepositBindingSource.DataMember = "StudentDepositList";
+            this.studentDepositBindingSource.DataSource = this.depositListDataSet;
+            this.studentDepositBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.studentDepositBindingSource_ListChanged);
             // 
             // depositListDataSet
             // 
@@ -319,6 +460,12 @@
             this.txtTotalDeposit.Size = new System.Drawing.Size(120, 21);
             this.txtTotalDeposit.TabIndex = 13;
             // 
+            // depositListBindingSource
+            // 
+            this.depositListBindingSource.DataMember = "DepositList";
+            this.depositListBindingSource.DataSource = this.depositListDataSet;
+            this.depositListBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.depositListBindingSource_ListChanged);
+            // 
             // financeManageDataSet
             // 
             this.financeManageDataSet.DataSetName = "FinanceManageDataSet";
@@ -326,6 +473,9 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnSearchBuyByMaterialNameWithDate);
+            this.groupBox3.Controls.Add(this.btnSearchBuyByMaterialName);
+            this.groupBox3.Controls.Add(this.panel2);
             this.groupBox3.Controls.Add(this.dtBuyEndDate);
             this.groupBox3.Controls.Add(this.txtOriginalCost);
             this.groupBox3.Controls.Add(this.dtBuyBeginDate);
@@ -335,19 +485,88 @@
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.btnShowThisMonthBuy);
-            this.groupBox3.Controls.Add(this.dataGridView3);
+            this.groupBox3.Controls.Add(this.dgvBuy);
             this.groupBox3.Controls.Add(this.btnShowFilterBuy);
             this.groupBox3.Controls.Add(this.btnShowAllBuy);
             this.groupBox3.Location = new System.Drawing.Point(10, 375);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(911, 289);
+            this.groupBox3.Size = new System.Drawing.Size(1183, 332);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "支出汇总";
             // 
+            // btnSearchBuyByMaterialNameWithDate
+            // 
+            this.btnSearchBuyByMaterialNameWithDate.Location = new System.Drawing.Point(555, 28);
+            this.btnSearchBuyByMaterialNameWithDate.Name = "btnSearchBuyByMaterialNameWithDate";
+            this.btnSearchBuyByMaterialNameWithDate.Size = new System.Drawing.Size(124, 36);
+            this.btnSearchBuyByMaterialNameWithDate.TabIndex = 40;
+            this.btnSearchBuyByMaterialNameWithDate.Text = "按材料名称日期查询";
+            this.btnSearchBuyByMaterialNameWithDate.UseVisualStyleBackColor = true;
+            this.btnSearchBuyByMaterialNameWithDate.Click += new System.EventHandler(this.btnSearchBuyByMaterialNameWithDate_Click);
+            // 
+            // btnSearchBuyByMaterialName
+            // 
+            this.btnSearchBuyByMaterialName.Location = new System.Drawing.Point(447, 28);
+            this.btnSearchBuyByMaterialName.Name = "btnSearchBuyByMaterialName";
+            this.btnSearchBuyByMaterialName.Size = new System.Drawing.Size(102, 36);
+            this.btnSearchBuyByMaterialName.TabIndex = 38;
+            this.btnSearchBuyByMaterialName.Text = "按材料名称查询";
+            this.btnSearchBuyByMaterialName.UseVisualStyleBackColor = true;
+            this.btnSearchBuyByMaterialName.Click += new System.EventHandler(this.btnSearchBuyByMaterialName_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lblBuyCount);
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.txtShowBuyRange);
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Location = new System.Drawing.Point(9, 289);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1168, 34);
+            this.panel2.TabIndex = 33;
+            // 
+            // lblBuyCount
+            // 
+            this.lblBuyCount.AutoSize = true;
+            this.lblBuyCount.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblBuyCount.Location = new System.Drawing.Point(781, 12);
+            this.lblBuyCount.Name = "lblBuyCount";
+            this.lblBuyCount.Size = new System.Drawing.Size(25, 12);
+            this.lblBuyCount.TabIndex = 28;
+            this.lblBuyCount.Text = "0条";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(3, 12);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(89, 12);
+            this.label13.TabIndex = 27;
+            this.label13.Text = "当前显示范围：";
+            // 
+            // txtShowBuyRange
+            // 
+            this.txtShowBuyRange.AutoSize = true;
+            this.txtShowBuyRange.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtShowBuyRange.Location = new System.Drawing.Point(103, 12);
+            this.txtShowBuyRange.Name = "txtShowBuyRange";
+            this.txtShowBuyRange.Size = new System.Drawing.Size(31, 12);
+            this.txtShowBuyRange.TabIndex = 29;
+            this.txtShowBuyRange.Text = "所有";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(685, 12);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(89, 12);
+            this.label12.TabIndex = 26;
+            this.label12.Text = "购买记录总数：";
+            // 
             // dtBuyEndDate
             // 
-            this.dtBuyEndDate.Location = new System.Drawing.Point(557, 53);
+            this.dtBuyEndDate.Location = new System.Drawing.Point(774, 49);
             this.dtBuyEndDate.Name = "dtBuyEndDate";
             this.dtBuyEndDate.Size = new System.Drawing.Size(119, 21);
             this.dtBuyEndDate.TabIndex = 31;
@@ -362,7 +581,7 @@
             // 
             // dtBuyBeginDate
             // 
-            this.dtBuyBeginDate.Location = new System.Drawing.Point(557, 28);
+            this.dtBuyBeginDate.Location = new System.Drawing.Point(774, 24);
             this.dtBuyBeginDate.Name = "dtBuyBeginDate";
             this.dtBuyBeginDate.Size = new System.Drawing.Size(119, 21);
             this.dtBuyBeginDate.TabIndex = 32;
@@ -379,7 +598,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(486, 58);
+            this.label2.Location = new System.Drawing.Point(703, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 29;
@@ -396,7 +615,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(486, 32);
+            this.label4.Location = new System.Drawing.Point(703, 28);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 12);
             this.label4.TabIndex = 30;
@@ -413,7 +632,7 @@
             // 
             // btnShowThisMonthBuy
             // 
-            this.btnShowThisMonthBuy.Location = new System.Drawing.Point(257, 28);
+            this.btnShowThisMonthBuy.Location = new System.Drawing.Point(243, 28);
             this.btnShowThisMonthBuy.Name = "btnShowThisMonthBuy";
             this.btnShowThisMonthBuy.Size = new System.Drawing.Size(96, 36);
             this.btnShowThisMonthBuy.TabIndex = 28;
@@ -421,42 +640,51 @@
             this.btnShowThisMonthBuy.UseVisualStyleBackColor = true;
             this.btnShowThisMonthBuy.Click += new System.EventHandler(this.btnShowThisMonthBuy_Click);
             // 
-            // dataGridView3
+            // dgvBuy
             // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.AllowUserToResizeRows = false;
-            this.dataGridView3.AutoGenerateColumns = false;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvBuy.AllowUserToAddRows = false;
+            this.dgvBuy.AllowUserToDeleteRows = false;
+            this.dgvBuy.AllowUserToResizeRows = false;
+            this.dgvBuy.AutoGenerateColumns = false;
+            this.dgvBuy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBuy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
             this.buyDateDataGridViewTextBoxColumn,
             this.materialNameDataGridViewTextBoxColumn,
-            this.totalCostDataGridViewTextBoxColumn,
-            this.actualPayDataGridViewTextBoxColumn,
             this.materialPriceDataGridViewTextBoxColumn,
+            this.actualPayDataGridViewTextBoxColumn,
             this.buyAmountDataGridViewTextBoxColumn,
+            this.totalCostDataGridViewTextBoxColumn,
             this.remarkDataGridViewTextBoxColumn,
             this.Operator});
-            this.dataGridView3.DataSource = this.materialsBuyBindingSource;
-            this.dataGridView3.Location = new System.Drawing.Point(9, 83);
-            this.dataGridView3.MultiSelect = false;
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.RowHeadersVisible = false;
-            this.dataGridView3.RowTemplate.Height = 23;
-            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(896, 200);
-            this.dataGridView3.TabIndex = 7;
+            this.dgvBuy.DataSource = this.materialsBuyBindingSource;
+            this.dgvBuy.Location = new System.Drawing.Point(9, 83);
+            this.dgvBuy.MultiSelect = false;
+            this.dgvBuy.Name = "dgvBuy";
+            this.dgvBuy.ReadOnly = true;
+            this.dgvBuy.RowHeadersVisible = false;
+            this.dgvBuy.RowTemplate.Height = 23;
+            this.dgvBuy.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvBuy.Size = new System.Drawing.Size(1168, 200);
+            this.dgvBuy.TabIndex = 7;
+            this.dgvBuy.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvBuy_DataBindingComplete);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "序号";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // buyDateDataGridViewTextBoxColumn
             // 
             this.buyDateDataGridViewTextBoxColumn.DataPropertyName = "BuyDate";
-            dataGridViewCellStyle4.Format = "D";
-            dataGridViewCellStyle4.NullValue = null;
-            this.buyDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Format = "F";
+            dataGridViewCellStyle12.NullValue = null;
+            this.buyDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
             this.buyDateDataGridViewTextBoxColumn.HeaderText = "购买日期";
             this.buyDateDataGridViewTextBoxColumn.Name = "buyDateDataGridViewTextBoxColumn";
             this.buyDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.buyDateDataGridViewTextBoxColumn.Width = 150;
             // 
             // materialNameDataGridViewTextBoxColumn
             // 
@@ -464,20 +692,7 @@
             this.materialNameDataGridViewTextBoxColumn.HeaderText = "材料名称";
             this.materialNameDataGridViewTextBoxColumn.Name = "materialNameDataGridViewTextBoxColumn";
             this.materialNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // totalCostDataGridViewTextBoxColumn
-            // 
-            this.totalCostDataGridViewTextBoxColumn.DataPropertyName = "TotalCost";
-            this.totalCostDataGridViewTextBoxColumn.HeaderText = "材料总价";
-            this.totalCostDataGridViewTextBoxColumn.Name = "totalCostDataGridViewTextBoxColumn";
-            this.totalCostDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // actualPayDataGridViewTextBoxColumn
-            // 
-            this.actualPayDataGridViewTextBoxColumn.DataPropertyName = "ActualPay";
-            this.actualPayDataGridViewTextBoxColumn.HeaderText = "实际价格";
-            this.actualPayDataGridViewTextBoxColumn.Name = "actualPayDataGridViewTextBoxColumn";
-            this.actualPayDataGridViewTextBoxColumn.ReadOnly = true;
+            this.materialNameDataGridViewTextBoxColumn.Width = 150;
             // 
             // materialPriceDataGridViewTextBoxColumn
             // 
@@ -486,12 +701,26 @@
             this.materialPriceDataGridViewTextBoxColumn.Name = "materialPriceDataGridViewTextBoxColumn";
             this.materialPriceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // actualPayDataGridViewTextBoxColumn
+            // 
+            this.actualPayDataGridViewTextBoxColumn.DataPropertyName = "ActualPay";
+            this.actualPayDataGridViewTextBoxColumn.HeaderText = "实际价格";
+            this.actualPayDataGridViewTextBoxColumn.Name = "actualPayDataGridViewTextBoxColumn";
+            this.actualPayDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // buyAmountDataGridViewTextBoxColumn
             // 
             this.buyAmountDataGridViewTextBoxColumn.DataPropertyName = "BuyAmount";
             this.buyAmountDataGridViewTextBoxColumn.HeaderText = "购买数量";
             this.buyAmountDataGridViewTextBoxColumn.Name = "buyAmountDataGridViewTextBoxColumn";
             this.buyAmountDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalCostDataGridViewTextBoxColumn
+            // 
+            this.totalCostDataGridViewTextBoxColumn.DataPropertyName = "TotalCost";
+            this.totalCostDataGridViewTextBoxColumn.HeaderText = "材料总价";
+            this.totalCostDataGridViewTextBoxColumn.Name = "totalCostDataGridViewTextBoxColumn";
+            this.totalCostDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // remarkDataGridViewTextBoxColumn
             // 
@@ -515,7 +744,7 @@
             // 
             // btnShowFilterBuy
             // 
-            this.btnShowFilterBuy.Location = new System.Drawing.Point(692, 28);
+            this.btnShowFilterBuy.Location = new System.Drawing.Point(909, 24);
             this.btnShowFilterBuy.Name = "btnShowFilterBuy";
             this.btnShowFilterBuy.Size = new System.Drawing.Size(96, 36);
             this.btnShowFilterBuy.TabIndex = 27;
@@ -525,7 +754,7 @@
             // 
             // btnShowAllBuy
             // 
-            this.btnShowAllBuy.Location = new System.Drawing.Point(359, 28);
+            this.btnShowAllBuy.Location = new System.Drawing.Point(345, 28);
             this.btnShowAllBuy.Name = "btnShowAllBuy";
             this.btnShowAllBuy.Size = new System.Drawing.Size(96, 36);
             this.btnShowAllBuy.TabIndex = 26;
@@ -541,25 +770,35 @@
             // 
             this.depositListTableAdapter.ClearBeforeFill = true;
             // 
+            // studentDepositListTableAdapter
+            // 
+            this.studentDepositListTableAdapter.ClearBeforeFill = true;
+            // 
             // FinanceManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 676);
+            this.ClientSize = new System.Drawing.Size(1205, 713);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Name = "FinanceManageForm";
             this.Text = "账目汇总";
             this.Load += new System.EventHandler(this.FinanceManageForm_Load);
+            this.Resize += new System.EventHandler(this.FinanceManageForm_Resize);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.depositListBindingSource)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDeposit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentDepositBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.depositListDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.depositListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.financeManageDataSet)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBuy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialsBuyBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -572,7 +811,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txtMaterialsCost;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView dgvBuy;
         private FinanceManageDataSet financeManageDataSet;
         private System.Windows.Forms.TextBox txtTotalDeposit;
         private System.Windows.Forms.BindingSource materialsBuyBindingSource;
@@ -582,7 +821,7 @@
         private System.Windows.Forms.BindingSource depositListBindingSource;
         private Common.DepositListDataSet depositListDataSet;
         private Common.DepositListDataSetTableAdapters.DepositListTableAdapter depositListTableAdapter;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDeposit;
         private System.Windows.Forms.DateTimePicker dtDepositEndDate;
         private System.Windows.Forms.DateTimePicker dtDepositBeginDate;
         private System.Windows.Forms.Label label5;
@@ -592,23 +831,6 @@
         private System.Windows.Forms.Button btnShowAllDeposit;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn depositDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DepositDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn depositAmountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ActualPaidAmount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ExpireTimeColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CourseName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TeacherName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OperatorColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn buyDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn materialNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalCostDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn actualPayDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn materialPriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn buyAmountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn remarkDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Operator;
         private System.Windows.Forms.DateTimePicker dtBuyEndDate;
         private System.Windows.Forms.DateTimePicker dtBuyBeginDate;
         private System.Windows.Forms.Label label2;
@@ -616,6 +838,45 @@
         private System.Windows.Forms.Button btnShowThisMonthBuy;
         private System.Windows.Forms.Button btnShowFilterBuy;
         private System.Windows.Forms.Button btnShowAllBuy;
+        private System.Windows.Forms.Button btnSearchDepositByCourseWithDate;
+        private System.Windows.Forms.Button btnSearchDepositByCourseTypeWithDate;
+        private System.Windows.Forms.Button btnSearchDepositByCourseType;
+        private System.Windows.Forms.Button btnSearchDepositByCourse;
+        private System.Windows.Forms.BindingSource studentDepositBindingSource;
+        private Common.DepositListDataSetTableAdapters.StudentDepositListTableAdapter studentDepositListTableAdapter;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblDepositCount;
+        private System.Windows.Forms.Label txtShowDepositRange;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lblBuyCount;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label txtShowBuyRange;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnSearchBuyByMaterialNameWithDate;
+        private System.Windows.Forms.Button btnSearchBuyByMaterialName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 序号;
+        private System.Windows.Forms.DataGridViewTextBoxColumn depositDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ExpireTimeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn depositAmountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ActualPaidAmount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CourseTypeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CourseSubtypeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CourseName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChargeTypeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TeacherName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OperatorColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn buyDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn materialNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn materialPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn actualPayDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn buyAmountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalCostDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn remarkDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Operator;
 
     }
 }

@@ -70,6 +70,11 @@
     </Compile>
     <Compile Include="BasicWage.cs" />
     <Compile Include="ChargeBack.cs" />
+    <Compile Include="CoursesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CoursesDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CourseWage.cs" />
     <Compile Include="InputDialog\AffairDetailForm.cs">
       <SubType>Form</SubType>
@@ -106,6 +111,18 @@
     <Compile Include="InputDialog\ChargeBackUpdateForm.Designer.cs">
       <DependentUpon>ChargeBackUpdateForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="InputDialog\CourseSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog\CourseSelectForm.Designer.cs">
+      <DependentUpon>CourseSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputDialog\CourseTypeSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog\CourseTypeSelectForm.Designer.cs">
+      <DependentUpon>CourseTypeSelectForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InputDialog\CourseWageAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +134,12 @@
     </Compile>
     <Compile Include="InputDialog\CourseWageUpdateForm.Designer.cs">
       <DependentUpon>CourseWageUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputDialog\MaterialSelectedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog\MaterialSelectedForm.Designer.cs">
+      <DependentUpon>MaterialSelectedForm.cs</DependentUpon>
     </Compile>
     <Compile Include="InputDialog\SalaryAddForm.cs">
       <SubType>Form</SubType>
@@ -223,6 +246,11 @@
       <DependentUpon>PublishNoticeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="StaticDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StaticDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="StudentAward.cs" />
     <Compile Include="TeacherAward.cs" />
     <Compile Include="TeacherSalaryForm.cs">
@@ -301,11 +329,21 @@
     <EmbeddedResource Include="InputDialog\ChargeBackUpdateForm.resx">
       <DependentUpon>ChargeBackUpdateForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog\CourseSelectForm.resx">
+      <DependentUpon>CourseSelectForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog\CourseTypeSelectForm.resx">
+      <DependentUpon>CourseTypeSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InputDialog\CourseWageAddForm.resx">
       <DependentUpon>CourseWageAddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InputDialog\CourseWageUpdateForm.resx">
       <DependentUpon>CourseWageUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog\MaterialSelectedForm.resx">
+      <DependentUpon>MaterialSelectedForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InputDialog\SalaryAddForm.resx">
       <DependentUpon>SalaryAddForm.cs</DependentUpon>
@@ -391,6 +429,17 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="CoursesDataSet.xsc">
+      <DependentUpon>CoursesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CoursesDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CoursesDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CoursesDataSet.xss">
+      <DependentUpon>CoursesDataSet.xsd</DependentUpon>
+    </None>
     <None Include="FinanceManageDataSet.xsc">
       <DependentUpon>FinanceManageDataSet.xsd</DependentUpon>
     </None>
@@ -433,6 +482,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="StaticDataSet.xsc">
+      <DependentUpon>StaticDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="StaticDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StaticDataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="StaticDataSet.xss">
+      <DependentUpon>StaticDataSet.xsd</DependentUpon>
+    </None>
     <None Include="TeachersDataSet.xsc">
       <DependentUpon>TeachersDataSet.xsd</DependentUpon>
     </None>
