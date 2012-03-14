@@ -1207,11 +1207,12 @@ FROM      student_cost INNER JOIN
                 v_student_courses ON students.ID = v_student_courses.StudentID AND 
                 courses.ID = v_student_courses.CourseID INNER JOIN
                 discount_level ON student_cost.DiscountLevel = discount_level.DiscountLevel
-WHERE   (student_cost.CostDate > @BeginDate) AND (student_cost.CostDate < @EndDate)
+WHERE  (DATEDIFF(day, @BeginDate, 
+                student_cost.CostDate) >= 0) AND (DATEDIFF(day, @EndDate, student_cost.CostDate) <= 0)
 ORDER BY student_cost.CostDate DESC";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "CostDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "CostDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = @"SELECT DISTINCT 
@@ -1383,12 +1384,12 @@ ORDER BY student_cost.CostDate DESC";
                 " = v_student_courses.StudentID AND \r\n                courses.ID = v_student_cour" +
                 "ses.CourseID INNER JOIN\r\n                discount_level ON student_cost.Discount" +
                 "Level = discount_level.DiscountLevel ON \r\n                users_course_privilege" +
-                ".CourseId = courses.ID\r\nWHERE   (student_cost.CostDate > @BeginDate) AND (studen" +
-                "t_cost.CostDate < @EndDate) AND (users.UserName = @UserName)\r\nORDER BY student_c" +
-                "ost.CostDate DESC";
+                ".CourseId = courses.ID\r\nWHERE   (DATEDIFF(day, @BeginDate, \r\n                stu" +
+                "dent_cost.CostDate) >= 0) AND (DATEDIFF(day, @EndDate, student_cost.CostDate) <=" +
+                " 0) AND (users.UserName = @UserName)\r\nORDER BY student_cost.CostDate DESC";
             this._commandCollection[10].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "CostDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "CostDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "UserName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[11] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[11].Connection = this.Connection;

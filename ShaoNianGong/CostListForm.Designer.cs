@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtTotalPaid = new System.Windows.Forms.TextBox();
             this.txtTotalCost = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dtDepositEndDate = new System.Windows.Forms.DateTimePicker();
-            this.dtDepositBeginDate = new System.Windows.Forms.DateTimePicker();
+            this.dtCostEndDate = new System.Windows.Forms.DateTimePicker();
+            this.dtCostBeginDate = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnShowThisMonthDeposit = new System.Windows.Forms.Button();
@@ -50,9 +50,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvCost = new System.Windows.Forms.DataGridView();
-            this.costListDataSet = new ShaoNianGong.CostListDataSet();
-            this.costListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.costListTableAdapter = new ShaoNianGong.CostListDataSetTableAdapters.CostListTableAdapter();
             this.序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,6 +64,11 @@
             this.courseNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chargeTypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OperatorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costListDataSet = new ShaoNianGong.CostListDataSet();
+            this.costListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.costListTableAdapter = new ShaoNianGong.CostListDataSetTableAdapters.CostListTableAdapter();
+            this.btnSearchByCourseWithDate = new System.Windows.Forms.Button();
+            this.btnSearchByCourseTypeWithDate = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.costListDataSet)).BeginInit();
@@ -98,24 +100,24 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "拟收金额汇总：";
             // 
-            // dtDepositEndDate
+            // dtCostEndDate
             // 
-            this.dtDepositEndDate.Location = new System.Drawing.Point(746, 41);
-            this.dtDepositEndDate.Name = "dtDepositEndDate";
-            this.dtDepositEndDate.Size = new System.Drawing.Size(119, 21);
-            this.dtDepositEndDate.TabIndex = 20;
+            this.dtCostEndDate.Location = new System.Drawing.Point(958, 41);
+            this.dtCostEndDate.Name = "dtCostEndDate";
+            this.dtCostEndDate.Size = new System.Drawing.Size(119, 21);
+            this.dtCostEndDate.TabIndex = 20;
             // 
-            // dtDepositBeginDate
+            // dtCostBeginDate
             // 
-            this.dtDepositBeginDate.Location = new System.Drawing.Point(746, 16);
-            this.dtDepositBeginDate.Name = "dtDepositBeginDate";
-            this.dtDepositBeginDate.Size = new System.Drawing.Size(119, 21);
-            this.dtDepositBeginDate.TabIndex = 21;
+            this.dtCostBeginDate.Location = new System.Drawing.Point(958, 16);
+            this.dtCostBeginDate.Name = "dtCostBeginDate";
+            this.dtCostBeginDate.Size = new System.Drawing.Size(119, 21);
+            this.dtCostBeginDate.TabIndex = 21;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(675, 46);
+            this.label4.Location = new System.Drawing.Point(887, 46);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 12);
             this.label4.TabIndex = 18;
@@ -124,7 +126,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(675, 20);
+            this.label3.Location = new System.Drawing.Point(887, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 19;
@@ -142,7 +144,7 @@
             // 
             // btnShowFilterDeposit
             // 
-            this.btnShowFilterDeposit.Location = new System.Drawing.Point(881, 16);
+            this.btnShowFilterDeposit.Location = new System.Drawing.Point(1093, 16);
             this.btnShowFilterDeposit.Name = "btnShowFilterDeposit";
             this.btnShowFilterDeposit.Size = new System.Drawing.Size(96, 36);
             this.btnShowFilterDeposit.TabIndex = 16;
@@ -205,7 +207,7 @@
             // 
             this.lblCostCount.AutoSize = true;
             this.lblCostCount.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblCostCount.Location = new System.Drawing.Point(484, 11);
+            this.lblCostCount.Location = new System.Drawing.Point(797, 11);
             this.lblCostCount.Name = "lblCostCount";
             this.lblCostCount.Size = new System.Drawing.Size(25, 12);
             this.lblCostCount.TabIndex = 25;
@@ -224,7 +226,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(380, 11);
+            this.label7.Location = new System.Drawing.Point(693, 11);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(89, 12);
             this.label7.TabIndex = 1;
@@ -274,21 +276,6 @@
             this.dgvCost.TabIndex = 1;
             this.dgvCost.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvCost_DataBindingComplete);
             // 
-            // costListDataSet
-            // 
-            this.costListDataSet.DataSetName = "CostListDataSet";
-            this.costListDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // costListBindingSource
-            // 
-            this.costListBindingSource.DataMember = "CostList";
-            this.costListBindingSource.DataSource = this.costListDataSet;
-            this.costListBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.costListBindingSource_ListChanged);
-            // 
-            // costListTableAdapter
-            // 
-            this.costListTableAdapter.ClearBeforeFill = true;
-            // 
             // 序号
             // 
             this.序号.HeaderText = "序号";
@@ -298,9 +285,9 @@
             // costDateDataGridViewTextBoxColumn
             // 
             this.costDateDataGridViewTextBoxColumn.DataPropertyName = "CostDate";
-            dataGridViewCellStyle3.Format = "F";
-            dataGridViewCellStyle3.NullValue = null;
-            this.costDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle23.Format = "F";
+            dataGridViewCellStyle23.NullValue = null;
+            this.costDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle23;
             this.costDateDataGridViewTextBoxColumn.HeaderText = "收费日期";
             this.costDateDataGridViewTextBoxColumn.Name = "costDateDataGridViewTextBoxColumn";
             this.costDateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -316,9 +303,9 @@
             // ExpireTimeColumn
             // 
             this.ExpireTimeColumn.DataPropertyName = "ExpireTime";
-            dataGridViewCellStyle4.Format = "D";
-            dataGridViewCellStyle4.NullValue = null;
-            this.ExpireTimeColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle24.Format = "D";
+            dataGridViewCellStyle24.NullValue = null;
+            this.ExpireTimeColumn.DefaultCellStyle = dataGridViewCellStyle24;
             this.ExpireTimeColumn.HeaderText = "缴费到期时间";
             this.ExpireTimeColumn.Name = "ExpireTimeColumn";
             this.ExpireTimeColumn.ReadOnly = true;
@@ -395,16 +382,53 @@
             this.OperatorColumn.Name = "OperatorColumn";
             this.OperatorColumn.ReadOnly = true;
             // 
+            // costListDataSet
+            // 
+            this.costListDataSet.DataSetName = "CostListDataSet";
+            this.costListDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // costListBindingSource
+            // 
+            this.costListBindingSource.DataMember = "CostList";
+            this.costListBindingSource.DataSource = this.costListDataSet;
+            this.costListBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.costListBindingSource_ListChanged);
+            // 
+            // costListTableAdapter
+            // 
+            this.costListTableAdapter.ClearBeforeFill = true;
+            // 
+            // btnSearchByCourseWithDate
+            // 
+            this.btnSearchByCourseWithDate.Location = new System.Drawing.Point(767, 16);
+            this.btnSearchByCourseWithDate.Name = "btnSearchByCourseWithDate";
+            this.btnSearchByCourseWithDate.Size = new System.Drawing.Size(102, 36);
+            this.btnSearchByCourseWithDate.TabIndex = 34;
+            this.btnSearchByCourseWithDate.Text = "按课程日期查询";
+            this.btnSearchByCourseWithDate.UseVisualStyleBackColor = true;
+            this.btnSearchByCourseWithDate.Click += new System.EventHandler(this.btnSearchByCourseWithDate_Click);
+            // 
+            // btnSearchByCourseTypeWithDate
+            // 
+            this.btnSearchByCourseTypeWithDate.Location = new System.Drawing.Point(655, 16);
+            this.btnSearchByCourseTypeWithDate.Name = "btnSearchByCourseTypeWithDate";
+            this.btnSearchByCourseTypeWithDate.Size = new System.Drawing.Size(106, 36);
+            this.btnSearchByCourseTypeWithDate.TabIndex = 33;
+            this.btnSearchByCourseTypeWithDate.Text = "按分类日期查询";
+            this.btnSearchByCourseTypeWithDate.UseVisualStyleBackColor = true;
+            this.btnSearchByCourseTypeWithDate.Click += new System.EventHandler(this.btnSearchByCourseTypeWithDate_Click);
+            // 
             // CostListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1205, 572);
+            this.Controls.Add(this.btnSearchByCourseWithDate);
+            this.Controls.Add(this.btnSearchByCourseTypeWithDate);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnSearchByCourseType);
             this.Controls.Add(this.btnSearchByCourse);
-            this.Controls.Add(this.dtDepositEndDate);
-            this.Controls.Add(this.dtDepositBeginDate);
+            this.Controls.Add(this.dtCostEndDate);
+            this.Controls.Add(this.dtCostBeginDate);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnShowThisMonthDeposit);
@@ -438,8 +462,8 @@
         private System.Windows.Forms.TextBox txtTotalPaid;
         private System.Windows.Forms.TextBox txtTotalCost;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dtDepositEndDate;
-        private System.Windows.Forms.DateTimePicker dtDepositBeginDate;
+        private System.Windows.Forms.DateTimePicker dtCostEndDate;
+        private System.Windows.Forms.DateTimePicker dtCostBeginDate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnShowThisMonthDeposit;
@@ -467,5 +491,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn courseNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn chargeTypeNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn OperatorColumn;
+        private System.Windows.Forms.Button btnSearchByCourseWithDate;
+        private System.Windows.Forms.Button btnSearchByCourseTypeWithDate;
     }
 }
