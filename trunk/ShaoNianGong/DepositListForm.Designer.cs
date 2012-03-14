@@ -29,10 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvDeposit = new System.Windows.Forms.DataGridView();
-            this.depositListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.depositDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpireTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.depositAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ActualPaidAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.courseTypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.courseSubtypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chargeTypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OperatorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentDepositListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.depositListDataSet = new Common.DepositListDataSet();
             this.txtTotalPaid = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,21 +62,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.studentDepositListTableAdapter = new Common.DepositListDataSetTableAdapters.StudentDepositListTableAdapter();
-            this.序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.depositDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExpireTimeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.depositAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ActualPaidAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseTypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseSubtypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chargeTypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OperatorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSearchByCourseType = new System.Windows.Forms.Button();
             this.btnSearchByCourse = new System.Windows.Forms.Button();
+            this.btnSearchByCourseTypeWithDate = new System.Windows.Forms.Button();
+            this.btnSearchByCourseWithDate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeposit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.depositListBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentDepositListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.depositListDataSet)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -89,7 +91,7 @@
             this.CourseName,
             this.chargeTypeNameDataGridViewTextBoxColumn,
             this.OperatorColumn});
-            this.dgvDeposit.DataSource = this.depositListBindingSource;
+            this.dgvDeposit.DataSource = this.studentDepositListBindingSource;
             this.dgvDeposit.Location = new System.Drawing.Point(10, 79);
             this.dgvDeposit.MultiSelect = false;
             this.dgvDeposit.Name = "dgvDeposit";
@@ -101,11 +103,94 @@
             this.dgvDeposit.TabIndex = 0;
             this.dgvDeposit.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvDeposit_DataBindingComplete);
             // 
-            // depositListBindingSource
+            // 序号
             // 
-            this.depositListBindingSource.DataMember = "StudentDepositList";
-            this.depositListBindingSource.DataSource = this.depositListDataSet;
-            this.depositListBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.depositListBindingSource_ListChanged);
+            this.序号.HeaderText = "序号";
+            this.序号.Name = "序号";
+            this.序号.ReadOnly = true;
+            // 
+            // depositDateDataGridViewTextBoxColumn
+            // 
+            this.depositDateDataGridViewTextBoxColumn.DataPropertyName = "DepositDate";
+            dataGridViewCellStyle7.Format = "F";
+            dataGridViewCellStyle7.NullValue = null;
+            this.depositDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            this.depositDateDataGridViewTextBoxColumn.HeaderText = "充值日期";
+            this.depositDateDataGridViewTextBoxColumn.Name = "depositDateDataGridViewTextBoxColumn";
+            this.depositDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.depositDateDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "学生姓名";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ExpireTimeColumn
+            // 
+            this.ExpireTimeColumn.DataPropertyName = "ExpireTime";
+            dataGridViewCellStyle8.Format = "D";
+            dataGridViewCellStyle8.NullValue = null;
+            this.ExpireTimeColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            this.ExpireTimeColumn.HeaderText = "缴费到期时间";
+            this.ExpireTimeColumn.Name = "ExpireTimeColumn";
+            this.ExpireTimeColumn.ReadOnly = true;
+            // 
+            // depositAmountDataGridViewTextBoxColumn
+            // 
+            this.depositAmountDataGridViewTextBoxColumn.DataPropertyName = "DepositAmount";
+            this.depositAmountDataGridViewTextBoxColumn.HeaderText = "充值金额";
+            this.depositAmountDataGridViewTextBoxColumn.Name = "depositAmountDataGridViewTextBoxColumn";
+            this.depositAmountDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ActualPaidAmount
+            // 
+            this.ActualPaidAmount.DataPropertyName = "ActualPaidAmount";
+            this.ActualPaidAmount.HeaderText = "实收金额";
+            this.ActualPaidAmount.Name = "ActualPaidAmount";
+            this.ActualPaidAmount.ReadOnly = true;
+            // 
+            // courseTypeNameDataGridViewTextBoxColumn
+            // 
+            this.courseTypeNameDataGridViewTextBoxColumn.DataPropertyName = "CourseTypeName";
+            this.courseTypeNameDataGridViewTextBoxColumn.HeaderText = "课程类别";
+            this.courseTypeNameDataGridViewTextBoxColumn.Name = "courseTypeNameDataGridViewTextBoxColumn";
+            this.courseTypeNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // courseSubtypeNameDataGridViewTextBoxColumn
+            // 
+            this.courseSubtypeNameDataGridViewTextBoxColumn.DataPropertyName = "CourseSubtypeName";
+            this.courseSubtypeNameDataGridViewTextBoxColumn.HeaderText = "课程科目";
+            this.courseSubtypeNameDataGridViewTextBoxColumn.Name = "courseSubtypeNameDataGridViewTextBoxColumn";
+            this.courseSubtypeNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // CourseName
+            // 
+            this.CourseName.DataPropertyName = "CourseName";
+            this.CourseName.HeaderText = "课程名称";
+            this.CourseName.Name = "CourseName";
+            this.CourseName.ReadOnly = true;
+            // 
+            // chargeTypeNameDataGridViewTextBoxColumn
+            // 
+            this.chargeTypeNameDataGridViewTextBoxColumn.DataPropertyName = "ChargeTypeName";
+            this.chargeTypeNameDataGridViewTextBoxColumn.HeaderText = "课程收费类型";
+            this.chargeTypeNameDataGridViewTextBoxColumn.Name = "chargeTypeNameDataGridViewTextBoxColumn";
+            this.chargeTypeNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // OperatorColumn
+            // 
+            this.OperatorColumn.DataPropertyName = "Operator";
+            this.OperatorColumn.HeaderText = "经办人";
+            this.OperatorColumn.Name = "OperatorColumn";
+            this.OperatorColumn.ReadOnly = true;
+            // 
+            // studentDepositListBindingSource
+            // 
+            this.studentDepositListBindingSource.DataMember = "StudentDepositList";
+            this.studentDepositListBindingSource.DataSource = this.depositListDataSet;
+            this.studentDepositListBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.depositListBindingSource_ListChanged);
             // 
             // depositListDataSet
             // 
@@ -169,7 +254,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(675, 20);
+            this.label3.Location = new System.Drawing.Point(887, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 8;
@@ -177,7 +262,7 @@
             // 
             // btnShowFilterDeposit
             // 
-            this.btnShowFilterDeposit.Location = new System.Drawing.Point(881, 16);
+            this.btnShowFilterDeposit.Location = new System.Drawing.Point(1093, 16);
             this.btnShowFilterDeposit.Name = "btnShowFilterDeposit";
             this.btnShowFilterDeposit.Size = new System.Drawing.Size(96, 36);
             this.btnShowFilterDeposit.TabIndex = 7;
@@ -188,7 +273,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(675, 46);
+            this.label4.Location = new System.Drawing.Point(887, 46);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 12);
             this.label4.TabIndex = 8;
@@ -196,14 +281,14 @@
             // 
             // dtDepositBeginDate
             // 
-            this.dtDepositBeginDate.Location = new System.Drawing.Point(746, 16);
+            this.dtDepositBeginDate.Location = new System.Drawing.Point(958, 16);
             this.dtDepositBeginDate.Name = "dtDepositBeginDate";
             this.dtDepositBeginDate.Size = new System.Drawing.Size(119, 21);
             this.dtDepositBeginDate.TabIndex = 9;
             // 
             // dtDepositEndDate
             // 
-            this.dtDepositEndDate.Location = new System.Drawing.Point(746, 41);
+            this.dtDepositEndDate.Location = new System.Drawing.Point(958, 41);
             this.dtDepositEndDate.Name = "dtDepositEndDate";
             this.dtDepositEndDate.Size = new System.Drawing.Size(119, 21);
             this.dtDepositEndDate.TabIndex = 9;
@@ -262,89 +347,6 @@
             // 
             this.studentDepositListTableAdapter.ClearBeforeFill = true;
             // 
-            // 序号
-            // 
-            this.序号.HeaderText = "序号";
-            this.序号.Name = "序号";
-            this.序号.ReadOnly = true;
-            // 
-            // depositDateDataGridViewTextBoxColumn
-            // 
-            this.depositDateDataGridViewTextBoxColumn.DataPropertyName = "DepositDate";
-            dataGridViewCellStyle13.Format = "F";
-            dataGridViewCellStyle13.NullValue = null;
-            this.depositDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle13;
-            this.depositDateDataGridViewTextBoxColumn.HeaderText = "充值日期";
-            this.depositDateDataGridViewTextBoxColumn.Name = "depositDateDataGridViewTextBoxColumn";
-            this.depositDateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.depositDateDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "学生姓名";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ExpireTimeColumn
-            // 
-            this.ExpireTimeColumn.DataPropertyName = "ExpireTime";
-            dataGridViewCellStyle14.Format = "D";
-            dataGridViewCellStyle14.NullValue = null;
-            this.ExpireTimeColumn.DefaultCellStyle = dataGridViewCellStyle14;
-            this.ExpireTimeColumn.HeaderText = "缴费到期时间";
-            this.ExpireTimeColumn.Name = "ExpireTimeColumn";
-            this.ExpireTimeColumn.ReadOnly = true;
-            // 
-            // depositAmountDataGridViewTextBoxColumn
-            // 
-            this.depositAmountDataGridViewTextBoxColumn.DataPropertyName = "DepositAmount";
-            this.depositAmountDataGridViewTextBoxColumn.HeaderText = "充值金额";
-            this.depositAmountDataGridViewTextBoxColumn.Name = "depositAmountDataGridViewTextBoxColumn";
-            this.depositAmountDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ActualPaidAmount
-            // 
-            this.ActualPaidAmount.DataPropertyName = "ActualPaidAmount";
-            this.ActualPaidAmount.HeaderText = "实收金额";
-            this.ActualPaidAmount.Name = "ActualPaidAmount";
-            this.ActualPaidAmount.ReadOnly = true;
-            // 
-            // courseTypeNameDataGridViewTextBoxColumn
-            // 
-            this.courseTypeNameDataGridViewTextBoxColumn.DataPropertyName = "CourseTypeName";
-            this.courseTypeNameDataGridViewTextBoxColumn.HeaderText = "课程类别";
-            this.courseTypeNameDataGridViewTextBoxColumn.Name = "courseTypeNameDataGridViewTextBoxColumn";
-            this.courseTypeNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // courseSubtypeNameDataGridViewTextBoxColumn
-            // 
-            this.courseSubtypeNameDataGridViewTextBoxColumn.DataPropertyName = "CourseSubtypeName";
-            this.courseSubtypeNameDataGridViewTextBoxColumn.HeaderText = "课程科目";
-            this.courseSubtypeNameDataGridViewTextBoxColumn.Name = "courseSubtypeNameDataGridViewTextBoxColumn";
-            this.courseSubtypeNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // CourseName
-            // 
-            this.CourseName.DataPropertyName = "CourseName";
-            this.CourseName.HeaderText = "课程名称";
-            this.CourseName.Name = "CourseName";
-            this.CourseName.ReadOnly = true;
-            // 
-            // chargeTypeNameDataGridViewTextBoxColumn
-            // 
-            this.chargeTypeNameDataGridViewTextBoxColumn.DataPropertyName = "ChargeTypeName";
-            this.chargeTypeNameDataGridViewTextBoxColumn.HeaderText = "课程收费类型";
-            this.chargeTypeNameDataGridViewTextBoxColumn.Name = "chargeTypeNameDataGridViewTextBoxColumn";
-            this.chargeTypeNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // OperatorColumn
-            // 
-            this.OperatorColumn.DataPropertyName = "Operator";
-            this.OperatorColumn.HeaderText = "经办人";
-            this.OperatorColumn.Name = "OperatorColumn";
-            this.OperatorColumn.ReadOnly = true;
-            // 
             // btnSearchByCourseType
             // 
             this.btnSearchByCourseType.Location = new System.Drawing.Point(451, 16);
@@ -365,11 +367,33 @@
             this.btnSearchByCourse.UseVisualStyleBackColor = true;
             this.btnSearchByCourse.Click += new System.EventHandler(this.btnSearchByCourse_Click);
             // 
+            // btnSearchByCourseTypeWithDate
+            // 
+            this.btnSearchByCourseTypeWithDate.Location = new System.Drawing.Point(655, 16);
+            this.btnSearchByCourseTypeWithDate.Name = "btnSearchByCourseTypeWithDate";
+            this.btnSearchByCourseTypeWithDate.Size = new System.Drawing.Size(106, 36);
+            this.btnSearchByCourseTypeWithDate.TabIndex = 31;
+            this.btnSearchByCourseTypeWithDate.Text = "按分类日期查询";
+            this.btnSearchByCourseTypeWithDate.UseVisualStyleBackColor = true;
+            this.btnSearchByCourseTypeWithDate.Click += new System.EventHandler(this.btnSearchByCourseTypeWithDate_Click);
+            // 
+            // btnSearchByCourseWithDate
+            // 
+            this.btnSearchByCourseWithDate.Location = new System.Drawing.Point(767, 16);
+            this.btnSearchByCourseWithDate.Name = "btnSearchByCourseWithDate";
+            this.btnSearchByCourseWithDate.Size = new System.Drawing.Size(102, 36);
+            this.btnSearchByCourseWithDate.TabIndex = 32;
+            this.btnSearchByCourseWithDate.Text = "按课程日期查询";
+            this.btnSearchByCourseWithDate.UseVisualStyleBackColor = true;
+            this.btnSearchByCourseWithDate.Click += new System.EventHandler(this.btnSearchByCourseWithDate_Click);
+            // 
             // DepositListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1205, 572);
+            this.Controls.Add(this.btnSearchByCourseWithDate);
+            this.Controls.Add(this.btnSearchByCourseTypeWithDate);
             this.Controls.Add(this.btnSearchByCourseType);
             this.Controls.Add(this.btnSearchByCourse);
             this.Controls.Add(this.panel1);
@@ -390,7 +414,7 @@
             this.Load += new System.EventHandler(this.DepositListForm_Load);
             this.Resize += new System.EventHandler(this.DepositListForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDeposit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.depositListBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentDepositListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.depositListDataSet)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -402,7 +426,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvDeposit;
-        private System.Windows.Forms.BindingSource depositListBindingSource;
+        private System.Windows.Forms.BindingSource studentDepositListBindingSource;
         private System.Windows.Forms.TextBox txtTotalPaid;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtTotalDeposit;
@@ -434,5 +458,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn OperatorColumn;
         private System.Windows.Forms.Button btnSearchByCourseType;
         private System.Windows.Forms.Button btnSearchByCourse;
+        private System.Windows.Forms.Button btnSearchByCourseTypeWithDate;
+        private System.Windows.Forms.Button btnSearchByCourseWithDate;
     }
 }
