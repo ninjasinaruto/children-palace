@@ -29,9 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvLeaveCourse = new System.Windows.Forms.DataGridView();
+            this.序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OperatorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSearchByCourseType = new System.Windows.Forms.Button();
             this.btnSearchByCourse = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -48,8 +50,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnShowFilterBuy = new System.Windows.Forms.Button();
-            this.序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OperatorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.refundDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expireTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,6 +62,8 @@
             this.leaveCourseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.leaveCourseDataSet = new ShaoNianGong.LeaveCourseDataSet();
             this.leaveCourseTableAdapter = new ShaoNianGong.LeaveCourseDataSetTableAdapters.LeaveCourseTableAdapter();
+            this.btnSearchByCourseWithDate = new System.Windows.Forms.Button();
+            this.btnSearchByCourseTypeWithDate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLeaveCourse)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leaveCourseBindingSource)).BeginInit();
@@ -99,6 +101,19 @@
             this.dgvLeaveCourse.TabIndex = 0;
             this.dgvLeaveCourse.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvLeaveCourse_DataBindingComplete);
             // 
+            // 序号
+            // 
+            this.序号.HeaderText = "序号";
+            this.序号.Name = "序号";
+            this.序号.ReadOnly = true;
+            // 
+            // OperatorColumn
+            // 
+            this.OperatorColumn.DataPropertyName = "Operator";
+            this.OperatorColumn.HeaderText = "经办人";
+            this.OperatorColumn.Name = "OperatorColumn";
+            this.OperatorColumn.ReadOnly = true;
+            // 
             // btnSearchByCourseType
             // 
             this.btnSearchByCourseType.Location = new System.Drawing.Point(451, 16);
@@ -135,20 +150,20 @@
             // 
             this.lblStudentsCount.AutoSize = true;
             this.lblStudentsCount.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblStudentsCount.Location = new System.Drawing.Point(452, 11);
+            this.lblStudentsCount.Location = new System.Drawing.Point(786, 11);
             this.lblStudentsCount.Name = "lblStudentsCount";
             this.lblStudentsCount.Size = new System.Drawing.Size(25, 12);
             this.lblStudentsCount.TabIndex = 27;
-            this.lblStudentsCount.Text = "0人";
+            this.lblStudentsCount.Text = "0条";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(381, 11);
+            this.label7.Location = new System.Drawing.Point(691, 11);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 12);
+            this.label7.Size = new System.Drawing.Size(89, 12);
             this.label7.TabIndex = 26;
-            this.label7.Text = "学生总数：";
+            this.label7.Text = "离班记录总数：";
             // 
             // txtShowRange
             // 
@@ -208,14 +223,14 @@
             // 
             // dtRefundEndDate
             // 
-            this.dtRefundEndDate.Location = new System.Drawing.Point(747, 41);
+            this.dtRefundEndDate.Location = new System.Drawing.Point(958, 41);
             this.dtRefundEndDate.Name = "dtRefundEndDate";
             this.dtRefundEndDate.Size = new System.Drawing.Size(119, 21);
             this.dtRefundEndDate.TabIndex = 36;
             // 
             // dtRefundBeginDate
             // 
-            this.dtRefundBeginDate.Location = new System.Drawing.Point(747, 16);
+            this.dtRefundBeginDate.Location = new System.Drawing.Point(958, 16);
             this.dtRefundBeginDate.Name = "dtRefundBeginDate";
             this.dtRefundBeginDate.Size = new System.Drawing.Size(119, 21);
             this.dtRefundBeginDate.TabIndex = 37;
@@ -223,7 +238,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(676, 46);
+            this.label4.Location = new System.Drawing.Point(887, 46);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 12);
             this.label4.TabIndex = 34;
@@ -232,7 +247,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(676, 20);
+            this.label3.Location = new System.Drawing.Point(887, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 35;
@@ -240,7 +255,7 @@
             // 
             // btnShowFilterBuy
             // 
-            this.btnShowFilterBuy.Location = new System.Drawing.Point(882, 16);
+            this.btnShowFilterBuy.Location = new System.Drawing.Point(1093, 16);
             this.btnShowFilterBuy.Name = "btnShowFilterBuy";
             this.btnShowFilterBuy.Size = new System.Drawing.Size(96, 36);
             this.btnShowFilterBuy.TabIndex = 33;
@@ -248,25 +263,12 @@
             this.btnShowFilterBuy.UseVisualStyleBackColor = true;
             this.btnShowFilterBuy.Click += new System.EventHandler(this.btnShowFilterBuy_Click);
             // 
-            // 序号
-            // 
-            this.序号.HeaderText = "序号";
-            this.序号.Name = "序号";
-            this.序号.ReadOnly = true;
-            // 
-            // OperatorColumn
-            // 
-            this.OperatorColumn.DataPropertyName = "Operator";
-            this.OperatorColumn.HeaderText = "经办人";
-            this.OperatorColumn.Name = "OperatorColumn";
-            this.OperatorColumn.ReadOnly = true;
-            // 
             // refundDateDataGridViewTextBoxColumn
             // 
             this.refundDateDataGridViewTextBoxColumn.DataPropertyName = "RefundDate";
-            dataGridViewCellStyle1.Format = "F";
-            dataGridViewCellStyle1.NullValue = null;
-            this.refundDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.Format = "F";
+            dataGridViewCellStyle11.NullValue = null;
+            this.refundDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
             this.refundDateDataGridViewTextBoxColumn.HeaderText = "离班日期";
             this.refundDateDataGridViewTextBoxColumn.Name = "refundDateDataGridViewTextBoxColumn";
             this.refundDateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -282,9 +284,9 @@
             // expireTimeDataGridViewTextBoxColumn
             // 
             this.expireTimeDataGridViewTextBoxColumn.DataPropertyName = "ExpireTime";
-            dataGridViewCellStyle2.Format = "D";
-            dataGridViewCellStyle2.NullValue = null;
-            this.expireTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Format = "D";
+            dataGridViewCellStyle12.NullValue = null;
+            this.expireTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
             this.expireTimeDataGridViewTextBoxColumn.HeaderText = "缴费到期时间";
             this.expireTimeDataGridViewTextBoxColumn.Name = "expireTimeDataGridViewTextBoxColumn";
             this.expireTimeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -346,11 +348,33 @@
             // 
             this.leaveCourseTableAdapter.ClearBeforeFill = true;
             // 
+            // btnSearchByCourseWithDate
+            // 
+            this.btnSearchByCourseWithDate.Location = new System.Drawing.Point(767, 16);
+            this.btnSearchByCourseWithDate.Name = "btnSearchByCourseWithDate";
+            this.btnSearchByCourseWithDate.Size = new System.Drawing.Size(102, 36);
+            this.btnSearchByCourseWithDate.TabIndex = 39;
+            this.btnSearchByCourseWithDate.Text = "按课程日期查询";
+            this.btnSearchByCourseWithDate.UseVisualStyleBackColor = true;
+            this.btnSearchByCourseWithDate.Click += new System.EventHandler(this.btnSearchByCourseWithDate_Click);
+            // 
+            // btnSearchByCourseTypeWithDate
+            // 
+            this.btnSearchByCourseTypeWithDate.Location = new System.Drawing.Point(655, 16);
+            this.btnSearchByCourseTypeWithDate.Name = "btnSearchByCourseTypeWithDate";
+            this.btnSearchByCourseTypeWithDate.Size = new System.Drawing.Size(106, 36);
+            this.btnSearchByCourseTypeWithDate.TabIndex = 38;
+            this.btnSearchByCourseTypeWithDate.Text = "按分类日期查询";
+            this.btnSearchByCourseTypeWithDate.UseVisualStyleBackColor = true;
+            this.btnSearchByCourseTypeWithDate.Click += new System.EventHandler(this.btnSearchByCourseTypeWithDate_Click);
+            // 
             // LeftCourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1205, 572);
+            this.Controls.Add(this.btnSearchByCourseWithDate);
+            this.Controls.Add(this.btnSearchByCourseTypeWithDate);
             this.Controls.Add(this.dtRefundEndDate);
             this.Controls.Add(this.dtRefundBeginDate);
             this.Controls.Add(this.label4);
@@ -411,5 +435,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn courseNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn teacherNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn OperatorColumn;
+        private System.Windows.Forms.Button btnSearchByCourseWithDate;
+        private System.Windows.Forms.Button btnSearchByCourseTypeWithDate;
     }
 }

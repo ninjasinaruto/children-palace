@@ -85,6 +85,55 @@ namespace ShaoNianGong
         private void btnSearchByCourseType_Click(object sender, EventArgs e)
         {
             CourseTypeSelectForm frmCourseTypeSelect = new CourseTypeSelectForm();
+            if (UserType == 0)
+            {
+                frmCourseTypeSelect.isPrivate = true;
+                frmCourseTypeSelect.userName = this.UserName;
+                if (frmCourseTypeSelect.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+
+                this.studentMaterialsTableAdapter.FillByUserNameCourseType(this.materialsDataSet.StudentMaterials, frmCourseTypeSelect.CourseTypeId, this.UserName);
+            }
+            else
+            {
+                if (frmCourseTypeSelect.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+                this.studentMaterialsTableAdapter.FillByCourseType(this.materialsDataSet.StudentMaterials, frmCourseTypeSelect.CourseTypeId);
+            }
+            txtShowRange.Text = frmCourseTypeSelect.CourseTypeName;
+        }
+
+        private void btnSearchByCourse_Click(object sender, EventArgs e)
+        {
+            CourseSelectForm frmCourseSelect = new CourseSelectForm();
+            if (UserType == 0)
+            {
+                frmCourseSelect.isPrivate = true;
+                frmCourseSelect.userName = this.UserName;
+                if (frmCourseSelect.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+                this.studentMaterialsTableAdapter.FillByUserNameCourseID(this.materialsDataSet.StudentMaterials, frmCourseSelect.CourseID, this.UserName);
+            }
+            else
+            {
+                if (frmCourseSelect.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+                this.studentMaterialsTableAdapter.FillByCourseID(this.materialsDataSet.StudentMaterials, frmCourseSelect.CourseID);
+            }
+            txtShowRange.Text = frmCourseSelect.CourseTypeName + " - " + frmCourseSelect.CourseSubtypeName + " - " + frmCourseSelect.CourseName;
+        }
+
+        private void btnSearchByCourseTypeWithDate_Click(object sender, EventArgs e)
+        {
+            CourseTypeSelectForm frmCourseTypeSelect = new CourseTypeSelectForm();
             DateTime beginDate = dtBuyBeginDate.Value;
             beginDate = new DateTime(beginDate.Year, beginDate.Month, beginDate.Day, 0, 0, 0);
             DateTime endDate = dtBuyEndDate.Value;
@@ -107,10 +156,10 @@ namespace ShaoNianGong
                 }
                 this.studentMaterialsTableAdapter.FillByCourseTypeWithDate(this.materialsDataSet.StudentMaterials, frmCourseTypeSelect.CourseTypeId, beginDate, endDate);
             }
-            txtShowRange.Text = frmCourseTypeSelect.CourseTypeName;
+            txtShowRange.Text = frmCourseTypeSelect.CourseTypeName + "    " + beginDate.ToShortDateString() + " - " + endDate.ToShortDateString();
         }
 
-        private void btnSearchByCourse_Click(object sender, EventArgs e)
+        private void btnSearchByCourseWithDate_Click(object sender, EventArgs e)
         {
             CourseSelectForm frmCourseSelect = new CourseSelectForm();
             DateTime beginDate = dtBuyBeginDate.Value;
@@ -135,7 +184,7 @@ namespace ShaoNianGong
                 }
                 this.studentMaterialsTableAdapter.FillByCourseIDWithDate(this.materialsDataSet.StudentMaterials, frmCourseSelect.CourseID, beginDate, endDate);
             }
-            txtShowRange.Text = frmCourseSelect.CourseTypeName + " - " + frmCourseSelect.CourseSubtypeName + " - " + frmCourseSelect.CourseName;
+            txtShowRange.Text = frmCourseSelect.CourseTypeName + " - " + frmCourseSelect.CourseSubtypeName + " - " + frmCourseSelect.CourseName + "    " + beginDate.ToShortDateString() + " - " + endDate.ToShortDateString();
         }
     }
 }

@@ -2907,7 +2907,7 @@ SELECT ID, StudentID, MaterialID, MaterialPrice, BuyCount, TotalCost, BuyTime FR
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[8];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[12];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT   materials_cost.BuyTime, students.Name, students.ExpireTime, materials.MaterialName, materials_cost.MaterialPrice, 
@@ -2986,13 +2986,10 @@ FROM      materials INNER JOIN
                 course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID LEFT OUTER JOIN
                 course_types ON course_subtypes.CourseTypeID = course_types.ID LEFT OUTER JOIN
                 charge_type ON courses.ChargeType = charge_type.ChargeTypeID
-WHERE   (courses.ID = @CourseID) AND (DATEDIFF(day, @BeginDate, materials_cost.BuyTime) >= 0) AND (DATEDIFF(day, 
-                @EndDate, materials_cost.BuyTime) <= 0)
+WHERE   (courses.ID = @CourseID)
 ORDER BY materials_cost.BuyTime DESC";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = @"SELECT   materials_cost.BuyTime, students.Name, students.ExpireTime, materials.MaterialName, materials_cost.MaterialPrice, 
@@ -3010,11 +3007,11 @@ FROM      materials INNER JOIN
                 course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID LEFT OUTER JOIN
                 course_types ON course_subtypes.CourseTypeID = course_types.ID LEFT OUTER JOIN
                 charge_type ON courses.ChargeType = charge_type.ChargeTypeID
-WHERE   (course_types.ID = @CourseTypeID) AND (DATEDIFF(day, @BeginDate, materials_cost.BuyTime) >= 0) AND 
-                (DATEDIFF(day, @EndDate, materials_cost.BuyTime) <= 0)
+WHERE   (courses.ID = @CourseID) AND (DATEDIFF(day, @BeginDate, materials_cost.BuyTime) >= 0) AND (DATEDIFF(day, 
+                @EndDate, materials_cost.BuyTime) <= 0)
 ORDER BY materials_cost.BuyTime DESC";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseTypeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
@@ -3034,13 +3031,83 @@ FROM      materials INNER JOIN
                 course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID LEFT OUTER JOIN
                 course_types ON course_subtypes.CourseTypeID = course_types.ID LEFT OUTER JOIN
                 charge_type ON courses.ChargeType = charge_type.ChargeTypeID
-WHERE   (materials_cost.StudentID = @StudentID)
+WHERE   (course_types.ID = @CourseTypeID)
 ORDER BY materials_cost.BuyTime DESC";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseTypeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = "SELECT   materials_cost.BuyTime, students.Name, students.ExpireTime, materials.Ma" +
+            this._commandCollection[6].CommandText = @"SELECT   materials_cost.BuyTime, students.Name, students.ExpireTime, materials.MaterialName, materials_cost.MaterialPrice, 
+                materials_cost.BuyCount, materials_cost.TotalCost, materials_cost.Operator, course_types.CourseTypeName, 
+                course_subtypes.CourseSubtypeName, courses.CourseName, charge_type.ChargeTypeName
+FROM      materials INNER JOIN
+                materials_cost ON materials.MaterialID = materials_cost.MaterialID INNER JOIN
+                students ON materials_cost.StudentID = students.ID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS NUM
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID LEFT OUTER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID LEFT OUTER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID LEFT OUTER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID
+WHERE   (course_types.ID = @CourseTypeID) AND (DATEDIFF(day, @BeginDate, materials_cost.BuyTime) >= 0) AND 
+                (DATEDIFF(day, @EndDate, materials_cost.BuyTime) <= 0)
+ORDER BY materials_cost.BuyTime DESC";
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseTypeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[7].Connection = this.Connection;
+            this._commandCollection[7].CommandText = @"SELECT   materials_cost.BuyTime, students.Name, students.ExpireTime, materials.MaterialName, materials_cost.MaterialPrice, 
+                materials_cost.BuyCount, materials_cost.TotalCost, materials_cost.Operator, course_types.CourseTypeName, 
+                course_subtypes.CourseSubtypeName, courses.CourseName, charge_type.ChargeTypeName
+FROM      materials INNER JOIN
+                materials_cost ON materials.MaterialID = materials_cost.MaterialID INNER JOIN
+                students ON materials_cost.StudentID = students.ID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS NUM
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID LEFT OUTER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID LEFT OUTER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID LEFT OUTER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID
+WHERE   (materials_cost.StudentID = @StudentID)
+ORDER BY materials_cost.BuyTime DESC";
+            this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[8].Connection = this.Connection;
+            this._commandCollection[8].CommandText = @"SELECT   materials_cost.BuyTime, students.Name, students.ExpireTime, materials.MaterialName, materials_cost.MaterialPrice, 
+                materials_cost.BuyCount, materials_cost.TotalCost, materials_cost.Operator, course_types.CourseTypeName, 
+                course_subtypes.CourseSubtypeName, courses.CourseName, charge_type.ChargeTypeName
+FROM      materials INNER JOIN
+                materials_cost ON materials.MaterialID = materials_cost.MaterialID INNER JOIN
+                students ON materials_cost.StudentID = students.ID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS NUM
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID LEFT OUTER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID LEFT OUTER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID LEFT OUTER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID
+WHERE   (courses.ID IN
+                    (SELECT   CourseId
+                     FROM      users_course_privilege
+                     WHERE   (UserName = @UserName))) AND (courses.ID = @CourseID)
+ORDER BY materials_cost.BuyTime DESC";
+            this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[9].Connection = this.Connection;
+            this._commandCollection[9].CommandText = "SELECT   materials_cost.BuyTime, students.Name, students.ExpireTime, materials.Ma" +
                 "terialName, materials_cost.MaterialPrice, \r\n                materials_cost.BuyCo" +
                 "unt, materials_cost.TotalCost, materials_cost.Operator, course_types.CourseTypeN" +
                 "ame, \r\n                course_subtypes.CourseSubtypeName, courses.CourseName, ch" +
@@ -3060,14 +3127,39 @@ ORDER BY materials_cost.BuyTime DESC";
                 " (UserName = @UserName))) AND (courses.ID = @CourseID) AND (DATEDIFF(day, @Begin" +
                 "Date, \r\n                materials_cost.BuyTime) >= 0) AND (DATEDIFF(day, @EndDat" +
                 "e, materials_cost.BuyTime) <= 0)\r\nORDER BY materials_cost.BuyTime DESC";
-            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[7].Connection = this.Connection;
-            this._commandCollection[7].CommandText = "SELECT   materials_cost.BuyTime, students.Name, students.ExpireTime, materials.Ma" +
+            this._commandCollection[9].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[10].Connection = this.Connection;
+            this._commandCollection[10].CommandText = @"SELECT   materials_cost.BuyTime, students.Name, students.ExpireTime, materials.MaterialName, materials_cost.MaterialPrice, 
+                materials_cost.BuyCount, materials_cost.TotalCost, materials_cost.Operator, course_types.CourseTypeName, 
+                course_subtypes.CourseSubtypeName, courses.CourseName, charge_type.ChargeTypeName
+FROM      materials INNER JOIN
+                materials_cost ON materials.MaterialID = materials_cost.MaterialID INNER JOIN
+                students ON materials_cost.StudentID = students.ID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS NUM
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID LEFT OUTER JOIN
+                course_subtypes ON courses.CourseSubTypeID = course_subtypes.ID LEFT OUTER JOIN
+                course_types ON course_subtypes.CourseTypeID = course_types.ID LEFT OUTER JOIN
+                charge_type ON courses.ChargeType = charge_type.ChargeTypeID
+WHERE   (courses.ID IN
+                    (SELECT   CourseId
+                     FROM      users_course_privilege
+                     WHERE   (UserName = @UserName))) AND (course_types.ID = @CourseTypeID)
+ORDER BY materials_cost.BuyTime DESC";
+            this._commandCollection[10].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseTypeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[11] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[11].Connection = this.Connection;
+            this._commandCollection[11].CommandText = "SELECT   materials_cost.BuyTime, students.Name, students.ExpireTime, materials.Ma" +
                 "terialName, materials_cost.MaterialPrice, \r\n                materials_cost.BuyCo" +
                 "unt, materials_cost.TotalCost, materials_cost.Operator, course_types.CourseTypeN" +
                 "ame, \r\n                course_subtypes.CourseSubtypeName, courses.CourseName, ch" +
@@ -3087,11 +3179,11 @@ ORDER BY materials_cost.BuyTime DESC";
                 " (UserName = @UserName))) AND (course_types.ID = @CourseTypeID) AND (DATEDIFF(da" +
                 "y, @BeginDate, \r\n                materials_cost.BuyTime) >= 0) AND (DATEDIFF(day" +
                 ", @EndDate, materials_cost.BuyTime) <= 0)\r\nORDER BY materials_cost.BuyTime DESC";
-            this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseTypeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[11].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseTypeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3174,8 +3266,34 @@ ORDER BY materials_cost.BuyTime DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByCourseIDWithDate(MaterialsDataSet.StudentMaterialsDataTable dataTable, int CourseID, System.DateTime BeginDate, System.DateTime EndDate) {
+        public virtual int FillByCourseID(MaterialsDataSet.StudentMaterialsDataTable dataTable, int CourseID) {
             this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CourseID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual MaterialsDataSet.StudentMaterialsDataTable GetDataByCourseID(int CourseID) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CourseID));
+            MaterialsDataSet.StudentMaterialsDataTable dataTable = new MaterialsDataSet.StudentMaterialsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByCourseIDWithDate(MaterialsDataSet.StudentMaterialsDataTable dataTable, int CourseID, System.DateTime BeginDate, System.DateTime EndDate) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CourseID));
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(BeginDate));
             this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(EndDate));
@@ -3191,7 +3309,7 @@ ORDER BY materials_cost.BuyTime DESC";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual MaterialsDataSet.StudentMaterialsDataTable GetDataByCourseIDWithDate(int CourseID, System.DateTime BeginDate, System.DateTime EndDate) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CourseID));
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(BeginDate));
             this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(EndDate));
@@ -3204,8 +3322,34 @@ ORDER BY materials_cost.BuyTime DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByCourseType(MaterialsDataSet.StudentMaterialsDataTable dataTable, int CourseTypeID) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CourseTypeID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual MaterialsDataSet.StudentMaterialsDataTable GetDataByCourseType(int CourseTypeID) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CourseTypeID));
+            MaterialsDataSet.StudentMaterialsDataTable dataTable = new MaterialsDataSet.StudentMaterialsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByCourseTypeWithDate(MaterialsDataSet.StudentMaterialsDataTable dataTable, int CourseTypeID, System.DateTime BeginDate, System.DateTime EndDate) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand = this.CommandCollection[6];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CourseTypeID));
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(BeginDate));
             this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(EndDate));
@@ -3221,7 +3365,7 @@ ORDER BY materials_cost.BuyTime DESC";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual MaterialsDataSet.StudentMaterialsDataTable GetDataByCourseTypeWithDate(int CourseTypeID, System.DateTime BeginDate, System.DateTime EndDate) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand = this.CommandCollection[6];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CourseTypeID));
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(BeginDate));
             this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(EndDate));
@@ -3235,7 +3379,7 @@ ORDER BY materials_cost.BuyTime DESC";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByStudentID(MaterialsDataSet.StudentMaterialsDataTable dataTable, int StudentID) {
-            this.Adapter.SelectCommand = this.CommandCollection[5];
+            this.Adapter.SelectCommand = this.CommandCollection[7];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(StudentID));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3249,7 +3393,7 @@ ORDER BY materials_cost.BuyTime DESC";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual MaterialsDataSet.StudentMaterialsDataTable GetDataByStudentID(int StudentID) {
-            this.Adapter.SelectCommand = this.CommandCollection[5];
+            this.Adapter.SelectCommand = this.CommandCollection[7];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(StudentID));
             MaterialsDataSet.StudentMaterialsDataTable dataTable = new MaterialsDataSet.StudentMaterialsDataTable();
             this.Adapter.Fill(dataTable);
@@ -3260,8 +3404,46 @@ ORDER BY materials_cost.BuyTime DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByUserNameCourseID(MaterialsDataSet.StudentMaterialsDataTable dataTable, int CourseID, string UserName) {
+            this.Adapter.SelectCommand = this.CommandCollection[8];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CourseID));
+            if ((UserName == null)) {
+                throw new global::System.ArgumentNullException("UserName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(UserName));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual MaterialsDataSet.StudentMaterialsDataTable GetDataByUserNameCourseID(int CourseID, string UserName) {
+            this.Adapter.SelectCommand = this.CommandCollection[8];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CourseID));
+            if ((UserName == null)) {
+                throw new global::System.ArgumentNullException("UserName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(UserName));
+            }
+            MaterialsDataSet.StudentMaterialsDataTable dataTable = new MaterialsDataSet.StudentMaterialsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByUserNameCourseIDWithDate(MaterialsDataSet.StudentMaterialsDataTable dataTable, int CourseID, System.DateTime BeginDate, System.DateTime EndDate, string UserName) {
-            this.Adapter.SelectCommand = this.CommandCollection[6];
+            this.Adapter.SelectCommand = this.CommandCollection[9];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CourseID));
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(BeginDate));
             this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(EndDate));
@@ -3283,7 +3465,7 @@ ORDER BY materials_cost.BuyTime DESC";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual MaterialsDataSet.StudentMaterialsDataTable GetDataByUserNameCourseIDWithDate(int CourseID, System.DateTime BeginDate, System.DateTime EndDate, string UserName) {
-            this.Adapter.SelectCommand = this.CommandCollection[6];
+            this.Adapter.SelectCommand = this.CommandCollection[9];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CourseID));
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(BeginDate));
             this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(EndDate));
@@ -3302,8 +3484,46 @@ ORDER BY materials_cost.BuyTime DESC";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByUserNameCourseType(MaterialsDataSet.StudentMaterialsDataTable dataTable, int CourseTypeID, string UserName) {
+            this.Adapter.SelectCommand = this.CommandCollection[10];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CourseTypeID));
+            if ((UserName == null)) {
+                throw new global::System.ArgumentNullException("UserName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(UserName));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual MaterialsDataSet.StudentMaterialsDataTable GetDataByUserNameCourseType(int CourseTypeID, string UserName) {
+            this.Adapter.SelectCommand = this.CommandCollection[10];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CourseTypeID));
+            if ((UserName == null)) {
+                throw new global::System.ArgumentNullException("UserName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(UserName));
+            }
+            MaterialsDataSet.StudentMaterialsDataTable dataTable = new MaterialsDataSet.StudentMaterialsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByUserNameCourseTypeWithDate(MaterialsDataSet.StudentMaterialsDataTable dataTable, int CourseTypeID, System.DateTime BeginDate, System.DateTime EndDate, string UserName) {
-            this.Adapter.SelectCommand = this.CommandCollection[7];
+            this.Adapter.SelectCommand = this.CommandCollection[11];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CourseTypeID));
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(BeginDate));
             this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(EndDate));
@@ -3325,7 +3545,7 @@ ORDER BY materials_cost.BuyTime DESC";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual MaterialsDataSet.StudentMaterialsDataTable GetDataByUserNameCourseTypeWithDate(int CourseTypeID, System.DateTime BeginDate, System.DateTime EndDate, string UserName) {
-            this.Adapter.SelectCommand = this.CommandCollection[7];
+            this.Adapter.SelectCommand = this.CommandCollection[11];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CourseTypeID));
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(BeginDate));
             this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(EndDate));

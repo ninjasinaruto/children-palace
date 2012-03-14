@@ -43,8 +43,8 @@
             this.lstCourseType = new System.Windows.Forms.ListBox();
             this.lstCourseSubtypes = new System.Windows.Forms.ListBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.lstCourses = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.staticDataSet)).BeginInit();
@@ -159,15 +159,6 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "课程选择";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 31);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 12);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "课程列表：";
-            // 
             // lstCourses
             // 
             this.lstCourses.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.coursesBindingSource, "CourseID", true));
@@ -180,6 +171,15 @@
             this.lstCourses.Size = new System.Drawing.Size(166, 544);
             this.lstCourses.TabIndex = 23;
             this.lstCourses.ValueMember = "CourseID";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 31);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 12);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "课程列表：";
             // 
             // btnCancel
             // 

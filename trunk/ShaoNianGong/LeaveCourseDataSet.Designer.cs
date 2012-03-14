@@ -307,8 +307,6 @@ namespace ShaoNianGong {
             
             private global::System.Data.DataColumn columnCourseID;
             
-            private global::System.Data.DataColumn columnStudentCount;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public LeaveCourseDataTable() {
@@ -456,14 +454,6 @@ namespace ShaoNianGong {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn StudentCountColumn {
-                get {
-                    return this.columnStudentCount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -499,7 +489,7 @@ namespace ShaoNianGong {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public LeaveCourseRow AddLeaveCourseRow(string Name, string Telephone, string Address, System.DateTime ExpireTime, string RefundReason, System.DateTime RefundDate, int RefundAmount, string CourseTypeName, string CourseSubtypeName, string CourseName, string TeacherName, string Operator, int CourseTypeID, int StudentCount) {
+            public LeaveCourseRow AddLeaveCourseRow(string Name, string Telephone, string Address, System.DateTime ExpireTime, string RefundReason, System.DateTime RefundDate, int RefundAmount, string CourseTypeName, string CourseSubtypeName, string CourseName, string TeacherName, string Operator, int CourseTypeID) {
                 LeaveCourseRow rowLeaveCourseRow = ((LeaveCourseRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Name,
@@ -515,8 +505,7 @@ namespace ShaoNianGong {
                         TeacherName,
                         Operator,
                         CourseTypeID,
-                        null,
-                        StudentCount};
+                        null};
                 rowLeaveCourseRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowLeaveCourseRow);
                 return rowLeaveCourseRow;
@@ -553,7 +542,6 @@ namespace ShaoNianGong {
                 this.columnOperator = base.Columns["Operator"];
                 this.columnCourseTypeID = base.Columns["CourseTypeID"];
                 this.columnCourseID = base.Columns["CourseID"];
-                this.columnStudentCount = base.Columns["StudentCount"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -587,8 +575,6 @@ namespace ShaoNianGong {
                 base.Columns.Add(this.columnCourseTypeID);
                 this.columnCourseID = new global::System.Data.DataColumn("CourseID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCourseID);
-                this.columnStudentCount = new global::System.Data.DataColumn("StudentCount", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStudentCount);
                 this.columnName.MaxLength = 20;
                 this.columnTelephone.MaxLength = 20;
                 this.columnAddress.MaxLength = 50;
@@ -609,7 +595,6 @@ namespace ShaoNianGong {
                 this.columnCourseID.AutoIncrementStep = -1;
                 this.columnCourseID.AllowDBNull = false;
                 this.columnCourseID.ReadOnly = true;
-                this.columnStudentCount.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -941,22 +926,6 @@ namespace ShaoNianGong {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int StudentCount {
-                get {
-                    try {
-                        return ((int)(this[this.tableLeaveCourse.StudentCountColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“LeaveCourse”中列“StudentCount”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tableLeaveCourse.StudentCountColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNameNull() {
                 return this.IsNull(this.tableLeaveCourse.NameColumn);
             }
@@ -1037,18 +1006,6 @@ namespace ShaoNianGong {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetOperatorNull() {
                 this[this.tableLeaveCourse.OperatorColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsStudentCountNull() {
-                return this.IsNull(this.tableLeaveCourse.StudentCountColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetStudentCountNull() {
-                this[this.tableLeaveCourse.StudentCountColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1225,7 +1182,6 @@ namespace ShaoNianGong.LeaveCourseDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Operator", "Operator");
             tableMapping.ColumnMappings.Add("CourseTypeID", "CourseTypeID");
             tableMapping.ColumnMappings.Add("CourseID", "CourseID");
-            tableMapping.ColumnMappings.Add("StudentCount", "StudentCount");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1239,372 +1195,234 @@ namespace ShaoNianGong.LeaveCourseDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[10];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[12];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.Ex" +
-                "pireTime, \r\n                student_refund_1.RefundReason, student_refund_1.Refu" +
-                "ndDate, student_refund_1.RefundAmount, \r\n                course_types_1.ID AS Co" +
-                "urseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, " +
-                "\r\n                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Na" +
-                "me AS TeacherName, student_refund_1.Operator,\r\n                    (SELECT   COU" +
-                "NT(0) AS Expr1\r\n                     FROM      (SELECT DISTINCT student_refund.S" +
-                "tudentID\r\n                                      FROM      student_refund INNER J" +
-                "OIN\r\n                                                      student_refund AS sr " +
-                "ON sr.StudentID = student_refund.StudentID INNER JOIN\r\n                         " +
-                "                             courses ON student_refund.CourseID = courses.ID INN" +
-                "ER JOIN\r\n                                                      course_subtypes O" +
-                "N courses.CourseSubTypeID = course_subtypes.ID INNER JOIN\r\n                     " +
-                "                                 course_types ON course_subtypes.CourseTypeID = " +
-                "course_types.ID INNER JOIN\r\n                                                    " +
-                "  students ON student_refund.StudentID = students.ID LEFT OUTER JOIN\r\n          " +
-                "                                            tearchers ON courses.TeacherID = tea" +
-                "rchers.ID) AS ct) AS StudentCount\r\nFROM      student_refund AS student_refund_1 " +
-                "INNER JOIN\r\n                courses AS courses_1 ON student_refund_1.CourseID = " +
-                "courses_1.ID INNER JOIN\r\n                course_subtypes AS course_subtypes_1 ON" +
-                " courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN\r\n                co" +
-                "urse_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_types_1." +
-                "ID INNER JOIN\r\n                students AS students_1 ON student_refund_1.Studen" +
-                "tID = students_1.ID LEFT OUTER JOIN\r\n                tearchers AS tearchers_1 ON" +
-                " courses_1.TeacherID = tearchers_1.ID\r\nWHERE   (student_refund_1.ID =\r\n         " +
-                "           (SELECT   MAX(ID) AS MaxID\r\n                     FROM      student_re" +
-                "fund AS sr\r\n                     WHERE   (student_refund_1.StudentID = StudentID" +
-                ") AND (student_refund_1.CourseID = CourseID)))\r\nORDER BY student_refund_1.Refund" +
-                "Date DESC";
+            this._commandCollection[0].CommandText = @"SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.ExpireTime, 
+                student_refund_1.RefundReason, student_refund_1.RefundDate, student_refund_1.RefundAmount, 
+                course_types_1.ID AS CourseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, 
+                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Name AS TeacherName, 
+                student_refund_1.Operator
+FROM      student_refund AS student_refund_1 INNER JOIN
+                courses AS courses_1 ON student_refund_1.CourseID = courses_1.ID INNER JOIN
+                course_subtypes AS course_subtypes_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN
+                course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_types_1.ID INNER JOIN
+                students AS students_1 ON student_refund_1.StudentID = students_1.ID LEFT OUTER JOIN
+                tearchers AS tearchers_1 ON courses_1.TeacherID = tearchers_1.ID
+ORDER BY student_refund_1.RefundDate DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.Ex" +
-                "pireTime, \r\n                student_refund_1.RefundReason, student_refund_1.Refu" +
-                "ndDate, student_refund_1.RefundAmount, \r\n                course_types_1.ID AS Co" +
-                "urseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, " +
-                "\r\n                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Na" +
-                "me AS TeacherName, student_refund_1.Operator,\r\n                    (SELECT   COU" +
-                "NT(0) AS Expr1\r\n                     FROM      (SELECT DISTINCT student_refund.S" +
-                "tudentID\r\n                                      FROM      student_refund INNER J" +
-                "OIN\r\n                                                      student_refund AS sr " +
-                "ON sr.StudentID = student_refund.StudentID INNER JOIN\r\n                         " +
-                "                             courses ON student_refund.CourseID = courses.ID INN" +
-                "ER JOIN\r\n                                                      course_subtypes O" +
-                "N courses.CourseSubTypeID = course_subtypes.ID INNER JOIN\r\n                     " +
-                "                                 course_types ON course_subtypes.CourseTypeID = " +
-                "course_types.ID INNER JOIN\r\n                                                    " +
-                "  students ON student_refund.StudentID = students.ID LEFT OUTER JOIN\r\n          " +
-                "                                            tearchers ON courses.TeacherID = tea" +
-                "rchers.ID) AS ct) AS StudentCount\r\nFROM      student_refund AS student_refund_1 " +
-                "INNER JOIN\r\n                courses AS courses_1 ON student_refund_1.CourseID = " +
-                "courses_1.ID INNER JOIN\r\n                course_subtypes AS course_subtypes_1 ON" +
-                " courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN\r\n                co" +
-                "urse_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_types_1." +
-                "ID INNER JOIN\r\n                students AS students_1 ON student_refund_1.Studen" +
-                "tID = students_1.ID LEFT OUTER JOIN\r\n                tearchers AS tearchers_1 ON" +
-                " courses_1.TeacherID = tearchers_1.ID\r\nWHERE   (student_refund_1.ID =\r\n         " +
-                "           (SELECT   MAX(ID) AS MaxID\r\n                     FROM      student_re" +
-                "fund AS sr\r\n                     WHERE   (student_refund_1.StudentID = StudentID" +
-                ") AND (student_refund_1.CourseID = CourseID))) AND \r\n                (DATEDIFF(m" +
-                "onth, student_refund_1.RefundDate, GETDATE()) = 0)\r\nORDER BY student_refund_1.Re" +
-                "fundDate DESC";
+            this._commandCollection[1].CommandText = @"SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.ExpireTime, 
+                student_refund_1.RefundReason, student_refund_1.RefundDate, student_refund_1.RefundAmount, 
+                course_types_1.ID AS CourseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, 
+                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Name AS TeacherName, 
+                student_refund_1.Operator
+FROM      student_refund AS student_refund_1 INNER JOIN
+                courses AS courses_1 ON student_refund_1.CourseID = courses_1.ID INNER JOIN
+                course_subtypes AS course_subtypes_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN
+                course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_types_1.ID INNER JOIN
+                students AS students_1 ON student_refund_1.StudentID = students_1.ID LEFT OUTER JOIN
+                tearchers AS tearchers_1 ON courses_1.TeacherID = tearchers_1.ID
+WHERE   (DATEDIFF(month, student_refund_1.RefundDate, GETDATE()) = 0)
+ORDER BY student_refund_1.RefundDate DESC";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.Ex" +
-                "pireTime, \r\n                student_refund_1.RefundReason, student_refund_1.Refu" +
-                "ndDate, student_refund_1.RefundAmount, \r\n                course_types_1.ID AS Co" +
-                "urseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, " +
-                "\r\n                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Na" +
-                "me AS TeacherName, student_refund_1.Operator,\r\n                    (SELECT   COU" +
-                "NT(0) AS Expr1\r\n                     FROM      (SELECT DISTINCT student_refund.S" +
-                "tudentID\r\n                                      FROM      student_refund INNER J" +
-                "OIN\r\n                                                      student_refund AS sr " +
-                "ON sr.StudentID = student_refund.StudentID INNER JOIN\r\n                         " +
-                "                             courses ON student_refund.CourseID = courses.ID INN" +
-                "ER JOIN\r\n                                                      course_subtypes O" +
-                "N courses.CourseSubTypeID = course_subtypes.ID INNER JOIN\r\n                     " +
-                "                                 course_types ON course_subtypes.CourseTypeID = " +
-                "course_types.ID INNER JOIN\r\n                                                    " +
-                "  students ON student_refund.StudentID = students.ID LEFT OUTER JOIN\r\n          " +
-                "                                            tearchers ON courses.TeacherID = tea" +
-                "rchers.ID) AS ct) AS StudentCount\r\nFROM      student_refund AS student_refund_1 " +
-                "INNER JOIN\r\n                courses AS courses_1 ON student_refund_1.CourseID = " +
-                "courses_1.ID INNER JOIN\r\n                course_subtypes AS course_subtypes_1 ON" +
-                " courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN\r\n                co" +
-                "urse_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_types_1." +
-                "ID INNER JOIN\r\n                students AS students_1 ON student_refund_1.Studen" +
-                "tID = students_1.ID LEFT OUTER JOIN\r\n                tearchers AS tearchers_1 ON" +
-                " courses_1.TeacherID = tearchers_1.ID\r\nWHERE   (student_refund_1.ID =\r\n         " +
-                "           (SELECT   MAX(ID) AS MaxID\r\n                     FROM      student_re" +
-                "fund AS sr\r\n                     WHERE   (student_refund_1.StudentID = StudentID" +
-                ") AND (student_refund_1.CourseID = CourseID))) AND \r\n                (DATEDIFF(d" +
-                "ay, @BeginDate, student_refund_1.RefundDate) >= 0) AND (DATEDIFF(day, @EndDate, " +
-                "\r\n                student_refund_1.RefundDate) <= 0)\r\nORDER BY student_refund_1." +
-                "RefundDate DESC";
+            this._commandCollection[2].CommandText = @"SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.ExpireTime, 
+                student_refund_1.RefundReason, student_refund_1.RefundDate, student_refund_1.RefundAmount, 
+                course_types_1.ID AS CourseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, 
+                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Name AS TeacherName, 
+                student_refund_1.Operator
+FROM      student_refund AS student_refund_1 INNER JOIN
+                courses AS courses_1 ON student_refund_1.CourseID = courses_1.ID INNER JOIN
+                course_subtypes AS course_subtypes_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN
+                course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_types_1.ID INNER JOIN
+                students AS students_1 ON student_refund_1.StudentID = students_1.ID LEFT OUTER JOIN
+                tearchers AS tearchers_1 ON courses_1.TeacherID = tearchers_1.ID
+WHERE   (DATEDIFF(day, @BeginDate, student_refund_1.RefundDate) >= 0) AND (DATEDIFF(day, @EndDate, 
+                student_refund_1.RefundDate) <= 0)
+ORDER BY student_refund_1.RefundDate DESC";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.Ex" +
-                "pireTime, \r\n                student_refund_1.RefundReason, student_refund_1.Refu" +
-                "ndDate, student_refund_1.RefundAmount, \r\n                course_types_1.ID AS Co" +
-                "urseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, " +
-                "\r\n                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Na" +
-                "me AS TeacherName, student_refund_1.Operator,\r\n                    (SELECT   COU" +
-                "NT(0) AS Expr1\r\n                     FROM      (SELECT DISTINCT student_refund.S" +
-                "tudentID\r\n                                      FROM      student_refund INNER J" +
-                "OIN\r\n                                                      student_refund AS sr " +
-                "ON sr.StudentID = student_refund.StudentID INNER JOIN\r\n                         " +
-                "                             courses ON student_refund.CourseID = courses.ID INN" +
-                "ER JOIN\r\n                                                      course_subtypes O" +
-                "N courses.CourseSubTypeID = course_subtypes.ID INNER JOIN\r\n                     " +
-                "                                 course_types ON course_subtypes.CourseTypeID = " +
-                "course_types.ID INNER JOIN\r\n                                                    " +
-                "  students ON student_refund.StudentID = students.ID LEFT OUTER JOIN\r\n          " +
-                "                                            tearchers ON courses.TeacherID = tea" +
-                "rchers.ID\r\n                                      WHERE   (student_refund.CourseI" +
-                "D = @CourseID)) AS ct) AS StudentCount\r\nFROM      student_refund AS student_refu" +
-                "nd_1 INNER JOIN\r\n                courses AS courses_1 ON student_refund_1.Course" +
-                "ID = courses_1.ID INNER JOIN\r\n                course_subtypes AS course_subtypes" +
-                "_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN\r\n             " +
-                "   course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_typ" +
-                "es_1.ID INNER JOIN\r\n                students AS students_1 ON student_refund_1.S" +
-                "tudentID = students_1.ID LEFT OUTER JOIN\r\n                tearchers AS tearchers" +
-                "_1 ON courses_1.TeacherID = tearchers_1.ID\r\nWHERE   (student_refund_1.ID =\r\n    " +
-                "                (SELECT   MAX(ID) AS MaxID\r\n                     FROM      stude" +
-                "nt_refund AS sr\r\n                     WHERE   (student_refund_1.StudentID = Stud" +
-                "entID) AND (student_refund_1.CourseID = CourseID))) AND \r\n                (stude" +
-                "nt_refund_1.CourseID = @CourseID)\r\nORDER BY student_refund_1.RefundDate DESC";
+            this._commandCollection[3].CommandText = @"SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.ExpireTime, 
+                student_refund_1.RefundReason, student_refund_1.RefundDate, student_refund_1.RefundAmount, 
+                course_types_1.ID AS CourseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, 
+                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Name AS TeacherName, 
+                student_refund_1.Operator
+FROM      student_refund AS student_refund_1 INNER JOIN
+                courses AS courses_1 ON student_refund_1.CourseID = courses_1.ID INNER JOIN
+                course_subtypes AS course_subtypes_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN
+                course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_types_1.ID INNER JOIN
+                students AS students_1 ON student_refund_1.StudentID = students_1.ID LEFT OUTER JOIN
+                tearchers AS tearchers_1 ON courses_1.TeacherID = tearchers_1.ID
+WHERE   (student_refund_1.CourseID = @CourseID)
+ORDER BY student_refund_1.RefundDate DESC";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CourseID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.Ex" +
-                "pireTime, \r\n                student_refund_1.RefundReason, student_refund_1.Refu" +
-                "ndDate, student_refund_1.RefundAmount, \r\n                course_types_1.ID AS Co" +
-                "urseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, " +
-                "\r\n                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Na" +
-                "me AS TeacherName, student_refund_1.Operator,\r\n                    (SELECT   COU" +
-                "NT(0) AS Expr1\r\n                     FROM      (SELECT DISTINCT student_refund.S" +
-                "tudentID\r\n                                      FROM      student_refund INNER J" +
-                "OIN\r\n                                                      student_refund AS sr " +
-                "ON sr.StudentID = student_refund.StudentID INNER JOIN\r\n                         " +
-                "                             courses ON student_refund.CourseID = courses.ID INN" +
-                "ER JOIN\r\n                                                      course_subtypes O" +
-                "N courses.CourseSubTypeID = course_subtypes.ID INNER JOIN\r\n                     " +
-                "                                 course_types ON course_subtypes.CourseTypeID = " +
-                "course_types.ID INNER JOIN\r\n                                                    " +
-                "  students ON student_refund.StudentID = students.ID LEFT OUTER JOIN\r\n          " +
-                "                                            tearchers ON courses.TeacherID = tea" +
-                "rchers.ID\r\n                                      WHERE   (course_subtypes.Course" +
-                "TypeID = @CourseTypeID)) AS ct) AS StudentCount\r\nFROM      student_refund AS stu" +
-                "dent_refund_1 INNER JOIN\r\n                courses AS courses_1 ON student_refund" +
-                "_1.CourseID = courses_1.ID INNER JOIN\r\n                course_subtypes AS course" +
-                "_subtypes_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN\r\n    " +
-                "            course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = c" +
-                "ourse_types_1.ID INNER JOIN\r\n                students AS students_1 ON student_r" +
-                "efund_1.StudentID = students_1.ID LEFT OUTER JOIN\r\n                tearchers AS " +
-                "tearchers_1 ON courses_1.TeacherID = tearchers_1.ID\r\nWHERE   (student_refund_1.I" +
-                "D =\r\n                    (SELECT   MAX(ID) AS MaxID\r\n                     FROM  " +
-                "    student_refund AS sr\r\n                     WHERE   (student_refund_1.Student" +
-                "ID = StudentID) AND (student_refund_1.CourseID = CourseID))) AND \r\n             " +
-                "   (course_subtypes_1.CourseTypeID = @CourseTypeID)\r\nORDER BY student_refund_1.R" +
-                "efundDate DESC";
+            this._commandCollection[4].CommandText = @"SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.ExpireTime, 
+                student_refund_1.RefundReason, student_refund_1.RefundDate, student_refund_1.RefundAmount, 
+                course_types_1.ID AS CourseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, 
+                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Name AS TeacherName, 
+                student_refund_1.Operator
+FROM      student_refund AS student_refund_1 INNER JOIN
+                courses AS courses_1 ON student_refund_1.CourseID = courses_1.ID INNER JOIN
+                course_subtypes AS course_subtypes_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN
+                course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_types_1.ID INNER JOIN
+                students AS students_1 ON student_refund_1.StudentID = students_1.ID LEFT OUTER JOIN
+                tearchers AS tearchers_1 ON courses_1.TeacherID = tearchers_1.ID
+WHERE   (course_subtypes_1.CourseTypeID = @CourseTypeID)
+ORDER BY student_refund_1.RefundDate DESC";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseTypeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CourseTypeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.Ex" +
-                "pireTime, \r\n                student_refund_1.RefundReason, student_refund_1.Refu" +
-                "ndDate, student_refund_1.RefundAmount, \r\n                course_types_1.ID AS Co" +
-                "urseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, " +
-                "\r\n                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Na" +
-                "me AS TeacherName, student_refund_1.Operator,\r\n                    (SELECT   COU" +
-                "NT(0) AS Expr1\r\n                     FROM      (SELECT DISTINCT student_refund.S" +
-                "tudentID\r\n                                      FROM      student_refund INNER J" +
-                "OIN\r\n                                                      student_refund AS sr " +
-                "ON sr.StudentID = student_refund.StudentID INNER JOIN\r\n                         " +
-                "                             courses ON student_refund.CourseID = courses.ID INN" +
-                "ER JOIN\r\n                                                      course_subtypes O" +
-                "N courses.CourseSubTypeID = course_subtypes.ID INNER JOIN\r\n                     " +
-                "                                 course_types ON course_subtypes.CourseTypeID = " +
-                "course_types.ID INNER JOIN\r\n                                                    " +
-                "  students ON student_refund.StudentID = students.ID LEFT OUTER JOIN\r\n          " +
-                "                                            tearchers ON courses.TeacherID = tea" +
-                "rchers.ID\r\n                                      WHERE   (course_subtypes.Course" +
-                "TypeID = @CourseTypeID)) AS ct) AS StudentCount\r\nFROM      student_refund AS stu" +
-                "dent_refund_1 INNER JOIN\r\n                courses AS courses_1 ON student_refund" +
-                "_1.CourseID = courses_1.ID INNER JOIN\r\n                course_subtypes AS course" +
-                "_subtypes_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN\r\n    " +
-                "            course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = c" +
-                "ourse_types_1.ID INNER JOIN\r\n                students AS students_1 ON student_r" +
-                "efund_1.StudentID = students_1.ID LEFT OUTER JOIN\r\n                tearchers AS " +
-                "tearchers_1 ON courses_1.TeacherID = tearchers_1.ID\r\nWHERE   (student_refund_1.I" +
-                "D =\r\n                    (SELECT   MAX(ID) AS MaxID\r\n                     FROM  " +
-                "    student_refund AS sr\r\n                     WHERE   (student_refund_1.Student" +
-                "ID = StudentID) AND (student_refund_1.CourseID = CourseID))) AND \r\n             " +
-                "   (course_subtypes_1.CourseTypeID = @CourseTypeID) AND (DATEDIFF(day, @BeginDat" +
-                "e, student_refund_1.RefundDate) \r\n                >= 0) AND (DATEDIFF(day, @EndD" +
-                "ate, student_refund_1.RefundDate) <= 0)\r\nORDER BY student_refund_1.RefundDate DE" +
-                "SC";
+            this._commandCollection[5].CommandText = @"SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.ExpireTime, 
+                student_refund_1.RefundReason, student_refund_1.RefundDate, student_refund_1.RefundAmount, 
+                course_types_1.ID AS CourseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, 
+                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Name AS TeacherName, 
+                student_refund_1.Operator
+FROM      student_refund AS student_refund_1 INNER JOIN
+                courses AS courses_1 ON student_refund_1.CourseID = courses_1.ID INNER JOIN
+                course_subtypes AS course_subtypes_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN
+                course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_types_1.ID INNER JOIN
+                students AS students_1 ON student_refund_1.StudentID = students_1.ID LEFT OUTER JOIN
+                tearchers AS tearchers_1 ON courses_1.TeacherID = tearchers_1.ID
+WHERE   (course_subtypes_1.CourseTypeID = @CourseTypeID) AND (DATEDIFF(day, @BeginDate, student_refund_1.RefundDate) 
+                >= 0) AND (DATEDIFF(day, @EndDate, student_refund_1.RefundDate) <= 0)
+ORDER BY student_refund_1.RefundDate DESC";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseTypeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CourseTypeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = "SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.Ex" +
-                "pireTime, \r\n                student_refund_1.RefundReason, student_refund_1.Refu" +
-                "ndDate, student_refund_1.RefundAmount, \r\n                course_types_1.ID AS Co" +
-                "urseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, " +
-                "\r\n                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Na" +
-                "me AS TeacherName, student_refund_1.Operator,\r\n                    (SELECT   COU" +
-                "NT(0) AS Expr1\r\n                     FROM      (SELECT DISTINCT student_refund.S" +
-                "tudentID\r\n                                      FROM      student_refund INNER J" +
-                "OIN\r\n                                                      student_refund AS sr " +
-                "ON sr.StudentID = student_refund.StudentID INNER JOIN\r\n                         " +
-                "                             courses ON student_refund.CourseID = courses.ID INN" +
-                "ER JOIN\r\n                                                      course_subtypes O" +
-                "N courses.CourseSubTypeID = course_subtypes.ID INNER JOIN\r\n                     " +
-                "                                 course_types ON course_subtypes.CourseTypeID = " +
-                "course_types.ID INNER JOIN\r\n                                                    " +
-                "  students ON student_refund.StudentID = students.ID LEFT OUTER JOIN\r\n          " +
-                "                                            tearchers ON courses.TeacherID = tea" +
-                "rchers.ID\r\n                                      WHERE   (student_refund.CourseI" +
-                "D = @CourseID)) AS ct) AS StudentCount\r\nFROM      student_refund AS student_refu" +
-                "nd_1 INNER JOIN\r\n                courses AS courses_1 ON student_refund_1.Course" +
-                "ID = courses_1.ID INNER JOIN\r\n                course_subtypes AS course_subtypes" +
-                "_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN\r\n             " +
-                "   course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_typ" +
-                "es_1.ID INNER JOIN\r\n                students AS students_1 ON student_refund_1.S" +
-                "tudentID = students_1.ID LEFT OUTER JOIN\r\n                tearchers AS tearchers" +
-                "_1 ON courses_1.TeacherID = tearchers_1.ID\r\nWHERE   (student_refund_1.ID =\r\n    " +
-                "                (SELECT   MAX(ID) AS MaxID\r\n                     FROM      stude" +
-                "nt_refund AS sr\r\n                     WHERE   (student_refund_1.StudentID = Stud" +
-                "entID) AND (student_refund_1.CourseID = CourseID))) AND \r\n                (stude" +
-                "nt_refund_1.CourseID = @CourseID) AND (DATEDIFF(day, @BeginDate, student_refund_" +
-                "1.RefundDate) >= 0) AND \r\n                (DATEDIFF(day, @EndDate, student_refun" +
-                "d_1.RefundDate) <= 0)\r\nORDER BY student_refund_1.RefundDate DESC";
+            this._commandCollection[6].CommandText = @"SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.ExpireTime, 
+                student_refund_1.RefundReason, student_refund_1.RefundDate, student_refund_1.RefundAmount, 
+                course_types_1.ID AS CourseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, 
+                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Name AS TeacherName, student_refund_1.Operator
+FROM      student_refund AS student_refund_1 INNER JOIN
+                courses AS courses_1 ON student_refund_1.CourseID = courses_1.ID INNER JOIN
+                course_subtypes AS course_subtypes_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN
+                course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_types_1.ID INNER JOIN
+                students AS students_1 ON student_refund_1.StudentID = students_1.ID LEFT OUTER JOIN
+                tearchers AS tearchers_1 ON courses_1.TeacherID = tearchers_1.ID
+WHERE  (student_refund_1.CourseID = @CourseID) AND (DATEDIFF(day, @BeginDate, student_refund_1.RefundDate) >= 0) AND 
+                (DATEDIFF(day, @EndDate, student_refund_1.RefundDate) <= 0)
+ORDER BY student_refund_1.RefundDate DESC";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CourseID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[7].Connection = this.Connection;
-            this._commandCollection[7].CommandText = "SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.Ex" +
-                "pireTime, \r\n                student_refund_1.RefundReason, student_refund_1.Refu" +
-                "ndDate, student_refund_1.RefundAmount, \r\n                course_types_1.ID AS Co" +
-                "urseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, " +
-                "\r\n                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Na" +
-                "me AS TeacherName, student_refund_1.Operator,\r\n                    (SELECT   COU" +
-                "NT(0) AS Expr1\r\n                     FROM      (SELECT DISTINCT student_refund.S" +
-                "tudentID\r\n                                      FROM      student_refund INNER J" +
-                "OIN\r\n                                                      student_refund AS sr " +
-                "ON sr.StudentID = student_refund.StudentID INNER JOIN\r\n                         " +
-                "                             courses ON student_refund.CourseID = courses.ID INN" +
-                "ER JOIN\r\n                                                      course_subtypes O" +
-                "N courses.CourseSubTypeID = course_subtypes.ID INNER JOIN\r\n                     " +
-                "                                 course_types ON course_subtypes.CourseTypeID = " +
-                "course_types.ID INNER JOIN\r\n                                                    " +
-                "  students ON student_refund.StudentID = students.ID LEFT OUTER JOIN\r\n          " +
-                "                                            tearchers ON courses.TeacherID = tea" +
-                "rchers.ID\r\n                                      WHERE   (student_refund.Student" +
-                "ID = @StudentID)) AS ct) AS StudentCount\r\nFROM      student_refund AS student_re" +
-                "fund_1 INNER JOIN\r\n                courses AS courses_1 ON student_refund_1.Cour" +
-                "seID = courses_1.ID INNER JOIN\r\n                course_subtypes AS course_subtyp" +
-                "es_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN\r\n           " +
-                "     course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_t" +
-                "ypes_1.ID INNER JOIN\r\n                students AS students_1 ON student_refund_1" +
-                ".StudentID = students_1.ID LEFT OUTER JOIN\r\n                tearchers AS tearche" +
-                "rs_1 ON courses_1.TeacherID = tearchers_1.ID\r\nWHERE   (student_refund_1.ID =\r\n  " +
-                "                  (SELECT   MAX(ID) AS MaxID\r\n                     FROM      stu" +
-                "dent_refund AS sr\r\n                     WHERE   (student_refund_1.StudentID = St" +
-                "udentID) AND (student_refund_1.CourseID = CourseID))) AND \r\n                (stu" +
-                "dent_refund_1.StudentID = @StudentID)\r\nORDER BY student_refund_1.RefundDate DESC" +
-                "";
+            this._commandCollection[7].CommandText = @"SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.ExpireTime, 
+                student_refund_1.RefundReason, student_refund_1.RefundDate, student_refund_1.RefundAmount, 
+                course_types_1.ID AS CourseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, 
+                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Name AS TeacherName, student_refund_1.Operator
+FROM      student_refund AS student_refund_1 INNER JOIN
+                courses AS courses_1 ON student_refund_1.CourseID = courses_1.ID INNER JOIN
+                course_subtypes AS course_subtypes_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN
+                course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_types_1.ID INNER JOIN
+                students AS students_1 ON student_refund_1.StudentID = students_1.ID LEFT OUTER JOIN
+                tearchers AS tearchers_1 ON courses_1.TeacherID = tearchers_1.ID
+WHERE (student_refund_1.StudentID = @StudentID)
+ORDER BY student_refund_1.RefundDate DESC";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[8].Connection = this.Connection;
-            this._commandCollection[8].CommandText = "SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.Ex" +
-                "pireTime, \r\n                student_refund_1.RefundReason, student_refund_1.Refu" +
-                "ndDate, student_refund_1.RefundAmount, \r\n                course_types_1.ID AS Co" +
-                "urseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, " +
-                "\r\n                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Na" +
-                "me AS TeacherName, student_refund_1.Operator,\r\n                    (SELECT   COU" +
-                "NT(0) AS Expr1\r\n                     FROM      (SELECT DISTINCT student_refund.S" +
-                "tudentID\r\n                                      FROM      student_refund INNER J" +
-                "OIN\r\n                                                      student_refund AS sr " +
-                "ON sr.StudentID = student_refund.StudentID INNER JOIN\r\n                         " +
-                "                             courses ON student_refund.CourseID = courses.ID INN" +
-                "ER JOIN\r\n                                                      course_subtypes O" +
-                "N courses.CourseSubTypeID = course_subtypes.ID INNER JOIN\r\n                     " +
-                "                                 course_types ON course_subtypes.CourseTypeID = " +
-                "course_types.ID INNER JOIN\r\n                                                    " +
-                "  students ON student_refund.StudentID = students.ID LEFT OUTER JOIN\r\n          " +
-                "                                            tearchers ON courses.TeacherID = tea" +
-                "rchers.ID\r\n                                      WHERE   (course_subtypes.Course" +
-                "TypeID = @CourseTypeID)) AS ct) AS StudentCount\r\nFROM      student_refund AS stu" +
-                "dent_refund_1 INNER JOIN\r\n                courses AS courses_1 ON student_refund" +
-                "_1.CourseID = courses_1.ID INNER JOIN\r\n                course_subtypes AS course" +
-                "_subtypes_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN\r\n    " +
-                "            course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = c" +
-                "ourse_types_1.ID INNER JOIN\r\n                students AS students_1 ON student_r" +
-                "efund_1.StudentID = students_1.ID LEFT OUTER JOIN\r\n                tearchers AS " +
-                "tearchers_1 ON courses_1.TeacherID = tearchers_1.ID\r\nWHERE   (student_refund_1.I" +
-                "D =\r\n                    (SELECT   MAX(ID) AS MaxID\r\n                     FROM  " +
-                "    student_refund AS sr\r\n                     WHERE   (student_refund_1.Student" +
-                "ID = StudentID) AND (student_refund_1.CourseID = CourseID))) AND \r\n             " +
-                "   (course_subtypes_1.CourseTypeID = @CourseTypeID) AND (DATEDIFF(day, @BeginDat" +
-                "e, student_refund_1.RefundDate) \r\n                >= 0) AND (DATEDIFF(day, @EndD" +
-                "ate, student_refund_1.RefundDate) <= 0) AND (courses_1.ID IN\r\n                  " +
-                "  ((SELECT   CourseId\r\n                      FROM      users_course_privilege\r\n " +
-                "                     WHERE   (UserName = @UserName))))\r\nORDER BY student_refund_" +
-                "1.RefundDate DESC";
+            this._commandCollection[8].CommandText = @"SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.ExpireTime, 
+                student_refund_1.RefundReason, student_refund_1.RefundDate, student_refund_1.RefundAmount, 
+                course_types_1.ID AS CourseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, 
+                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Name AS TeacherName, 
+                student_refund_1.Operator
+FROM      student_refund AS student_refund_1 INNER JOIN
+                courses AS courses_1 ON student_refund_1.CourseID = courses_1.ID INNER JOIN
+                course_subtypes AS course_subtypes_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN
+                course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_types_1.ID INNER JOIN
+                students AS students_1 ON student_refund_1.StudentID = students_1.ID LEFT OUTER JOIN
+                tearchers AS tearchers_1 ON courses_1.TeacherID = tearchers_1.ID
+WHERE   (student_refund_1.CourseID = @CourseID) AND (courses_1.ID IN
+                    ((SELECT   CourseId
+                      FROM      users_course_privilege
+                      WHERE   (UserName = @UserName))))
+ORDER BY student_refund_1.RefundDate DESC";
             this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseTypeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CourseTypeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CourseID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[9] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[9].Connection = this.Connection;
-            this._commandCollection[9].CommandText = "SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.Ex" +
-                "pireTime, \r\n                student_refund_1.RefundReason, student_refund_1.Refu" +
-                "ndDate, student_refund_1.RefundAmount, \r\n                course_types_1.ID AS Co" +
-                "urseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, " +
-                "\r\n                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Na" +
-                "me AS TeacherName, student_refund_1.Operator,\r\n                    (SELECT   COU" +
-                "NT(0) AS Expr1\r\n                     FROM      (SELECT DISTINCT student_refund.S" +
-                "tudentID\r\n                                      FROM      student_refund INNER J" +
-                "OIN\r\n                                                      student_refund AS sr " +
-                "ON sr.StudentID = student_refund.StudentID INNER JOIN\r\n                         " +
-                "                             courses ON student_refund.CourseID = courses.ID INN" +
-                "ER JOIN\r\n                                                      course_subtypes O" +
-                "N courses.CourseSubTypeID = course_subtypes.ID INNER JOIN\r\n                     " +
-                "                                 course_types ON course_subtypes.CourseTypeID = " +
-                "course_types.ID INNER JOIN\r\n                                                    " +
-                "  students ON student_refund.StudentID = students.ID LEFT OUTER JOIN\r\n          " +
-                "                                            tearchers ON courses.TeacherID = tea" +
-                "rchers.ID\r\n                                      WHERE   (student_refund.CourseI" +
-                "D = @CourseID)) AS ct) AS StudentCount\r\nFROM      student_refund AS student_refu" +
-                "nd_1 INNER JOIN\r\n                courses AS courses_1 ON student_refund_1.Course" +
-                "ID = courses_1.ID INNER JOIN\r\n                course_subtypes AS course_subtypes" +
-                "_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN\r\n             " +
-                "   course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_typ" +
-                "es_1.ID INNER JOIN\r\n                students AS students_1 ON student_refund_1.S" +
-                "tudentID = students_1.ID LEFT OUTER JOIN\r\n                tearchers AS tearchers" +
-                "_1 ON courses_1.TeacherID = tearchers_1.ID\r\nWHERE   (student_refund_1.ID =\r\n    " +
-                "                (SELECT   MAX(ID) AS MaxID\r\n                     FROM      stude" +
-                "nt_refund AS sr\r\n                     WHERE   (student_refund_1.StudentID = Stud" +
-                "entID) AND (student_refund_1.CourseID = CourseID))) AND \r\n                (stude" +
-                "nt_refund_1.CourseID = @CourseID) AND (DATEDIFF(day, @BeginDate, student_refund_" +
-                "1.RefundDate) >= 0) AND \r\n                (DATEDIFF(day, @EndDate, student_refun" +
-                "d_1.RefundDate) <= 0) AND (courses_1.ID IN\r\n                    ((SELECT   Cours" +
-                "eId\r\n                      FROM      users_course_privilege\r\n                   " +
-                "   WHERE   (UserName = @UserName))))\r\nORDER BY student_refund_1.RefundDate DESC";
+            this._commandCollection[9].CommandText = @"SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.ExpireTime, 
+                student_refund_1.RefundReason, student_refund_1.RefundDate, student_refund_1.RefundAmount, 
+                course_types_1.ID AS CourseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, 
+                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Name AS TeacherName, 
+                student_refund_1.Operator
+FROM      student_refund AS student_refund_1 INNER JOIN
+                courses AS courses_1 ON student_refund_1.CourseID = courses_1.ID INNER JOIN
+                course_subtypes AS course_subtypes_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN
+                course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_types_1.ID INNER JOIN
+                students AS students_1 ON student_refund_1.StudentID = students_1.ID LEFT OUTER JOIN
+                tearchers AS tearchers_1 ON courses_1.TeacherID = tearchers_1.ID
+WHERE   (course_subtypes_1.CourseTypeID = @CourseTypeID) AND (courses_1.ID IN
+                    ((SELECT   CourseId
+                      FROM      users_course_privilege
+                      WHERE   (UserName = @UserName))))
+ORDER BY student_refund_1.RefundDate DESC";
             this._commandCollection[9].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CourseID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseTypeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CourseTypeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[9].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[10].Connection = this.Connection;
+            this._commandCollection[10].CommandText = @"SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.ExpireTime, 
+                student_refund_1.RefundReason, student_refund_1.RefundDate, student_refund_1.RefundAmount, 
+                course_types_1.ID AS CourseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, 
+                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Name AS TeacherName, student_refund_1.Operator
+FROM      student_refund AS student_refund_1 INNER JOIN
+                courses AS courses_1 ON student_refund_1.CourseID = courses_1.ID INNER JOIN
+                course_subtypes AS course_subtypes_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN
+                course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_types_1.ID INNER JOIN
+                students AS students_1 ON student_refund_1.StudentID = students_1.ID LEFT OUTER JOIN
+                tearchers AS tearchers_1 ON courses_1.TeacherID = tearchers_1.ID
+WHERE (course_subtypes_1.CourseTypeID = @CourseTypeID) AND (DATEDIFF(day, @BeginDate, student_refund_1.RefundDate) 
+                >= 0) AND (DATEDIFF(day, @EndDate, student_refund_1.RefundDate) <= 0) AND (courses_1.ID IN
+                    ((SELECT   CourseId
+                      FROM      users_course_privilege
+                      WHERE   (UserName = @UserName))))
+ORDER BY student_refund_1.RefundDate DESC";
+            this._commandCollection[10].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseTypeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CourseTypeID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[10].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[11] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[11].Connection = this.Connection;
+            this._commandCollection[11].CommandText = @"SELECT   students_1.Name, students_1.Telephone, students_1.Address, students_1.ExpireTime, 
+                student_refund_1.RefundReason, student_refund_1.RefundDate, student_refund_1.RefundAmount, 
+                course_types_1.ID AS CourseTypeID, course_types_1.CourseTypeName, course_subtypes_1.CourseSubtypeName, 
+                courses_1.ID AS CourseID, courses_1.CourseName, tearchers_1.Name AS TeacherName, student_refund_1.Operator
+FROM      student_refund AS student_refund_1 INNER JOIN
+                courses AS courses_1 ON student_refund_1.CourseID = courses_1.ID INNER JOIN
+                course_subtypes AS course_subtypes_1 ON courses_1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN
+                course_types AS course_types_1 ON course_subtypes_1.CourseTypeID = course_types_1.ID INNER JOIN
+                students AS students_1 ON student_refund_1.StudentID = students_1.ID LEFT OUTER JOIN
+                tearchers AS tearchers_1 ON courses_1.TeacherID = tearchers_1.ID
+WHERE (student_refund_1.CourseID = @CourseID) AND (DATEDIFF(day, @BeginDate, student_refund_1.RefundDate) >= 0) AND 
+                (DATEDIFF(day, @EndDate, student_refund_1.RefundDate) <= 0) AND (courses_1.ID IN
+                    ((SELECT   CourseId
+                      FROM      users_course_privilege
+                      WHERE   (UserName = @UserName))))
+ORDER BY student_refund_1.RefundDate DESC";
+            this._commandCollection[11].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CourseID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[11].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1825,8 +1643,84 @@ namespace ShaoNianGong.LeaveCourseDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByUserNameCourseTypeWithDate(LeaveCourseDataSet.LeaveCourseDataTable dataTable, int CourseTypeID, System.DateTime BeginDate, System.DateTime EndDate, string UserName) {
+        public virtual int FillByUserNameCourse(LeaveCourseDataSet.LeaveCourseDataTable dataTable, int CourseID, string UserName) {
             this.Adapter.SelectCommand = this.CommandCollection[8];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CourseID));
+            if ((UserName == null)) {
+                throw new global::System.ArgumentNullException("UserName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(UserName));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual LeaveCourseDataSet.LeaveCourseDataTable GetDataByUserNameCourse(int CourseID, string UserName) {
+            this.Adapter.SelectCommand = this.CommandCollection[8];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CourseID));
+            if ((UserName == null)) {
+                throw new global::System.ArgumentNullException("UserName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(UserName));
+            }
+            LeaveCourseDataSet.LeaveCourseDataTable dataTable = new LeaveCourseDataSet.LeaveCourseDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByUserNameCourseType(LeaveCourseDataSet.LeaveCourseDataTable dataTable, int CourseTypeID, string UserName) {
+            this.Adapter.SelectCommand = this.CommandCollection[9];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CourseTypeID));
+            if ((UserName == null)) {
+                throw new global::System.ArgumentNullException("UserName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(UserName));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual LeaveCourseDataSet.LeaveCourseDataTable GetDataByUserNameCourseType(int CourseTypeID, string UserName) {
+            this.Adapter.SelectCommand = this.CommandCollection[9];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CourseTypeID));
+            if ((UserName == null)) {
+                throw new global::System.ArgumentNullException("UserName");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(UserName));
+            }
+            LeaveCourseDataSet.LeaveCourseDataTable dataTable = new LeaveCourseDataSet.LeaveCourseDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByUserNameCourseTypeWithDate(LeaveCourseDataSet.LeaveCourseDataTable dataTable, int CourseTypeID, System.DateTime BeginDate, System.DateTime EndDate, string UserName) {
+            this.Adapter.SelectCommand = this.CommandCollection[10];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CourseTypeID));
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(BeginDate));
             this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(EndDate));
@@ -1848,7 +1742,7 @@ namespace ShaoNianGong.LeaveCourseDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual LeaveCourseDataSet.LeaveCourseDataTable GetDataByUserNameCourseTypeWithDate(int CourseTypeID, System.DateTime BeginDate, System.DateTime EndDate, string UserName) {
-            this.Adapter.SelectCommand = this.CommandCollection[8];
+            this.Adapter.SelectCommand = this.CommandCollection[10];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CourseTypeID));
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(BeginDate));
             this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(EndDate));
@@ -1868,7 +1762,7 @@ namespace ShaoNianGong.LeaveCourseDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByUserNameCourseWithDate(LeaveCourseDataSet.LeaveCourseDataTable dataTable, int CourseID, System.DateTime BeginDate, System.DateTime EndDate, string UserName) {
-            this.Adapter.SelectCommand = this.CommandCollection[9];
+            this.Adapter.SelectCommand = this.CommandCollection[11];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CourseID));
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(BeginDate));
             this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(EndDate));
@@ -1890,7 +1784,7 @@ namespace ShaoNianGong.LeaveCourseDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual LeaveCourseDataSet.LeaveCourseDataTable GetDataByUserNameCourseWithDate(int CourseID, System.DateTime BeginDate, System.DateTime EndDate, string UserName) {
-            this.Adapter.SelectCommand = this.CommandCollection[9];
+            this.Adapter.SelectCommand = this.CommandCollection[11];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CourseID));
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(BeginDate));
             this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(EndDate));

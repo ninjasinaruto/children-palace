@@ -145,7 +145,7 @@ namespace ShaoNianGong
                 }
                 this.studentDepositListTableAdapter.FillByCourseTypeWithDate(this.depositListDataSet.StudentDepositList, frmCourseTypeSelect.CourseTypeId, beginDate, endDate);
             }
-            txtShowRange.Text = frmCourseTypeSelect.CourseTypeName;
+            txtShowRange.Text = frmCourseTypeSelect.CourseTypeName + "    " + beginDate.ToShortDateString() + " - " + endDate.ToShortDateString();
         }
 
         private void btnSearchByCourseWithDate_Click(object sender, EventArgs e)
@@ -173,7 +173,7 @@ namespace ShaoNianGong
                 }
                 this.studentDepositListTableAdapter.FillByCourseIDWithDate(this.depositListDataSet.StudentDepositList, frmCourseSelect.CourseID, beginDate, endDate);
             }
-            txtShowRange.Text = frmCourseSelect.CourseTypeName + " - " + frmCourseSelect.CourseSubtypeName + " - " + frmCourseSelect.CourseName;
+            txtShowRange.Text = frmCourseSelect.CourseTypeName + " - " + frmCourseSelect.CourseSubtypeName + " - " + frmCourseSelect.CourseName + "    " + beginDate.ToShortDateString() + " - " + endDate.ToShortDateString();
         }
 
         private void depositListBindingSource_ListChanged(object sender, ListChangedEventArgs e)
