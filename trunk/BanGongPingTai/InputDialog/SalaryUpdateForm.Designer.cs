@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtOtherAwardRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtAppraisalAwardRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtTravelSubsidyRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -182,6 +182,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.txtTotal = new DevComponents.Editors.DoubleInput();
+            this.label33 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txtOtherAwardAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAppraisalAwardAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTravelSubsidyAmount)).BeginInit();
@@ -248,6 +250,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCourseWageCoefficient)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseWage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTotal)).BeginInit();
             this.SuspendLayout();
             // 
             // txtOtherAwardRemark
@@ -551,6 +554,7 @@
             this.txtOtherSubsidyAmount.TabIndex = 27;
             this.txtOtherSubsidyAmount.WatermarkAlignment = DevComponents.Editors.eTextAlignment.Right;
             this.txtOtherSubsidyAmount.WatermarkText = "0.00";
+            this.txtOtherSubsidyAmount.ValueChanged += new System.EventHandler(this.txtOtherSubsidyAmount_ValueChanged);
             // 
             // txtWorkSubsidyAmount
             // 
@@ -569,6 +573,7 @@
             this.txtWorkSubsidyAmount.TabIndex = 23;
             this.txtWorkSubsidyAmount.WatermarkAlignment = DevComponents.Editors.eTextAlignment.Right;
             this.txtWorkSubsidyAmount.WatermarkText = "0.00";
+            this.txtWorkSubsidyAmount.ValueChanged += new System.EventHandler(this.txtWorkSubsidyAmount_ValueChanged);
             // 
             // txtHolidaysSubsidyAmount
             // 
@@ -587,6 +592,7 @@
             this.txtHolidaysSubsidyAmount.TabIndex = 19;
             this.txtHolidaysSubsidyAmount.WatermarkAlignment = DevComponents.Editors.eTextAlignment.Right;
             this.txtHolidaysSubsidyAmount.WatermarkText = "0.00";
+            this.txtHolidaysSubsidyAmount.ValueChanged += new System.EventHandler(this.txtHolidaysSubsidyAmount_ValueChanged);
             // 
             // txtInsuranceSubsidyAmount
             // 
@@ -605,6 +611,7 @@
             this.txtInsuranceSubsidyAmount.TabIndex = 15;
             this.txtInsuranceSubsidyAmount.WatermarkAlignment = DevComponents.Editors.eTextAlignment.Right;
             this.txtInsuranceSubsidyAmount.WatermarkText = "0.00";
+            this.txtInsuranceSubsidyAmount.ValueChanged += new System.EventHandler(this.txtInsuranceSubsidyAmount_ValueChanged);
             // 
             // txtAgeSubsidyAmount
             // 
@@ -623,6 +630,7 @@
             this.txtAgeSubsidyAmount.TabIndex = 11;
             this.txtAgeSubsidyAmount.WatermarkAlignment = DevComponents.Editors.eTextAlignment.Right;
             this.txtAgeSubsidyAmount.WatermarkText = "0.00";
+            this.txtAgeSubsidyAmount.ValueChanged += new System.EventHandler(this.txtAgeSubsidyAmount_ValueChanged);
             // 
             // txtJobWageAmount
             // 
@@ -641,6 +649,7 @@
             this.txtJobWageAmount.TabIndex = 7;
             this.txtJobWageAmount.WatermarkAlignment = DevComponents.Editors.eTextAlignment.Right;
             this.txtJobWageAmount.WatermarkText = "0.00";
+            this.txtJobWageAmount.ValueChanged += new System.EventHandler(this.txtJobWageAmount_ValueChanged);
             // 
             // txtBasicWageAmount
             // 
@@ -659,6 +668,7 @@
             this.txtBasicWageAmount.TabIndex = 3;
             this.txtBasicWageAmount.WatermarkAlignment = DevComponents.Editors.eTextAlignment.Right;
             this.txtBasicWageAmount.WatermarkText = "0.00";
+            this.txtBasicWageAmount.ValueChanged += new System.EventHandler(this.txtBasicWageAmount_ValueChanged);
             // 
             // txtOtherSubsidyNum
             // 
@@ -1248,6 +1258,7 @@
             this.txtStudentAmount.TabIndex = 37;
             this.txtStudentAmount.WatermarkAlignment = DevComponents.Editors.eTextAlignment.Right;
             this.txtStudentAmount.WatermarkText = "0.00";
+            this.txtStudentAmount.ValueChanged += new System.EventHandler(this.txtStudentAmount_ValueChanged);
             // 
             // txtOtherAwardStandardPrice
             // 
@@ -1295,9 +1306,9 @@
             // 
             // dataGridViewTextBoxColumn5
             // 
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle51.Format = "N2";
+            dataGridViewCellStyle51.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle51;
             this.dataGridViewTextBoxColumn5.HeaderText = "金额";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -1831,9 +1842,9 @@
             // 
             // dataGridViewTextBoxColumn3
             // 
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle52.Format = "N2";
+            dataGridViewCellStyle52.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle52;
             this.dataGridViewTextBoxColumn3.HeaderText = "对应标准";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -1855,9 +1866,9 @@
             // 
             // ActualPrice
             // 
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.ActualPrice.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle53.Format = "N2";
+            dataGridViewCellStyle53.NullValue = null;
+            this.ActualPrice.DefaultCellStyle = dataGridViewCellStyle53;
             this.ActualPrice.HeaderText = "对应单价（实际）";
             this.ActualPrice.Name = "ActualPrice";
             this.ActualPrice.ReadOnly = true;
@@ -1865,9 +1876,9 @@
             // 
             // StandardPrice
             // 
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.StandardPrice.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle54.Format = "N2";
+            dataGridViewCellStyle54.NullValue = null;
+            this.StandardPrice.DefaultCellStyle = dataGridViewCellStyle54;
             this.StandardPrice.HeaderText = "对应单价（标准）";
             this.StandardPrice.Name = "StandardPrice";
             this.StandardPrice.ReadOnly = true;
@@ -1899,9 +1910,9 @@
             // 
             // CourseAmount
             // 
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.CourseAmount.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle55.Format = "N2";
+            dataGridViewCellStyle55.NullValue = null;
+            this.CourseAmount.DefaultCellStyle = dataGridViewCellStyle55;
             this.CourseAmount.HeaderText = "课量工资（标准）";
             this.CourseAmount.Name = "CourseAmount";
             this.CourseAmount.ReadOnly = true;
@@ -1972,6 +1983,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtTotal);
+            this.groupBox3.Controls.Add(this.label33);
             this.groupBox3.Controls.Add(this.txtStudentAmount);
             this.groupBox3.Controls.Add(this.txtStudentActualPrice);
             this.groupBox3.Controls.Add(this.txtStudentStandardPrice);
@@ -2165,6 +2178,33 @@
             this.shapeContainer1.TabIndex = 84;
             this.shapeContainer1.TabStop = false;
             // 
+            // txtTotal
+            // 
+            this.txtTotal.AllowEmptyState = false;
+            // 
+            // 
+            // 
+            this.txtTotal.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.txtTotal.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtTotal.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.txtTotal.Increment = 1D;
+            this.txtTotal.Location = new System.Drawing.Point(565, 37);
+            this.txtTotal.MinValue = 0D;
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(88, 21);
+            this.txtTotal.TabIndex = 86;
+            this.txtTotal.WatermarkAlignment = DevComponents.Editors.eTextAlignment.Right;
+            this.txtTotal.WatermarkText = "0.00";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(527, 41);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(41, 12);
+            this.label33.TabIndex = 85;
+            this.label33.Text = "合计：";
+            // 
             // SalaryUpdateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2258,6 +2298,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseWage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTotal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2413,5 +2454,7 @@
         private System.Windows.Forms.Label label1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
+        private DevComponents.Editors.DoubleInput txtTotal;
+        private System.Windows.Forms.Label label33;
     }
 }

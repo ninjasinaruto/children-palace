@@ -37,7 +37,7 @@ namespace BanGongPingTai
         private void TeachersManageForm_Resize(object sender, EventArgs e)
         {
             dgvTeacherWages.Width = this.Width - 22;
-            dgvTeacherWages.Height = this.Height - 360;
+            dgvTeacherWages.Height = this.Height - 315;
         }
 
         private void btnAddTeacher_Click(object sender, EventArgs e)
@@ -484,6 +484,7 @@ namespace BanGongPingTai
         private DateTime LastDayOfMonth(DateTime datetime)  
         {
             return datetime.AddDays(1 - datetime.Day).AddMonths(1).AddDays(-1);  
-        } 
+        }
+
     }
 }

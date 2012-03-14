@@ -411,6 +411,7 @@ namespace BanGongPingTai
             dr.Cells[4].Value = frmCourseWageAdd.CourseAmount;
             dr.Cells[5].Value = frmCourseWageAdd.Remark;
             this.dgvCourseWage.Rows.Add(dr);
+            showTotal();
         }
 
         // 修改课量工资
@@ -444,6 +445,7 @@ namespace BanGongPingTai
                 this.dgvCourseWage.Rows[idx].Selected = true;
                 this.dgvCourseWage.CurrentCell = this.dgvCourseWage.Rows[idx].Cells[0];
             }
+            showTotal();
         }
 
         // 删除课量工资
@@ -459,6 +461,7 @@ namespace BanGongPingTai
                 this.dgvCourseWage.Rows.Remove(this.dgvCourseWage.CurrentRow);
                 dgvCourseWage_SelectionChanged(sender, e);
             }
+            showTotal();
         }
 
         private void dgvCourseWage_SelectionChanged(object sender, EventArgs e)
@@ -804,6 +807,67 @@ namespace BanGongPingTai
                     }
                 }
             }
+            showTotal();
+        }
+
+        private void showTotal()
+        {
+            double basicWage = txtBasicWageAmount.Value;
+            double jobWage = txtJobWageAmount.Value;
+            double ageWage = txtAgeSubsidyAmount.Value;
+            double insuranceWage = txtInsuranceSubsidyAmount.Value;
+            double holidayWage = txtHolidaysSubsidyAmount.Value;
+            double workWage = txtWorkSubsidyAmount.Value;
+            double otherWage = txtOtherSubsidyAmount.Value;
+            double courseWage = 0.0;
+
+            DataSet courseWageDs = GetDataSetFromDataGridView(this.dgvCourseWage);
+            for (int i = 0; i < dgvCourseWage.RowCount; i++)
+            {
+                courseWage += double.Parse(courseWageDs.Tables[0].Rows[i][4] + "");
+            }
+            double studentWage = txtStudentAmount.Value;
+            txtTotal.Text = basicWage + jobWage + ageWage + insuranceWage + holidayWage + workWage + otherWage + courseWage + studentWage + "";
+        }
+
+        private void txtBasicWageAmount_ValueChanged(object sender, EventArgs e)
+        {
+            showTotal();
+        }
+
+        private void txtJobWageAmount_ValueChanged(object sender, EventArgs e)
+        {
+            showTotal();
+        }
+
+        private void txtAgeSubsidyAmount_ValueChanged(object sender, EventArgs e)
+        {
+            showTotal();
+        }
+
+        private void txtInsuranceSubsidyAmount_ValueChanged(object sender, EventArgs e)
+        {
+            showTotal();
+        }
+
+        private void txtHolidaysSubsidyAmount_ValueChanged(object sender, EventArgs e)
+        {
+            showTotal();
+        }
+
+        private void txtWorkSubsidyAmount_ValueChanged(object sender, EventArgs e)
+        {
+            showTotal();
+        }
+
+        private void txtOtherSubsidyAmount_ValueChanged(object sender, EventArgs e)
+        {
+            showTotal();
+        }
+
+        private void txtStudentAmount_ValueChanged(object sender, EventArgs e)
+        {
+            showTotal();
         }
     }
 }
