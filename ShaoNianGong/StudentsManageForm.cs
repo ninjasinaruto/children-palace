@@ -43,6 +43,7 @@ namespace ShaoNianGong
                 btnVacate.Enabled = false;
                 btnSignUpCourses.Enabled = false;
                 btnChangeCourses.Enabled = false;
+                btnDelLeave.Enabled = false;
 
                 btnShowAll.Enabled = false;
                 btnShowLeft.Enabled = false;
@@ -66,6 +67,7 @@ namespace ShaoNianGong
             if (studentsBindingSource.Position < 0)
             {
                 btnDeposit.Enabled = false;
+                btnDelLeave.Enabled = false;
                 studentsDataSet.StudentCourses.Clear();
                 return;
             }
@@ -86,21 +88,27 @@ namespace ShaoNianGong
             if (UserType == 0)
                 return;
             int studentStatus = studentsDataSet.Students.Rows[index].Field<int>("Status");
-            switch (studentStatus )
+            switch (studentStatus)
             {
                 case 1:
                     // 正常状态
                     btnVacate.Enabled = true;
                     btnReportBack.Enabled = false;
+                    btnDelLeave.Enabled = false;
                     break;
                 case 2:
                     // 请假状态
                     btnVacate.Enabled = false;
                     btnReportBack.Enabled = true;
+                    btnDelLeave.Enabled = false;
+                    break;
+                case 4:
+                    btnDelLeave.Enabled = true;
                     break;
                 default:
                     btnVacate.Enabled = false;
                     btnReportBack.Enabled = false;
+                    btnDelLeave.Enabled = false;
                     break;
             }
 
@@ -339,6 +347,7 @@ namespace ShaoNianGong
         {
             if (dgvStudents.SelectedRows.Count <= 0)
                 return;
+            int rowIndex = dgvStudents.CurrentRow.Index;
             DataGridViewRow row = dgvStudents.SelectedRows[0];
 
             CourseSignUpForm frmCourseSignUp = new CourseSignUpForm();
@@ -388,10 +397,10 @@ namespace ShaoNianGong
             studentsTableAdapter.UpdateBalance(balance, int.Parse(txtID.Text));
             txtBalance.Text = balance.ToString();
             // 1.2> 添加扣钱记录
-            studentCostTableAdapter1.InsertCost(int.Parse(txtID.Text), frmCourseSignUp.CourseId,
+            studentCostTableAdapter1.InsertCostWithExpireTime(int.Parse(txtID.Text), frmCourseSignUp.CourseId,
                 int.Parse(frmCourseSignUp.TotalCost), DateTime.Now,
                 frmCourseSignUp.DiscountLevel,
-                int.Parse(frmCourseSignUp.ActualCostAmount), frmCourseSignUp.DiscountReason, User.CurrentUser.UserName);
+                int.Parse(frmCourseSignUp.ActualCostAmount), frmCourseSignUp.DiscountReason, User.CurrentUser.UserName, DateTime.Parse(frmCourseSignUp.ExpireDate));
 
             // 2> 添加报名信息
             DateTime expireDate = DateTime.Parse(frmCourseSignUp.ExpireDate);
@@ -402,6 +411,21 @@ namespace ShaoNianGong
             studentsTableAdapter.UpdateExpireTime(expireDate, int.Parse(txtID.Text));
 
             MessageBox.Show("报名成功！", "报名课程成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (this.UserType == 0)
+            {
+                // 只加载被授权的学生
+                this.studentsTableAdapter.FillByUserName(this.studentsDataSet.Students, this.UserName);
+            }
+            else
+            {
+                // 加载所有的学生
+                this.studentsTableAdapter.FillByStatus(this.studentsDataSet.Students);
+            }
+            if (rowIndex >= 0)
+            {
+                this.dgvStudents.Rows[rowIndex].Selected = true;
+                this.dgvStudents.CurrentCell = this.dgvStudents.Rows[rowIndex].Cells[0];
+            }
         }
 
         private int GetSelectedStudentCourseIndex()
@@ -417,6 +441,7 @@ namespace ShaoNianGong
         {
             if (dgvStudentCourses.SelectedRows.Count <= 0)
                 return;
+            int rowIndex = dgvStudents.CurrentRow.Index;
             DataGridViewRow row = dgvStudentCourses.SelectedRows[0];
 
             // Get course id;
@@ -448,8 +473,8 @@ namespace ShaoNianGong
             txtBalance.Text = balance.ToString();
 
             // 2> 添加扣钱记录
-            studentCostTableAdapter1.InsertCost(int.Parse(txtID.Text), courseID, frmCourseExtend.TotalCost, DateTime.Now, 100,
-                frmCourseExtend.ActualCost, frmCourseExtend.DiscountReason, User.CurrentUser.UserName);
+            studentCostTableAdapter1.InsertCostWithExpireTime(int.Parse(txtID.Text), courseID, frmCourseExtend.TotalCost, DateTime.Now, 100,
+                frmCourseExtend.ActualCost, frmCourseExtend.DiscountReason, User.CurrentUser.UserName, frmCourseExtend.ExpireDate);
 
             // 3> 更新课程到期时间
             studentCoursesTableAdapter.UpdateExpireTime(frmCourseExtend.ExpireDate, studentCourseId);
@@ -459,6 +484,21 @@ namespace ShaoNianGong
 
             // 5> 刷新显示
             studentCoursesTableAdapter.Fill(studentsDataSet.StudentCourses, studentId);
+            if (this.UserType == 0)
+            {
+                // 只加载被授权的学生
+                this.studentsTableAdapter.FillByUserName(this.studentsDataSet.Students, this.UserName);
+            }
+            else
+            {
+                // 加载所有的学生
+                this.studentsTableAdapter.FillByStatus(this.studentsDataSet.Students);
+            }
+            if (rowIndex >= 0)
+            {
+                this.dgvStudents.Rows[rowIndex].Selected = true;
+                this.dgvStudents.CurrentCell = this.dgvStudents.Rows[rowIndex].Cells[0];
+            }
         }
 
         private void btnBuyMaterial_Click(object sender, EventArgs e)
@@ -809,8 +849,8 @@ namespace ShaoNianGong
             // 2)删除原来的记录
             studentCostTableAdapter1.DeleteByStudentIDAndCourseID(studentId, courseID);
             // 3)新增新的记录
-            studentCostTableAdapter1.InsertCost(int.Parse(txtID.Text), frmChangeCourse.NewCourseID, int.Parse(frmConfirmChangeCourse.TotalAmount), DateTime.Now, frmChangeCourse.DiscountLevel,
-                int.Parse(frmConfirmChangeCourse.InbackAmount), frmConfirmChangeCourse.DiscountReason, User.CurrentUser.UserName);
+            studentCostTableAdapter1.InsertCostWithExpireTime(int.Parse(txtID.Text), frmChangeCourse.NewCourseID, int.Parse(frmConfirmChangeCourse.TotalAmount), DateTime.Now, frmChangeCourse.DiscountLevel,
+                int.Parse(frmConfirmChangeCourse.InbackAmount), frmConfirmChangeCourse.DiscountReason, User.CurrentUser.UserName, DateTime.Parse(frmConfirmChangeCourse.NewExpireDate));
 
             // 5.新增转班历史表
             changeCoursesTableAdapter.Insert(studentId, frmConfirmChangeCourse.CourseTypeName, frmConfirmChangeCourse.CourseSubtypeName, frmConfirmChangeCourse.CourseName,
@@ -836,6 +876,29 @@ namespace ShaoNianGong
             {
                 this.dgvStudents.Rows[rowIndex].Selected = true;
                 this.dgvStudents.CurrentCell = this.dgvStudents.Rows[rowIndex].Cells[0];
+            }
+        }
+
+        private void dgvStudents_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if (dgvStudents.Rows.Count > 0)
+                for (int i = 0; i < dgvStudents.Rows.Count; i++)
+                {
+                    dgvStudents.Rows[i].Cells[0].Value = i + 1;
+                }
+        }
+
+        private void btnDelLeave_Click(object sender, EventArgs e)
+        {
+            if (dgvStudents.SelectedRows.Count <= 0)
+                return;
+            if (MessageBox.Show("您确定要删除该条离班记录吗？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                int studentID = int.Parse(txtID.Text);
+                studentsTableAdapter.DeleteRefundByStudentID(studentID);
+                this.studentsTableAdapter.FillByLeave(this.studentsDataSet.Students);
+                this.Text = "学生资料管理 - [离班]";
+                txtShowRange.Text = "离班";
             }
         }
     }

@@ -9,9 +9,9 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CostListTableAdapter" GeneratorDataComponentClassName="CostListTableAdapter" Name="CostList" UserDataComponentName="CostListTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT DISTINCT 
                 course_types.CourseTypeName, course_subtypes.CourseSubtypeName, courses.CourseName, courses.ChargeAmount, 
                 charge_type.ChargeTypeName, students.Name, student_cost.CostDate, student_cost.CostAmount, students.Balance, 
@@ -212,8 +212,10 @@ ORDER BY student_cost.CostDate DESC</CommandText>
                     <CommandText>SELECT DISTINCT 
                 course_types.CourseTypeName, course_subtypes.CourseSubtypeName, courses.CourseName, courses.ChargeAmount, 
                 charge_type.ChargeTypeName, students.Name, student_cost.CostDate, student_cost.CostAmount, students.Balance, 
-                v_student_courses.ExpireTime, student_cost.DiscountLevel, student_cost.ActualCostAmount, 
-                student_cost.DiscountReason, discount_level.DiscountLevelName, student_cost.Operator
+                (CASE WHEN student_cost.OldExpireTime IS NULL 
+                THEN v_student_courses.ExpireTime ELSE student_cost.OldExpireTime END) AS ExpireTime, 
+                student_cost.DiscountLevel, student_cost.ActualCostAmount, student_cost.DiscountReason, 
+                discount_level.DiscountLevelName, student_cost.Operator
 FROM      student_cost INNER JOIN
                 students ON student_cost.StudentID = students.ID INNER JOIN
                 courses ON student_cost.CourseID = courses.ID INNER JOIN
