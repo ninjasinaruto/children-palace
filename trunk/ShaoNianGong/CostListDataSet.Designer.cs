@@ -1304,8 +1304,10 @@ ORDER BY student_cost.CostDate DESC";
             this._commandCollection[7].CommandText = @"SELECT DISTINCT 
                 course_types.CourseTypeName, course_subtypes.CourseSubtypeName, courses.CourseName, courses.ChargeAmount, 
                 charge_type.ChargeTypeName, students.Name, student_cost.CostDate, student_cost.CostAmount, students.Balance, 
-                v_student_courses.ExpireTime, student_cost.DiscountLevel, student_cost.ActualCostAmount, 
-                student_cost.DiscountReason, discount_level.DiscountLevelName, student_cost.Operator
+                (CASE WHEN student_cost.OldExpireTime IS NULL 
+                THEN v_student_courses.ExpireTime ELSE student_cost.OldExpireTime END) AS ExpireTime, 
+                student_cost.DiscountLevel, student_cost.ActualCostAmount, student_cost.DiscountReason, 
+                discount_level.DiscountLevelName, student_cost.Operator
 FROM      student_cost INNER JOIN
                 students ON student_cost.StudentID = students.ID INNER JOIN
                 courses ON student_cost.CourseID = courses.ID INNER JOIN

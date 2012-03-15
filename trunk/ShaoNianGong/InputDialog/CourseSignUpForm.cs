@@ -92,6 +92,19 @@ namespace ShaoNianGong
             else
             {
                 btnSignup.Enabled = true;
+                int chargeType = coursesDataSet.Courses.Rows[this.coursesBindingSource.Position].Field<int>("ChargeType");
+                switch (chargeType)
+                { 
+                    case 0:
+                        lblCostType.Text = "季度";
+                        break;
+                    case 1:
+                        lblCostType.Text = "月";
+                        break;
+                    case 2:
+                        lblCostType.Text = "课次";
+                        break;
+                }
                 UpdateExpireTime();
                 UpdateActualCost();
             }

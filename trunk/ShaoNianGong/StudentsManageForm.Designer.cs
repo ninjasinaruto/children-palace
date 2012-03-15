@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.studentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -62,6 +62,7 @@
             this.btnSearchByCardNo = new System.Windows.Forms.Button();
             this.btnSearchByName = new System.Windows.Forms.Button();
             this.dgvStudents = new System.Windows.Forms.DataGridView();
+            this.序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CardTypeNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CardNoColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -122,6 +123,7 @@
             this.btnDeposit = new System.Windows.Forms.Button();
             this.btnExtendSignUp = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnDelLeave = new System.Windows.Forms.Button();
             this.btnChangeCourses = new System.Windows.Forms.Button();
             this.btnHistoryRecord = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -391,6 +393,7 @@
             this.dgvStudents.AutoGenerateColumns = false;
             this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStudents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.序号,
             this.CardTypeNameColumn,
             this.CardNoColumn,
             this.NameColumn,
@@ -417,8 +420,15 @@
             this.dgvStudents.RowHeadersVisible = false;
             this.dgvStudents.RowTemplate.Height = 23;
             this.dgvStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStudents.Size = new System.Drawing.Size(1239, 295);
+            this.dgvStudents.Size = new System.Drawing.Size(1311, 295);
             this.dgvStudents.TabIndex = 18;
+            this.dgvStudents.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvStudents_DataBindingComplete);
+            // 
+            // 序号
+            // 
+            this.序号.HeaderText = "序号";
+            this.序号.Name = "序号";
+            this.序号.ReadOnly = true;
             // 
             // CardTypeNameColumn
             // 
@@ -472,9 +482,9 @@
             // ExpireTime
             // 
             this.ExpireTime.DataPropertyName = "ExpireTime";
-            dataGridViewCellStyle6.Format = "D";
-            dataGridViewCellStyle6.NullValue = null;
-            this.ExpireTime.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Format = "D";
+            dataGridViewCellStyle1.NullValue = null;
+            this.ExpireTime.DefaultCellStyle = dataGridViewCellStyle1;
             this.ExpireTime.HeaderText = "缴费到期时间";
             this.ExpireTime.Name = "ExpireTime";
             this.ExpireTime.ReadOnly = true;
@@ -489,9 +499,9 @@
             // BirthdayColumn
             // 
             this.BirthdayColumn.DataPropertyName = "Birthday";
-            dataGridViewCellStyle7.Format = "D";
-            dataGridViewCellStyle7.NullValue = null;
-            this.BirthdayColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Format = "D";
+            dataGridViewCellStyle2.NullValue = null;
+            this.BirthdayColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.BirthdayColumn.HeaderText = "生日";
             this.BirthdayColumn.Name = "BirthdayColumn";
             this.BirthdayColumn.ReadOnly = true;
@@ -601,9 +611,9 @@
             // ExpireTimeColumn
             // 
             this.ExpireTimeColumn.DataPropertyName = "ExpireTime";
-            dataGridViewCellStyle8.Format = "D";
-            dataGridViewCellStyle8.NullValue = null;
-            this.ExpireTimeColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Format = "D";
+            dataGridViewCellStyle3.NullValue = null;
+            this.ExpireTimeColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.ExpireTimeColumn.HeaderText = "到期时间";
             this.ExpireTimeColumn.Name = "ExpireTimeColumn";
             this.ExpireTimeColumn.ReadOnly = true;
@@ -722,7 +732,7 @@
             this.groupBox6.Controls.Add(this.dataGridView1);
             this.groupBox6.Location = new System.Drawing.Point(776, 84);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(475, 140);
+            this.groupBox6.Size = new System.Drawing.Size(548, 140);
             this.groupBox6.TabIndex = 21;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "上课时间";
@@ -746,7 +756,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(463, 114);
+            this.dataGridView1.Size = new System.Drawing.Size(535, 114);
             this.dataGridView1.TabIndex = 0;
             // 
             // dayOfWeekNameDataGridViewTextBoxColumn
@@ -766,9 +776,9 @@
             // beginTimeDataGridViewTextBoxColumn
             // 
             this.beginTimeDataGridViewTextBoxColumn.DataPropertyName = "BeginTime";
-            dataGridViewCellStyle9.Format = "t";
-            dataGridViewCellStyle9.NullValue = null;
-            this.beginTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Format = "t";
+            dataGridViewCellStyle4.NullValue = null;
+            this.beginTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.beginTimeDataGridViewTextBoxColumn.HeaderText = "上课时间";
             this.beginTimeDataGridViewTextBoxColumn.Name = "beginTimeDataGridViewTextBoxColumn";
             this.beginTimeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -776,8 +786,8 @@
             // endTimeDataGridViewTextBoxColumn
             // 
             this.endTimeDataGridViewTextBoxColumn.DataPropertyName = "EndTime";
-            dataGridViewCellStyle10.Format = "t";
-            this.endTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Format = "t";
+            this.endTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.endTimeDataGridViewTextBoxColumn.HeaderText = "下课时间";
             this.endTimeDataGridViewTextBoxColumn.Name = "endTimeDataGridViewTextBoxColumn";
             this.endTimeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -848,7 +858,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 605);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1263, 48);
+            this.panel1.Size = new System.Drawing.Size(1337, 48);
             this.panel1.TabIndex = 27;
             // 
             // btnBuyMaterial
@@ -928,6 +938,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.btnDelLeave);
             this.groupBox5.Controls.Add(this.btnChangeCourses);
             this.groupBox5.Controls.Add(this.btnHistoryRecord);
             this.groupBox5.Controls.Add(this.btnExtendSignUp);
@@ -940,10 +951,21 @@
             this.groupBox5.Controls.Add(this.btnVacate);
             this.groupBox5.Location = new System.Drawing.Point(535, 230);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(717, 68);
+            this.groupBox5.Size = new System.Drawing.Size(789, 68);
             this.groupBox5.TabIndex = 23;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "操作";
+            // 
+            // btnDelLeave
+            // 
+            this.btnDelLeave.Enabled = false;
+            this.btnDelLeave.Location = new System.Drawing.Point(645, 20);
+            this.btnDelLeave.Name = "btnDelLeave";
+            this.btnDelLeave.Size = new System.Drawing.Size(65, 31);
+            this.btnDelLeave.TabIndex = 20;
+            this.btnDelLeave.Text = "删除";
+            this.btnDelLeave.UseVisualStyleBackColor = true;
+            this.btnDelLeave.Click += new System.EventHandler(this.btnDelLeave_Click);
             // 
             // btnChangeCourses
             // 
@@ -957,7 +979,7 @@
             // 
             // btnHistoryRecord
             // 
-            this.btnHistoryRecord.Location = new System.Drawing.Point(645, 20);
+            this.btnHistoryRecord.Location = new System.Drawing.Point(717, 20);
             this.btnHistoryRecord.Name = "btnHistoryRecord";
             this.btnHistoryRecord.Size = new System.Drawing.Size(65, 31);
             this.btnHistoryRecord.TabIndex = 18;
@@ -1085,7 +1107,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1263, 653);
+            this.ClientSize = new System.Drawing.Size(1337, 653);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCardDisconnect);
             this.Controls.Add(this.btnCardConnect);
@@ -1216,6 +1238,20 @@
         private System.Windows.Forms.Button btnCardConnect;
         private System.Windows.Forms.BindingSource cardListBindingSource;
         private StudentsDataSetTableAdapters.CardListTableAdapter cardListTableAdapter;
+        private System.Windows.Forms.BindingSource studentVacateBindingSource;
+        private StudentsDataSetTableAdapters.StudentVacateTableAdapter studentVacateTableAdapter;
+        private System.Windows.Forms.Button btnShowLeft;
+        private System.Windows.Forms.Button btnCardDisconnect;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Button btnHistoryRecord;
+        private System.Windows.Forms.Button btnChangeCourses;
+        private System.Windows.Forms.BindingSource studentCoursesLogBindingSource;
+        private StudentsDataSetTableAdapters.StudentCoursesLogTableAdapter studentCoursesLogTableAdapter;
+        private System.Windows.Forms.BindingSource studentCostLogBindingSource;
+        private StudentsDataSetTableAdapters.StudentCostLogTableAdapter studentCostLogTableAdapter;
+        private System.Windows.Forms.BindingSource changeCoursesBindingSource;
+        private StudentsDataSetTableAdapters.ChangeCoursesTableAdapter changeCoursesTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 序号;
         private System.Windows.Forms.DataGridViewTextBoxColumn CardTypeNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CardNoColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
@@ -1234,19 +1270,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FartherTelColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn FartherWorkColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn AddressColumn;
-        private System.Windows.Forms.BindingSource studentVacateBindingSource;
-        private StudentsDataSetTableAdapters.StudentVacateTableAdapter studentVacateTableAdapter;
-        private System.Windows.Forms.Button btnShowLeft;
-        private System.Windows.Forms.Button btnCardDisconnect;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnHistoryRecord;
-        private System.Windows.Forms.Button btnChangeCourses;
-        private System.Windows.Forms.BindingSource studentCoursesLogBindingSource;
-        private StudentsDataSetTableAdapters.StudentCoursesLogTableAdapter studentCoursesLogTableAdapter;
-        private System.Windows.Forms.BindingSource studentCostLogBindingSource;
-        private StudentsDataSetTableAdapters.StudentCostLogTableAdapter studentCostLogTableAdapter;
-        private System.Windows.Forms.BindingSource changeCoursesBindingSource;
-        private StudentsDataSetTableAdapters.ChangeCoursesTableAdapter changeCoursesTableAdapter;
+        private System.Windows.Forms.Button btnDelLeave;
 
     }
 }
