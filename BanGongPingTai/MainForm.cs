@@ -79,6 +79,7 @@ namespace BanGongPingTai
             {
                 currentForm = new AffairApprovalForm();
                 currentForm.MdiParent = this;
+                currentForm.WindowState = FormWindowState.Maximized;
                 currentForm.Show();
                 currentForm.Location = new Point(0, 0);
 
@@ -89,6 +90,7 @@ namespace BanGongPingTai
             {
                 currentForm = new AffairManageForm();
                 currentForm.MdiParent = this;
+                currentForm.WindowState = FormWindowState.Maximized;
                 currentForm.Show();
                 currentForm.Location = new Point(0, 0);
 
@@ -168,6 +170,7 @@ namespace BanGongPingTai
 
             currentForm = new UsersManageForm();
             currentForm.MdiParent = this;
+            currentForm.WindowState = FormWindowState.Maximized;
             currentForm.Show();
             currentForm.Location = new Point(0, 0);
 
@@ -187,6 +190,7 @@ namespace BanGongPingTai
 
             currentForm = new AffairManageForm();
             currentForm.MdiParent = this;
+            currentForm.WindowState = FormWindowState.Maximized;
             currentForm.Show();
             currentForm.Location = new Point(0, 0);
 
@@ -206,6 +210,7 @@ namespace BanGongPingTai
 
             currentForm = new AffairApprovalForm();
             currentForm.MdiParent = this;
+            currentForm.WindowState = FormWindowState.Maximized;
             currentForm.Show();
             currentForm.Location = new Point(0, 0);
 
@@ -225,6 +230,7 @@ namespace BanGongPingTai
 
             currentForm = new PublishNoticeForm();
             currentForm.MdiParent = this;
+            currentForm.WindowState = FormWindowState.Maximized;
             currentForm.Show();
             currentForm.Location = new Point(0, 0);
 

@@ -44,11 +44,16 @@ namespace BanGongPingTai
                 txtTitle.Focus();
                 return;
             }
-
-            if (MessageBox.Show("确认申报吗？", "确认申报吗", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
+            if (txtContent.Text.Trim() == "")
+            {
+                MessageBox.Show("请输入申报的内容", "内容不可为空", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtContent.Focus();
+                return; 
+            }
+            if (MessageBox.Show("确认申报吗？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
 
-            affairApplyTableAdapter.Insert(User.CurrentUser.UserName, DateTime.Now, txtTitle.Text, txtContent.Text, 0, null, null);
+            affairApplyTableAdapter.Insert(User.CurrentUser.UserName, DateTime.Now, txtTitle.Text, txtContent.Text, 0, null, null, null, null);
             MessageBox.Show("申报成功！", "事务申报成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
@@ -62,7 +67,11 @@ namespace BanGongPingTai
         {
             txtTitle.Width = this.Width - 180;
             txtContent.Width = this.Width - 180;
-            txtContent.Height = this.Height - 150;
+            txtContent.Height = this.Height - 180;
+            btnApply.Left = this.Width - 215;
+            btnApply.Top = this.Height - 90;
+            btnCancel.Left = this.Width - 110;
+            btnCancel.Top = this.Height - 90;
         }
     }
 }
