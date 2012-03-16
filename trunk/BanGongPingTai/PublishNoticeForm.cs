@@ -55,5 +55,11 @@ namespace BanGongPingTai
             else
                 btnShowDetail.Enabled = true;   
         }
+
+        private void PublishNoticeForm_Resize(object sender, EventArgs e)
+        {
+            dgvNotices.Width = this.Width - 25;
+            dgvNotices.Height = this.Height - 140;
+        }
     }
 }

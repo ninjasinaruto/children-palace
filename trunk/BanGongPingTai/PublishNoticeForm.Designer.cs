@@ -156,6 +156,7 @@
             this.Name = "PublishNoticeForm";
             this.Text = "公告发布";
             this.Load += new System.EventHandler(this.PublishNoticeForm_Load);
+            this.Resize += new System.EventHandler(this.PublishNoticeForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotices)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.noticesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.noticeDataSet)).EndInit();

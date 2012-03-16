@@ -208,6 +208,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "NoticeDetailForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "发布新公告";
             this.Load += new System.EventHandler(this.PublishNewNoticeForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();

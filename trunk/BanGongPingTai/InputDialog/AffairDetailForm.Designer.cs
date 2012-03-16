@@ -58,7 +58,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 16);
             this.label2.TabIndex = 11;
-            this.label2.Text = "事务标题：";
+            this.label2.Text = "申报标题：";
             // 
             // label3
             // 
@@ -68,7 +68,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 16);
             this.label3.TabIndex = 11;
-            this.label3.Text = "事务内容：";
+            this.label3.Text = "申报内容：";
             // 
             // txtContent
             // 
@@ -76,7 +76,8 @@
             this.txtContent.Location = new System.Drawing.Point(97, 68);
             this.txtContent.Multiline = true;
             this.txtContent.Name = "txtContent";
-            this.txtContent.Size = new System.Drawing.Size(379, 159);
+            this.txtContent.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtContent.Size = new System.Drawing.Size(379, 148);
             this.txtContent.TabIndex = 1;
             // 
             // btnApply
