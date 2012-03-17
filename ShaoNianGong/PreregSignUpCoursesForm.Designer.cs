@@ -64,21 +64,6 @@
             this.btnSignup = new System.Windows.Forms.Button();
             this.studentsPreregTableAdapter = new ShaoNianGong.PreregisterDatasetTableAdapters.studentsPreregTableAdapter();
             this.dgvPreregStudents = new System.Windows.Forms.DataGridView();
-            this.CardTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CardNoColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BalanceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SexColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TelephoneColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MotherNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MotherTelColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MotherWorkColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FartherNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FartherTelColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FartherWorkColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecommenderColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BirthdayColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtPreregisterCourseSubtype = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -115,6 +100,22 @@
             this.studentCostTableAdapter = new ShaoNianGong.PreregisterDatasetTableAdapters.StudentCostTableAdapter();
             this.discountLevelTableAdapter = new ShaoNianGong.StaticDataSetTableAdapters.DiscountLevelTableAdapter();
             this.staticDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CardTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CardNoColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BalanceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SexColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TelephoneColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MotherNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MotherTelColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MotherWorkColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FartherNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FartherTelColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FartherWorkColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RecommenderColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BirthdayColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.studentsPreregBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.preregisterDataset)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -444,6 +445,7 @@
             this.dgvPreregStudents.AutoGenerateColumns = false;
             this.dgvPreregStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPreregStudents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.序号,
             this.CardTypeName,
             this.CardNoColumn,
             this.NameColumn,
@@ -469,114 +471,7 @@
             this.dgvPreregStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPreregStudents.Size = new System.Drawing.Size(1169, 244);
             this.dgvPreregStudents.TabIndex = 32;
-            // 
-            // CardTypeName
-            // 
-            this.CardTypeName.DataPropertyName = "CardTypeName";
-            this.CardTypeName.HeaderText = "类型";
-            this.CardTypeName.Name = "CardTypeName";
-            this.CardTypeName.ReadOnly = true;
-            // 
-            // CardNoColumn
-            // 
-            this.CardNoColumn.DataPropertyName = "CardNo";
-            this.CardNoColumn.HeaderText = "卡号";
-            this.CardNoColumn.Name = "CardNoColumn";
-            this.CardNoColumn.ReadOnly = true;
-            // 
-            // NameColumn
-            // 
-            this.NameColumn.DataPropertyName = "Name";
-            this.NameColumn.HeaderText = "姓名";
-            this.NameColumn.Name = "NameColumn";
-            this.NameColumn.ReadOnly = true;
-            // 
-            // BalanceColumn
-            // 
-            this.BalanceColumn.DataPropertyName = "Balance";
-            this.BalanceColumn.HeaderText = "账户余额";
-            this.BalanceColumn.Name = "BalanceColumn";
-            this.BalanceColumn.ReadOnly = true;
-            // 
-            // SexColumn
-            // 
-            this.SexColumn.DataPropertyName = "Sex";
-            this.SexColumn.HeaderText = "性别";
-            this.SexColumn.Name = "SexColumn";
-            this.SexColumn.ReadOnly = true;
-            // 
-            // TelephoneColumn
-            // 
-            this.TelephoneColumn.DataPropertyName = "Telephone";
-            this.TelephoneColumn.HeaderText = "电话";
-            this.TelephoneColumn.Name = "TelephoneColumn";
-            this.TelephoneColumn.ReadOnly = true;
-            // 
-            // MotherNameColumn
-            // 
-            this.MotherNameColumn.DataPropertyName = "MotherName";
-            this.MotherNameColumn.HeaderText = "母亲姓名";
-            this.MotherNameColumn.Name = "MotherNameColumn";
-            this.MotherNameColumn.ReadOnly = true;
-            // 
-            // MotherTelColumn
-            // 
-            this.MotherTelColumn.DataPropertyName = "MotherTel";
-            this.MotherTelColumn.HeaderText = "母亲电话";
-            this.MotherTelColumn.Name = "MotherTelColumn";
-            this.MotherTelColumn.ReadOnly = true;
-            // 
-            // MotherWorkColumn
-            // 
-            this.MotherWorkColumn.DataPropertyName = "MotherWork";
-            this.MotherWorkColumn.HeaderText = "母亲工作";
-            this.MotherWorkColumn.Name = "MotherWorkColumn";
-            this.MotherWorkColumn.ReadOnly = true;
-            // 
-            // FartherNameColumn
-            // 
-            this.FartherNameColumn.DataPropertyName = "FartherName";
-            this.FartherNameColumn.HeaderText = "父亲姓名";
-            this.FartherNameColumn.Name = "FartherNameColumn";
-            this.FartherNameColumn.ReadOnly = true;
-            // 
-            // FartherTelColumn
-            // 
-            this.FartherTelColumn.DataPropertyName = "FartherTel";
-            this.FartherTelColumn.HeaderText = "父亲电话";
-            this.FartherTelColumn.Name = "FartherTelColumn";
-            this.FartherTelColumn.ReadOnly = true;
-            // 
-            // FartherWorkColumn
-            // 
-            this.FartherWorkColumn.DataPropertyName = "FartherWork";
-            this.FartherWorkColumn.HeaderText = "父亲工作";
-            this.FartherWorkColumn.Name = "FartherWorkColumn";
-            this.FartherWorkColumn.ReadOnly = true;
-            // 
-            // RecommenderColumn
-            // 
-            this.RecommenderColumn.DataPropertyName = "Recommender";
-            this.RecommenderColumn.HeaderText = "推荐人";
-            this.RecommenderColumn.Name = "RecommenderColumn";
-            this.RecommenderColumn.ReadOnly = true;
-            // 
-            // AddressColumn
-            // 
-            this.AddressColumn.DataPropertyName = "Address";
-            this.AddressColumn.HeaderText = "地址";
-            this.AddressColumn.Name = "AddressColumn";
-            this.AddressColumn.ReadOnly = true;
-            // 
-            // BirthdayColumn
-            // 
-            this.BirthdayColumn.DataPropertyName = "Birthday";
-            dataGridViewCellStyle2.Format = "D";
-            dataGridViewCellStyle2.NullValue = null;
-            this.BirthdayColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.BirthdayColumn.HeaderText = "生日";
-            this.BirthdayColumn.Name = "BirthdayColumn";
-            this.BirthdayColumn.ReadOnly = true;
+            this.dgvPreregStudents.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvPreregStudents_DataBindingComplete);
             // 
             // groupBox1
             // 
@@ -871,6 +766,120 @@
             this.staticDataSetBindingSource.DataSource = this.staticDataSet;
             this.staticDataSetBindingSource.Position = 0;
             // 
+            // 序号
+            // 
+            this.序号.HeaderText = "序号";
+            this.序号.Name = "序号";
+            this.序号.ReadOnly = true;
+            // 
+            // CardTypeName
+            // 
+            this.CardTypeName.DataPropertyName = "CardTypeName";
+            this.CardTypeName.HeaderText = "类型";
+            this.CardTypeName.Name = "CardTypeName";
+            this.CardTypeName.ReadOnly = true;
+            // 
+            // CardNoColumn
+            // 
+            this.CardNoColumn.DataPropertyName = "CardNo";
+            this.CardNoColumn.HeaderText = "卡号";
+            this.CardNoColumn.Name = "CardNoColumn";
+            this.CardNoColumn.ReadOnly = true;
+            // 
+            // NameColumn
+            // 
+            this.NameColumn.DataPropertyName = "Name";
+            this.NameColumn.HeaderText = "姓名";
+            this.NameColumn.Name = "NameColumn";
+            this.NameColumn.ReadOnly = true;
+            // 
+            // BalanceColumn
+            // 
+            this.BalanceColumn.DataPropertyName = "Balance";
+            this.BalanceColumn.HeaderText = "账户余额";
+            this.BalanceColumn.Name = "BalanceColumn";
+            this.BalanceColumn.ReadOnly = true;
+            // 
+            // SexColumn
+            // 
+            this.SexColumn.DataPropertyName = "Sex";
+            this.SexColumn.HeaderText = "性别";
+            this.SexColumn.Name = "SexColumn";
+            this.SexColumn.ReadOnly = true;
+            // 
+            // TelephoneColumn
+            // 
+            this.TelephoneColumn.DataPropertyName = "Telephone";
+            this.TelephoneColumn.HeaderText = "电话";
+            this.TelephoneColumn.Name = "TelephoneColumn";
+            this.TelephoneColumn.ReadOnly = true;
+            // 
+            // MotherNameColumn
+            // 
+            this.MotherNameColumn.DataPropertyName = "MotherName";
+            this.MotherNameColumn.HeaderText = "母亲姓名";
+            this.MotherNameColumn.Name = "MotherNameColumn";
+            this.MotherNameColumn.ReadOnly = true;
+            // 
+            // MotherTelColumn
+            // 
+            this.MotherTelColumn.DataPropertyName = "MotherTel";
+            this.MotherTelColumn.HeaderText = "母亲电话";
+            this.MotherTelColumn.Name = "MotherTelColumn";
+            this.MotherTelColumn.ReadOnly = true;
+            // 
+            // MotherWorkColumn
+            // 
+            this.MotherWorkColumn.DataPropertyName = "MotherWork";
+            this.MotherWorkColumn.HeaderText = "母亲工作";
+            this.MotherWorkColumn.Name = "MotherWorkColumn";
+            this.MotherWorkColumn.ReadOnly = true;
+            // 
+            // FartherNameColumn
+            // 
+            this.FartherNameColumn.DataPropertyName = "FartherName";
+            this.FartherNameColumn.HeaderText = "父亲姓名";
+            this.FartherNameColumn.Name = "FartherNameColumn";
+            this.FartherNameColumn.ReadOnly = true;
+            // 
+            // FartherTelColumn
+            // 
+            this.FartherTelColumn.DataPropertyName = "FartherTel";
+            this.FartherTelColumn.HeaderText = "父亲电话";
+            this.FartherTelColumn.Name = "FartherTelColumn";
+            this.FartherTelColumn.ReadOnly = true;
+            // 
+            // FartherWorkColumn
+            // 
+            this.FartherWorkColumn.DataPropertyName = "FartherWork";
+            this.FartherWorkColumn.HeaderText = "父亲工作";
+            this.FartherWorkColumn.Name = "FartherWorkColumn";
+            this.FartherWorkColumn.ReadOnly = true;
+            // 
+            // RecommenderColumn
+            // 
+            this.RecommenderColumn.DataPropertyName = "Recommender";
+            this.RecommenderColumn.HeaderText = "推荐人";
+            this.RecommenderColumn.Name = "RecommenderColumn";
+            this.RecommenderColumn.ReadOnly = true;
+            // 
+            // AddressColumn
+            // 
+            this.AddressColumn.DataPropertyName = "Address";
+            this.AddressColumn.HeaderText = "地址";
+            this.AddressColumn.Name = "AddressColumn";
+            this.AddressColumn.ReadOnly = true;
+            // 
+            // BirthdayColumn
+            // 
+            this.BirthdayColumn.DataPropertyName = "Birthday";
+            dataGridViewCellStyle2.Format = "D";
+            dataGridViewCellStyle2.NullValue = null;
+            this.BirthdayColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.BirthdayColumn.HeaderText = "生日";
+            this.BirthdayColumn.Name = "BirthdayColumn";
+            this.BirthdayColumn.ReadOnly = true;
+            // 
             // PreregSignUpCoursesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -986,6 +995,8 @@
         private System.Windows.Forms.BindingSource discountLevelBindingSource;
         private StaticDataSetTableAdapters.DiscountLevelTableAdapter discountLevelTableAdapter;
         private System.Windows.Forms.DateTimePicker dtCurrentDate;
+        private System.Windows.Forms.BindingSource staticDataSetBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 序号;
         private System.Windows.Forms.DataGridViewTextBoxColumn CardTypeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn CardNoColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
@@ -1001,6 +1012,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RecommenderColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn AddressColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn BirthdayColumn;
-        private System.Windows.Forms.BindingSource staticDataSetBindingSource;
     }
 }

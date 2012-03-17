@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtMotherWork = new System.Windows.Forms.TextBox();
             this.studentsPreregBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -64,6 +64,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnDeposit = new System.Windows.Forms.Button();
             this.dgvPreregStudents = new System.Windows.Forms.DataGridView();
+            this.序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CardTypeNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CardNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,6 +98,10 @@
             this.cardListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cardListTableAdapter = new ShaoNianGong.PreregisterDatasetTableAdapters.CardListTableAdapter();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.studentCostBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentCostTableAdapter = new ShaoNianGong.PreregisterDatasetTableAdapters.StudentCostTableAdapter();
+            this.studentCoursesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentCoursesTableAdapter = new ShaoNianGong.PreregisterDatasetTableAdapters.StudentCoursesTableAdapter();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentsPreregBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.preregisterDataset)).BeginInit();
@@ -107,6 +112,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.depositListDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.depositListBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardListBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentCostBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentCoursesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -445,6 +452,7 @@
             this.dgvPreregStudents.AutoGenerateColumns = false;
             this.dgvPreregStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPreregStudents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.序号,
             this.CardTypeNameColumn,
             this.CardNo,
             this.NameColumn,
@@ -470,6 +478,13 @@
             this.dgvPreregStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPreregStudents.Size = new System.Drawing.Size(1158, 360);
             this.dgvPreregStudents.TabIndex = 3;
+            this.dgvPreregStudents.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvPreregStudents_DataBindingComplete);
+            // 
+            // 序号
+            // 
+            this.序号.HeaderText = "序号";
+            this.序号.Name = "序号";
+            this.序号.ReadOnly = true;
             // 
             // CardTypeNameColumn
             // 
@@ -509,9 +524,9 @@
             // birthdayDataGridViewTextBoxColumn
             // 
             this.birthdayDataGridViewTextBoxColumn.DataPropertyName = "Birthday";
-            dataGridViewCellStyle1.Format = "D";
-            dataGridViewCellStyle1.NullValue = null;
-            this.birthdayDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "D";
+            dataGridViewCellStyle2.NullValue = null;
+            this.birthdayDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.birthdayDataGridViewTextBoxColumn.HeaderText = "生日";
             this.birthdayDataGridViewTextBoxColumn.Name = "birthdayDataGridViewTextBoxColumn";
             this.birthdayDataGridViewTextBoxColumn.ReadOnly = true;
@@ -719,6 +734,24 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // studentCostBindingSource
+            // 
+            this.studentCostBindingSource.DataMember = "StudentCost";
+            this.studentCostBindingSource.DataSource = this.preregisterDataset;
+            // 
+            // studentCostTableAdapter
+            // 
+            this.studentCostTableAdapter.ClearBeforeFill = true;
+            // 
+            // studentCoursesBindingSource
+            // 
+            this.studentCoursesBindingSource.DataMember = "StudentCourses";
+            this.studentCoursesBindingSource.DataSource = this.preregisterDataset;
+            // 
+            // studentCoursesTableAdapter
+            // 
+            this.studentCoursesTableAdapter.ClearBeforeFill = true;
+            // 
             // PreregManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -750,6 +783,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.depositListDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.depositListBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cardListBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentCostBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentCoursesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -808,6 +843,8 @@
         private PreregisterDatasetTableAdapters.CardListTableAdapter cardListTableAdapter;
         private System.Windows.Forms.TextBox txtCardType;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 序号;
         private System.Windows.Forms.DataGridViewTextBoxColumn CardTypeNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CardNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
@@ -823,6 +860,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fartherWorkDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fartherTelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn RecommenderColumn;
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.BindingSource studentCostBindingSource;
+        private PreregisterDatasetTableAdapters.StudentCostTableAdapter studentCostTableAdapter;
+        private System.Windows.Forms.BindingSource studentCoursesBindingSource;
+        private PreregisterDatasetTableAdapters.StudentCoursesTableAdapter studentCoursesTableAdapter;
     }
 }

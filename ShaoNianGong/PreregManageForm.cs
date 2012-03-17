@@ -263,10 +263,23 @@ namespace ShaoNianGong
             if (MessageBox.Show("确认要删除“" + txtName.Text + "”的资料吗？", "确认删除资料",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK)
                 return;
+            depositListTableAdapter.DeleteByStudentID(int.Parse(txtID.Text));
+            studentCostTableAdapter.DeleteByStudentID(int.Parse(txtID.Text));
+            studentCoursesTableAdapter.DeleteByStudentID(int.Parse(txtID.Text)); 
             studentsPreregTableAdapter.Delete(int.Parse(txtID.Text));
+
             MessageBox.Show("删除成功！", "删除资料成功",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.studentsPreregTableAdapter.Fill(this.preregisterDataset.studentsPrereg);
+        }
+
+        private void dgvPreregStudents_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if (dgvPreregStudents.Rows.Count > 0)
+                for (int i = 0; i < dgvPreregStudents.Rows.Count; i++)
+                {
+                    dgvPreregStudents.Rows[i].Cells[0].Value = i + 1;
+                }
         }
     }
 }

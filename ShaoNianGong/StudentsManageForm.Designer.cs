@@ -858,7 +858,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 605);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1337, 48);
+            this.panel1.Size = new System.Drawing.Size(1284, 48);
             this.panel1.TabIndex = 27;
             // 
             // btnBuyMaterial
@@ -1107,7 +1107,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1337, 653);
+            this.ClientSize = new System.Drawing.Size(1284, 653);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCardDisconnect);
             this.Controls.Add(this.btnCardConnect);

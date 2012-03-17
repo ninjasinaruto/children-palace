@@ -260,5 +260,14 @@ namespace ShaoNianGong
                 txtSignInRes.Visible = true;
             }
         }
+
+        private void dgvStudents_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if (dgvStudents.Rows.Count > 0)
+                for (int i = 0; i < dgvStudents.Rows.Count; i++)
+                {
+                    dgvStudents.Rows[i].Cells[0].Value = i + 1;
+                }
+        }
     }
 }
