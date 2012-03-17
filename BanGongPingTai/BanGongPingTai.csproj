@@ -76,6 +76,12 @@
       <DependentUpon>CoursesDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="CourseWage.cs" />
+    <Compile Include="FinanceAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinanceAccountForm.Designer.cs">
+      <DependentUpon>FinanceAccountForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InputDialog\AffairDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,18 @@
     </Compile>
     <Compile Include="InputDialog\CourseWageUpdateForm.Designer.cs">
       <DependentUpon>CourseWageUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputDialog\FinanceAccountAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog\FinanceAccountAddForm.Designer.cs">
+      <DependentUpon>FinanceAccountAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputDialog\FinanceAccountUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog\FinanceAccountUpdateForm.Designer.cs">
+      <DependentUpon>FinanceAccountUpdateForm.cs</DependentUpon>
     </Compile>
     <Compile Include="InputDialog\MaterialSelectedForm.cs">
       <SubType>Form</SubType>
@@ -311,6 +329,9 @@
     <Compile Include="WagePrintForm.Designer.cs">
       <DependentUpon>WagePrintForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FinanceAccountForm.resx">
+      <DependentUpon>FinanceAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InputDialog\AffairDetailForm.resx">
       <DependentUpon>AffairDetailForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -341,6 +362,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InputDialog\CourseWageUpdateForm.resx">
       <DependentUpon>CourseWageUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog\FinanceAccountAddForm.resx">
+      <DependentUpon>FinanceAccountAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog\FinanceAccountUpdateForm.resx">
+      <DependentUpon>FinanceAccountUpdateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InputDialog\MaterialSelectedForm.resx">
       <DependentUpon>MaterialSelectedForm.cs</DependentUpon>
