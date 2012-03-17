@@ -53,6 +53,7 @@ namespace BanGongPingTai
             {
                 // 合作用户
                 tsbAffairApproval.Enabled = false;
+                tsbFinanceAccounts.Enabled = false;
                 tsbFinanceManage.Enabled = false;
                 tsbMaterialsManage.Enabled = false;
                 tsbTeachersManage.Enabled = false;
@@ -65,6 +66,16 @@ namespace BanGongPingTai
                 tsbAffairApproval.Enabled = false;
                 tsbPublishNotice.Enabled = false;
                 tsbUsersManage.Enabled = false;
+                {
+                    if (User.CurrentUser.UserName == "郑文静")
+                    {
+                        tsbFinanceAccounts.Enabled = true;
+                    }
+                    else
+                    {
+                        tsbFinanceAccounts.Enabled = false;
+                    }
+                }
             }
             else if (User.CurrentUser.UserType == 3)
             {
@@ -136,6 +147,25 @@ namespace BanGongPingTai
             if (currentButton != null)
                 currentButton.Checked = false;
             currentButton = tsbMaterialsManage;
+            currentButton.Checked = true;
+        }
+
+        private void tsbFinanceAccounts_Click(object sender, EventArgs e)
+        {
+            if (currentForm != null)
+            {
+                currentForm.Close();
+                currentForm.Dispose();
+            }
+            currentForm = new FinanceAccountForm();
+            currentForm.MdiParent = this;
+            currentForm.WindowState = FormWindowState.Maximized;
+            currentForm.Show();
+            currentForm.Location = new Point(0, 0);
+
+            if (currentButton != null)
+                currentButton.Checked = false;
+            currentButton = tsbFinanceAccounts;
             currentButton.Checked = true;
         }
 

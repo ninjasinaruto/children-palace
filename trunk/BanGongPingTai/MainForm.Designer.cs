@@ -37,6 +37,7 @@
             this.tsbAffairApproval = new System.Windows.Forms.ToolStripButton();
             this.tsbUsersManage = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsbFinanceAccounts = new System.Windows.Forms.ToolStripButton();
             this.tsbPublishNotice = new System.Windows.Forms.ToolStripButton();
             this.tsbPasswordUpdate = new System.Windows.Forms.ToolStripButton();
             this.toolBtnWelcome = new System.Windows.Forms.ToolStripButton();
@@ -44,7 +45,6 @@
             this.softwareVersionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.versionDataSet = new Common.VersionDataSet();
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine(((System.ComponentModel.Component)(this)));
-            this.tsbFinanceAccounts = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.softwareVersionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.versionDataSet)).BeginInit();
@@ -112,8 +112,8 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbTeachersManage,
             this.tsbMaterialsManage,
-            this.tsbFinanceManage,
             this.tsbFinanceAccounts,
+            this.tsbFinanceManage,
             this.tsbAffairManage,
             this.tsbAffairApproval,
             this.tsbPublishNotice,
@@ -125,6 +125,15 @@
             this.toolStrip1.Size = new System.Drawing.Size(964, 60);
             this.toolStrip1.TabIndex = 6;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tsbFinanceAccounts
+            // 
+            this.tsbFinanceAccounts.Image = ((System.Drawing.Image)(resources.GetObject("tsbFinanceAccounts.Image")));
+            this.tsbFinanceAccounts.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbFinanceAccounts.Name = "tsbFinanceAccounts";
+            this.tsbFinanceAccounts.Size = new System.Drawing.Size(92, 57);
+            this.tsbFinanceAccounts.Text = "账目管理";
+            this.tsbFinanceAccounts.Click += new System.EventHandler(this.tsbFinanceAccounts_Click);
             // 
             // tsbPublishNotice
             // 
@@ -174,15 +183,6 @@
             this.skinEngine1.SerialNumber = "";
             this.skinEngine1.SkinFile = null;
             this.skinEngine1.SkinStreamMain = ((System.IO.Stream)(resources.GetObject("skinEngine1.SkinStreamMain")));
-            // 
-            // tsbFinanceAccounts
-            // 
-            this.tsbFinanceAccounts.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbFinanceAccounts.Image = ((System.Drawing.Image)(resources.GetObject("tsbFinanceAccounts.Image")));
-            this.tsbFinanceAccounts.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbFinanceAccounts.Name = "tsbFinanceAccounts";
-            this.tsbFinanceAccounts.Size = new System.Drawing.Size(36, 57);
-            this.tsbFinanceAccounts.Text = "账目管理";
             // 
             // MainForm
             // 
