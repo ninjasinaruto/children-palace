@@ -44,6 +44,7 @@
             this.softwareVersionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.versionDataSet = new Common.VersionDataSet();
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine(((System.ComponentModel.Component)(this)));
+            this.tsbFinanceAccounts = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.softwareVersionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.versionDataSet)).BeginInit();
@@ -54,7 +55,7 @@
             this.tsbTeachersManage.Image = ((System.Drawing.Image)(resources.GetObject("tsbTeachersManage.Image")));
             this.tsbTeachersManage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbTeachersManage.Name = "tsbTeachersManage";
-            this.tsbTeachersManage.Size = new System.Drawing.Size(89, 57);
+            this.tsbTeachersManage.Size = new System.Drawing.Size(92, 57);
             this.tsbTeachersManage.Text = "教师管理";
             this.tsbTeachersManage.Click += new System.EventHandler(this.tsbTeachersManage_Click);
             // 
@@ -63,7 +64,7 @@
             this.tsbMaterialsManage.Image = ((System.Drawing.Image)(resources.GetObject("tsbMaterialsManage.Image")));
             this.tsbMaterialsManage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbMaterialsManage.Name = "tsbMaterialsManage";
-            this.tsbMaterialsManage.Size = new System.Drawing.Size(89, 57);
+            this.tsbMaterialsManage.Size = new System.Drawing.Size(92, 57);
             this.tsbMaterialsManage.Text = "库存管理";
             this.tsbMaterialsManage.Click += new System.EventHandler(this.tsbMaterialsManage_Click);
             // 
@@ -72,7 +73,7 @@
             this.tsbFinanceManage.Image = ((System.Drawing.Image)(resources.GetObject("tsbFinanceManage.Image")));
             this.tsbFinanceManage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbFinanceManage.Name = "tsbFinanceManage";
-            this.tsbFinanceManage.Size = new System.Drawing.Size(89, 57);
+            this.tsbFinanceManage.Size = new System.Drawing.Size(92, 57);
             this.tsbFinanceManage.Text = "账目汇总";
             this.tsbFinanceManage.Click += new System.EventHandler(this.tsbFinanceManage_Click);
             // 
@@ -81,7 +82,7 @@
             this.tsbAffairManage.Image = ((System.Drawing.Image)(resources.GetObject("tsbAffairManage.Image")));
             this.tsbAffairManage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAffairManage.Name = "tsbAffairManage";
-            this.tsbAffairManage.Size = new System.Drawing.Size(89, 57);
+            this.tsbAffairManage.Size = new System.Drawing.Size(92, 57);
             this.tsbAffairManage.Text = "事务管理";
             this.tsbAffairManage.Click += new System.EventHandler(this.tsbAffairManage_Click);
             // 
@@ -90,7 +91,7 @@
             this.tsbAffairApproval.Image = ((System.Drawing.Image)(resources.GetObject("tsbAffairApproval.Image")));
             this.tsbAffairApproval.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAffairApproval.Name = "tsbAffairApproval";
-            this.tsbAffairApproval.Size = new System.Drawing.Size(89, 57);
+            this.tsbAffairApproval.Size = new System.Drawing.Size(92, 57);
             this.tsbAffairApproval.Text = "事务审批";
             this.tsbAffairApproval.Click += new System.EventHandler(this.tsbAffairApproval_Click);
             // 
@@ -99,7 +100,7 @@
             this.tsbUsersManage.Image = ((System.Drawing.Image)(resources.GetObject("tsbUsersManage.Image")));
             this.tsbUsersManage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbUsersManage.Name = "tsbUsersManage";
-            this.tsbUsersManage.Size = new System.Drawing.Size(113, 57);
+            this.tsbUsersManage.Size = new System.Drawing.Size(116, 57);
             this.tsbUsersManage.Text = "合作用户管理";
             this.tsbUsersManage.Click += new System.EventHandler(this.tsbUsersManage_Click);
             // 
@@ -112,6 +113,7 @@
             this.tsbTeachersManage,
             this.tsbMaterialsManage,
             this.tsbFinanceManage,
+            this.tsbFinanceAccounts,
             this.tsbAffairManage,
             this.tsbAffairApproval,
             this.tsbPublishNotice,
@@ -129,7 +131,7 @@
             this.tsbPublishNotice.Image = ((System.Drawing.Image)(resources.GetObject("tsbPublishNotice.Image")));
             this.tsbPublishNotice.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbPublishNotice.Name = "tsbPublishNotice";
-            this.tsbPublishNotice.Size = new System.Drawing.Size(89, 57);
+            this.tsbPublishNotice.Size = new System.Drawing.Size(92, 57);
             this.tsbPublishNotice.Text = "公告发布";
             this.tsbPublishNotice.Click += new System.EventHandler(this.tsbPublishNotice_Click);
             // 
@@ -138,7 +140,7 @@
             this.tsbPasswordUpdate.Image = ((System.Drawing.Image)(resources.GetObject("tsbPasswordUpdate.Image")));
             this.tsbPasswordUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbPasswordUpdate.Name = "tsbPasswordUpdate";
-            this.tsbPasswordUpdate.Size = new System.Drawing.Size(89, 57);
+            this.tsbPasswordUpdate.Size = new System.Drawing.Size(92, 57);
             this.tsbPasswordUpdate.Text = "密码更改";
             this.tsbPasswordUpdate.Click += new System.EventHandler(this.tsbPasswordUpdate_Click);
             // 
@@ -149,7 +151,7 @@
             this.toolBtnWelcome.Image = ((System.Drawing.Image)(resources.GetObject("toolBtnWelcome.Image")));
             this.toolBtnWelcome.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolBtnWelcome.Name = "toolBtnWelcome";
-            this.toolBtnWelcome.Size = new System.Drawing.Size(57, 57);
+            this.toolBtnWelcome.Size = new System.Drawing.Size(60, 57);
             this.toolBtnWelcome.Text = "欢迎您：";
             this.toolBtnWelcome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -170,8 +172,17 @@
             // skinEngine1
             // 
             this.skinEngine1.SerialNumber = "";
-            this.skinEngine1.SkinFile = "D:\\Resource\\Skin\\vs窗体.ssk皮肤+免费皮肤控件IrisSkin2.dll\\Emerald.ssk";
+            this.skinEngine1.SkinFile = null;
             this.skinEngine1.SkinStreamMain = ((System.IO.Stream)(resources.GetObject("skinEngine1.SkinStreamMain")));
+            // 
+            // tsbFinanceAccounts
+            // 
+            this.tsbFinanceAccounts.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbFinanceAccounts.Image = ((System.Drawing.Image)(resources.GetObject("tsbFinanceAccounts.Image")));
+            this.tsbFinanceAccounts.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbFinanceAccounts.Name = "tsbFinanceAccounts";
+            this.tsbFinanceAccounts.Size = new System.Drawing.Size(36, 57);
+            this.tsbFinanceAccounts.Text = "账目管理";
             // 
             // MainForm
             // 
@@ -209,6 +220,7 @@
         private System.Windows.Forms.ToolStripButton toolBtnWelcome;
         private System.Windows.Forms.ToolStripButton tsbPublishNotice;
         private Sunisoft.IrisSkin.SkinEngine skinEngine1;
+        private System.Windows.Forms.ToolStripButton tsbFinanceAccounts;
 
     }
 }

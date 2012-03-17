@@ -113,18 +113,18 @@ namespace BanGongPingTai
         private void FinanceManageForm_Resize(object sender, EventArgs e)
         {
             this.groupBox1.Width = this.Width - 20;
-            this.groupBox1.Height = this.Height - 550;
+            this.groupBox1.Height = this.Height / 2 - 70;
             this.panel1.Width = this.Width - 30;
-            this.panel1.Top = this.Height - 590;
+            this.panel1.Top = this.Height / 2 - 105;
             this.dgvDeposit.Width = this.Width - 30;
-            this.dgvDeposit.Height = this.Height - 675;
+            this.dgvDeposit.Height = this.Height / 2 - 190;
+            this.groupBox3.Top = this.Height /2 - 40;
             this.groupBox3.Width = this.Width - 20;
-            this.groupBox3.Height = this.Height - 500;
-            this.groupBox3.Top = this.Height - 530;
+            this.groupBox3.Height = this.Height / 2 - 20;
             this.panel2.Width = this.Width - 30;
-            this.panel2.Top = this.Height - 540;
+            this.panel2.Top = this.Height / 2 - 55;
             this.dgvBuy.Width = this.Width - 35;
-            this.dgvBuy.Height = this.Height - 625;
+            this.dgvBuy.Height = this.Height / 2 - 140 ;
         }
 
         private void btnSearchDepositByCourseType_Click(object sender, EventArgs e)
