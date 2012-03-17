@@ -1899,7 +1899,7 @@ SELECT ID, StudentID, DepositAmount, DepositDate FROM deposit_list WHERE (ID = @
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[5];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[6];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT deposit_list.StudentID, deposit_list.DepositAmount, deposit_list.DepositDate, 
@@ -1917,21 +1917,9 @@ ORDER BY deposit_list.DepositDate DESC";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT deposit_list.StudentID, deposit_list.DepositAmount, deposit_list.DepositDate, 
-      students.Name, deposit_list.ID, deposit_list.ActualPaidAmount, students.ExpireTime, 
-      courses.CourseName, tearchers.Name AS TeacherName, deposit_list.Operator
-FROM deposit_list INNER JOIN
-      students ON deposit_list.StudentID = students.ID LEFT OUTER JOIN
-      student_courses ON student_courses.ID =
-          (SELECT MIN(ID) AS Expr1
-         FROM student_courses
-         WHERE (StudentID = students.ID)) LEFT OUTER JOIN
-      courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
-      tearchers ON tearchers.ID = courses.TeacherID
-WHERE (deposit_list.DepositDate > @BeginDate)
-ORDER BY deposit_list.DepositDate DESC";
+            this._commandCollection[1].CommandText = "DELETE FROM [deposit_list] WHERE ([StudentID] = @Original_StudentID) ";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "DepositDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StudentID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = @"SELECT deposit_list.StudentID, deposit_list.DepositAmount, deposit_list.DepositDate, 
@@ -1945,15 +1933,32 @@ FROM deposit_list INNER JOIN
          WHERE (StudentID = students.ID)) LEFT OUTER JOIN
       courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
       tearchers ON tearchers.ID = courses.TeacherID
-WHERE (deposit_list.DepositDate > @BeginDate) AND 
-      (deposit_list.DepositDate < @EndDate)
+WHERE (deposit_list.DepositDate > @BeginDate)
 ORDER BY deposit_list.DepositDate DESC";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "DepositDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "DepositDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"SELECT   deposit_list.StudentID, deposit_list.DepositAmount, deposit_list.DepositDate, students.Name, deposit_list.ID, 
+            this._commandCollection[3].CommandText = @"SELECT deposit_list.StudentID, deposit_list.DepositAmount, deposit_list.DepositDate, 
+      students.Name, deposit_list.ID, deposit_list.ActualPaidAmount, students.ExpireTime, 
+      courses.CourseName, tearchers.Name AS TeacherName, deposit_list.Operator
+FROM deposit_list INNER JOIN
+      students ON deposit_list.StudentID = students.ID LEFT OUTER JOIN
+      student_courses ON student_courses.ID =
+          (SELECT MIN(ID) AS Expr1
+         FROM student_courses
+         WHERE (StudentID = students.ID)) LEFT OUTER JOIN
+      courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+      tearchers ON tearchers.ID = courses.TeacherID
+WHERE (deposit_list.DepositDate > @BeginDate) AND 
+      (deposit_list.DepositDate < @EndDate)
+ORDER BY deposit_list.DepositDate DESC";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeginDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "DepositDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "DepositDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"SELECT   deposit_list.StudentID, deposit_list.DepositAmount, deposit_list.DepositDate, students.Name, deposit_list.ID, 
                 deposit_list.ActualPaidAmount, students.ExpireTime, courses.CourseName, tearchers.Name AS TeacherName, 
                 deposit_list.Operator
 FROM      deposit_list INNER JOIN
@@ -1966,10 +1971,10 @@ FROM      deposit_list INNER JOIN
                 tearchers ON tearchers.ID = courses.TeacherID
 WHERE datediff(month,deposit_list.DepositDate,getdate())=0
 ORDER BY deposit_list.DepositDate DESC";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = @"SELECT deposit_list.StudentID, deposit_list.DepositAmount, deposit_list.DepositDate, 
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = @"SELECT deposit_list.StudentID, deposit_list.DepositAmount, deposit_list.DepositDate, 
       students.Name, deposit_list.ID, deposit_list.ActualPaidAmount, students.ExpireTime, 
       courses.CourseName, tearchers.Name AS TeacherName, deposit_list.Operator
 FROM deposit_list INNER JOIN
@@ -1982,8 +1987,8 @@ FROM deposit_list INNER JOIN
       tearchers ON tearchers.ID = courses.TeacherID
 WHERE (deposit_list.StudentID = @StudentID)
 ORDER BY deposit_list.DepositDate DESC";
-            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2015,7 +2020,7 @@ ORDER BY deposit_list.DepositDate DESC";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByBeginDate(DepositListDataSet.DepositListDataTable dataTable, System.DateTime BeginDate) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(BeginDate));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2029,7 +2034,7 @@ ORDER BY deposit_list.DepositDate DESC";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DepositListDataSet.DepositListDataTable GetDataByBeginDate(System.DateTime BeginDate) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(BeginDate));
             DepositListDataSet.DepositListDataTable dataTable = new DepositListDataSet.DepositListDataTable();
             this.Adapter.Fill(dataTable);
@@ -2041,7 +2046,7 @@ ORDER BY deposit_list.DepositDate DESC";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByBeginEndDate(DepositListDataSet.DepositListDataTable dataTable, System.DateTime BeginDate, System.DateTime EndDate) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(BeginDate));
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(EndDate));
             if ((this.ClearBeforeFill == true)) {
@@ -2056,7 +2061,7 @@ ORDER BY deposit_list.DepositDate DESC";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DepositListDataSet.DepositListDataTable GetDataByBeginEndDate(System.DateTime BeginDate, System.DateTime EndDate) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((System.DateTime)(BeginDate));
             this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(EndDate));
             DepositListDataSet.DepositListDataTable dataTable = new DepositListDataSet.DepositListDataTable();
@@ -2069,7 +2074,7 @@ ORDER BY deposit_list.DepositDate DESC";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByMonth(DepositListDataSet.DepositListDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -2082,7 +2087,7 @@ ORDER BY deposit_list.DepositDate DESC";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DepositListDataSet.DepositListDataTable GetDataByMonth() {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             DepositListDataSet.DepositListDataTable dataTable = new DepositListDataSet.DepositListDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -2093,7 +2098,7 @@ ORDER BY deposit_list.DepositDate DESC";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByStudentID(DepositListDataSet.DepositListDataTable dataTable, int StudentID) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand = this.CommandCollection[5];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(StudentID));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2107,7 +2112,7 @@ ORDER BY deposit_list.DepositDate DESC";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual DepositListDataSet.DepositListDataTable GetDataByStudentID(int StudentID) {
-            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand = this.CommandCollection[5];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(StudentID));
             DepositListDataSet.DepositListDataTable dataTable = new DepositListDataSet.DepositListDataTable();
             this.Adapter.Fill(dataTable);
@@ -2234,6 +2239,30 @@ ORDER BY deposit_list.DepositDate DESC";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(int StudentID, int DepositAmount, System.DateTime DepositDate, int Original_ID, int Original_StudentID, int Original_DepositAmount, System.DateTime Original_DepositDate) {
             return this.Update(StudentID, DepositAmount, DepositDate, Original_ID, Original_StudentID, Original_DepositAmount, Original_DepositDate, Original_ID);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteByStudentID(int Original_StudentID) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            command.Parameters[0].Value = ((int)(Original_StudentID));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
