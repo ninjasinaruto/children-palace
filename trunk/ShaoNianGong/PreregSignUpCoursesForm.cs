@@ -463,5 +463,14 @@ namespace ShaoNianGong
         {
             UpdateActualCostAmount();
         }
+
+        private void dgvPreregStudents_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if (dgvPreregStudents.Rows.Count > 0)
+                for (int i = 0; i < dgvPreregStudents.Rows.Count; i++)
+                {
+                    dgvPreregStudents.Rows[i].Cells[0].Value = i + 1;
+                }
+        }
     }
 }

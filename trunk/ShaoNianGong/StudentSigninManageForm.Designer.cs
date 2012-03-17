@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label5 = new System.Windows.Forms.Label();
             this.lstCourses = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,6 +49,7 @@
             this.coursesTodayBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.coursesTodayTableAdapter = new ShaoNianGong.CoursesDataSetTableAdapters.CoursesTodayTableAdapter();
             this.txtSignInRes = new System.Windows.Forms.Label();
+            this.序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CardTypeNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CardNoColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -134,6 +135,7 @@
             this.dgvStudents.AutoGenerateColumns = false;
             this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStudents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.序号,
             this.CardTypeNameColumn,
             this.CardNoColumn,
             this.NameColumn,
@@ -163,6 +165,7 @@
             this.dgvStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvStudents.Size = new System.Drawing.Size(827, 490);
             this.dgvStudents.TabIndex = 26;
+            this.dgvStudents.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvStudents_DataBindingComplete);
             // 
             // groupBox1
             // 
@@ -243,6 +246,12 @@
             this.txtSignInRes.Text = "已签到【0】人，尚未签到【0】人，出勤率【0.00%】";
             this.txtSignInRes.Visible = false;
             // 
+            // 序号
+            // 
+            this.序号.HeaderText = "序号";
+            this.序号.Name = "序号";
+            this.序号.ReadOnly = true;
+            // 
             // CardTypeNameColumn
             // 
             this.CardTypeNameColumn.DataPropertyName = "CardTypeName";
@@ -293,9 +302,9 @@
             // ExpireTime
             // 
             this.ExpireTime.DataPropertyName = "ExpireTime";
-            dataGridViewCellStyle1.Format = "D";
-            dataGridViewCellStyle1.NullValue = null;
-            this.ExpireTime.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Format = "D";
+            dataGridViewCellStyle3.NullValue = null;
+            this.ExpireTime.DefaultCellStyle = dataGridViewCellStyle3;
             this.ExpireTime.HeaderText = "缴费到期时间";
             this.ExpireTime.Name = "ExpireTime";
             this.ExpireTime.ReadOnly = true;
@@ -336,9 +345,9 @@
             // BirthdayColumn
             // 
             this.BirthdayColumn.DataPropertyName = "Birthday";
-            dataGridViewCellStyle2.Format = "D";
-            dataGridViewCellStyle2.NullValue = null;
-            this.BirthdayColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Format = "D";
+            dataGridViewCellStyle4.NullValue = null;
+            this.BirthdayColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.BirthdayColumn.HeaderText = "生日";
             this.BirthdayColumn.Name = "BirthdayColumn";
             this.BirthdayColumn.ReadOnly = true;
@@ -448,6 +457,7 @@
         private System.Windows.Forms.BindingSource studentSigninBindingSource;
         private SignInDataSetTableAdapters.StudentSigninTableAdapter studentSigninTableAdapter;
         private System.Windows.Forms.Label txtSignInRes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 序号;
         private System.Windows.Forms.DataGridViewTextBoxColumn CardTypeNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CardNoColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
