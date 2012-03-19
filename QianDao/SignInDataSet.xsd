@@ -537,6 +537,26 @@ SELECT ActualCostAmount, CostAmount, CostDate, CourseID, CourseTimeID, DiscountL
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VCardsTableAdapter" GeneratorDataComponentClassName="VCardsTableAdapter" Name="VCards" UserDataComponentName="VCardsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="ChildrenPalace.dbo.v_cards" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   v_cards.*
+FROM      v_cards</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="CardNo" DataSetColumn="CardNo" />
+              <Mapping SourceColumn="CardType" DataSetColumn="CardType" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -699,6 +719,28 @@ SELECT ActualCostAmount, CostAmount, CostDate, CourseID, CourseTimeID, DiscountL
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="VCards" msprop:Generator_TableClassName="VCardsDataTable" msprop:Generator_TableVarName="tableVCards" msprop:Generator_TablePropName="VCards" msprop:Generator_RowDeletingName="VCardsRowDeleting" msprop:Generator_UserTableName="VCards" msprop:Generator_RowChangingName="VCardsRowChanging" msprop:Generator_RowEvHandlerName="VCardsRowChangeEventHandler" msprop:Generator_RowDeletedName="VCardsRowDeleted" msprop:Generator_RowEvArgName="VCardsRowChangeEvent" msprop:Generator_RowChangedName="VCardsRowChanged" msprop:Generator_RowClassName="VCardsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CardNo" msprop:Generator_ColumnVarNameInTable="columnCardNo" msprop:Generator_ColumnPropNameInRow="CardNo" msprop:Generator_ColumnPropNameInTable="CardNoColumn" msprop:Generator_UserColumnName="CardNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CardType" msprop:Generator_ColumnVarNameInTable="columnCardType" msprop:Generator_ColumnPropNameInRow="CardType" msprop:Generator_ColumnPropNameInTable="CardTypeColumn" msprop:Generator_UserColumnName="CardType" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -728,8 +770,8 @@ SELECT ActualCostAmount, CostAmount, CostDate, CourseID, CourseTimeID, DiscountL
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_student_cost_students" msdata:parent="Students" msdata:child="StudentCost" msdata:parentkey="ID" msdata:childkey="StudentID" msprop:Generator_UserChildTable="StudentCost" msprop:Generator_ChildPropName="GetStudentCostRows" msprop:Generator_UserParentTable="Students" msprop:Generator_UserRelationName="FK_student_cost_students" msprop:Generator_RelationVarName="relationFK_student_cost_students" msprop:Generator_ParentPropName="StudentsRow" />
-      <msdata:Relationship name="FK_student_courses_cost_students" msdata:parent="Students" msdata:child="studentCoursesCost" msdata:parentkey="ID" msdata:childkey="StudentID" msprop:Generator_UserChildTable="studentCoursesCost" msprop:Generator_ChildPropName="GetstudentCoursesCostRows" msprop:Generator_ParentPropName="StudentsRow" msprop:Generator_UserRelationName="FK_student_courses_cost_students" msprop:Generator_RelationVarName="relationFK_student_courses_cost_students" msprop:Generator_UserParentTable="Students" />
+      <msdata:Relationship name="FK_student_cost_students" msdata:parent="Students" msdata:child="StudentCost" msdata:parentkey="ID" msdata:childkey="StudentID" msprop:Generator_UserChildTable="StudentCost" msprop:Generator_ChildPropName="GetStudentCostRows" msprop:Generator_ParentPropName="StudentsRow" msprop:Generator_UserRelationName="FK_student_cost_students" msprop:Generator_RelationVarName="relationFK_student_cost_students" msprop:Generator_UserParentTable="Students" />
+      <msdata:Relationship name="FK_student_courses_cost_students" msdata:parent="Students" msdata:child="studentCoursesCost" msdata:parentkey="ID" msdata:childkey="StudentID" msprop:Generator_UserChildTable="studentCoursesCost" msprop:Generator_ChildPropName="GetstudentCoursesCostRows" msprop:Generator_UserParentTable="Students" msprop:Generator_UserRelationName="FK_student_courses_cost_students" msprop:Generator_RelationVarName="relationFK_student_courses_cost_students" msprop:Generator_ParentPropName="StudentsRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
