@@ -45,6 +45,7 @@
             this.softwareVersionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.versionDataSet = new Common.VersionDataSet();
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine(((System.ComponentModel.Component)(this)));
+            this.tsbTeacherAttendance = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.softwareVersionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.versionDataSet)).BeginInit();
@@ -111,6 +112,7 @@
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbTeachersManage,
+            this.tsbTeacherAttendance,
             this.tsbMaterialsManage,
             this.tsbFinanceAccounts,
             this.tsbFinanceManage,
@@ -149,7 +151,7 @@
             this.tsbPasswordUpdate.Image = ((System.Drawing.Image)(resources.GetObject("tsbPasswordUpdate.Image")));
             this.tsbPasswordUpdate.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbPasswordUpdate.Name = "tsbPasswordUpdate";
-            this.tsbPasswordUpdate.Size = new System.Drawing.Size(92, 57);
+            this.tsbPasswordUpdate.Size = new System.Drawing.Size(92, 36);
             this.tsbPasswordUpdate.Text = "密码更改";
             this.tsbPasswordUpdate.Click += new System.EventHandler(this.tsbPasswordUpdate_Click);
             // 
@@ -160,7 +162,7 @@
             this.toolBtnWelcome.Image = ((System.Drawing.Image)(resources.GetObject("toolBtnWelcome.Image")));
             this.toolBtnWelcome.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolBtnWelcome.Name = "toolBtnWelcome";
-            this.toolBtnWelcome.Size = new System.Drawing.Size(60, 57);
+            this.toolBtnWelcome.Size = new System.Drawing.Size(60, 21);
             this.toolBtnWelcome.Text = "欢迎您：";
             this.toolBtnWelcome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
@@ -183,6 +185,15 @@
             this.skinEngine1.SerialNumber = "";
             this.skinEngine1.SkinFile = null;
             this.skinEngine1.SkinStreamMain = ((System.IO.Stream)(resources.GetObject("skinEngine1.SkinStreamMain")));
+            // 
+            // tsbTeacherAttendance
+            // 
+            this.tsbTeacherAttendance.Image = ((System.Drawing.Image)(resources.GetObject("tsbTeacherAttendance.Image")));
+            this.tsbTeacherAttendance.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbTeacherAttendance.Name = "tsbTeacherAttendance";
+            this.tsbTeacherAttendance.Size = new System.Drawing.Size(116, 57);
+            this.tsbTeacherAttendance.Text = "教师考勤管理";
+            this.tsbTeacherAttendance.Click += new System.EventHandler(this.tsbTeacherAttendance_Click);
             // 
             // MainForm
             // 
@@ -221,6 +232,7 @@
         private System.Windows.Forms.ToolStripButton tsbPublishNotice;
         private Sunisoft.IrisSkin.SkinEngine skinEngine1;
         private System.Windows.Forms.ToolStripButton tsbFinanceAccounts;
+        private System.Windows.Forms.ToolStripButton tsbTeacherAttendance;
 
     }
 }

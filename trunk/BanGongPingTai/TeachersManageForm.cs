@@ -21,6 +21,7 @@ namespace BanGongPingTai
 
         private void TeachersManageForm_Load(object sender, EventArgs e)
         {
+            this.vCardsTableAdapter.Fill(this.teachersDataSet.VCards);
             if (User.CurrentUser.UserType > 1)
                 btnAddSalary.Enabled = true;
             printTitle = "海鹰教育培训中心"+DateTime.Now.AddMonths(-1).ToString("yyyy年M月") + "工资表";
@@ -108,17 +109,77 @@ namespace BanGongPingTai
 
         private void btnConnectCard_Click(object sender, EventArgs e)
         {
+            if (teachersBindingSource.Position < 0)
+                return;
+            int rowIndex = dgvTeachers.CurrentRow.Index;
+
             // 获取卡号
             CardConnectForm frmCardConnect = new CardConnectForm();
             frmCardConnect.ShowDialog();
             if (frmCardConnect.cardNo == "")
                 return;
 
+            // 查询是否有卡号冲突
+            DataRow[] rows = teachersDataSet.VCards.Select("CardNo = '" + frmCardConnect.cardNo + "'");
+            if (rows.Length > 0)
+            {
+                DataRow cardInfoRow = rows[0];
+                int cardType = cardInfoRow.Field<int>("CardType");
+                string crowd = cardType == 1 ? "学生" : "教师";
+                MessageBox.Show("该卡片[" + frmCardConnect.cardNo + "]已被"+crowd+"["
+                    + cardInfoRow.Field<string>("Name") + "]所使用，请使用新卡片", "卡号已被使用",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 显示确认对话框
+            ConfirmCardConnectForm frmConfirmCardConnect = new ConfirmCardConnectForm();
+            frmConfirmCardConnect.CardNo = frmCardConnect.cardNo;
+            frmConfirmCardConnect.TeacherName = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Name");
+            frmConfirmCardConnect.TeacherSex = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Sex");
+            frmConfirmCardConnect.TeacherAddress = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Address");
+            frmConfirmCardConnect.TeacherPhone = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Phone");
+            
+            if (frmConfirmCardConnect.ShowDialog() != DialogResult.OK)
+                return;
+
+            int teacherID = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<int>("ID");
             // 更新卡号信息
-            teachersTableAdapter.UpdateCardNo(frmCardConnect.cardNo, int.Parse(txtID.Text));
+            teachersTableAdapter.UpdateCardNo(frmCardConnect.cardNo, teacherID);
 
             // 刷新界面
-            this.teachersTableAdapter.Fill(this.teachersDataSet.Tearchers);
+            this.teachersTableAdapter.Fill(teachersDataSet.Tearchers);
+            if (rowIndex >= 0)
+            {
+                this.dgvTeachers.Rows[rowIndex].Selected = true;
+                this.dgvTeachers.CurrentCell = this.dgvTeachers.Rows[rowIndex].Cells[0];
+            }
+            this.vCardsTableAdapter.Fill(this.teachersDataSet.VCards);
+        }
+
+        private void btnCardDisconnect_Click(object sender, EventArgs e)
+        {
+            if (teachersBindingSource.Position < 0)
+                return;
+            int rowIndex = dgvTeachers.CurrentRow.Index;
+
+            if (MessageBox.Show("确认要回收“" + teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Name") + "”的卡号为“"
+                + teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("CardNo") + "”的卡片吗？", "确认回收卡片", MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question) != DialogResult.OK)
+                return;
+
+            int teacherID = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<int>("ID");
+            // 更新卡号信息
+            teachersTableAdapter.UpdateCardNo("", teacherID);
+
+            // 刷新界面
+            this.teachersTableAdapter.Fill(teachersDataSet.Tearchers);
+            if (rowIndex >= 0)
+            {
+                this.dgvTeachers.Rows[rowIndex].Selected = true;
+                this.dgvTeachers.CurrentCell = this.dgvTeachers.Rows[rowIndex].Cells[0];
+            }
+            this.vCardsTableAdapter.Fill(this.teachersDataSet.VCards);
         }
 
         private void teachersBindingSource_PositionChanged(object sender, EventArgs e)
@@ -133,6 +194,20 @@ namespace BanGongPingTai
             catch
             {
                 return;
+            }
+            finally
+            {
+                string cardNo = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("CardNo");
+                if (cardNo != null && !"".Equals(cardNo))
+                {
+                    btnConnectCard.Enabled = false;
+                    btnCardDisconnect.Enabled = true;
+                }
+                else
+                {
+                    btnConnectCard.Enabled = true;
+                    btnCardDisconnect.Enabled = false;
+                }
             }
         }
 
@@ -484,6 +559,20 @@ namespace BanGongPingTai
         private DateTime LastDayOfMonth(DateTime datetime)  
         {
             return datetime.AddDays(1 - datetime.Day).AddMonths(1).AddDays(-1);  
+        }
+
+        private void teachersBindingSource_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            if (teachersDataSet.Tearchers.Rows.Count == 0)
+            {
+                btnUpdateTeacher.Enabled = false;
+                btnDelTeacher.Enabled = false;
+            }
+            else
+            {
+                btnUpdateTeacher.Enabled = true;
+                btnDelTeacher.Enabled = true;
+            }
         }
 
     }

@@ -213,6 +213,26 @@ FROM teacher_salary_adjust</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VCardsTableAdapter" GeneratorDataComponentClassName="VCardsTableAdapter" Name="VCards" UserDataComponentName="VCardsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="ChildrenPalace.dbo.v_cards" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   v_cards.*
+FROM      v_cards</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="CardNo" DataSetColumn="CardNo" />
+              <Mapping SourceColumn="CardType" DataSetColumn="CardType" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -314,6 +334,28 @@ FROM teacher_salary_adjust</CommandText>
               <xs:element name="TeacherId" msprop:Generator_ColumnVarNameInTable="columnTeacherId" msprop:Generator_ColumnPropNameInRow="TeacherId" msprop:Generator_ColumnPropNameInTable="TeacherIdColumn" msprop:Generator_UserColumnName="TeacherId" type="xs:int" />
               <xs:element name="AdjustDate" msprop:Generator_ColumnVarNameInTable="columnAdjustDate" msprop:Generator_ColumnPropNameInRow="AdjustDate" msprop:Generator_ColumnPropNameInTable="AdjustDateColumn" msprop:Generator_UserColumnName="AdjustDate" type="xs:dateTime" />
               <xs:element name="NewSalary" msprop:Generator_ColumnVarNameInTable="columnNewSalary" msprop:Generator_ColumnPropNameInRow="NewSalary" msprop:Generator_ColumnPropNameInTable="NewSalaryColumn" msprop:Generator_UserColumnName="NewSalary" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VCards" msprop:Generator_TableClassName="VCardsDataTable" msprop:Generator_TableVarName="tableVCards" msprop:Generator_TablePropName="VCards" msprop:Generator_RowDeletingName="VCardsRowDeleting" msprop:Generator_UserTableName="VCards" msprop:Generator_RowChangingName="VCardsRowChanging" msprop:Generator_RowEvHandlerName="VCardsRowChangeEventHandler" msprop:Generator_RowDeletedName="VCardsRowDeleted" msprop:Generator_RowEvArgName="VCardsRowChangeEvent" msprop:Generator_RowChangedName="VCardsRowChanged" msprop:Generator_RowClassName="VCardsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CardNo" msprop:Generator_ColumnVarNameInTable="columnCardNo" msprop:Generator_ColumnPropNameInRow="CardNo" msprop:Generator_ColumnPropNameInTable="CardNoColumn" msprop:Generator_UserColumnName="CardNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CardType" msprop:Generator_ColumnVarNameInTable="columnCardType" msprop:Generator_ColumnPropNameInRow="CardType" msprop:Generator_ColumnPropNameInTable="CardTypeColumn" msprop:Generator_UserColumnName="CardType" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
