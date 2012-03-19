@@ -81,6 +81,12 @@ namespace BanGongPingTai
         {
             while (true)
             {
+                if (!_isActive)
+                {
+                    Thread.Sleep(1000);
+                    continue;
+                }
+
                 char tt = (char)0;
                 uint ss = 0;
 
@@ -130,7 +136,11 @@ namespace BanGongPingTai
         private void CardConnectForm_Load(object sender, EventArgs e)
         {
             // 初始化设备
-            _icdev = dc_init(100, 115200);
+            // 初始化设备
+            if (_icdev <= 0)
+            {
+                _icdev = dc_init(100, 115200);
+            }
 
             if (_icdev > 0)
             {
@@ -139,18 +149,54 @@ namespace BanGongPingTai
                 threadReadCardno.Start();
                 threadGetCardNo.Start();
             }
+            else
+            {
+                MessageBox.Show("初始化读卡器失败！", "初始化读卡器失败", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
 
         private void CardConnectForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(threadReadCardno != null)
+            if (threadReadCardno != null)
                 threadReadCardno.Abort();
-            if(threadGetCardNo != null)
+            if (threadGetCardNo != null)
                 threadGetCardNo.Abort();
             if (_icdev > 0)
             {
                 dc_exit(_icdev);
             }
+        }
+
+        private bool _isActive = true;
+
+        private void CardConnectForm_Activated(object sender, EventArgs e)
+        {
+            Monitor.Enter(this);//锁定，保持同步
+            if (_icdev <= 0)
+            {
+                _icdev = dc_init(100, 115200);
+            }
+            if (_icdev <= 0)
+            {
+                MessageBox.Show("重新初始化读卡器失败！", "初始化读卡器失败", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+            }
+            _isActive = true;
+            Monitor.Exit(this);
+        }
+
+        private void CardConnectForm_Deactivate(object sender, EventArgs e)
+        {
+            Monitor.Enter(this);//锁定，保持同步
+            if (_icdev > 0)
+            {
+                dc_exit(_icdev);
+                _icdev = 0;
+            }
+            _isActive = false;
+            Monitor.Exit(this);
         }
 
     }

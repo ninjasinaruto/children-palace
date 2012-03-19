@@ -70,6 +70,12 @@
     </Compile>
     <Compile Include="BasicWage.cs" />
     <Compile Include="ChargeBack.cs" />
+    <Compile Include="ConfirmDialog\ConfirmCardConnectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmDialog\ConfirmCardConnectForm.Designer.cs">
+      <DependentUpon>ConfirmCardConnectForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CoursesDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -329,6 +335,9 @@
     <Compile Include="WagePrintForm.Designer.cs">
       <DependentUpon>WagePrintForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ConfirmDialog\ConfirmCardConnectForm.resx">
+      <DependentUpon>ConfirmCardConnectForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FinanceAccountForm.resx">
       <DependentUpon>FinanceAccountForm.cs</DependentUpon>
     </EmbeddedResource>

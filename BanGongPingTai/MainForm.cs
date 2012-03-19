@@ -57,6 +57,7 @@ namespace BanGongPingTai
                 tsbFinanceManage.Enabled = false;
                 tsbMaterialsManage.Enabled = false;
                 tsbTeachersManage.Enabled = false;
+                tsbTeacherAttendance.Enabled = false;
                 tsbUsersManage.Enabled = false;
                 tsbPublishNotice.Enabled = false;
             }
@@ -127,6 +128,26 @@ namespace BanGongPingTai
             if (currentButton != null)
                 currentButton.Checked = false;
             currentButton = tsbTeachersManage;
+            currentButton.Checked = true;
+        }
+
+        private void tsbTeacherAttendance_Click(object sender, EventArgs e)
+        {
+            if (currentForm != null)
+            {
+                currentForm.Close();
+                currentForm.Dispose();
+            }
+
+            //currentForm = new TeachersManageForm();
+            //currentForm.MdiParent = this;
+            //currentForm.WindowState = FormWindowState.Maximized;
+            //currentForm.Show();
+            //currentForm.Location = new Point(0, 0);
+
+            if (currentButton != null)
+                currentButton.Checked = false;
+            currentButton = tsbTeacherAttendance;
             currentButton.Checked = true;
         }
 

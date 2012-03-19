@@ -61,6 +61,8 @@
             this.Name = "CardConnectForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "请刷卡";
+            this.Activated += new System.EventHandler(this.CardConnectForm_Activated);
+            this.Deactivate += new System.EventHandler(this.CardConnectForm_Deactivate);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CardConnectForm_FormClosing);
             this.Load += new System.EventHandler(this.CardConnectForm_Load);
             this.Shown += new System.EventHandler(this.CardConnectForm_Shown);
