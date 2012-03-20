@@ -89,10 +89,18 @@ namespace BanGongPingTai
             frmTeacherUpdate.Address = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Address");
             frmTeacherUpdate.Phone = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Phone");
             frmTeacherUpdate.Password = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Password");
+            frmTeacherUpdate.signinTimeList = stList;
             if (frmTeacherUpdate.ShowDialog() != DialogResult.OK)
                 return;
             int teacherID = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<int>("ID");
             teachersTableAdapter.UpdateByID(frmTeacherUpdate.TeacherName, frmTeacherUpdate.Phone, frmTeacherUpdate.Sex, frmTeacherUpdate.Address, frmTeacherUpdate.Password, teacherID);
+            teacherSigninTimeTableAdapter.DeleteByTeacherID(teacherID);
+            stList = frmTeacherUpdate.signinTimeList;
+            foreach (SigninTime st in stList)
+            {
+                teacherSigninTimeTableAdapter.Insert(teacherID, null, DateTime.Parse(st.beginTime.ToShortTimeString()),
+                    DateTime.Parse(st.endTime.ToShortTimeString()), st.range, DateTime.Now, User.CurrentUser.UserName);
+            }
             teachersTableAdapter.Fill(teachersDataSet.Tearchers);
             if (rowIndex >= 0)
             {
