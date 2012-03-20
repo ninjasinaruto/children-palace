@@ -44,18 +44,18 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.dtBeginTimeOne = new System.Windows.Forms.DateTimePicker();
-            this.dtEndTimeOne = new System.Windows.Forms.DateTimePicker();
-            this.dtBeginTimeTwo = new System.Windows.Forms.DateTimePicker();
-            this.dtEndTimeTwo = new System.Windows.Forms.DateTimePicker();
-            this.dtBeginTimeThree = new System.Windows.Forms.DateTimePicker();
             this.dtEndTimeThree = new System.Windows.Forms.DateTimePicker();
+            this.dtBeginTimeThree = new System.Windows.Forms.DateTimePicker();
+            this.dtEndTimeTwo = new System.Windows.Forms.DateTimePicker();
+            this.dtBeginTimeTwo = new System.Windows.Forms.DateTimePicker();
+            this.dtEndTimeOne = new System.Windows.Forms.DateTimePicker();
+            this.dtBeginTimeOne = new System.Windows.Forms.DateTimePicker();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -225,111 +225,18 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "排班时间";
             // 
-            // label7
+            // dtEndTimeThree
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(14, 27);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(71, 12);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "上班时间1：";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(237, 27);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 12);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "下班时间1：";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(14, 58);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 12);
-            this.label9.TabIndex = 24;
-            this.label9.Text = "上班时间2：";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(237, 58);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(71, 12);
-            this.label10.TabIndex = 25;
-            this.label10.Text = "下班时间2：";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(14, 89);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(71, 12);
-            this.label11.TabIndex = 26;
-            this.label11.Text = "上班时间3：";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(239, 89);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(71, 12);
-            this.label12.TabIndex = 27;
-            this.label12.Text = "下班时间3：";
-            // 
-            // dtBeginTimeOne
-            // 
-            this.dtBeginTimeOne.Checked = false;
-            this.dtBeginTimeOne.CustomFormat = "        HH:mm";
-            this.dtBeginTimeOne.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtBeginTimeOne.Location = new System.Drawing.Point(91, 23);
-            this.dtBeginTimeOne.Name = "dtBeginTimeOne";
-            this.dtBeginTimeOne.ShowCheckBox = true;
-            this.dtBeginTimeOne.ShowUpDown = true;
-            this.dtBeginTimeOne.Size = new System.Drawing.Size(120, 21);
-            this.dtBeginTimeOne.TabIndex = 33;
-            this.dtBeginTimeOne.Value = new System.DateTime(2012, 3, 20, 8, 0, 0, 0);
-            // 
-            // dtEndTimeOne
-            // 
-            this.dtEndTimeOne.Checked = false;
-            this.dtEndTimeOne.CustomFormat = "        HH:mm";
-            this.dtEndTimeOne.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtEndTimeOne.Location = new System.Drawing.Point(314, 23);
-            this.dtEndTimeOne.Name = "dtEndTimeOne";
-            this.dtEndTimeOne.ShowCheckBox = true;
-            this.dtEndTimeOne.ShowUpDown = true;
-            this.dtEndTimeOne.Size = new System.Drawing.Size(122, 21);
-            this.dtEndTimeOne.TabIndex = 34;
-            this.dtEndTimeOne.Value = new System.DateTime(2012, 3, 20, 11, 30, 0, 0);
-            // 
-            // dtBeginTimeTwo
-            // 
-            this.dtBeginTimeTwo.Checked = false;
-            this.dtBeginTimeTwo.CustomFormat = "        HH:mm";
-            this.dtBeginTimeTwo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtBeginTimeTwo.Location = new System.Drawing.Point(91, 52);
-            this.dtBeginTimeTwo.Name = "dtBeginTimeTwo";
-            this.dtBeginTimeTwo.ShowCheckBox = true;
-            this.dtBeginTimeTwo.ShowUpDown = true;
-            this.dtBeginTimeTwo.Size = new System.Drawing.Size(120, 21);
-            this.dtBeginTimeTwo.TabIndex = 35;
-            this.dtBeginTimeTwo.Value = new System.DateTime(2012, 3, 20, 14, 0, 0, 0);
-            // 
-            // dtEndTimeTwo
-            // 
-            this.dtEndTimeTwo.Checked = false;
-            this.dtEndTimeTwo.CustomFormat = "        HH:mm";
-            this.dtEndTimeTwo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtEndTimeTwo.Location = new System.Drawing.Point(314, 52);
-            this.dtEndTimeTwo.Name = "dtEndTimeTwo";
-            this.dtEndTimeTwo.ShowCheckBox = true;
-            this.dtEndTimeTwo.ShowUpDown = true;
-            this.dtEndTimeTwo.Size = new System.Drawing.Size(122, 21);
-            this.dtEndTimeTwo.TabIndex = 36;
-            this.dtEndTimeTwo.Value = new System.DateTime(2012, 3, 20, 17, 30, 0, 0);
+            this.dtEndTimeThree.Checked = false;
+            this.dtEndTimeThree.CustomFormat = "        HH:mm";
+            this.dtEndTimeThree.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtEndTimeThree.Location = new System.Drawing.Point(314, 83);
+            this.dtEndTimeThree.Name = "dtEndTimeThree";
+            this.dtEndTimeThree.ShowCheckBox = true;
+            this.dtEndTimeThree.ShowUpDown = true;
+            this.dtEndTimeThree.Size = new System.Drawing.Size(122, 21);
+            this.dtEndTimeThree.TabIndex = 38;
+            this.dtEndTimeThree.Value = new System.DateTime(2012, 3, 20, 20, 30, 0, 0);
             // 
             // dtBeginTimeThree
             // 
@@ -344,18 +251,111 @@
             this.dtBeginTimeThree.TabIndex = 37;
             this.dtBeginTimeThree.Value = new System.DateTime(2012, 3, 20, 18, 30, 0, 0);
             // 
-            // dtEndTimeThree
+            // dtEndTimeTwo
             // 
-            this.dtEndTimeThree.Checked = false;
-            this.dtEndTimeThree.CustomFormat = "        HH:mm";
-            this.dtEndTimeThree.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtEndTimeThree.Location = new System.Drawing.Point(314, 83);
-            this.dtEndTimeThree.Name = "dtEndTimeThree";
-            this.dtEndTimeThree.ShowCheckBox = true;
-            this.dtEndTimeThree.ShowUpDown = true;
-            this.dtEndTimeThree.Size = new System.Drawing.Size(122, 21);
-            this.dtEndTimeThree.TabIndex = 38;
-            this.dtEndTimeThree.Value = new System.DateTime(2012, 3, 20, 20, 30, 0, 0);
+            this.dtEndTimeTwo.Checked = false;
+            this.dtEndTimeTwo.CustomFormat = "        HH:mm";
+            this.dtEndTimeTwo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtEndTimeTwo.Location = new System.Drawing.Point(314, 52);
+            this.dtEndTimeTwo.Name = "dtEndTimeTwo";
+            this.dtEndTimeTwo.ShowCheckBox = true;
+            this.dtEndTimeTwo.ShowUpDown = true;
+            this.dtEndTimeTwo.Size = new System.Drawing.Size(122, 21);
+            this.dtEndTimeTwo.TabIndex = 36;
+            this.dtEndTimeTwo.Value = new System.DateTime(2012, 3, 20, 17, 30, 0, 0);
+            // 
+            // dtBeginTimeTwo
+            // 
+            this.dtBeginTimeTwo.Checked = false;
+            this.dtBeginTimeTwo.CustomFormat = "        HH:mm";
+            this.dtBeginTimeTwo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtBeginTimeTwo.Location = new System.Drawing.Point(91, 52);
+            this.dtBeginTimeTwo.Name = "dtBeginTimeTwo";
+            this.dtBeginTimeTwo.ShowCheckBox = true;
+            this.dtBeginTimeTwo.ShowUpDown = true;
+            this.dtBeginTimeTwo.Size = new System.Drawing.Size(120, 21);
+            this.dtBeginTimeTwo.TabIndex = 35;
+            this.dtBeginTimeTwo.Value = new System.DateTime(2012, 3, 20, 14, 0, 0, 0);
+            // 
+            // dtEndTimeOne
+            // 
+            this.dtEndTimeOne.Checked = false;
+            this.dtEndTimeOne.CustomFormat = "        HH:mm";
+            this.dtEndTimeOne.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtEndTimeOne.Location = new System.Drawing.Point(314, 23);
+            this.dtEndTimeOne.Name = "dtEndTimeOne";
+            this.dtEndTimeOne.ShowCheckBox = true;
+            this.dtEndTimeOne.ShowUpDown = true;
+            this.dtEndTimeOne.Size = new System.Drawing.Size(122, 21);
+            this.dtEndTimeOne.TabIndex = 34;
+            this.dtEndTimeOne.Value = new System.DateTime(2012, 3, 20, 11, 30, 0, 0);
+            // 
+            // dtBeginTimeOne
+            // 
+            this.dtBeginTimeOne.Checked = false;
+            this.dtBeginTimeOne.CustomFormat = "        HH:mm";
+            this.dtBeginTimeOne.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtBeginTimeOne.Location = new System.Drawing.Point(91, 23);
+            this.dtBeginTimeOne.Name = "dtBeginTimeOne";
+            this.dtBeginTimeOne.ShowCheckBox = true;
+            this.dtBeginTimeOne.ShowUpDown = true;
+            this.dtBeginTimeOne.Size = new System.Drawing.Size(120, 21);
+            this.dtBeginTimeOne.TabIndex = 33;
+            this.dtBeginTimeOne.Value = new System.DateTime(2012, 3, 20, 8, 0, 0, 0);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(239, 89);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(71, 12);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "下班时间3：";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(14, 89);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(71, 12);
+            this.label11.TabIndex = 26;
+            this.label11.Text = "上班时间3：";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(237, 58);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(71, 12);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "下班时间2：";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(14, 58);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(71, 12);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "上班时间2：";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(237, 27);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(71, 12);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "下班时间1：";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(14, 27);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(71, 12);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "上班时间1：";
             // 
             // TeacherAddingForm
             // 
