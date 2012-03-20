@@ -534,6 +534,7 @@ namespace QianDao
                 // 教师卡
                 ShowTeacherInfo(cardRows[0]);
                 ShowSignInSuccessInfo(false);
+                teacherSigninTableAdapter.InsertQuery(cardRows[0].Field<int>("ID"), _currentDayOfWeek);
             }
         }
 

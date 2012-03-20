@@ -55,6 +55,8 @@
             this.studentCoursesCostTableAdapter = new QianDao.SignInDataSetTableAdapters.studentCoursesCostTableAdapter();
             this.vCardsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vCardsTableAdapter = new QianDao.SignInDataSetTableAdapters.VCardsTableAdapter();
+            this.teacherSigninBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherSigninTableAdapter = new QianDao.SignInDataSetTableAdapters.TeacherSigninTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.studentSignInBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.signInDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).BeginInit();
@@ -63,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.studentCostBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentCoursesCostbindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vCardsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherSigninBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // txtCardNo
@@ -250,6 +253,15 @@
             // 
             this.vCardsTableAdapter.ClearBeforeFill = true;
             // 
+            // teacherSigninBindingSource
+            // 
+            this.teacherSigninBindingSource.DataMember = "TeacherSignin";
+            this.teacherSigninBindingSource.DataSource = this.signInDataSet;
+            // 
+            // teacherSigninTableAdapter
+            // 
+            this.teacherSigninTableAdapter.ClearBeforeFill = true;
+            // 
             // StudentSignInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -283,6 +295,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.studentCostBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentCoursesCostbindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vCardsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherSigninBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,6 +328,8 @@
         private SignInDataSetTableAdapters.studentCoursesCostTableAdapter studentCoursesCostTableAdapter;
         private System.Windows.Forms.BindingSource vCardsBindingSource;
         private SignInDataSetTableAdapters.VCardsTableAdapter vCardsTableAdapter;
+        private System.Windows.Forms.BindingSource teacherSigninBindingSource;
+        private SignInDataSetTableAdapters.TeacherSigninTableAdapter teacherSigninTableAdapter;
     }
 }
 
