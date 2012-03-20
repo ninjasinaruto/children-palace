@@ -43,12 +43,18 @@ namespace BanGongPingTai
 
         private void btnAddTeacher_Click(object sender, EventArgs e)
         {
+            //this.teacherSigninTimeTableAdapter.Fill(this.teachersDataSet.TeacherSigninTime);
             TeacherAddingForm frmTeachersAdding = new TeacherAddingForm();
             if (frmTeachersAdding.ShowDialog() != DialogResult.OK)
                 return;
-
-            teachersTableAdapter.Insert(frmTeachersAdding.Name,
+            int teacherID = (int)teachersTableAdapter.InsertTeacher(frmTeachersAdding.Name,
                 frmTeachersAdding.Phone, null, frmTeachersAdding.Sex, frmTeachersAdding.Address, 0, frmTeachersAdding.Password);
+            List<SigninTime> stList = frmTeachersAdding.signinTimeList;
+            foreach (SigninTime st in stList)
+            {
+                teacherSigninTimeTableAdapter.Insert(teacherID, null, DateTime.Parse(st.beginTime.ToShortTimeString()),
+                    DateTime.Parse(st.endTime.ToShortTimeString()), st.range, DateTime.Now, User.CurrentUser.UserName);
+            }
             teachersTableAdapter.Fill(teachersDataSet.Tearchers);
             if (teachersDataSet.Tearchers.Rows.Count > 0)
             {
@@ -62,6 +68,21 @@ namespace BanGongPingTai
             if (teachersBindingSource.Position < 0)
                 return;
             int rowIndex = dgvTeachers.CurrentRow.Index;
+            List<SigninTime> stList = new List<SigninTime>();
+            this.teacherSigninTimeTableAdapter.FillByTeacherID(teachersDataSet.TeacherSigninTime, teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<int>("ID"));
+            if (teachersDataSet.TeacherSigninTime.Rows.Count > 0)
+            {
+                for (int i = 0; i < teachersDataSet.TeacherSigninTime.Rows.Count; i++)
+                {
+                    DataRow row = teachersDataSet.TeacherSigninTime.Rows[i];
+                    SigninTime st = new SigninTime();
+                    st.beginTime = row.Field<DateTime>("BeginTime");
+                    st.endTime = row.Field<DateTime>("EndTime");
+                    st.range = row.Field<int>("Range");
+                    stList.Add(st);
+                }
+            }
+
             TeacherUpdateForm frmTeacherUpdate = new TeacherUpdateForm();
             frmTeacherUpdate.TeacherName = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Name");
             frmTeacherUpdate.Sex = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Sex");
@@ -97,6 +118,7 @@ namespace BanGongPingTai
                 {
                     int teacherID = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<int>("ID");
                     teachersTableAdapter.DeleteByID(teacherID);
+                    teacherSigninTimeTableAdapter.DeleteByTeacherID(teacherID);
                     teachersTableAdapter.Fill(teachersDataSet.Tearchers);
                     if (teachersDataSet.Tearchers.Rows.Count > 0)
                     {

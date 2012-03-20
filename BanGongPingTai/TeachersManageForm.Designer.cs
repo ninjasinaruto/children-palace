@@ -29,78 +29,78 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode82 = new System.Windows.Forms.TreeNode("编号");
-            System.Windows.Forms.TreeNode treeNode83 = new System.Windows.Forms.TreeNode("姓名");
-            System.Windows.Forms.TreeNode treeNode84 = new System.Windows.Forms.TreeNode("月份");
-            System.Windows.Forms.TreeNode treeNode85 = new System.Windows.Forms.TreeNode("基本工资");
-            System.Windows.Forms.TreeNode treeNode86 = new System.Windows.Forms.TreeNode("工龄工资");
-            System.Windows.Forms.TreeNode treeNode87 = new System.Windows.Forms.TreeNode("职务工资");
-            System.Windows.Forms.TreeNode treeNode88 = new System.Windows.Forms.TreeNode("保险补贴");
-            System.Windows.Forms.TreeNode treeNode89 = new System.Windows.Forms.TreeNode("岗位工资");
-            System.Windows.Forms.TreeNode treeNode90 = new System.Windows.Forms.TreeNode("加班补贴");
-            System.Windows.Forms.TreeNode treeNode91 = new System.Windows.Forms.TreeNode("课量工资");
-            System.Windows.Forms.TreeNode treeNode92 = new System.Windows.Forms.TreeNode("其他");
-            System.Windows.Forms.TreeNode treeNode93 = new System.Windows.Forms.TreeNode("基本工资", new System.Windows.Forms.TreeNode[] {
-            treeNode85,
-            treeNode86,
-            treeNode87,
-            treeNode88,
-            treeNode89,
-            treeNode90,
-            treeNode91,
-            treeNode92});
-            System.Windows.Forms.TreeNode treeNode94 = new System.Windows.Forms.TreeNode("满勤奖");
-            System.Windows.Forms.TreeNode treeNode95 = new System.Windows.Forms.TreeNode("学生管理奖");
-            System.Windows.Forms.TreeNode treeNode96 = new System.Windows.Forms.TreeNode("奖励");
-            System.Windows.Forms.TreeNode treeNode97 = new System.Windows.Forms.TreeNode("绩效");
-            System.Windows.Forms.TreeNode treeNode98 = new System.Windows.Forms.TreeNode("其他");
-            System.Windows.Forms.TreeNode treeNode99 = new System.Windows.Forms.TreeNode("奖励", new System.Windows.Forms.TreeNode[] {
-            treeNode94,
-            treeNode95,
-            treeNode96,
-            treeNode97,
-            treeNode98});
-            System.Windows.Forms.TreeNode treeNode100 = new System.Windows.Forms.TreeNode("应发栏", new System.Windows.Forms.TreeNode[] {
-            treeNode93,
-            treeNode99});
-            System.Windows.Forms.TreeNode treeNode101 = new System.Windows.Forms.TreeNode("应发合计");
-            System.Windows.Forms.TreeNode treeNode102 = new System.Windows.Forms.TreeNode("考勤扣款（元）");
-            System.Windows.Forms.TreeNode treeNode103 = new System.Windows.Forms.TreeNode("代扣款（元）");
-            System.Windows.Forms.TreeNode treeNode104 = new System.Windows.Forms.TreeNode("其他扣款（元）");
-            System.Windows.Forms.TreeNode treeNode105 = new System.Windows.Forms.TreeNode("合计（元）");
-            System.Windows.Forms.TreeNode treeNode106 = new System.Windows.Forms.TreeNode("扣款栏", new System.Windows.Forms.TreeNode[] {
-            treeNode102,
-            treeNode103,
-            treeNode104,
-            treeNode105});
-            System.Windows.Forms.TreeNode treeNode107 = new System.Windows.Forms.TreeNode("实发工资（元）");
-            System.Windows.Forms.TreeNode treeNode108 = new System.Windows.Forms.TreeNode("签字");
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle97 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle98 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle76 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle77 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle78 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle79 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle80 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle81 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle82 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle83 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle84 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle85 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle86 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle87 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle88 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle89 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle90 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle91 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle92 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle93 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle94 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle95 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle96 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("编号");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("姓名");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("月份");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("基本工资");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("工龄工资");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("职务工资");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("保险补贴");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("岗位工资");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("加班补贴");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("课量工资");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("其他");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("基本工资", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode5,
+            treeNode6,
+            treeNode7,
+            treeNode8,
+            treeNode9,
+            treeNode10,
+            treeNode11});
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("满勤奖");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("学生管理奖");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("奖励");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("绩效");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("其他");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("奖励", new System.Windows.Forms.TreeNode[] {
+            treeNode13,
+            treeNode14,
+            treeNode15,
+            treeNode16,
+            treeNode17});
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("应发栏", new System.Windows.Forms.TreeNode[] {
+            treeNode12,
+            treeNode18});
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("应发合计");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("考勤扣款（元）");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("代扣款（元）");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("其他扣款（元）");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("合计（元）");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("扣款栏", new System.Windows.Forms.TreeNode[] {
+            treeNode21,
+            treeNode22,
+            treeNode23,
+            treeNode24});
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("实发工资（元）");
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("签字");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvTeachers = new System.Windows.Forms.DataGridView();
             this.teacherNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -193,6 +193,8 @@
             this.vCardsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vCardsTableAdapter = new BanGongPingTai.TeachersDataSetTableAdapters.VCardsTableAdapter();
             this.btnCardDisconnect = new System.Windows.Forms.Button();
+            this.teacherSigninTimeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherSigninTimeTableAdapter = new BanGongPingTai.TeachersDataSetTableAdapters.TeacherSigninTimeTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeachers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teachersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teachersDataSet)).BeginInit();
@@ -210,6 +212,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chargeBackBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSalaryLogBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vCardsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherSigninTimeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvTeachers
@@ -445,69 +448,69 @@
             // 
             this.wageColumnsTree.Location = new System.Drawing.Point(1337, 26);
             this.wageColumnsTree.Name = "wageColumnsTree";
-            treeNode82.Name = "节点0";
-            treeNode82.Text = "编号";
-            treeNode83.Name = "节点1";
-            treeNode83.Text = "姓名";
-            treeNode84.Name = "节点0";
-            treeNode84.Text = "月份";
-            treeNode85.Name = "节点15";
-            treeNode85.Text = "基本工资";
-            treeNode86.Name = "节点18";
-            treeNode86.Text = "工龄工资";
-            treeNode87.Name = "节点19";
-            treeNode87.Text = "职务工资";
-            treeNode88.Name = "节点20";
-            treeNode88.Text = "保险补贴";
-            treeNode89.Name = "节点21";
-            treeNode89.Text = "岗位工资";
-            treeNode90.Name = "节点22";
-            treeNode90.Text = "加班补贴";
-            treeNode91.Name = "节点23";
-            treeNode91.Text = "课量工资";
-            treeNode92.Name = "节点24";
-            treeNode92.Text = "其他";
-            treeNode93.Name = "节点8";
-            treeNode93.Text = "基本工资";
-            treeNode94.Name = "节点25";
-            treeNode94.Text = "满勤奖";
-            treeNode95.Name = "节点26";
-            treeNode95.Text = "学生管理奖";
-            treeNode96.Name = "节点27";
-            treeNode96.Text = "奖励";
-            treeNode97.Name = "节点28";
-            treeNode97.Text = "绩效";
-            treeNode98.Name = "节点29";
-            treeNode98.Text = "其他";
-            treeNode99.Name = "节点9";
-            treeNode99.Text = "奖励";
-            treeNode100.Name = "节点2";
-            treeNode100.Text = "应发栏";
-            treeNode101.Name = "节点4";
-            treeNode101.Text = "应发合计";
-            treeNode102.Name = "节点10";
-            treeNode102.Text = "考勤扣款（元）";
-            treeNode103.Name = "节点11";
-            treeNode103.Text = "代扣款（元）";
-            treeNode104.Name = "节点12";
-            treeNode104.Text = "其他扣款（元）";
-            treeNode105.Name = "节点14";
-            treeNode105.Text = "合计（元）";
-            treeNode106.Name = "节点5";
-            treeNode106.Text = "扣款栏";
-            treeNode107.Name = "节点6";
-            treeNode107.Text = "实发工资（元）";
-            treeNode108.Name = "节点7";
-            treeNode108.Text = "签字";
+            treeNode1.Name = "节点0";
+            treeNode1.Text = "编号";
+            treeNode2.Name = "节点1";
+            treeNode2.Text = "姓名";
+            treeNode3.Name = "节点0";
+            treeNode3.Text = "月份";
+            treeNode4.Name = "节点15";
+            treeNode4.Text = "基本工资";
+            treeNode5.Name = "节点18";
+            treeNode5.Text = "工龄工资";
+            treeNode6.Name = "节点19";
+            treeNode6.Text = "职务工资";
+            treeNode7.Name = "节点20";
+            treeNode7.Text = "保险补贴";
+            treeNode8.Name = "节点21";
+            treeNode8.Text = "岗位工资";
+            treeNode9.Name = "节点22";
+            treeNode9.Text = "加班补贴";
+            treeNode10.Name = "节点23";
+            treeNode10.Text = "课量工资";
+            treeNode11.Name = "节点24";
+            treeNode11.Text = "其他";
+            treeNode12.Name = "节点8";
+            treeNode12.Text = "基本工资";
+            treeNode13.Name = "节点25";
+            treeNode13.Text = "满勤奖";
+            treeNode14.Name = "节点26";
+            treeNode14.Text = "学生管理奖";
+            treeNode15.Name = "节点27";
+            treeNode15.Text = "奖励";
+            treeNode16.Name = "节点28";
+            treeNode16.Text = "绩效";
+            treeNode17.Name = "节点29";
+            treeNode17.Text = "其他";
+            treeNode18.Name = "节点9";
+            treeNode18.Text = "奖励";
+            treeNode19.Name = "节点2";
+            treeNode19.Text = "应发栏";
+            treeNode20.Name = "节点4";
+            treeNode20.Text = "应发合计";
+            treeNode21.Name = "节点10";
+            treeNode21.Text = "考勤扣款（元）";
+            treeNode22.Name = "节点11";
+            treeNode22.Text = "代扣款（元）";
+            treeNode23.Name = "节点12";
+            treeNode23.Text = "其他扣款（元）";
+            treeNode24.Name = "节点14";
+            treeNode24.Text = "合计（元）";
+            treeNode25.Name = "节点5";
+            treeNode25.Text = "扣款栏";
+            treeNode26.Name = "节点6";
+            treeNode26.Text = "实发工资（元）";
+            treeNode27.Name = "节点7";
+            treeNode27.Text = "签字";
             this.wageColumnsTree.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode82,
-            treeNode83,
-            treeNode84,
-            treeNode100,
-            treeNode101,
-            treeNode106,
-            treeNode107,
-            treeNode108});
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode19,
+            treeNode20,
+            treeNode25,
+            treeNode26,
+            treeNode27});
             this.wageColumnsTree.Scrollable = false;
             this.wageColumnsTree.Size = new System.Drawing.Size(121, 58);
             this.wageColumnsTree.TabIndex = 31;
@@ -520,14 +523,14 @@
             this.dgvTeacherWages.AllowUserToResizeRows = false;
             this.dgvTeacherWages.AutoGenerateColumns = false;
             this.dgvTeacherWages.ColHeaderTreeView = null;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTeacherWages.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTeacherWages.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTeacherWages.ColumnHeadersHeight = 100;
             this.dgvTeacherWages.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -558,19 +561,19 @@
             this.dgvTeacherWages.MultiSelect = false;
             this.dgvTeacherWages.Name = "dgvTeacherWages";
             this.dgvTeacherWages.ReadOnly = true;
-            dataGridViewCellStyle97.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle97.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle97.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle97.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle97.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle97.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle97.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTeacherWages.RowHeadersDefaultCellStyle = dataGridViewCellStyle97;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTeacherWages.RowHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.dgvTeacherWages.RowHeadersVisible = false;
             this.dgvTeacherWages.RowHeadersWidth = 40;
-            dataGridViewCellStyle98.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle98.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dgvTeacherWages.RowsDefaultCellStyle = dataGridViewCellStyle98;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dgvTeacherWages.RowsDefaultCellStyle = dataGridViewCellStyle26;
             this.dgvTeacherWages.RowTemplate.Height = 23;
             this.dgvTeacherWages.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTeacherWages.Size = new System.Drawing.Size(1461, 340);
@@ -579,11 +582,11 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle51.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle51.Format = "N0";
-            dataGridViewCellStyle51.NullValue = null;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn1.HeaderText = "编号";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -593,9 +596,9 @@
             // teacherNameDataGridViewTextBoxColumn
             // 
             this.teacherNameDataGridViewTextBoxColumn.DataPropertyName = "TeacherName";
-            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.teacherNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.teacherNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.teacherNameDataGridViewTextBoxColumn.HeaderText = "姓名";
             this.teacherNameDataGridViewTextBoxColumn.Name = "teacherNameDataGridViewTextBoxColumn";
             this.teacherNameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -605,10 +608,10 @@
             // CreateDate
             // 
             this.CreateDate.DataPropertyName = "CreateDate";
-            dataGridViewCellStyle76.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle76.Format = "yyyy年MM月";
-            dataGridViewCellStyle76.NullValue = null;
-            this.CreateDate.DefaultCellStyle = dataGridViewCellStyle76;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "yyyy年MM月";
+            dataGridViewCellStyle4.NullValue = null;
+            this.CreateDate.DefaultCellStyle = dataGridViewCellStyle4;
             this.CreateDate.HeaderText = "月份";
             this.CreateDate.Name = "CreateDate";
             this.CreateDate.ReadOnly = true;
@@ -617,10 +620,10 @@
             // basicWageDataGridViewTextBoxColumn
             // 
             this.basicWageDataGridViewTextBoxColumn.DataPropertyName = "BasicWage";
-            dataGridViewCellStyle77.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle77.Format = "N2";
-            dataGridViewCellStyle77.NullValue = null;
-            this.basicWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle77;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.basicWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.basicWageDataGridViewTextBoxColumn.HeaderText = "基本工资";
             this.basicWageDataGridViewTextBoxColumn.Name = "basicWageDataGridViewTextBoxColumn";
             this.basicWageDataGridViewTextBoxColumn.ReadOnly = true;
@@ -630,10 +633,10 @@
             // ageWageDataGridViewTextBoxColumn
             // 
             this.ageWageDataGridViewTextBoxColumn.DataPropertyName = "AgeWage";
-            dataGridViewCellStyle78.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle78.Format = "N2";
-            dataGridViewCellStyle78.NullValue = null;
-            this.ageWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle78;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.ageWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.ageWageDataGridViewTextBoxColumn.HeaderText = "工龄工资";
             this.ageWageDataGridViewTextBoxColumn.Name = "ageWageDataGridViewTextBoxColumn";
             this.ageWageDataGridViewTextBoxColumn.ReadOnly = true;
@@ -643,10 +646,10 @@
             // jobWageDataGridViewTextBoxColumn
             // 
             this.jobWageDataGridViewTextBoxColumn.DataPropertyName = "JobWage";
-            dataGridViewCellStyle79.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle79.Format = "N2";
-            dataGridViewCellStyle79.NullValue = null;
-            this.jobWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle79;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "N2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.jobWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
             this.jobWageDataGridViewTextBoxColumn.HeaderText = "职务工资";
             this.jobWageDataGridViewTextBoxColumn.Name = "jobWageDataGridViewTextBoxColumn";
             this.jobWageDataGridViewTextBoxColumn.ReadOnly = true;
@@ -656,10 +659,10 @@
             // insuranceWageDataGridViewTextBoxColumn
             // 
             this.insuranceWageDataGridViewTextBoxColumn.DataPropertyName = "InsuranceWage";
-            dataGridViewCellStyle80.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle80.Format = "N2";
-            dataGridViewCellStyle80.NullValue = null;
-            this.insuranceWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle80;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "N2";
+            dataGridViewCellStyle8.NullValue = null;
+            this.insuranceWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
             this.insuranceWageDataGridViewTextBoxColumn.HeaderText = "保险补贴";
             this.insuranceWageDataGridViewTextBoxColumn.Name = "insuranceWageDataGridViewTextBoxColumn";
             this.insuranceWageDataGridViewTextBoxColumn.ReadOnly = true;
@@ -669,10 +672,10 @@
             // holidayWageDataGridViewTextBoxColumn
             // 
             this.holidayWageDataGridViewTextBoxColumn.DataPropertyName = "HolidayWage";
-            dataGridViewCellStyle81.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle81.Format = "N2";
-            dataGridViewCellStyle81.NullValue = null;
-            this.holidayWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle81;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "N2";
+            dataGridViewCellStyle9.NullValue = null;
+            this.holidayWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
             this.holidayWageDataGridViewTextBoxColumn.HeaderText = "岗位工资";
             this.holidayWageDataGridViewTextBoxColumn.Name = "holidayWageDataGridViewTextBoxColumn";
             this.holidayWageDataGridViewTextBoxColumn.ReadOnly = true;
@@ -682,10 +685,10 @@
             // workWageDataGridViewTextBoxColumn
             // 
             this.workWageDataGridViewTextBoxColumn.DataPropertyName = "WorkWage";
-            dataGridViewCellStyle82.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle82.Format = "N2";
-            dataGridViewCellStyle82.NullValue = null;
-            this.workWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle82;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Format = "N2";
+            dataGridViewCellStyle10.NullValue = null;
+            this.workWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
             this.workWageDataGridViewTextBoxColumn.HeaderText = "加班补贴";
             this.workWageDataGridViewTextBoxColumn.Name = "workWageDataGridViewTextBoxColumn";
             this.workWageDataGridViewTextBoxColumn.ReadOnly = true;
@@ -695,10 +698,10 @@
             // courseAmountDataGridViewTextBoxColumn
             // 
             this.courseAmountDataGridViewTextBoxColumn.DataPropertyName = "CourseAmount";
-            dataGridViewCellStyle83.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle83.Format = "N2";
-            dataGridViewCellStyle83.NullValue = null;
-            this.courseAmountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle83;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle11.Format = "N2";
+            dataGridViewCellStyle11.NullValue = null;
+            this.courseAmountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
             this.courseAmountDataGridViewTextBoxColumn.HeaderText = "课量工资";
             this.courseAmountDataGridViewTextBoxColumn.Name = "courseAmountDataGridViewTextBoxColumn";
             this.courseAmountDataGridViewTextBoxColumn.ReadOnly = true;
@@ -708,10 +711,10 @@
             // otherWageDataGridViewTextBoxColumn
             // 
             this.otherWageDataGridViewTextBoxColumn.DataPropertyName = "OtherWage";
-            dataGridViewCellStyle84.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle84.Format = "N2";
-            dataGridViewCellStyle84.NullValue = null;
-            this.otherWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle84;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle12.Format = "N2";
+            dataGridViewCellStyle12.NullValue = null;
+            this.otherWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
             this.otherWageDataGridViewTextBoxColumn.HeaderText = "其他补贴";
             this.otherWageDataGridViewTextBoxColumn.Name = "otherWageDataGridViewTextBoxColumn";
             this.otherWageDataGridViewTextBoxColumn.ReadOnly = true;
@@ -721,10 +724,10 @@
             // fullAwardDataGridViewTextBoxColumn
             // 
             this.fullAwardDataGridViewTextBoxColumn.DataPropertyName = "FullAward";
-            dataGridViewCellStyle85.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle85.Format = "N2";
-            dataGridViewCellStyle85.NullValue = null;
-            this.fullAwardDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle85;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.Format = "N2";
+            dataGridViewCellStyle13.NullValue = null;
+            this.fullAwardDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle13;
             this.fullAwardDataGridViewTextBoxColumn.HeaderText = "满勤奖";
             this.fullAwardDataGridViewTextBoxColumn.Name = "fullAwardDataGridViewTextBoxColumn";
             this.fullAwardDataGridViewTextBoxColumn.ReadOnly = true;
@@ -734,10 +737,10 @@
             // studentAwardDataGridViewTextBoxColumn
             // 
             this.studentAwardDataGridViewTextBoxColumn.DataPropertyName = "StudentAward";
-            dataGridViewCellStyle86.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle86.Format = "N2";
-            dataGridViewCellStyle86.NullValue = null;
-            this.studentAwardDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle86;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.Format = "N2";
+            dataGridViewCellStyle14.NullValue = null;
+            this.studentAwardDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
             this.studentAwardDataGridViewTextBoxColumn.HeaderText = "学生管理奖";
             this.studentAwardDataGridViewTextBoxColumn.Name = "studentAwardDataGridViewTextBoxColumn";
             this.studentAwardDataGridViewTextBoxColumn.ReadOnly = true;
@@ -748,10 +751,10 @@
             // awardDataGridViewTextBoxColumn
             // 
             this.awardDataGridViewTextBoxColumn.DataPropertyName = "Award";
-            dataGridViewCellStyle87.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle87.Format = "N2";
-            dataGridViewCellStyle87.NullValue = null;
-            this.awardDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle87;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle15.Format = "N2";
+            dataGridViewCellStyle15.NullValue = null;
+            this.awardDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle15;
             this.awardDataGridViewTextBoxColumn.HeaderText = "奖励";
             this.awardDataGridViewTextBoxColumn.Name = "awardDataGridViewTextBoxColumn";
             this.awardDataGridViewTextBoxColumn.ReadOnly = true;
@@ -761,10 +764,10 @@
             // appraisalAwardDataGridViewTextBoxColumn
             // 
             this.appraisalAwardDataGridViewTextBoxColumn.DataPropertyName = "AppraisalAward";
-            dataGridViewCellStyle88.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle88.Format = "N2";
-            dataGridViewCellStyle88.NullValue = null;
-            this.appraisalAwardDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle88;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle16.Format = "N2";
+            dataGridViewCellStyle16.NullValue = null;
+            this.appraisalAwardDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle16;
             this.appraisalAwardDataGridViewTextBoxColumn.HeaderText = "绩效";
             this.appraisalAwardDataGridViewTextBoxColumn.Name = "appraisalAwardDataGridViewTextBoxColumn";
             this.appraisalAwardDataGridViewTextBoxColumn.ReadOnly = true;
@@ -774,10 +777,10 @@
             // otherAwardDataGridViewTextBoxColumn
             // 
             this.otherAwardDataGridViewTextBoxColumn.DataPropertyName = "OtherAward";
-            dataGridViewCellStyle89.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle89.Format = "N2";
-            dataGridViewCellStyle89.NullValue = null;
-            this.otherAwardDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle89;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle17.Format = "N2";
+            dataGridViewCellStyle17.NullValue = null;
+            this.otherAwardDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle17;
             this.otherAwardDataGridViewTextBoxColumn.HeaderText = "其他奖励";
             this.otherAwardDataGridViewTextBoxColumn.Name = "otherAwardDataGridViewTextBoxColumn";
             this.otherAwardDataGridViewTextBoxColumn.ReadOnly = true;
@@ -787,10 +790,10 @@
             // shouldWagesDataGridViewTextBoxColumn
             // 
             this.shouldWagesDataGridViewTextBoxColumn.DataPropertyName = "ShouldWages";
-            dataGridViewCellStyle90.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle90.Format = "N2";
-            dataGridViewCellStyle90.NullValue = null;
-            this.shouldWagesDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle90;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle18.Format = "N2";
+            dataGridViewCellStyle18.NullValue = null;
+            this.shouldWagesDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle18;
             this.shouldWagesDataGridViewTextBoxColumn.HeaderText = "应发合计";
             this.shouldWagesDataGridViewTextBoxColumn.Name = "shouldWagesDataGridViewTextBoxColumn";
             this.shouldWagesDataGridViewTextBoxColumn.ReadOnly = true;
@@ -800,11 +803,11 @@
             // checkinChargeBackDataGridViewTextBoxColumn
             // 
             this.checkinChargeBackDataGridViewTextBoxColumn.DataPropertyName = "CheckinChargeBack";
-            dataGridViewCellStyle91.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle91.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle91.Format = "N2";
-            dataGridViewCellStyle91.NullValue = null;
-            this.checkinChargeBackDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle91;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle19.Format = "N2";
+            dataGridViewCellStyle19.NullValue = null;
+            this.checkinChargeBackDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle19;
             this.checkinChargeBackDataGridViewTextBoxColumn.HeaderText = "考勤扣款";
             this.checkinChargeBackDataGridViewTextBoxColumn.Name = "checkinChargeBackDataGridViewTextBoxColumn";
             this.checkinChargeBackDataGridViewTextBoxColumn.ReadOnly = true;
@@ -814,11 +817,11 @@
             // withholdChargeBackDataGridViewTextBoxColumn
             // 
             this.withholdChargeBackDataGridViewTextBoxColumn.DataPropertyName = "WithholdChargeBack";
-            dataGridViewCellStyle92.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle92.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle92.Format = "N2";
-            dataGridViewCellStyle92.NullValue = null;
-            this.withholdChargeBackDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle92;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle20.Format = "N2";
+            dataGridViewCellStyle20.NullValue = null;
+            this.withholdChargeBackDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle20;
             this.withholdChargeBackDataGridViewTextBoxColumn.HeaderText = "代扣款";
             this.withholdChargeBackDataGridViewTextBoxColumn.Name = "withholdChargeBackDataGridViewTextBoxColumn";
             this.withholdChargeBackDataGridViewTextBoxColumn.ReadOnly = true;
@@ -828,11 +831,11 @@
             // otherChargeBackDataGridViewTextBoxColumn
             // 
             this.otherChargeBackDataGridViewTextBoxColumn.DataPropertyName = "OtherChargeBack";
-            dataGridViewCellStyle93.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle93.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle93.Format = "N2";
-            dataGridViewCellStyle93.NullValue = null;
-            this.otherChargeBackDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle93;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle21.Format = "N2";
+            dataGridViewCellStyle21.NullValue = null;
+            this.otherChargeBackDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle21;
             this.otherChargeBackDataGridViewTextBoxColumn.HeaderText = "其他扣款";
             this.otherChargeBackDataGridViewTextBoxColumn.Name = "otherChargeBackDataGridViewTextBoxColumn";
             this.otherChargeBackDataGridViewTextBoxColumn.ReadOnly = true;
@@ -842,11 +845,11 @@
             // minusWagesDataGridViewTextBoxColumn
             // 
             this.minusWagesDataGridViewTextBoxColumn.DataPropertyName = "MinusWages";
-            dataGridViewCellStyle94.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle94.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle94.Format = "N2";
-            dataGridViewCellStyle94.NullValue = null;
-            this.minusWagesDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle94;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle22.Format = "N2";
+            dataGridViewCellStyle22.NullValue = null;
+            this.minusWagesDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle22;
             this.minusWagesDataGridViewTextBoxColumn.HeaderText = "合计";
             this.minusWagesDataGridViewTextBoxColumn.Name = "minusWagesDataGridViewTextBoxColumn";
             this.minusWagesDataGridViewTextBoxColumn.ReadOnly = true;
@@ -856,11 +859,11 @@
             // realWagesDataGridViewTextBoxColumn
             // 
             this.realWagesDataGridViewTextBoxColumn.DataPropertyName = "RealWages";
-            dataGridViewCellStyle95.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle95.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle95.Format = "N2";
-            dataGridViewCellStyle95.NullValue = null;
-            this.realWagesDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle95;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle23.Format = "N2";
+            dataGridViewCellStyle23.NullValue = null;
+            this.realWagesDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle23;
             this.realWagesDataGridViewTextBoxColumn.HeaderText = "实发工资";
             this.realWagesDataGridViewTextBoxColumn.Name = "realWagesDataGridViewTextBoxColumn";
             this.realWagesDataGridViewTextBoxColumn.ReadOnly = true;
@@ -870,8 +873,8 @@
             // CheckName
             // 
             this.CheckName.DataPropertyName = "CheckName";
-            dataGridViewCellStyle96.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.CheckName.DefaultCellStyle = dataGridViewCellStyle96;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.CheckName.DefaultCellStyle = dataGridViewCellStyle24;
             this.CheckName.HeaderText = "签名";
             this.CheckName.Name = "CheckName";
             this.CheckName.ReadOnly = true;
@@ -1165,11 +1168,20 @@
             this.btnCardDisconnect.UseVisualStyleBackColor = true;
             this.btnCardDisconnect.Click += new System.EventHandler(this.btnCardDisconnect_Click);
             // 
+            // teacherSigninTimeBindingSource
+            // 
+            this.teacherSigninTimeBindingSource.DataMember = "TeacherSigninTime";
+            this.teacherSigninTimeBindingSource.DataSource = this.teachersDataSet;
+            // 
+            // teacherSigninTimeTableAdapter
+            // 
+            this.teacherSigninTimeTableAdapter.ClearBeforeFill = true;
+            // 
             // TeachersManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1481, 613);
+            this.ClientSize = new System.Drawing.Size(1284, 613);
             this.Controls.Add(this.btnCardDisconnect);
             this.Controls.Add(this.btnPrintDetail);
             this.Controls.Add(this.btnAddSalary);
@@ -1225,6 +1237,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chargeBackBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSalaryLogBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vCardsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherSigninTimeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1324,5 +1337,7 @@
         private System.Windows.Forms.BindingSource vCardsBindingSource;
         private TeachersDataSetTableAdapters.VCardsTableAdapter vCardsTableAdapter;
         private System.Windows.Forms.Button btnCardDisconnect;
+        private System.Windows.Forms.BindingSource teacherSigninTimeBindingSource;
+        private TeachersDataSetTableAdapters.TeacherSigninTimeTableAdapter teacherSigninTimeTableAdapter;
     }
 }

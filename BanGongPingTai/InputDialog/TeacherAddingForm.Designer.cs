@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtPasswordConfirm = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbSex = new System.Windows.Forms.ComboBox();
@@ -41,9 +43,21 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtPasswordConfirm = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.dtBeginTimeOne = new System.Windows.Forms.DateTimePicker();
+            this.dtEndTimeOne = new System.Windows.Forms.DateTimePicker();
+            this.dtBeginTimeTwo = new System.Windows.Forms.DateTimePicker();
+            this.dtEndTimeTwo = new System.Windows.Forms.DateTimePicker();
+            this.dtBeginTimeThree = new System.Windows.Forms.DateTimePicker();
+            this.dtEndTimeThree = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -66,6 +80,23 @@
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "教师信息";
+            // 
+            // txtPasswordConfirm
+            // 
+            this.txtPasswordConfirm.Location = new System.Drawing.Point(91, 132);
+            this.txtPasswordConfirm.Name = "txtPasswordConfirm";
+            this.txtPasswordConfirm.PasswordChar = '*';
+            this.txtPasswordConfirm.Size = new System.Drawing.Size(137, 21);
+            this.txtPasswordConfirm.TabIndex = 21;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(20, 135);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 12);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "确认密码：";
             // 
             // txtPassword
             // 
@@ -155,7 +186,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(418, 197);
+            this.btnCancel.Location = new System.Drawing.Point(416, 318);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 35);
             this.btnCancel.TabIndex = 27;
@@ -165,7 +196,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(332, 197);
+            this.btnOK.Location = new System.Drawing.Point(326, 318);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 35);
             this.btnOK.TabIndex = 25;
@@ -173,28 +204,165 @@
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // label6
+            // groupBox2
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(20, 135);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 12);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "确认密码：";
+            this.groupBox2.Controls.Add(this.dtEndTimeThree);
+            this.groupBox2.Controls.Add(this.dtBeginTimeThree);
+            this.groupBox2.Controls.Add(this.dtEndTimeTwo);
+            this.groupBox2.Controls.Add(this.dtBeginTimeTwo);
+            this.groupBox2.Controls.Add(this.dtEndTimeOne);
+            this.groupBox2.Controls.Add(this.dtBeginTimeOne);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Location = new System.Drawing.Point(12, 186);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(479, 118);
+            this.groupBox2.TabIndex = 28;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "排班时间";
             // 
-            // txtPasswordConfirm
+            // label7
             // 
-            this.txtPasswordConfirm.Location = new System.Drawing.Point(91, 132);
-            this.txtPasswordConfirm.Name = "txtPasswordConfirm";
-            this.txtPasswordConfirm.PasswordChar = '*';
-            this.txtPasswordConfirm.Size = new System.Drawing.Size(137, 21);
-            this.txtPasswordConfirm.TabIndex = 21;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(14, 27);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(71, 12);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "上班时间1：";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(237, 27);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(71, 12);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "下班时间1：";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(14, 58);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(71, 12);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "上班时间2：";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(237, 58);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(71, 12);
+            this.label10.TabIndex = 25;
+            this.label10.Text = "下班时间2：";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(14, 89);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(71, 12);
+            this.label11.TabIndex = 26;
+            this.label11.Text = "上班时间3：";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(239, 89);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(71, 12);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "下班时间3：";
+            // 
+            // dtBeginTimeOne
+            // 
+            this.dtBeginTimeOne.Checked = false;
+            this.dtBeginTimeOne.CustomFormat = "        HH:mm";
+            this.dtBeginTimeOne.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtBeginTimeOne.Location = new System.Drawing.Point(91, 23);
+            this.dtBeginTimeOne.Name = "dtBeginTimeOne";
+            this.dtBeginTimeOne.ShowCheckBox = true;
+            this.dtBeginTimeOne.ShowUpDown = true;
+            this.dtBeginTimeOne.Size = new System.Drawing.Size(120, 21);
+            this.dtBeginTimeOne.TabIndex = 33;
+            this.dtBeginTimeOne.Value = new System.DateTime(2012, 3, 20, 8, 0, 0, 0);
+            // 
+            // dtEndTimeOne
+            // 
+            this.dtEndTimeOne.Checked = false;
+            this.dtEndTimeOne.CustomFormat = "        HH:mm";
+            this.dtEndTimeOne.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtEndTimeOne.Location = new System.Drawing.Point(314, 23);
+            this.dtEndTimeOne.Name = "dtEndTimeOne";
+            this.dtEndTimeOne.ShowCheckBox = true;
+            this.dtEndTimeOne.ShowUpDown = true;
+            this.dtEndTimeOne.Size = new System.Drawing.Size(122, 21);
+            this.dtEndTimeOne.TabIndex = 34;
+            this.dtEndTimeOne.Value = new System.DateTime(2012, 3, 20, 11, 30, 0, 0);
+            // 
+            // dtBeginTimeTwo
+            // 
+            this.dtBeginTimeTwo.Checked = false;
+            this.dtBeginTimeTwo.CustomFormat = "        HH:mm";
+            this.dtBeginTimeTwo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtBeginTimeTwo.Location = new System.Drawing.Point(91, 52);
+            this.dtBeginTimeTwo.Name = "dtBeginTimeTwo";
+            this.dtBeginTimeTwo.ShowCheckBox = true;
+            this.dtBeginTimeTwo.ShowUpDown = true;
+            this.dtBeginTimeTwo.Size = new System.Drawing.Size(120, 21);
+            this.dtBeginTimeTwo.TabIndex = 35;
+            this.dtBeginTimeTwo.Value = new System.DateTime(2012, 3, 20, 14, 0, 0, 0);
+            // 
+            // dtEndTimeTwo
+            // 
+            this.dtEndTimeTwo.Checked = false;
+            this.dtEndTimeTwo.CustomFormat = "        HH:mm";
+            this.dtEndTimeTwo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtEndTimeTwo.Location = new System.Drawing.Point(314, 52);
+            this.dtEndTimeTwo.Name = "dtEndTimeTwo";
+            this.dtEndTimeTwo.ShowCheckBox = true;
+            this.dtEndTimeTwo.ShowUpDown = true;
+            this.dtEndTimeTwo.Size = new System.Drawing.Size(122, 21);
+            this.dtEndTimeTwo.TabIndex = 36;
+            this.dtEndTimeTwo.Value = new System.DateTime(2012, 3, 20, 17, 30, 0, 0);
+            // 
+            // dtBeginTimeThree
+            // 
+            this.dtBeginTimeThree.Checked = false;
+            this.dtBeginTimeThree.CustomFormat = "        HH:mm";
+            this.dtBeginTimeThree.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtBeginTimeThree.Location = new System.Drawing.Point(91, 83);
+            this.dtBeginTimeThree.Name = "dtBeginTimeThree";
+            this.dtBeginTimeThree.ShowCheckBox = true;
+            this.dtBeginTimeThree.ShowUpDown = true;
+            this.dtBeginTimeThree.Size = new System.Drawing.Size(120, 21);
+            this.dtBeginTimeThree.TabIndex = 37;
+            this.dtBeginTimeThree.Value = new System.DateTime(2012, 3, 20, 18, 30, 0, 0);
+            // 
+            // dtEndTimeThree
+            // 
+            this.dtEndTimeThree.Checked = false;
+            this.dtEndTimeThree.CustomFormat = "        HH:mm";
+            this.dtEndTimeThree.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtEndTimeThree.Location = new System.Drawing.Point(314, 83);
+            this.dtEndTimeThree.Name = "dtEndTimeThree";
+            this.dtEndTimeThree.ShowCheckBox = true;
+            this.dtEndTimeThree.ShowUpDown = true;
+            this.dtEndTimeThree.Size = new System.Drawing.Size(122, 21);
+            this.dtEndTimeThree.TabIndex = 38;
+            this.dtEndTimeThree.Value = new System.DateTime(2012, 3, 20, 20, 30, 0, 0);
             // 
             // TeacherAddingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 244);
+            this.ClientSize = new System.Drawing.Size(505, 365);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
@@ -206,6 +374,8 @@
             this.Load += new System.EventHandler(this.TeacherAddingForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -227,5 +397,18 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtPasswordConfirm;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker dtEndTimeOne;
+        private System.Windows.Forms.DateTimePicker dtBeginTimeOne;
+        private System.Windows.Forms.DateTimePicker dtEndTimeTwo;
+        private System.Windows.Forms.DateTimePicker dtBeginTimeTwo;
+        private System.Windows.Forms.DateTimePicker dtEndTimeThree;
+        private System.Windows.Forms.DateTimePicker dtBeginTimeThree;
     }
 }
