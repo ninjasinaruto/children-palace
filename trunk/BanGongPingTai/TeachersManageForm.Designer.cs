@@ -195,6 +195,8 @@
             this.btnCardDisconnect = new System.Windows.Forms.Button();
             this.teacherSigninTimeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teacherSigninTimeTableAdapter = new BanGongPingTai.TeachersDataSetTableAdapters.TeacherSigninTimeTableAdapter();
+            this.teacherSigninReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherSigninReportTableAdapter = new BanGongPingTai.TeachersDataSetTableAdapters.TeacherSigninReportTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeachers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teachersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teachersDataSet)).BeginInit();
@@ -213,6 +215,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.teacherSalaryLogBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vCardsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSigninTimeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherSigninReportBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvTeachers
@@ -1177,6 +1180,15 @@
             // 
             this.teacherSigninTimeTableAdapter.ClearBeforeFill = true;
             // 
+            // teacherSigninReportBindingSource
+            // 
+            this.teacherSigninReportBindingSource.DataMember = "TeacherSigninReport";
+            this.teacherSigninReportBindingSource.DataSource = this.teachersDataSet;
+            // 
+            // teacherSigninReportTableAdapter
+            // 
+            this.teacherSigninReportTableAdapter.ClearBeforeFill = true;
+            // 
             // TeachersManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1238,6 +1250,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.teacherSalaryLogBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vCardsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSigninTimeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherSigninReportBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1339,5 +1352,7 @@
         private System.Windows.Forms.Button btnCardDisconnect;
         private System.Windows.Forms.BindingSource teacherSigninTimeBindingSource;
         private TeachersDataSetTableAdapters.TeacherSigninTimeTableAdapter teacherSigninTimeTableAdapter;
+        private System.Windows.Forms.BindingSource teacherSigninReportBindingSource;
+        private TeachersDataSetTableAdapters.TeacherSigninReportTableAdapter teacherSigninReportTableAdapter;
     }
 }
