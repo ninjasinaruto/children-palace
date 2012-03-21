@@ -189,6 +189,12 @@
     <Compile Include="InputDialog\TeacherUpdateForm.Designer.cs">
       <DependentUpon>TeacherUpdateForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="InputDialog\UpdateTeacherSigninReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDialog\UpdateTeacherSigninReportForm.Designer.cs">
+      <DependentUpon>UpdateTeacherSigninReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -288,6 +294,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TeachersDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherSigninManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeacherSigninManageForm.Designer.cs">
+      <DependentUpon>TeacherSigninManageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TeachersManageForm.cs">
       <SubType>Form</SubType>
@@ -394,6 +406,9 @@
     <EmbeddedResource Include="InputDialog\TeacherUpdateForm.resx">
       <DependentUpon>TeacherUpdateForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InputDialog\UpdateTeacherSigninReportForm.resx">
+      <DependentUpon>UpdateTeacherSigninReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -426,6 +441,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TeacherSalaryForm.resx">
       <DependentUpon>TeacherSalaryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherSigninManageForm.resx">
+      <DependentUpon>TeacherSigninManageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TeachersManageForm.resx">
       <DependentUpon>TeachersManageForm.cs</DependentUpon>
