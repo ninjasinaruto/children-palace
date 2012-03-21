@@ -43,7 +43,6 @@ namespace BanGongPingTai
 
         private void btnAddTeacher_Click(object sender, EventArgs e)
         {
-            //this.teacherSigninTimeTableAdapter.Fill(this.teachersDataSet.TeacherSigninTime);
             TeacherAddingForm frmTeachersAdding = new TeacherAddingForm();
             if (frmTeachersAdding.ShowDialog() != DialogResult.OK)
                 return;
@@ -101,6 +100,7 @@ namespace BanGongPingTai
                 teacherSigninTimeTableAdapter.Insert(teacherID, null, DateTime.Parse(st.beginTime.ToShortTimeString()),
                     DateTime.Parse(st.endTime.ToShortTimeString()), st.range, DateTime.Now, User.CurrentUser.UserName);
             }
+            teacherSigninReportTableAdapter.UpdateTeacherNameByTeacherID(frmTeacherUpdate.TeacherName, teacherID);
             teachersTableAdapter.Fill(teachersDataSet.Tearchers);
             if (rowIndex >= 0)
             {
@@ -127,6 +127,7 @@ namespace BanGongPingTai
                     int teacherID = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<int>("ID");
                     teachersTableAdapter.DeleteByID(teacherID);
                     teacherSigninTimeTableAdapter.DeleteByTeacherID(teacherID);
+                    teacherSigninReportTableAdapter.DeleteByTeacherID(teacherID);
                     teachersTableAdapter.Fill(teachersDataSet.Tearchers);
                     if (teachersDataSet.Tearchers.Rows.Count > 0)
                     {
