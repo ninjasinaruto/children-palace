@@ -40,6 +40,8 @@ namespace QianDao {
         
         private TeacherSigninDataTable tableTeacherSignin;
         
+        private TeacherSigninReportDataTable tableTeacherSigninReport;
+        
         private global::System.Data.DataRelation relationFK_student_cost_students;
         
         private global::System.Data.DataRelation relationFK_student_courses_cost_students;
@@ -95,6 +97,9 @@ namespace QianDao {
                 }
                 if ((ds.Tables["TeacherSignin"] != null)) {
                     base.Tables.Add(new TeacherSigninDataTable(ds.Tables["TeacherSignin"]));
+                }
+                if ((ds.Tables["TeacherSigninReport"] != null)) {
+                    base.Tables.Add(new TeacherSigninReportDataTable(ds.Tables["TeacherSigninReport"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -196,6 +201,16 @@ namespace QianDao {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public TeacherSigninReportDataTable TeacherSigninReport {
+            get {
+                return this.tableTeacherSigninReport;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -285,6 +300,9 @@ namespace QianDao {
                 if ((ds.Tables["TeacherSignin"] != null)) {
                     base.Tables.Add(new TeacherSigninDataTable(ds.Tables["TeacherSignin"]));
                 }
+                if ((ds.Tables["TeacherSigninReport"] != null)) {
+                    base.Tables.Add(new TeacherSigninReportDataTable(ds.Tables["TeacherSigninReport"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -366,6 +384,12 @@ namespace QianDao {
                     this.tableTeacherSignin.InitVars();
                 }
             }
+            this.tableTeacherSigninReport = ((TeacherSigninReportDataTable)(base.Tables["TeacherSigninReport"]));
+            if ((initTable == true)) {
+                if ((this.tableTeacherSigninReport != null)) {
+                    this.tableTeacherSigninReport.InitVars();
+                }
+            }
             this.relationFK_student_cost_students = this.Relations["FK_student_cost_students"];
             this.relationFK_student_courses_cost_students = this.Relations["FK_student_courses_cost_students"];
         }
@@ -394,6 +418,8 @@ namespace QianDao {
             base.Tables.Add(this.tableVCards);
             this.tableTeacherSignin = new TeacherSigninDataTable();
             base.Tables.Add(this.tableTeacherSignin);
+            this.tableTeacherSigninReport = new TeacherSigninReportDataTable();
+            base.Tables.Add(this.tableTeacherSigninReport);
             this.relationFK_student_cost_students = new global::System.Data.DataRelation("FK_student_cost_students", new global::System.Data.DataColumn[] {
                         this.tableStudents.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableStudentCost.StudentIDColumn}, false);
@@ -449,6 +475,12 @@ namespace QianDao {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeTeacherSignin() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeTeacherSigninReport() {
             return false;
         }
         
@@ -530,6 +562,9 @@ namespace QianDao {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void TeacherSigninRowChangeEventHandler(object sender, TeacherSigninRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void TeacherSigninReportRowChangeEventHandler(object sender, TeacherSigninReportRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -3473,6 +3508,557 @@ namespace QianDao {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class TeacherSigninReportDataTable : global::System.Data.TypedTableBase<TeacherSigninReportRow> {
+            
+            private global::System.Data.DataColumn columnID;
+            
+            private global::System.Data.DataColumn columnTeacherID;
+            
+            private global::System.Data.DataColumn columnTeacherName;
+            
+            private global::System.Data.DataColumn columnSigninDate;
+            
+            private global::System.Data.DataColumn columnDayOfWeek;
+            
+            private global::System.Data.DataColumn columnSTimeOne;
+            
+            private global::System.Data.DataColumn columnETimeOne;
+            
+            private global::System.Data.DataColumn columnSTimeTwo;
+            
+            private global::System.Data.DataColumn columnETimeTwo;
+            
+            private global::System.Data.DataColumn columnSTimeThree;
+            
+            private global::System.Data.DataColumn columnETimeThree;
+            
+            private global::System.Data.DataColumn columnLeave;
+            
+            private global::System.Data.DataColumn columnSickLeave;
+            
+            private global::System.Data.DataColumn columnGoOut;
+            
+            private global::System.Data.DataColumn columnBeLate;
+            
+            private global::System.Data.DataColumn columnLeaveEarly;
+            
+            private global::System.Data.DataColumn columnShouldSign;
+            
+            private global::System.Data.DataColumn columnUnSign;
+            
+            private global::System.Data.DataColumn columnRemark;
+            
+            private global::System.Data.DataColumn columnOperator;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TeacherSigninReportDataTable() {
+                this.TableName = "TeacherSigninReport";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal TeacherSigninReportDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected TeacherSigninReportDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IDColumn {
+                get {
+                    return this.columnID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TeacherIDColumn {
+                get {
+                    return this.columnTeacherID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TeacherNameColumn {
+                get {
+                    return this.columnTeacherName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SigninDateColumn {
+                get {
+                    return this.columnSigninDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DayOfWeekColumn {
+                get {
+                    return this.columnDayOfWeek;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn STimeOneColumn {
+                get {
+                    return this.columnSTimeOne;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ETimeOneColumn {
+                get {
+                    return this.columnETimeOne;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn STimeTwoColumn {
+                get {
+                    return this.columnSTimeTwo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ETimeTwoColumn {
+                get {
+                    return this.columnETimeTwo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn STimeThreeColumn {
+                get {
+                    return this.columnSTimeThree;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ETimeThreeColumn {
+                get {
+                    return this.columnETimeThree;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LeaveColumn {
+                get {
+                    return this.columnLeave;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SickLeaveColumn {
+                get {
+                    return this.columnSickLeave;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn GoOutColumn {
+                get {
+                    return this.columnGoOut;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BeLateColumn {
+                get {
+                    return this.columnBeLate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LeaveEarlyColumn {
+                get {
+                    return this.columnLeaveEarly;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ShouldSignColumn {
+                get {
+                    return this.columnShouldSign;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn UnSignColumn {
+                get {
+                    return this.columnUnSign;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RemarkColumn {
+                get {
+                    return this.columnRemark;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn OperatorColumn {
+                get {
+                    return this.columnOperator;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TeacherSigninReportRow this[int index] {
+                get {
+                    return ((TeacherSigninReportRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event TeacherSigninReportRowChangeEventHandler TeacherSigninReportRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event TeacherSigninReportRowChangeEventHandler TeacherSigninReportRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event TeacherSigninReportRowChangeEventHandler TeacherSigninReportRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event TeacherSigninReportRowChangeEventHandler TeacherSigninReportRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddTeacherSigninReportRow(TeacherSigninReportRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TeacherSigninReportRow AddTeacherSigninReportRow(
+                        int TeacherID, 
+                        string TeacherName, 
+                        System.DateTime SigninDate, 
+                        string DayOfWeek, 
+                        System.DateTime STimeOne, 
+                        System.DateTime ETimeOne, 
+                        System.DateTime STimeTwo, 
+                        System.DateTime ETimeTwo, 
+                        System.DateTime STimeThree, 
+                        System.DateTime ETimeThree, 
+                        decimal Leave, 
+                        decimal SickLeave, 
+                        decimal GoOut, 
+                        int BeLate, 
+                        int LeaveEarly, 
+                        int ShouldSign, 
+                        int UnSign, 
+                        string Remark, 
+                        string Operator) {
+                TeacherSigninReportRow rowTeacherSigninReportRow = ((TeacherSigninReportRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        TeacherID,
+                        TeacherName,
+                        SigninDate,
+                        DayOfWeek,
+                        STimeOne,
+                        ETimeOne,
+                        STimeTwo,
+                        ETimeTwo,
+                        STimeThree,
+                        ETimeThree,
+                        Leave,
+                        SickLeave,
+                        GoOut,
+                        BeLate,
+                        LeaveEarly,
+                        ShouldSign,
+                        UnSign,
+                        Remark,
+                        Operator};
+                rowTeacherSigninReportRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowTeacherSigninReportRow);
+                return rowTeacherSigninReportRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TeacherSigninReportRow FindByID(int ID) {
+                return ((TeacherSigninReportRow)(this.Rows.Find(new object[] {
+                            ID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                TeacherSigninReportDataTable cln = ((TeacherSigninReportDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new TeacherSigninReportDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnID = base.Columns["ID"];
+                this.columnTeacherID = base.Columns["TeacherID"];
+                this.columnTeacherName = base.Columns["TeacherName"];
+                this.columnSigninDate = base.Columns["SigninDate"];
+                this.columnDayOfWeek = base.Columns["DayOfWeek"];
+                this.columnSTimeOne = base.Columns["STimeOne"];
+                this.columnETimeOne = base.Columns["ETimeOne"];
+                this.columnSTimeTwo = base.Columns["STimeTwo"];
+                this.columnETimeTwo = base.Columns["ETimeTwo"];
+                this.columnSTimeThree = base.Columns["STimeThree"];
+                this.columnETimeThree = base.Columns["ETimeThree"];
+                this.columnLeave = base.Columns["Leave"];
+                this.columnSickLeave = base.Columns["SickLeave"];
+                this.columnGoOut = base.Columns["GoOut"];
+                this.columnBeLate = base.Columns["BeLate"];
+                this.columnLeaveEarly = base.Columns["LeaveEarly"];
+                this.columnShouldSign = base.Columns["ShouldSign"];
+                this.columnUnSign = base.Columns["UnSign"];
+                this.columnRemark = base.Columns["Remark"];
+                this.columnOperator = base.Columns["Operator"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID);
+                this.columnTeacherID = new global::System.Data.DataColumn("TeacherID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTeacherID);
+                this.columnTeacherName = new global::System.Data.DataColumn("TeacherName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTeacherName);
+                this.columnSigninDate = new global::System.Data.DataColumn("SigninDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSigninDate);
+                this.columnDayOfWeek = new global::System.Data.DataColumn("DayOfWeek", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDayOfWeek);
+                this.columnSTimeOne = new global::System.Data.DataColumn("STimeOne", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSTimeOne);
+                this.columnETimeOne = new global::System.Data.DataColumn("ETimeOne", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnETimeOne);
+                this.columnSTimeTwo = new global::System.Data.DataColumn("STimeTwo", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSTimeTwo);
+                this.columnETimeTwo = new global::System.Data.DataColumn("ETimeTwo", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnETimeTwo);
+                this.columnSTimeThree = new global::System.Data.DataColumn("STimeThree", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSTimeThree);
+                this.columnETimeThree = new global::System.Data.DataColumn("ETimeThree", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnETimeThree);
+                this.columnLeave = new global::System.Data.DataColumn("Leave", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLeave);
+                this.columnSickLeave = new global::System.Data.DataColumn("SickLeave", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSickLeave);
+                this.columnGoOut = new global::System.Data.DataColumn("GoOut", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGoOut);
+                this.columnBeLate = new global::System.Data.DataColumn("BeLate", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBeLate);
+                this.columnLeaveEarly = new global::System.Data.DataColumn("LeaveEarly", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLeaveEarly);
+                this.columnShouldSign = new global::System.Data.DataColumn("ShouldSign", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnShouldSign);
+                this.columnUnSign = new global::System.Data.DataColumn("UnSign", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUnSign);
+                this.columnRemark = new global::System.Data.DataColumn("Remark", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRemark);
+                this.columnOperator = new global::System.Data.DataColumn("Operator", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOperator);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnID}, true));
+                this.columnID.AutoIncrement = true;
+                this.columnID.AutoIncrementSeed = -1;
+                this.columnID.AutoIncrementStep = -1;
+                this.columnID.AllowDBNull = false;
+                this.columnID.ReadOnly = true;
+                this.columnID.Unique = true;
+                this.columnTeacherName.MaxLength = 50;
+                this.columnDayOfWeek.MaxLength = 20;
+                this.columnRemark.MaxLength = 200;
+                this.columnOperator.MaxLength = 50;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TeacherSigninReportRow NewTeacherSigninReportRow() {
+                return ((TeacherSigninReportRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new TeacherSigninReportRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(TeacherSigninReportRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.TeacherSigninReportRowChanged != null)) {
+                    this.TeacherSigninReportRowChanged(this, new TeacherSigninReportRowChangeEvent(((TeacherSigninReportRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.TeacherSigninReportRowChanging != null)) {
+                    this.TeacherSigninReportRowChanging(this, new TeacherSigninReportRowChangeEvent(((TeacherSigninReportRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.TeacherSigninReportRowDeleted != null)) {
+                    this.TeacherSigninReportRowDeleted(this, new TeacherSigninReportRowChangeEvent(((TeacherSigninReportRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.TeacherSigninReportRowDeleting != null)) {
+                    this.TeacherSigninReportRowDeleting(this, new TeacherSigninReportRowChangeEvent(((TeacherSigninReportRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveTeacherSigninReportRow(TeacherSigninReportRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                SignInDataSet ds = new SignInDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "TeacherSigninReportDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class StudentSignInRow : global::System.Data.DataRow {
@@ -4850,6 +5436,564 @@ namespace QianDao {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class TeacherSigninReportRow : global::System.Data.DataRow {
+            
+            private TeacherSigninReportDataTable tableTeacherSigninReport;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal TeacherSigninReportRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableTeacherSigninReport = ((TeacherSigninReportDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int ID {
+                get {
+                    return ((int)(this[this.tableTeacherSigninReport.IDColumn]));
+                }
+                set {
+                    this[this.tableTeacherSigninReport.IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int TeacherID {
+                get {
+                    try {
+                        return ((int)(this[this.tableTeacherSigninReport.TeacherIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TeacherSigninReport”中列“TeacherID”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTeacherSigninReport.TeacherIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TeacherName {
+                get {
+                    try {
+                        return ((string)(this[this.tableTeacherSigninReport.TeacherNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TeacherSigninReport”中列“TeacherName”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTeacherSigninReport.TeacherNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime SigninDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableTeacherSigninReport.SigninDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TeacherSigninReport”中列“SigninDate”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTeacherSigninReport.SigninDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string DayOfWeek {
+                get {
+                    try {
+                        return ((string)(this[this.tableTeacherSigninReport.DayOfWeekColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TeacherSigninReport”中列“DayOfWeek”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTeacherSigninReport.DayOfWeekColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime STimeOne {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableTeacherSigninReport.STimeOneColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TeacherSigninReport”中列“STimeOne”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTeacherSigninReport.STimeOneColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime ETimeOne {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableTeacherSigninReport.ETimeOneColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TeacherSigninReport”中列“ETimeOne”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTeacherSigninReport.ETimeOneColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime STimeTwo {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableTeacherSigninReport.STimeTwoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TeacherSigninReport”中列“STimeTwo”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTeacherSigninReport.STimeTwoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime ETimeTwo {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableTeacherSigninReport.ETimeTwoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TeacherSigninReport”中列“ETimeTwo”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTeacherSigninReport.ETimeTwoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime STimeThree {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableTeacherSigninReport.STimeThreeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TeacherSigninReport”中列“STimeThree”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTeacherSigninReport.STimeThreeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime ETimeThree {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableTeacherSigninReport.ETimeThreeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TeacherSigninReport”中列“ETimeThree”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTeacherSigninReport.ETimeThreeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Leave {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTeacherSigninReport.LeaveColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TeacherSigninReport”中列“Leave”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTeacherSigninReport.LeaveColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal SickLeave {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTeacherSigninReport.SickLeaveColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TeacherSigninReport”中列“SickLeave”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTeacherSigninReport.SickLeaveColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal GoOut {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTeacherSigninReport.GoOutColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TeacherSigninReport”中列“GoOut”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTeacherSigninReport.GoOutColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int BeLate {
+                get {
+                    try {
+                        return ((int)(this[this.tableTeacherSigninReport.BeLateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TeacherSigninReport”中列“BeLate”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTeacherSigninReport.BeLateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int LeaveEarly {
+                get {
+                    try {
+                        return ((int)(this[this.tableTeacherSigninReport.LeaveEarlyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TeacherSigninReport”中列“LeaveEarly”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTeacherSigninReport.LeaveEarlyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int ShouldSign {
+                get {
+                    try {
+                        return ((int)(this[this.tableTeacherSigninReport.ShouldSignColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TeacherSigninReport”中列“ShouldSign”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTeacherSigninReport.ShouldSignColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int UnSign {
+                get {
+                    try {
+                        return ((int)(this[this.tableTeacherSigninReport.UnSignColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TeacherSigninReport”中列“UnSign”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTeacherSigninReport.UnSignColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Remark {
+                get {
+                    try {
+                        return ((string)(this[this.tableTeacherSigninReport.RemarkColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TeacherSigninReport”中列“Remark”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTeacherSigninReport.RemarkColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Operator {
+                get {
+                    try {
+                        return ((string)(this[this.tableTeacherSigninReport.OperatorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TeacherSigninReport”中列“Operator”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTeacherSigninReport.OperatorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTeacherIDNull() {
+                return this.IsNull(this.tableTeacherSigninReport.TeacherIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTeacherIDNull() {
+                this[this.tableTeacherSigninReport.TeacherIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTeacherNameNull() {
+                return this.IsNull(this.tableTeacherSigninReport.TeacherNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTeacherNameNull() {
+                this[this.tableTeacherSigninReport.TeacherNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSigninDateNull() {
+                return this.IsNull(this.tableTeacherSigninReport.SigninDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSigninDateNull() {
+                this[this.tableTeacherSigninReport.SigninDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDayOfWeekNull() {
+                return this.IsNull(this.tableTeacherSigninReport.DayOfWeekColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDayOfWeekNull() {
+                this[this.tableTeacherSigninReport.DayOfWeekColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSTimeOneNull() {
+                return this.IsNull(this.tableTeacherSigninReport.STimeOneColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSTimeOneNull() {
+                this[this.tableTeacherSigninReport.STimeOneColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsETimeOneNull() {
+                return this.IsNull(this.tableTeacherSigninReport.ETimeOneColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetETimeOneNull() {
+                this[this.tableTeacherSigninReport.ETimeOneColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSTimeTwoNull() {
+                return this.IsNull(this.tableTeacherSigninReport.STimeTwoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSTimeTwoNull() {
+                this[this.tableTeacherSigninReport.STimeTwoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsETimeTwoNull() {
+                return this.IsNull(this.tableTeacherSigninReport.ETimeTwoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetETimeTwoNull() {
+                this[this.tableTeacherSigninReport.ETimeTwoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSTimeThreeNull() {
+                return this.IsNull(this.tableTeacherSigninReport.STimeThreeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSTimeThreeNull() {
+                this[this.tableTeacherSigninReport.STimeThreeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsETimeThreeNull() {
+                return this.IsNull(this.tableTeacherSigninReport.ETimeThreeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetETimeThreeNull() {
+                this[this.tableTeacherSigninReport.ETimeThreeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLeaveNull() {
+                return this.IsNull(this.tableTeacherSigninReport.LeaveColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLeaveNull() {
+                this[this.tableTeacherSigninReport.LeaveColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSickLeaveNull() {
+                return this.IsNull(this.tableTeacherSigninReport.SickLeaveColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSickLeaveNull() {
+                this[this.tableTeacherSigninReport.SickLeaveColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGoOutNull() {
+                return this.IsNull(this.tableTeacherSigninReport.GoOutColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGoOutNull() {
+                this[this.tableTeacherSigninReport.GoOutColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBeLateNull() {
+                return this.IsNull(this.tableTeacherSigninReport.BeLateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBeLateNull() {
+                this[this.tableTeacherSigninReport.BeLateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLeaveEarlyNull() {
+                return this.IsNull(this.tableTeacherSigninReport.LeaveEarlyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLeaveEarlyNull() {
+                this[this.tableTeacherSigninReport.LeaveEarlyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsShouldSignNull() {
+                return this.IsNull(this.tableTeacherSigninReport.ShouldSignColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetShouldSignNull() {
+                this[this.tableTeacherSigninReport.ShouldSignColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUnSignNull() {
+                return this.IsNull(this.tableTeacherSigninReport.UnSignColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUnSignNull() {
+                this[this.tableTeacherSigninReport.UnSignColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRemarkNull() {
+                return this.IsNull(this.tableTeacherSigninReport.RemarkColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRemarkNull() {
+                this[this.tableTeacherSigninReport.RemarkColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOperatorNull() {
+                return this.IsNull(this.tableTeacherSigninReport.OperatorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOperatorNull() {
+                this[this.tableTeacherSigninReport.OperatorColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -5107,6 +6251,40 @@ namespace QianDao {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TeacherSigninRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class TeacherSigninReportRowChangeEvent : global::System.EventArgs {
+            
+            private TeacherSigninReportRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TeacherSigninReportRowChangeEvent(TeacherSigninReportRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TeacherSigninReportRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -7878,6 +9056,1253 @@ convert(varchar(10),GETDATE(), 120)
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class TeacherSigninReportTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public TeacherSigninReportTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "TeacherSigninReport";
+            tableMapping.ColumnMappings.Add("ID", "ID");
+            tableMapping.ColumnMappings.Add("TeacherID", "TeacherID");
+            tableMapping.ColumnMappings.Add("TeacherName", "TeacherName");
+            tableMapping.ColumnMappings.Add("SigninDate", "SigninDate");
+            tableMapping.ColumnMappings.Add("DayOfWeek", "DayOfWeek");
+            tableMapping.ColumnMappings.Add("STimeOne", "STimeOne");
+            tableMapping.ColumnMappings.Add("ETimeOne", "ETimeOne");
+            tableMapping.ColumnMappings.Add("STimeTwo", "STimeTwo");
+            tableMapping.ColumnMappings.Add("ETimeTwo", "ETimeTwo");
+            tableMapping.ColumnMappings.Add("STimeThree", "STimeThree");
+            tableMapping.ColumnMappings.Add("ETimeThree", "ETimeThree");
+            tableMapping.ColumnMappings.Add("Leave", "Leave");
+            tableMapping.ColumnMappings.Add("SickLeave", "SickLeave");
+            tableMapping.ColumnMappings.Add("GoOut", "GoOut");
+            tableMapping.ColumnMappings.Add("BeLate", "BeLate");
+            tableMapping.ColumnMappings.Add("LeaveEarly", "LeaveEarly");
+            tableMapping.ColumnMappings.Add("ShouldSign", "ShouldSign");
+            tableMapping.ColumnMappings.Add("UnSign", "UnSign");
+            tableMapping.ColumnMappings.Add("Remark", "Remark");
+            tableMapping.ColumnMappings.Add("Operator", "Operator");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [teacher_signin_report] WHERE (([ID] = @Original_ID) AND ((@IsNull_Te" +
+                "acherID = 1 AND [TeacherID] IS NULL) OR ([TeacherID] = @Original_TeacherID)) AND" +
+                " ((@IsNull_TeacherName = 1 AND [TeacherName] IS NULL) OR ([TeacherName] = @Origi" +
+                "nal_TeacherName)) AND ((@IsNull_SigninDate = 1 AND [SigninDate] IS NULL) OR ([Si" +
+                "gninDate] = @Original_SigninDate)) AND ((@IsNull_DayOfWeek = 1 AND [DayOfWeek] I" +
+                "S NULL) OR ([DayOfWeek] = @Original_DayOfWeek)) AND ((@IsNull_STimeOne = 1 AND [" +
+                "STimeOne] IS NULL) OR ([STimeOne] = @Original_STimeOne)) AND ((@IsNull_ETimeOne " +
+                "= 1 AND [ETimeOne] IS NULL) OR ([ETimeOne] = @Original_ETimeOne)) AND ((@IsNull_" +
+                "STimeTwo = 1 AND [STimeTwo] IS NULL) OR ([STimeTwo] = @Original_STimeTwo)) AND (" +
+                "(@IsNull_ETimeTwo = 1 AND [ETimeTwo] IS NULL) OR ([ETimeTwo] = @Original_ETimeTw" +
+                "o)) AND ((@IsNull_STimeThree = 1 AND [STimeThree] IS NULL) OR ([STimeThree] = @O" +
+                "riginal_STimeThree)) AND ((@IsNull_ETimeThree = 1 AND [ETimeThree] IS NULL) OR (" +
+                "[ETimeThree] = @Original_ETimeThree)) AND ((@IsNull_Leave = 1 AND [Leave] IS NUL" +
+                "L) OR ([Leave] = @Original_Leave)) AND ((@IsNull_SickLeave = 1 AND [SickLeave] I" +
+                "S NULL) OR ([SickLeave] = @Original_SickLeave)) AND ((@IsNull_GoOut = 1 AND [GoO" +
+                "ut] IS NULL) OR ([GoOut] = @Original_GoOut)) AND ((@IsNull_BeLate = 1 AND [BeLat" +
+                "e] IS NULL) OR ([BeLate] = @Original_BeLate)) AND ((@IsNull_LeaveEarly = 1 AND [" +
+                "LeaveEarly] IS NULL) OR ([LeaveEarly] = @Original_LeaveEarly)) AND ((@IsNull_Sho" +
+                "uldSign = 1 AND [ShouldSign] IS NULL) OR ([ShouldSign] = @Original_ShouldSign)) " +
+                "AND ((@IsNull_UnSign = 1 AND [UnSign] IS NULL) OR ([UnSign] = @Original_UnSign))" +
+                " AND ((@IsNull_Remark = 1 AND [Remark] IS NULL) OR ([Remark] = @Original_Remark)" +
+                ") AND ((@IsNull_Operator = 1 AND [Operator] IS NULL) OR ([Operator] = @Original_" +
+                "Operator)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TeacherID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TeacherID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TeacherName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TeacherName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SigninDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SigninDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SigninDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SigninDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DayOfWeek", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DayOfWeek", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DayOfWeek", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DayOfWeek", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_STimeOne", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STimeOne", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_STimeOne", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STimeOne", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ETimeOne", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ETimeOne", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ETimeOne", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ETimeOne", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_STimeTwo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STimeTwo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_STimeTwo", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STimeTwo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ETimeTwo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ETimeTwo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ETimeTwo", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ETimeTwo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_STimeThree", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STimeThree", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_STimeThree", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STimeThree", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ETimeThree", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ETimeThree", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ETimeThree", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ETimeThree", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Leave", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Leave", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Leave", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 1, "Leave", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SickLeave", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SickLeave", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SickLeave", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 1, "SickLeave", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_GoOut", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GoOut", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GoOut", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 1, "GoOut", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BeLate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BeLate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BeLate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BeLate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LeaveEarly", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LeaveEarly", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LeaveEarly", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LeaveEarly", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ShouldSign", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShouldSign", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ShouldSign", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShouldSign", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UnSign", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UnSign", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UnSign", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UnSign", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Remark", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Remark", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Remark", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Remark", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Operator", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operator", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Operator", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operator", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [teacher_signin_report] ([TeacherID], [TeacherName], [SigninDate], [DayOfWeek], [STimeOne], [ETimeOne], [STimeTwo], [ETimeTwo], [STimeThree], [ETimeThree], [Leave], [SickLeave], [GoOut], [BeLate], [LeaveEarly], [ShouldSign], [UnSign], [Remark], [Operator]) VALUES (@TeacherID, @TeacherName, @SigninDate, @DayOfWeek, @STimeOne, @ETimeOne, @STimeTwo, @ETimeTwo, @STimeThree, @ETimeThree, @Leave, @SickLeave, @GoOut, @BeLate, @LeaveEarly, @ShouldSign, @UnSign, @Remark, @Operator);
+SELECT ID, TeacherID, TeacherName, SigninDate, DayOfWeek, STimeOne, ETimeOne, STimeTwo, ETimeTwo, STimeThree, ETimeThree, Leave, SickLeave, GoOut, BeLate, LeaveEarly, ShouldSign, UnSign, Remark, Operator FROM teacher_signin_report WHERE (ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TeacherID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TeacherName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SigninDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SigninDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DayOfWeek", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DayOfWeek", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@STimeOne", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STimeOne", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ETimeOne", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ETimeOne", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@STimeTwo", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STimeTwo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ETimeTwo", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ETimeTwo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@STimeThree", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STimeThree", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ETimeThree", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ETimeThree", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Leave", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 1, "Leave", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SickLeave", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 1, "SickLeave", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GoOut", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 1, "GoOut", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeLate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BeLate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LeaveEarly", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LeaveEarly", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShouldSign", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShouldSign", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UnSign", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UnSign", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Remark", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Remark", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Operator", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operator", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE [teacher_signin_report] SET [TeacherID] = @TeacherID, [TeacherName] = @Tea" +
+                "cherName, [SigninDate] = @SigninDate, [DayOfWeek] = @DayOfWeek, [STimeOne] = @ST" +
+                "imeOne, [ETimeOne] = @ETimeOne, [STimeTwo] = @STimeTwo, [ETimeTwo] = @ETimeTwo, " +
+                "[STimeThree] = @STimeThree, [ETimeThree] = @ETimeThree, [Leave] = @Leave, [SickL" +
+                "eave] = @SickLeave, [GoOut] = @GoOut, [BeLate] = @BeLate, [LeaveEarly] = @LeaveE" +
+                "arly, [ShouldSign] = @ShouldSign, [UnSign] = @UnSign, [Remark] = @Remark, [Opera" +
+                "tor] = @Operator WHERE (([ID] = @Original_ID) AND ((@IsNull_TeacherID = 1 AND [T" +
+                "eacherID] IS NULL) OR ([TeacherID] = @Original_TeacherID)) AND ((@IsNull_Teacher" +
+                "Name = 1 AND [TeacherName] IS NULL) OR ([TeacherName] = @Original_TeacherName)) " +
+                "AND ((@IsNull_SigninDate = 1 AND [SigninDate] IS NULL) OR ([SigninDate] = @Origi" +
+                "nal_SigninDate)) AND ((@IsNull_DayOfWeek = 1 AND [DayOfWeek] IS NULL) OR ([DayOf" +
+                "Week] = @Original_DayOfWeek)) AND ((@IsNull_STimeOne = 1 AND [STimeOne] IS NULL)" +
+                " OR ([STimeOne] = @Original_STimeOne)) AND ((@IsNull_ETimeOne = 1 AND [ETimeOne]" +
+                " IS NULL) OR ([ETimeOne] = @Original_ETimeOne)) AND ((@IsNull_STimeTwo = 1 AND [" +
+                "STimeTwo] IS NULL) OR ([STimeTwo] = @Original_STimeTwo)) AND ((@IsNull_ETimeTwo " +
+                "= 1 AND [ETimeTwo] IS NULL) OR ([ETimeTwo] = @Original_ETimeTwo)) AND ((@IsNull_" +
+                "STimeThree = 1 AND [STimeThree] IS NULL) OR ([STimeThree] = @Original_STimeThree" +
+                ")) AND ((@IsNull_ETimeThree = 1 AND [ETimeThree] IS NULL) OR ([ETimeThree] = @Or" +
+                "iginal_ETimeThree)) AND ((@IsNull_Leave = 1 AND [Leave] IS NULL) OR ([Leave] = @" +
+                "Original_Leave)) AND ((@IsNull_SickLeave = 1 AND [SickLeave] IS NULL) OR ([SickL" +
+                "eave] = @Original_SickLeave)) AND ((@IsNull_GoOut = 1 AND [GoOut] IS NULL) OR ([" +
+                "GoOut] = @Original_GoOut)) AND ((@IsNull_BeLate = 1 AND [BeLate] IS NULL) OR ([B" +
+                "eLate] = @Original_BeLate)) AND ((@IsNull_LeaveEarly = 1 AND [LeaveEarly] IS NUL" +
+                "L) OR ([LeaveEarly] = @Original_LeaveEarly)) AND ((@IsNull_ShouldSign = 1 AND [S" +
+                "houldSign] IS NULL) OR ([ShouldSign] = @Original_ShouldSign)) AND ((@IsNull_UnSi" +
+                "gn = 1 AND [UnSign] IS NULL) OR ([UnSign] = @Original_UnSign)) AND ((@IsNull_Rem" +
+                "ark = 1 AND [Remark] IS NULL) OR ([Remark] = @Original_Remark)) AND ((@IsNull_Op" +
+                "erator = 1 AND [Operator] IS NULL) OR ([Operator] = @Original_Operator)));\r\nSELE" +
+                "CT ID, TeacherID, TeacherName, SigninDate, DayOfWeek, STimeOne, ETimeOne, STimeT" +
+                "wo, ETimeTwo, STimeThree, ETimeThree, Leave, SickLeave, GoOut, BeLate, LeaveEarl" +
+                "y, ShouldSign, UnSign, Remark, Operator FROM teacher_signin_report WHERE (ID = @" +
+                "ID)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TeacherID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TeacherName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SigninDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SigninDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DayOfWeek", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DayOfWeek", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@STimeOne", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STimeOne", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ETimeOne", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ETimeOne", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@STimeTwo", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STimeTwo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ETimeTwo", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ETimeTwo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@STimeThree", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STimeThree", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ETimeThree", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ETimeThree", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Leave", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 1, "Leave", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SickLeave", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 1, "SickLeave", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GoOut", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 1, "GoOut", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BeLate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BeLate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LeaveEarly", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LeaveEarly", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ShouldSign", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShouldSign", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UnSign", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UnSign", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Remark", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Remark", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Operator", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operator", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TeacherID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherID", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TeacherID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TeacherName", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherName", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TeacherName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SigninDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SigninDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SigninDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SigninDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DayOfWeek", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DayOfWeek", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DayOfWeek", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DayOfWeek", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_STimeOne", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STimeOne", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_STimeOne", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STimeOne", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ETimeOne", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ETimeOne", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ETimeOne", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ETimeOne", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_STimeTwo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STimeTwo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_STimeTwo", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STimeTwo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ETimeTwo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ETimeTwo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ETimeTwo", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ETimeTwo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_STimeThree", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STimeThree", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_STimeThree", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "STimeThree", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ETimeThree", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ETimeThree", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ETimeThree", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ETimeThree", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Leave", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Leave", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Leave", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 1, "Leave", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SickLeave", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SickLeave", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SickLeave", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 1, "SickLeave", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_GoOut", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GoOut", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GoOut", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 10, 1, "GoOut", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BeLate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BeLate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BeLate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BeLate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LeaveEarly", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LeaveEarly", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LeaveEarly", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LeaveEarly", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ShouldSign", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShouldSign", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ShouldSign", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ShouldSign", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UnSign", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UnSign", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UnSign", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UnSign", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Remark", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Remark", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Remark", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Remark", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Operator", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operator", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Operator", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operator", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::QianDao.Properties.Settings.Default.ChildrenPalaceConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT   teacher_signin_report.*\r\nFROM      teacher_signin_report";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "UPDATE  teacher_signin_report\r\nSET         STimeOne =\r\n                    (SELEC" +
+                "T   (CASE WHEN v_valid_time.SRangeOfOne IS NOT NULL THEN\r\n                      " +
+                "                   (SELECT   TOP 1 teacher_signin.SigninTime\r\n                  " +
+                "                        FROM      teacher_signin\r\n                              " +
+                "            WHERE   teacher_signin.SigninTime >= v_valid_time.SRangeOfOne AND \r\n" +
+                "                                                          teacher_signin.SigninT" +
+                "ime <= v_valid_time.ERangeOfOne AND \r\n                                          " +
+                "                teacher_signin.TeacherID = v_valid_time.TeacherID) ELSE NULL END" +
+                ") AS STimeOne\r\n                     FROM      v_valid_time\r\n                    " +
+                " WHERE   (TeacherID = @TeacherID) AND (DATEDIFF(day, @SigninTime, CreateDate) = " +
+                "0)), ETimeOne =\r\n                    (SELECT   (CASE WHEN v_valid_time.ERangeOfO" +
+                "ne IS NOT NULL THEN\r\n                                         (SELECT   TOP 1 te" +
+                "acher_signin.SigninTime\r\n                                          FROM      tea" +
+                "cher_signin\r\n                                          WHERE   teacher_signin.Si" +
+                "gninTime >= v_valid_time.SRangeOfOne AND \r\n                                     " +
+                "                     teacher_signin.SigninTime <= v_valid_time.ERangeOfOne AND \r" +
+                "\n                                                          teacher_signin.Signin" +
+                "Time <>\r\n                                                              (SELECT  " +
+                " TOP 1 teacher_signin.SigninTime\r\n                                              " +
+                "                 FROM      teacher_signin\r\n                                     " +
+                "                          WHERE   teacher_signin.SigninTime >= v_valid_time.SRan" +
+                "geOfOne AND \r\n                                                                  " +
+                "             teacher_signin.SigninTime <= v_valid_time.ERangeOfOne AND \r\n       " +
+                "                                                                        teacher_" +
+                "signin.TeacherID = v_valid_time.TeacherID) AND \r\n                               " +
+                "                           teacher_signin.TeacherID = v_valid_time.TeacherID\r\n  " +
+                "                                        ORDER BY teacher_signin.SigninTime DESC)" +
+                " ELSE NULL END) AS ETimeOne\r\n                     FROM      v_valid_time AS v_va" +
+                "lid_time_5\r\n                     WHERE   (TeacherID = @TeacherID) AND (DATEDIFF(" +
+                "day, @SigninTime, CreateDate) = 0)), STimeTwo =\r\n                    (SELECT   (" +
+                "CASE WHEN v_valid_time.SRangeOfTwo IS NOT NULL THEN\r\n                           " +
+                "              (SELECT   TOP 1 teacher_signin.SigninTime\r\n                       " +
+                "                   FROM      teacher_signin\r\n                                   " +
+                "       WHERE   teacher_signin.SigninTime >= v_valid_time.SRangeOfTwo AND \r\n     " +
+                "                                                     teacher_signin.SigninTime <" +
+                "= v_valid_time.ERangeOfTwo AND \r\n                                               " +
+                "           teacher_signin.TeacherID = v_valid_time.TeacherID) ELSE NULL END) AS " +
+                "STimeTwo\r\n                     FROM      v_valid_time AS v_valid_time_4\r\n       " +
+                "              WHERE   (TeacherID = @TeacherID) AND (DATEDIFF(day, @SigninTime, C" +
+                "reateDate) = 0)), ETimeTwo =\r\n                    (SELECT   (CASE WHEN v_valid_t" +
+                "ime.ERangeOfTwo IS NOT NULL THEN\r\n                                         (SELE" +
+                "CT   TOP 1 teacher_signin.SigninTime\r\n                                          " +
+                "FROM      teacher_signin\r\n                                          WHERE   teac" +
+                "her_signin.SigninTime >= v_valid_time.SRangeOfTwo AND \r\n                        " +
+                "                                  teacher_signin.SigninTime <= v_valid_time.ERan" +
+                "geOfTwo AND \r\n                                                          teacher_" +
+                "signin.SigninTime <>\r\n                                                          " +
+                "    (SELECT   TOP 1 teacher_signin.SigninTime\r\n                                 " +
+                "                              FROM      teacher_signin\r\n                        " +
+                "                                       WHERE   teacher_signin.SigninTime >= v_va" +
+                "lid_time.SRangeOfTwo AND \r\n                                                     " +
+                "                          teacher_signin.SigninTime <= v_valid_time.ERangeOfTwo " +
+                "AND \r\n                                                                          " +
+                "     teacher_signin.TeacherID = v_valid_time.TeacherID) AND \r\n                  " +
+                "                                        teacher_signin.TeacherID = v_valid_time." +
+                "TeacherID\r\n                                          ORDER BY teacher_signin.Sig" +
+                "ninTime DESC) ELSE NULL END) AS ETimeTwo\r\n                     FROM      v_valid" +
+                "_time AS v_valid_time_3\r\n                     WHERE   (TeacherID = @TeacherID) A" +
+                "ND (DATEDIFF(day, @SigninTime, CreateDate) = 0)), STimeThree =\r\n                " +
+                "    (SELECT   (CASE WHEN v_valid_time.SRangeOfThree IS NOT NULL THEN\r\n          " +
+                "                               (SELECT   TOP 1 teacher_signin.SigninTime\r\n      " +
+                "                                    FROM      teacher_signin\r\n                  " +
+                "                        WHERE   teacher_signin.SigninTime >= v_valid_time.SRange" +
+                "OfThree AND \r\n                                                          teacher_" +
+                "signin.SigninTime <= v_valid_time.ERangeOfThree AND \r\n                          " +
+                "                                teacher_signin.TeacherID = v_valid_time.TeacherI" +
+                "D) ELSE NULL END) AS STimeThree\r\n                     FROM      v_valid_time AS " +
+                "v_valid_time_2\r\n                     WHERE   (TeacherID = @TeacherID) AND (DATED" +
+                "IFF(day, @SigninTime, CreateDate) = 0)), ETimeThree =\r\n                    (SELE" +
+                "CT   (CASE WHEN v_valid_time.ERangeOfThree IS NOT NULL THEN\r\n                   " +
+                "                      (SELECT   TOP 1 teacher_signin.SigninTime\r\n               " +
+                "                           FROM      teacher_signin\r\n                           " +
+                "               WHERE   teacher_signin.SigninTime >= v_valid_time.SRangeOfThree A" +
+                "ND \r\n                                                          teacher_signin.Si" +
+                "gninTime <= v_valid_time.ERangeOfThree AND \r\n                                   " +
+                "                       teacher_signin.SigninTime <>\r\n                           " +
+                "                                   (SELECT   TOP 1 teacher_signin.SigninTime\r\n  " +
+                "                                                             FROM      teacher_s" +
+                "ignin\r\n                                                               WHERE   te" +
+                "acher_signin.SigninTime >= v_valid_time.SRangeOfThree AND \r\n                    " +
+                "                                                           teacher_signin.Signin" +
+                "Time <= v_valid_time.ERangeOfThree AND \r\n                                       " +
+                "                                        teacher_signin.TeacherID = v_valid_time." +
+                "TeacherID) AND \r\n                                                          teach" +
+                "er_signin.TeacherID = v_valid_time.TeacherID\r\n                                  " +
+                "        ORDER BY teacher_signin.SigninTime DESC) ELSE NULL END) AS ETimeThree\r\n " +
+                "                    FROM      v_valid_time AS v_valid_time_1\r\n                  " +
+                "   WHERE   (TeacherID = @TeacherID) AND (DATEDIFF(day, @SigninTime, CreateDate) " +
+                "= 0))\r\nWHERE   (TeacherID = @TeacherID) AND (DATEDIFF(day, @SigninTime, SigninDa" +
+                "te) = 0); ";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TeacherID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TeacherID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SigninTime", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(SignInDataSet.TeacherSigninReportDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual SignInDataSet.TeacherSigninReportDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            SignInDataSet.TeacherSigninReportDataTable dataTable = new SignInDataSet.TeacherSigninReportDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(SignInDataSet.TeacherSigninReportDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(SignInDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "TeacherSigninReport");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(
+                    int Original_ID, 
+                    global::System.Nullable<int> Original_TeacherID, 
+                    string Original_TeacherName, 
+                    global::System.Nullable<global::System.DateTime> Original_SigninDate, 
+                    string Original_DayOfWeek, 
+                    global::System.Nullable<global::System.DateTime> Original_STimeOne, 
+                    global::System.Nullable<global::System.DateTime> Original_ETimeOne, 
+                    global::System.Nullable<global::System.DateTime> Original_STimeTwo, 
+                    global::System.Nullable<global::System.DateTime> Original_ETimeTwo, 
+                    global::System.Nullable<global::System.DateTime> Original_STimeThree, 
+                    global::System.Nullable<global::System.DateTime> Original_ETimeThree, 
+                    global::System.Nullable<decimal> Original_Leave, 
+                    global::System.Nullable<decimal> Original_SickLeave, 
+                    global::System.Nullable<decimal> Original_GoOut, 
+                    global::System.Nullable<int> Original_BeLate, 
+                    global::System.Nullable<int> Original_LeaveEarly, 
+                    global::System.Nullable<int> Original_ShouldSign, 
+                    global::System.Nullable<int> Original_UnSign, 
+                    string Original_Remark, 
+                    string Original_Operator) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
+            if ((Original_TeacherID.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_TeacherID.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Original_TeacherName == null)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_TeacherName));
+            }
+            if ((Original_SigninDate.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_SigninDate.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Original_DayOfWeek == null)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_DayOfWeek));
+            }
+            if ((Original_STimeOne.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((System.DateTime)(Original_STimeOne.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ETimeOne.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((System.DateTime)(Original_ETimeOne.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((Original_STimeTwo.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((System.DateTime)(Original_STimeTwo.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ETimeTwo.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((System.DateTime)(Original_ETimeTwo.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((Original_STimeThree.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((System.DateTime)(Original_STimeThree.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ETimeThree.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((System.DateTime)(Original_ETimeThree.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Leave.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((decimal)(Original_Leave.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((Original_SickLeave.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((decimal)(Original_SickLeave.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((Original_GoOut.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((decimal)(Original_GoOut.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            if ((Original_BeLate.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((int)(Original_BeLate.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            if ((Original_LeaveEarly.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((int)(Original_LeaveEarly.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ShouldSign.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((int)(Original_ShouldSign.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            if ((Original_UnSign.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[34].Value = ((int)(Original_UnSign.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[34].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Remark == null)) {
+                this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[36].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((string)(Original_Remark));
+            }
+            if ((Original_Operator == null)) {
+                this.Adapter.DeleteCommand.Parameters[37].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[38].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[37].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[38].Value = ((string)(Original_Operator));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(
+                    global::System.Nullable<int> TeacherID, 
+                    string TeacherName, 
+                    global::System.Nullable<global::System.DateTime> SigninDate, 
+                    string DayOfWeek, 
+                    global::System.Nullable<global::System.DateTime> STimeOne, 
+                    global::System.Nullable<global::System.DateTime> ETimeOne, 
+                    global::System.Nullable<global::System.DateTime> STimeTwo, 
+                    global::System.Nullable<global::System.DateTime> ETimeTwo, 
+                    global::System.Nullable<global::System.DateTime> STimeThree, 
+                    global::System.Nullable<global::System.DateTime> ETimeThree, 
+                    global::System.Nullable<decimal> Leave, 
+                    global::System.Nullable<decimal> SickLeave, 
+                    global::System.Nullable<decimal> GoOut, 
+                    global::System.Nullable<int> BeLate, 
+                    global::System.Nullable<int> LeaveEarly, 
+                    global::System.Nullable<int> ShouldSign, 
+                    global::System.Nullable<int> UnSign, 
+                    string Remark, 
+                    string Operator) {
+            if ((TeacherID.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(TeacherID.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((TeacherName == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(TeacherName));
+            }
+            if ((SigninDate.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(SigninDate.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((DayOfWeek == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(DayOfWeek));
+            }
+            if ((STimeOne.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(STimeOne.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((ETimeOne.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(ETimeOne.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((STimeTwo.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(STimeTwo.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((ETimeTwo.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((System.DateTime)(ETimeTwo.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((STimeThree.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(STimeThree.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((ETimeThree.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((System.DateTime)(ETimeThree.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((Leave.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((decimal)(Leave.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((SickLeave.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((decimal)(SickLeave.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((GoOut.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((decimal)(GoOut.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((BeLate.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((int)(BeLate.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((LeaveEarly.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((int)(LeaveEarly.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((ShouldSign.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[15].Value = ((int)(ShouldSign.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            if ((UnSign.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((int)(UnSign.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((Remark == null)) {
+                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[17].Value = ((string)(Remark));
+            }
+            if ((Operator == null)) {
+                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[18].Value = ((string)(Operator));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    global::System.Nullable<int> TeacherID, 
+                    string TeacherName, 
+                    global::System.Nullable<global::System.DateTime> SigninDate, 
+                    string DayOfWeek, 
+                    global::System.Nullable<global::System.DateTime> STimeOne, 
+                    global::System.Nullable<global::System.DateTime> ETimeOne, 
+                    global::System.Nullable<global::System.DateTime> STimeTwo, 
+                    global::System.Nullable<global::System.DateTime> ETimeTwo, 
+                    global::System.Nullable<global::System.DateTime> STimeThree, 
+                    global::System.Nullable<global::System.DateTime> ETimeThree, 
+                    global::System.Nullable<decimal> Leave, 
+                    global::System.Nullable<decimal> SickLeave, 
+                    global::System.Nullable<decimal> GoOut, 
+                    global::System.Nullable<int> BeLate, 
+                    global::System.Nullable<int> LeaveEarly, 
+                    global::System.Nullable<int> ShouldSign, 
+                    global::System.Nullable<int> UnSign, 
+                    string Remark, 
+                    string Operator, 
+                    int Original_ID, 
+                    global::System.Nullable<int> Original_TeacherID, 
+                    string Original_TeacherName, 
+                    global::System.Nullable<global::System.DateTime> Original_SigninDate, 
+                    string Original_DayOfWeek, 
+                    global::System.Nullable<global::System.DateTime> Original_STimeOne, 
+                    global::System.Nullable<global::System.DateTime> Original_ETimeOne, 
+                    global::System.Nullable<global::System.DateTime> Original_STimeTwo, 
+                    global::System.Nullable<global::System.DateTime> Original_ETimeTwo, 
+                    global::System.Nullable<global::System.DateTime> Original_STimeThree, 
+                    global::System.Nullable<global::System.DateTime> Original_ETimeThree, 
+                    global::System.Nullable<decimal> Original_Leave, 
+                    global::System.Nullable<decimal> Original_SickLeave, 
+                    global::System.Nullable<decimal> Original_GoOut, 
+                    global::System.Nullable<int> Original_BeLate, 
+                    global::System.Nullable<int> Original_LeaveEarly, 
+                    global::System.Nullable<int> Original_ShouldSign, 
+                    global::System.Nullable<int> Original_UnSign, 
+                    string Original_Remark, 
+                    string Original_Operator, 
+                    int ID) {
+            if ((TeacherID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(TeacherID.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((TeacherName == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(TeacherName));
+            }
+            if ((SigninDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(SigninDate.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((DayOfWeek == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(DayOfWeek));
+            }
+            if ((STimeOne.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(STimeOne.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((ETimeOne.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(ETimeOne.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((STimeTwo.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(STimeTwo.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((ETimeTwo.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(ETimeTwo.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((STimeThree.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(STimeThree.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((ETimeThree.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(ETimeThree.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            if ((Leave.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Leave.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((SickLeave.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((decimal)(SickLeave.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((GoOut.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((decimal)(GoOut.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            if ((BeLate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(BeLate.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((LeaveEarly.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(LeaveEarly.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((ShouldSign.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(ShouldSign.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            if ((UnSign.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(UnSign.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            if ((Remark == null)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Remark));
+            }
+            if ((Operator == null)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Operator));
+            }
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_ID));
+            if ((Original_TeacherID.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_TeacherID.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            if ((Original_TeacherName == null)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_TeacherName));
+            }
+            if ((Original_SigninDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((System.DateTime)(Original_SigninDate.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            if ((Original_DayOfWeek == null)) {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_DayOfWeek));
+            }
+            if ((Original_STimeOne.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((System.DateTime)(Original_STimeOne.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ETimeOne.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((System.DateTime)(Original_ETimeOne.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            if ((Original_STimeTwo.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((System.DateTime)(Original_STimeTwo.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ETimeTwo.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((System.DateTime)(Original_ETimeTwo.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
+            }
+            if ((Original_STimeThree.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((System.DateTime)(Original_STimeThree.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ETimeThree.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((System.DateTime)(Original_ETimeThree.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Leave.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((decimal)(Original_Leave.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
+            }
+            if ((Original_SickLeave.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((decimal)(Original_SickLeave.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
+            }
+            if ((Original_GoOut.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((decimal)(Original_GoOut.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
+            }
+            if ((Original_BeLate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((int)(Original_BeLate.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
+            }
+            if ((Original_LeaveEarly.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((int)(Original_LeaveEarly.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
+            }
+            if ((Original_ShouldSign.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((int)(Original_ShouldSign.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[51].Value = global::System.DBNull.Value;
+            }
+            if ((Original_UnSign.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((int)(Original_UnSign.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[53].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Remark == null)) {
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[55].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((string)(Original_Remark));
+            }
+            if ((Original_Operator == null)) {
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[57].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((string)(Original_Operator));
+            }
+            this.Adapter.UpdateCommand.Parameters[58].Value = ((int)(ID));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    global::System.Nullable<int> TeacherID, 
+                    string TeacherName, 
+                    global::System.Nullable<global::System.DateTime> SigninDate, 
+                    string DayOfWeek, 
+                    global::System.Nullable<global::System.DateTime> STimeOne, 
+                    global::System.Nullable<global::System.DateTime> ETimeOne, 
+                    global::System.Nullable<global::System.DateTime> STimeTwo, 
+                    global::System.Nullable<global::System.DateTime> ETimeTwo, 
+                    global::System.Nullable<global::System.DateTime> STimeThree, 
+                    global::System.Nullable<global::System.DateTime> ETimeThree, 
+                    global::System.Nullable<decimal> Leave, 
+                    global::System.Nullable<decimal> SickLeave, 
+                    global::System.Nullable<decimal> GoOut, 
+                    global::System.Nullable<int> BeLate, 
+                    global::System.Nullable<int> LeaveEarly, 
+                    global::System.Nullable<int> ShouldSign, 
+                    global::System.Nullable<int> UnSign, 
+                    string Remark, 
+                    string Operator, 
+                    int Original_ID, 
+                    global::System.Nullable<int> Original_TeacherID, 
+                    string Original_TeacherName, 
+                    global::System.Nullable<global::System.DateTime> Original_SigninDate, 
+                    string Original_DayOfWeek, 
+                    global::System.Nullable<global::System.DateTime> Original_STimeOne, 
+                    global::System.Nullable<global::System.DateTime> Original_ETimeOne, 
+                    global::System.Nullable<global::System.DateTime> Original_STimeTwo, 
+                    global::System.Nullable<global::System.DateTime> Original_ETimeTwo, 
+                    global::System.Nullable<global::System.DateTime> Original_STimeThree, 
+                    global::System.Nullable<global::System.DateTime> Original_ETimeThree, 
+                    global::System.Nullable<decimal> Original_Leave, 
+                    global::System.Nullable<decimal> Original_SickLeave, 
+                    global::System.Nullable<decimal> Original_GoOut, 
+                    global::System.Nullable<int> Original_BeLate, 
+                    global::System.Nullable<int> Original_LeaveEarly, 
+                    global::System.Nullable<int> Original_ShouldSign, 
+                    global::System.Nullable<int> Original_UnSign, 
+                    string Original_Remark, 
+                    string Original_Operator) {
+            return this.Update(TeacherID, TeacherName, SigninDate, DayOfWeek, STimeOne, ETimeOne, STimeTwo, ETimeTwo, STimeThree, ETimeThree, Leave, SickLeave, GoOut, BeLate, LeaveEarly, ShouldSign, UnSign, Remark, Operator, Original_ID, Original_TeacherID, Original_TeacherName, Original_SigninDate, Original_DayOfWeek, Original_STimeOne, Original_ETimeOne, Original_STimeTwo, Original_ETimeTwo, Original_STimeThree, Original_ETimeThree, Original_Leave, Original_SickLeave, Original_GoOut, Original_BeLate, Original_LeaveEarly, Original_ShouldSign, Original_UnSign, Original_Remark, Original_Operator, Original_ID);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateReport(global::System.Nullable<int> TeacherID, System.DateTime SigninTime) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((TeacherID.HasValue == true)) {
+                command.Parameters[0].Value = ((int)(TeacherID.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            command.Parameters[1].Value = ((System.DateTime)(SigninTime));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -7898,6 +10323,8 @@ convert(varchar(10),GETDATE(), 120)
         private studentCoursesCostTableAdapter _studentCoursesCostTableAdapter;
         
         private TeacherSigninTableAdapter _teacherSigninTableAdapter;
+        
+        private TeacherSigninReportTableAdapter _teacherSigninReportTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -7986,6 +10413,20 @@ convert(varchar(10),GETDATE(), 120)
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public TeacherSigninReportTableAdapter TeacherSigninReportTableAdapter {
+            get {
+                return this._teacherSigninReportTableAdapter;
+            }
+            set {
+                this._teacherSigninReportTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -8023,6 +10464,10 @@ convert(varchar(10),GETDATE(), 120)
                             && (this._teacherSigninTableAdapter.Connection != null))) {
                     return this._teacherSigninTableAdapter.Connection;
                 }
+                if (((this._teacherSigninReportTableAdapter != null) 
+                            && (this._teacherSigninReportTableAdapter.Connection != null))) {
+                    return this._teacherSigninReportTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -8049,6 +10494,9 @@ convert(varchar(10),GETDATE(), 120)
                     count = (count + 1);
                 }
                 if ((this._teacherSigninTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._teacherSigninReportTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -8080,6 +10528,15 @@ convert(varchar(10),GETDATE(), 120)
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._teacherSigninReportTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.TeacherSigninReport.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._teacherSigninReportTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._teacherSigninTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.TeacherSignin.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -8089,21 +10546,21 @@ convert(varchar(10),GETDATE(), 120)
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._studentCostTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.StudentCost.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._studentCostTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._studentSignInTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.StudentSignIn.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._studentSignInTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._studentCostTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.StudentCost.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._studentCostTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -8133,6 +10590,14 @@ convert(varchar(10),GETDATE(), 120)
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._teacherSigninReportTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.TeacherSigninReport.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._teacherSigninReportTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._teacherSigninTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.TeacherSignin.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -8141,19 +10606,19 @@ convert(varchar(10),GETDATE(), 120)
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._studentCostTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.StudentCost.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._studentCostTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._studentSignInTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.StudentSignIn.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._studentSignInTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._studentCostTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.StudentCost.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._studentCostTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -8167,14 +10632,6 @@ convert(varchar(10),GETDATE(), 120)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(SignInDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._studentSignInTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.StudentSignIn.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._studentSignInTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._studentCostTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.StudentCost.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -8183,11 +10640,27 @@ convert(varchar(10),GETDATE(), 120)
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._studentSignInTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.StudentSignIn.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._studentSignInTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._teacherSigninTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.TeacherSignin.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._teacherSigninTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._teacherSigninReportTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.TeacherSigninReport.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._teacherSigninReportTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -8266,6 +10739,10 @@ convert(varchar(10),GETDATE(), 120)
                         && (this.MatchTableAdapterConnection(this._teacherSigninTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("由 TableAdapterManager 管理的所有 TableAdapter 必须使用相同的连接字符串。");
             }
+            if (((this._teacherSigninReportTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._teacherSigninReportTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("由 TableAdapterManager 管理的所有 TableAdapter 必须使用相同的连接字符串。");
+            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager 不包含任何连接信息。请将每个 TableAdapterManager TableAdapter 属性设置为有效的 Tabl" +
@@ -8340,6 +10817,15 @@ convert(varchar(10),GETDATE(), 120)
                     if (this._teacherSigninTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._teacherSigninTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._teacherSigninTableAdapter.Adapter);
+                    }
+                }
+                if ((this._teacherSigninReportTableAdapter != null)) {
+                    revertConnections.Add(this._teacherSigninReportTableAdapter, this._teacherSigninReportTableAdapter.Connection);
+                    this._teacherSigninReportTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._teacherSigninReportTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._teacherSigninReportTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._teacherSigninReportTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._teacherSigninReportTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -8419,6 +10905,10 @@ convert(varchar(10),GETDATE(), 120)
                 if ((this._teacherSigninTableAdapter != null)) {
                     this._teacherSigninTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._teacherSigninTableAdapter]));
                     this._teacherSigninTableAdapter.Transaction = null;
+                }
+                if ((this._teacherSigninReportTableAdapter != null)) {
+                    this._teacherSigninReportTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._teacherSigninReportTableAdapter]));
+                    this._teacherSigninReportTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
