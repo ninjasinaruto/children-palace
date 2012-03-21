@@ -11,7 +11,7 @@
     <Shape ID="DesignTable:TeacherSalaryAdjust" ZOrder="6" X="390" Y="278" Height="139" Width="277" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="92" />
     <Shape ID="DesignTable:VCards" ZOrder="4" X="696" Y="82" Height="153" Width="196" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
     <Shape ID="DesignTable:TeacherSigninTime" ZOrder="3" X="692" Y="277" Height="267" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="178" />
-    <Shape ID="DesignTable:TeacherSigninReport" ZOrder="1" X="58" Y="411" Height="343" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:TeacherSigninReport" ZOrder="1" X="58" Y="411" Height="381" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
   </Shapes>
   <Connectors />
 </DiagramLayout>
