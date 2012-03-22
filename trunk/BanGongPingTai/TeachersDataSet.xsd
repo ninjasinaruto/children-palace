@@ -679,7 +679,7 @@ ORDER BY SigninDate DESC, TeacherID</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateByTeacherID" Modifier="Public" Name="UpdateByTeacherID" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateByTeacherID">
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateByTeacherID" Modifier="Public" Name="UpdateByTeacherID" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateByTeacherID">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE  teacher_signin_report
@@ -699,7 +699,7 @@ WHERE   (ID = @Original_ID); </CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateTeacherNameByTeacherID" Modifier="Public" Name="UpdateTeacherNameByTeacherID" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateTeacherNameByTeacherID">
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateTeacherNameByTeacherID" Modifier="Public" Name="UpdateTeacherNameByTeacherID" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateTeacherNameByTeacherID">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE  teacher_signin_report
@@ -711,6 +711,145 @@ WHERE   (TeacherID = @Original_TeacherID);  </CommandText>
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TeacherSigninTableAdapter" GeneratorDataComponentClassName="TeacherSigninTableAdapter" Name="TeacherSignin" UserDataComponentName="TeacherSigninTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select teacher_signin.TeacherID,tearchers.Name,teacher_signin.CreateDate,day_of_week.DayOfWeekName, teacher_signin.SigninTime from teacher_signin
+  inner join tearchers on tearchers.ID = teacher_signin.TeacherID
+  inner join day_of_week on day_of_week.DayOfWeekValue = teacher_signin.DayOfWeek
+ORDER BY teacher_signin.TeacherID, teacher_signin.SigninTime</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="TeacherID" DataSetColumn="TeacherID" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="CreateDate" DataSetColumn="CreateDate" />
+              <Mapping SourceColumn="DayOfWeekName" DataSetColumn="DayOfWeekName" />
+              <Mapping SourceColumn="SigninTime" DataSetColumn="SigninTime" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByAllWithTeacherName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByAllWithTeacherName" GeneratorSourceName="FillByAllWithTeacherName" GetMethodModifier="Public" GetMethodName="GetDataByAllWithTeacherName" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByAllWithTeacherName" UserSourceName="FillByAllWithTeacherName">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   teacher_signin.TeacherID, tearchers.Name, teacher_signin.CreateDate, day_of_week.DayOfWeekName, 
+                teacher_signin.SigninTime
+FROM      teacher_signin INNER JOIN
+                tearchers ON tearchers.ID = teacher_signin.TeacherID INNER JOIN
+                day_of_week ON day_of_week.DayOfWeekValue = teacher_signin.DayOfWeek
+WHERE   (tearchers.Name LIKE @TeacherName)
+ORDER BY teacher_signin.TeacherID, teacher_signin.SigninTime</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="TeacherName" ColumnName="Name" DataSourceName="ChildrenPalace.dbo.tearchers" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@TeacherName" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByBeginEndDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByBeginEndDate" GeneratorSourceName="FillByBeginEndDate" GetMethodModifier="Public" GetMethodName="GetDataByBeginEndDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByBeginEndDate" UserSourceName="FillByBeginEndDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   teacher_signin.TeacherID, tearchers.Name, teacher_signin.CreateDate, day_of_week.DayOfWeekName, 
+                teacher_signin.SigninTime
+FROM      teacher_signin INNER JOIN
+                tearchers ON tearchers.ID = teacher_signin.TeacherID INNER JOIN
+                day_of_week ON day_of_week.DayOfWeekValue = teacher_signin.DayOfWeek
+WHERE   (DATEDIFF(day, @BeginDate, teacher_signin.CreateDate) &gt;= 0) AND (DATEDIFF(day, @EndDate, 
+                teacher_signin.CreateDate) &lt;= 0) AND (DATEDIFF(DAY, GETDATE(), teacher_signin.CreateDate) &lt;= 0)
+ORDER BY teacher_signin.TeacherID, teacher_signin.SigninTime</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="EndDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByBeginEndDateWithTeacherName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByBeginEndDateWithTeacherName" GeneratorSourceName="FillByBeginEndDateWithTeacherName" GetMethodModifier="Public" GetMethodName="GetDataByBeginEndDateWithTeacherName" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByBeginEndDateWithTeacherName" UserSourceName="FillByBeginEndDateWithTeacherName">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   teacher_signin.TeacherID, tearchers.Name, teacher_signin.CreateDate, day_of_week.DayOfWeekName, 
+                teacher_signin.SigninTime
+FROM      teacher_signin INNER JOIN
+                tearchers ON tearchers.ID = teacher_signin.TeacherID INNER JOIN
+                day_of_week ON day_of_week.DayOfWeekValue = teacher_signin.DayOfWeek
+WHERE   (DATEDIFF(day, @BeginDate, teacher_signin.CreateDate) &gt;= 0) AND (DATEDIFF(day, @EndDate, 
+                teacher_signin.CreateDate) &lt;= 0) AND (DATEDIFF(DAY, GETDATE(), teacher_signin.CreateDate) &lt;= 0) AND 
+                (tearchers.Name LIKE @TeacherName)
+ORDER BY teacher_signin.TeacherID, teacher_signin.SigninTime</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="EndDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="TeacherName" ColumnName="Name" DataSourceName="ChildrenPalace.dbo.tearchers" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@TeacherName" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByDay" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByDay" GeneratorSourceName="FillByDay" GetMethodModifier="Public" GetMethodName="GetDataByDay" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByDay" UserSourceName="FillByDay">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   teacher_signin.TeacherID, tearchers.Name, teacher_signin.CreateDate, day_of_week.DayOfWeekName, 
+                teacher_signin.SigninTime
+FROM      teacher_signin INNER JOIN
+                tearchers ON tearchers.ID = teacher_signin.TeacherID INNER JOIN
+                day_of_week ON day_of_week.DayOfWeekValue = teacher_signin.DayOfWeek
+WHERE   (DATEDIFF(DAY, GETDATE(), teacher_signin.CreateDate) = 0)
+ORDER BY teacher_signin.TeacherID, teacher_signin.SigninTime</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByDayWithTeacherName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByDayWithTeacherName" GeneratorSourceName="FillByDayWithTeacherName" GetMethodModifier="Public" GetMethodName="GetDataByDayWithTeacherName" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByDayWithTeacherName" UserSourceName="FillByDayWithTeacherName">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   teacher_signin.TeacherID, tearchers.Name, teacher_signin.CreateDate, day_of_week.DayOfWeekName, 
+                teacher_signin.SigninTime
+FROM      teacher_signin INNER JOIN
+                tearchers ON tearchers.ID = teacher_signin.TeacherID INNER JOIN
+                day_of_week ON day_of_week.DayOfWeekValue = teacher_signin.DayOfWeek
+WHERE   (DATEDIFF(DAY, GETDATE(), teacher_signin.CreateDate) = 0) AND (tearchers.Name LIKE @TeacherName)
+ORDER BY teacher_signin.TeacherID, teacher_signin.SigninTime</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="TeacherName" ColumnName="Name" DataSourceName="ChildrenPalace.dbo.tearchers" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@TeacherName" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByMonth" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByMonth" GeneratorSourceName="FillByMonth" GetMethodModifier="Public" GetMethodName="GetDataByMonth" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByMonth" UserSourceName="FillByMonth">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   teacher_signin.TeacherID, tearchers.Name, teacher_signin.CreateDate, day_of_week.DayOfWeekName, 
+                teacher_signin.SigninTime
+FROM      teacher_signin INNER JOIN
+                tearchers ON tearchers.ID = teacher_signin.TeacherID INNER JOIN
+                day_of_week ON day_of_week.DayOfWeekValue = teacher_signin.DayOfWeek
+WHERE (DATEPART(mm, CreateDate) = DATEPART(mm, GETDATE())) AND (DATEDIFF(DAY, GETDATE(), CreateDate) &lt;= 0)
+ORDER BY teacher_signin.TeacherID, teacher_signin.SigninTime</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByMonthWithTeacherName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByMonthWithTeacherName" GeneratorSourceName="FillByMonthWithTeacherName" GetMethodModifier="Public" GetMethodName="GetDataByMonthWithTeacherName" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByMonthWithTeacherName" UserSourceName="FillByMonthWithTeacherName">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   teacher_signin.TeacherID, tearchers.Name, teacher_signin.CreateDate, day_of_week.DayOfWeekName, 
+                teacher_signin.SigninTime
+FROM      teacher_signin INNER JOIN
+                tearchers ON tearchers.ID = teacher_signin.TeacherID INNER JOIN
+                day_of_week ON day_of_week.DayOfWeekValue = teacher_signin.DayOfWeek
+WHERE   (DATEPART(mm, teacher_signin.CreateDate) = DATEPART(mm, GETDATE())) AND (DATEDIFF(DAY, GETDATE(), 
+                teacher_signin.CreateDate) &lt;= 0) AND (tearchers.Name LIKE @TeacherName)
+ORDER BY teacher_signin.TeacherID, teacher_signin.SigninTime</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="TeacherName" ColumnName="Name" DataSourceName="ChildrenPalace.dbo.tearchers" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@TeacherName" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
               </DbSource>
             </Sources>
           </TableAdapter>
@@ -907,6 +1046,29 @@ WHERE   (TeacherID = @Original_TeacherID);  </CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TeacherSignin" msprop:Generator_TableClassName="TeacherSigninDataTable" msprop:Generator_TableVarName="tableTeacherSignin" msprop:Generator_TablePropName="TeacherSignin" msprop:Generator_RowDeletingName="TeacherSigninRowDeleting" msprop:Generator_UserTableName="TeacherSignin" msprop:Generator_RowChangingName="TeacherSigninRowChanging" msprop:Generator_RowEvHandlerName="TeacherSigninRowChangeEventHandler" msprop:Generator_RowDeletedName="TeacherSigninRowDeleted" msprop:Generator_RowEvArgName="TeacherSigninRowChangeEvent" msprop:Generator_RowChangedName="TeacherSigninRowChanged" msprop:Generator_RowClassName="TeacherSigninRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TeacherID" msprop:Generator_ColumnVarNameInTable="columnTeacherID" msprop:Generator_ColumnPropNameInRow="TeacherID" msprop:Generator_ColumnPropNameInTable="TeacherIDColumn" msprop:Generator_UserColumnName="TeacherID" type="xs:int" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CreateDate" msprop:Generator_ColumnVarNameInTable="columnCreateDate" msprop:Generator_ColumnPropNameInRow="CreateDate" msprop:Generator_ColumnPropNameInTable="CreateDateColumn" msprop:Generator_UserColumnName="CreateDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DayOfWeekName" msprop:Generator_ColumnVarNameInTable="columnDayOfWeekName" msprop:Generator_ColumnPropNameInRow="DayOfWeekName" msprop:Generator_ColumnPropNameInTable="DayOfWeekNameColumn" msprop:Generator_UserColumnName="DayOfWeekName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SigninTime" msprop:Generator_ColumnVarNameInTable="columnSigninTime" msprop:Generator_ColumnPropNameInRow="SigninTime" msprop:Generator_ColumnPropNameInTable="SigninTimeColumn" msprop:Generator_UserColumnName="SigninTime" type="xs:dateTime" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
