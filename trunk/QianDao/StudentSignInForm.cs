@@ -132,41 +132,42 @@ namespace QianDao
                 if (cardNoQueue.Count > 0)
                 {
                     txtCardNo.Text = cardNoQueue.Dequeue().ToString();
-
-                    // 获取当前的学生记录
+                    // 获取当前的卡号
                     string cardNo = txtCardNo.Text;
-                    DataRow[] rows = signInDataSet.Students.Select("CardNo = '" + cardNo + "'");
-                    if (rows.Length <= 0)
+                    DataRow[] cardRows = signInDataSet.VCards.Select("CardNo = '" + cardNo + "'");
+                    if (cardRows.Length <= 0)
                     {
-                        // 卡号不存在
-                        ShowSignInFailedInfo("卡号不存在");
+                        ShowCanNotFindCardInfo("卡号不存在！");
                         ClearStudentInfo();
                         Monitor.Exit(this);//取消锁定
                         Thread.Sleep(100);
                         continue;
                     }
-
-                    // 显示学生信息
-                    DataRow row = rows[0];
-                    ShowStudentsInfo(row);
-
-                    // 查看当前学生已经过期
-                    if (row.Field<DateTime>("ExpireTime") < DateTime.Now)
+                    int cardType = cardRows[0].Field<int>("CardType");
+                    if (cardType == 1)
                     {
-                        // 欠费
-                        ShowSignInFailedInfo("您已欠费，请及时缴费");
-                        Monitor.Exit(this);//取消锁定
-                        Thread.Sleep(100);
-                        continue;
-                    }
-                    else 
-                    {
-                        // 查询当前学生当天可以上的所有课程
-                        this.studentCourseTableAdapter.Fill(this.signInDataSet.StudentCourse, row.Field<int>("ID"), _currentDayOfWeek);
-                        if (this.signInDataSet.StudentCourse.Rows.Count == 0)
+                        // 学生卡
+                        // 获取当前的学生记录
+                        DataRow[] rows = signInDataSet.Students.Select("CardNo = '" + cardNo + "'");
+                        if (rows.Length <= 0)
                         {
-                            // 当天没有课程，提示时间不一致，但允许刷卡
-                            ShowTimeNotMatchInfo("请核对上课时间");
+                            // 卡号不存在
+                            ShowSignInFailedInfo("卡号不存在！");
+                            ClearStudentInfo();
+                            Monitor.Exit(this);//取消锁定
+                            Thread.Sleep(100);
+                            continue;
+                        }
+
+                        // 显示学生信息
+                        DataRow row = rows[0];
+                        ShowStudentsInfo(row);
+
+                        // 查看当前学生是否已经过期
+                        if (row.Field<DateTime>("ExpireTime") < DateTime.Now)
+                        {
+                            // 欠费
+                            ShowSignInFailedInfo("您已欠费，请及时缴费");
                             studentSignInTableAdapter.InsertSignInRecord(row.Field<int>("ID"), DateTime.Now);
                             Monitor.Exit(this);//取消锁定
                             Thread.Sleep(100);
@@ -174,102 +175,35 @@ namespace QianDao
                         }
                         else
                         {
-                            // 当天只有一门课
-                            if (this.signInDataSet.StudentCourse.Rows.Count == 1)
+                            // 查询当前学生当天可以上的所有课程
+                            this.studentCourseTableAdapter.Fill(this.signInDataSet.StudentCourse, row.Field<int>("ID"), _currentDayOfWeek);
+                            if (this.signInDataSet.StudentCourse.Rows.Count == 0)
                             {
-                                DataRow scRow = this.signInDataSet.StudentCourse.Rows[0];
-                                // 1.判断该课程是否过期
-                                if (scRow.Field<DateTime>("ExpireTime") < DateTime.Now)
-                                {
-                                    ShowSignInFailedInfo("您已欠费，请及时缴费");
-                                    Monitor.Exit(this);//取消锁定
-                                    Thread.Sleep(100);
-                                    continue;
-                                }
-
-                                // 2.判断上课时间是否已过
-                                string courseEndTime = DateTime.Now.ToShortDateString() + " " + scRow.Field<DateTime>("EndTime").ToLongTimeString();
-                                // 上课时间已过
-                                if (DateTime.Now.CompareTo(DateTime.Parse(courseEndTime)) != -1)
-                                {
-                                    ShowTimeNotMatchInfo("请核对上课时间");
-                                    studentSignInTableAdapter.InsertSignInRecord(row.Field<int>("ID"), DateTime.Now);
-                                    Monitor.Exit(this);//取消锁定
-                                    Thread.Sleep(100);
-                                    continue;
-                                }
-
-                                // 3.根据收费类型进行判断 收费类型(0:季度|1:月份|2:课次)
-                                int chargeType = scRow.Field<int>("ChargeType");
-                                if (chargeType == 0 || chargeType == 1)
-                                {
-                                    // 提前2周提醒
-                                    if (DateDiff(scRow.Field<DateTime>("ExpireTime"), DateTime.Now) <= 14)
-                                    {
-                                        ShowSignInSuccessInfo(true);
-                                    }
-                                    else
-                                    {
-                                        ShowSignInSuccessInfo(false);
-                                    }
-                                }
-                                else
-                                {
-                                    // 最后2次提醒
-                                    int actualCost = scRow.Field<int>("ChargeAmount");
-                                    int courseNum = scRow.Field<int>("CourseNum");
-                                    int balance = scRow.Field<int>("Balance");
-                                    if (courseNum <= 2)
-                                    {
-                                        if (actualCost > balance)
-                                        {
-                                            ShowSignInFailedInfo("余额不足，请及时缴费");
-                                            Monitor.Exit(this);//取消锁定
-                                            Thread.Sleep(100);
-                                            continue;
-                                        }
-                                        else
-                                        {
-                                            ShowSignInSuccessInfo(true);
-                                        }
-                                    }
-                                    else
-                                    {
-                                        ShowSignInSuccessInfo(false);
-                                    }
-                                    ChargeByCourse(balance, actualCost, row, scRow, scRow.Field<int>("CourseTimeID"));
-                                }
+                                // 当天没有课程，提示时间不一致，但允许刷卡
+                                ShowTimeNotMatchInfo("请核对上课时间");
                                 studentSignInTableAdapter.InsertSignInRecord(row.Field<int>("ID"), DateTime.Now);
+                                Monitor.Exit(this);//取消锁定
+                                Thread.Sleep(100);
+                                continue;
                             }
                             else
                             {
-                                // 当前有多门课，弹框供用户选择后刷卡
-                                StudentCourseForm studentCourseForm = new StudentCourseForm();
-                                studentCourseForm.StartPosition = FormStartPosition.CenterScreen;
-                                studentCourseForm.studentId = row.Field<int>("ID");
-                                studentCourseForm.studentName = row.Field<string>("Name");
-                                studentCourseForm.currentDayOfWeek = _currentDayOfWeek;
-                                if (studentCourseForm.ShowDialog() != DialogResult.OK)
+                                // 当天只有一门课
+                                if (this.signInDataSet.StudentCourse.Rows.Count == 1)
                                 {
-                                    ClearStudentInfo();
-                                    Monitor.Exit(this);//取消锁定
-                                    Thread.Sleep(100);
-                                    continue;
-                                }
-                                else
-                                {
-                                    int retCourseId = studentCourseForm.courseId;
-                                    DataRow[] scRow = this.signInDataSet.StudentCourse.Select("CourseID = " + retCourseId);
+                                    DataRow scRow = this.signInDataSet.StudentCourse.Rows[0];
                                     // 1.判断该课程是否过期
-                                    if (scRow[0].Field<DateTime>("ExpireTime") < DateTime.Now)
+                                    if (scRow.Field<DateTime>("ExpireTime") < DateTime.Now)
                                     {
                                         ShowSignInFailedInfo("您已欠费，请及时缴费");
+                                        studentSignInTableAdapter.InsertSignInRecord(row.Field<int>("ID"), DateTime.Now);
                                         Monitor.Exit(this);//取消锁定
                                         Thread.Sleep(100);
                                         continue;
                                     }
+
                                     // 2.判断上课时间是否已过
-                                    string courseEndTime = DateTime.Now.ToShortDateString() + " " + studentCourseForm.endTime;
+                                    string courseEndTime = DateTime.Now.ToShortDateString() + " " + scRow.Field<DateTime>("EndTime").ToLongTimeString();
                                     // 上课时间已过
                                     if (DateTime.Now.CompareTo(DateTime.Parse(courseEndTime)) != -1)
                                     {
@@ -281,11 +215,11 @@ namespace QianDao
                                     }
 
                                     // 3.根据收费类型进行判断 收费类型(0:季度|1:月份|2:课次)
-                                    int chargeType = scRow[0].Field<int>("ChargeType");
+                                    int chargeType = scRow.Field<int>("ChargeType");
                                     if (chargeType == 0 || chargeType == 1)
                                     {
                                         // 提前2周提醒
-                                        if (DateDiff(scRow[0].Field<DateTime>("ExpireTime"), DateTime.Now) <= 14)
+                                        if (DateDiff(scRow.Field<DateTime>("ExpireTime"), DateTime.Now) <= 14)
                                         {
                                             ShowSignInSuccessInfo(true);
                                         }
@@ -297,15 +231,15 @@ namespace QianDao
                                     else
                                     {
                                         // 最后2次提醒
-                                        int actualCost = scRow[0].Field<int>("ChargeAmount");
-                                        int courseNum = scRow[0].Field<int>("CourseNum");
-                                        int balance = scRow[0].Field<int>("Balance");
+                                        int actualCost = scRow.Field<int>("ChargeAmount");
+                                        int courseNum = scRow.Field<int>("CourseNum");
+                                        int balance = scRow.Field<int>("Balance");
                                         if (courseNum <= 2)
                                         {
                                             if (actualCost > balance)
                                             {
-                                                // 余额不足以支付
                                                 ShowSignInFailedInfo("余额不足，请及时缴费");
+                                                studentSignInTableAdapter.InsertSignInRecord(row.Field<int>("ID"), DateTime.Now);
                                                 Monitor.Exit(this);//取消锁定
                                                 Thread.Sleep(100);
                                                 continue;
@@ -319,12 +253,105 @@ namespace QianDao
                                         {
                                             ShowSignInSuccessInfo(false);
                                         }
-                                        ChargeByCourse(balance, actualCost, row, scRow[0], studentCourseForm.courseTimeId);
+                                        ChargeByCourse(balance, actualCost, row, scRow, scRow.Field<int>("CourseTimeID"));
                                     }
                                     studentSignInTableAdapter.InsertSignInRecord(row.Field<int>("ID"), DateTime.Now);
                                 }
+                                else
+                                {
+                                    // 当前有多门课，弹框供用户选择后刷卡
+                                    StudentCourseForm studentCourseForm = new StudentCourseForm();
+                                    studentCourseForm.StartPosition = FormStartPosition.CenterScreen;
+                                    studentCourseForm.studentId = row.Field<int>("ID");
+                                    studentCourseForm.studentName = row.Field<string>("Name");
+                                    studentCourseForm.currentDayOfWeek = _currentDayOfWeek;
+                                    if (studentCourseForm.ShowDialog() != DialogResult.OK)
+                                    {
+                                        ClearStudentInfo();
+                                        Monitor.Exit(this);//取消锁定
+                                        Thread.Sleep(100);
+                                        continue;
+                                    }
+                                    else
+                                    {
+                                        int retCourseId = studentCourseForm.courseId;
+                                        DataRow[] scRow = this.signInDataSet.StudentCourse.Select("CourseID = " + retCourseId);
+                                        // 1.判断该课程是否过期
+                                        if (scRow[0].Field<DateTime>("ExpireTime") < DateTime.Now)
+                                        {
+                                            ShowSignInFailedInfo("您已欠费，请及时缴费");
+                                            studentSignInTableAdapter.InsertSignInRecord(row.Field<int>("ID"), DateTime.Now);
+                                            Monitor.Exit(this);//取消锁定
+                                            Thread.Sleep(100);
+                                            continue;
+                                        }
+                                        // 2.判断上课时间是否已过
+                                        string courseEndTime = DateTime.Now.ToShortDateString() + " " + studentCourseForm.endTime;
+                                        // 上课时间已过
+                                        if (DateTime.Now.CompareTo(DateTime.Parse(courseEndTime)) != -1)
+                                        {
+                                            ShowTimeNotMatchInfo("请核对上课时间");
+                                            studentSignInTableAdapter.InsertSignInRecord(row.Field<int>("ID"), DateTime.Now);
+                                            Monitor.Exit(this);//取消锁定
+                                            Thread.Sleep(100);
+                                            continue;
+                                        }
+
+                                        // 3.根据收费类型进行判断 收费类型(0:季度|1:月份|2:课次)
+                                        int chargeType = scRow[0].Field<int>("ChargeType");
+                                        if (chargeType == 0 || chargeType == 1)
+                                        {
+                                            // 提前2周提醒
+                                            if (DateDiff(scRow[0].Field<DateTime>("ExpireTime"), DateTime.Now) <= 14)
+                                            {
+                                                ShowSignInSuccessInfo(true);
+                                            }
+                                            else
+                                            {
+                                                ShowSignInSuccessInfo(false);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            // 最后2次提醒
+                                            int actualCost = scRow[0].Field<int>("ChargeAmount");
+                                            int courseNum = scRow[0].Field<int>("CourseNum");
+                                            int balance = scRow[0].Field<int>("Balance");
+
+                                            if (courseNum <= 2)
+                                            {
+                                                if (actualCost > balance)
+                                                {
+                                                    ShowSignInFailedInfo("余额不足，请及时缴费");
+                                                    studentSignInTableAdapter.InsertSignInRecord(row.Field<int>("ID"), DateTime.Now);
+                                                    Monitor.Exit(this);//取消锁定
+                                                    Thread.Sleep(100);
+                                                    continue;
+                                                }
+                                                else
+                                                {
+                                                    ShowSignInSuccessInfo(true);
+                                                }
+                                            }
+                                            else
+                                            {
+                                                ShowSignInSuccessInfo(false);
+                                            }
+                                            ChargeByCourse(balance, actualCost, row, scRow[0], studentCourseForm.courseTimeId);
+                                        }
+                                        studentSignInTableAdapter.InsertSignInRecord(row.Field<int>("ID"), DateTime.Now);
+                                    }
+                                }
                             }
                         }
+                    }
+                    else
+                    {
+                        // 教师卡
+                        ShowTeacherInfo(cardRows[0]);
+                        ShowSignInSuccessInfo(false);
+                        teacherSigninTableAdapter.InsertQuery(cardRows[0].Field<int>("ID"), _currentDayOfWeek);
+                        
                     }
                     Thread.Sleep(2000);
                 }
@@ -546,23 +573,23 @@ namespace QianDao
             this.coursesTableAdapter.Fill(this.signInDataSet.Courses);
 
             // 初始化设备
-            //if (_icdev <= 0)
-            //{
-            //    _icdev = dc_init(100, 115200);
-            //}
+            if (_icdev <= 0)
+            {
+                _icdev = dc_init(100, 115200);
+            }
 
-            //if (_icdev > 0)
-            //{
-            //    threadReadCardno = new Thread(ReadCard);
-            //    threadGetCardNo = new Thread(GetCardNo);
-            //    threadReadCardno.Start();
-            //    threadGetCardNo.Start();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("初始化读卡器失败！", "初始化读卡器失败", MessageBoxButtons.OK,
-            //        MessageBoxIcon.Error);
-            //}
+            if (_icdev > 0)
+            {
+                threadReadCardno = new Thread(ReadCard);
+                threadGetCardNo = new Thread(GetCardNo);
+                threadReadCardno.Start();
+                threadGetCardNo.Start();
+            }
+            else
+            {
+                MessageBox.Show("初始化读卡器失败！", "初始化读卡器失败", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
 
             studentsTableAdapter.Fill(signInDataSet.Students);
             ClearStudentInfo();
@@ -671,30 +698,30 @@ namespace QianDao
 
         private void StudentSignInForm_Activated(object sender, EventArgs e)
         {
-            //Monitor.Enter(this);    //锁定，保持同步
-            //if (_icdev <= 0)
-            //{
-            //    _icdev = dc_init(100, 115200);
-            //}
-            //if (_icdev <= 0)
-            //{
-            //    MessageBox.Show("重新初始化读卡器失败！", "初始化读卡器失败", MessageBoxButtons.OK,
-            //        MessageBoxIcon.Error);
-            //}
-            //_isActive = true;
-            //Monitor.Exit(this);
+            Monitor.Enter(this);    //锁定，保持同步
+            if (_icdev <= 0)
+            {
+                _icdev = dc_init(100, 115200);
+            }
+            if (_icdev <= 0)
+            {
+                MessageBox.Show("重新初始化读卡器失败！", "初始化读卡器失败", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            _isActive = true;
+            Monitor.Exit(this);
         }
 
         private void StudentSignInForm_Deactivate(object sender, EventArgs e)
         {
-            //Monitor.Enter(this);//锁定，保持同步
-            //if (_icdev > 0)
-            //{
-            //    dc_exit(_icdev);
-            //    _icdev = 0;
-            //}
-            //_isActive = false;
-            //Monitor.Exit(this);
+            Monitor.Enter(this);//锁定，保持同步
+            if (_icdev > 0)
+            {
+                dc_exit(_icdev);
+                _icdev = 0;
+            }
+            _isActive = false;
+            Monitor.Exit(this);
         }
 
         private int DateDiff(DateTime dateTimeOne, DateTime dateTimeTwo)
