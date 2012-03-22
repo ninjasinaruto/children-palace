@@ -62,7 +62,6 @@ namespace ShaoNianGong
 
         private void StudentSigninForm_Load(object sender, EventArgs e)
         {
-            // TODO: 这行代码将数据加载到表“studentsDataSet.Students”中。您可以根据需要移动或删除它。
             this.studentsTableAdapter.Fill(this.studentsDataSet.Students);
 
             // 获取所有今天上课的课程信息
@@ -92,6 +91,9 @@ namespace ShaoNianGong
             lstCourses.DisplayMember = "CourseName";
 
             lstCourses.SelectedIndex = -1;
+
+            this.studentsSigninTableAdapter.FillByDay(this.signInDataSet.StudentsSignin);
+            txtShowRangeWithDetail.Text = "今天";
         }
 
         private void coursesTodayBindingSource_PositionChanged(object sender, EventArgs e)
@@ -106,9 +108,16 @@ namespace ShaoNianGong
 
         private void StudentSigninManageForm_Resize(object sender, EventArgs e)
         {
-            dgvStudents.Height = this.Size.Height - 92;
+            dgvStudents.Height = this.Size.Height/2 - 92;
             dgvStudents.Width = this.Size.Width - 312;
-            lstCourses.Height = this.Height - 216;
+            groupBox1.Height = this.Size.Height / 2 - 40;
+            lstCourses.Height = this.Height/2 - 170;
+            this.groupBox2.Top = this.Height / 2 - 20;
+            this.groupBox2.Width = this.Width - 30;
+            this.groupBox2.Height = this.Height / 2 - 40;
+            this.panel2.Top = this.Height/2 - 80;
+            this.dgvStudentSignin.Width = this.Width - 50;
+            this.dgvStudentSignin.Height = this.Height / 2 - 130;
         }
 
         private void lstCourses_ValueMemberChanged(object sender, EventArgs e)
@@ -268,6 +277,81 @@ namespace ShaoNianGong
                 {
                     dgvStudents.Rows[i].Cells[0].Value = i + 1;
                 }
+        }
+
+        private void studentsSigninBindingSource_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            lblSigninCountWithDetail.Text = signInDataSet.StudentsSignin.Rows.Count + "条";
+        }
+
+        private void dgvStudentSignin_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if (dgvStudentSignin.Rows.Count > 0)
+                for (int i = 0; i < dgvStudentSignin.Rows.Count; i++)
+                {
+                    dgvStudentSignin.Rows[i].Cells[0].Value = i + 1;
+                }
+        }
+
+        private void btnSearchByDateWithDetail_Click(object sender, EventArgs e)
+        {
+            DateTime beginDate = dtStimeWithDetail.Value;
+            beginDate = new DateTime(beginDate.Year, beginDate.Month, beginDate.Day, 0, 0, 0);
+            DateTime endDate = dtEtimeWithDetail.Value;
+            endDate = new DateTime(endDate.Year, endDate.Month, endDate.Day, 0, 0, 0);
+            if (txtStudentNameWithDetail.Text.Trim() == "")
+            {
+                this.studentsSigninTableAdapter.FillByBeginEndDate(this.signInDataSet.StudentsSignin, beginDate, endDate);
+                txtShowRangeWithDetail.Text = beginDate.ToShortDateString() + " - " + endDate.ToShortDateString();
+            }
+            else
+            {
+                this.studentsSigninTableAdapter.FillByBeginEndDateWithStudentName(this.signInDataSet.StudentsSignin, beginDate, endDate, "%" + txtStudentNameWithDetail.Text.Trim() + "%");
+                txtShowRangeWithDetail.Text = txtStudentNameWithDetail.Text.Trim() + " - " + beginDate.ToShortDateString() + " - " + endDate.ToShortDateString();
+            }
+        }
+
+        private void btnSearchByDayWithDetail_Click(object sender, EventArgs e)
+        {
+            if (txtStudentNameWithDetail.Text.Trim() == "")
+            {
+                this.studentsSigninTableAdapter.FillByDay(this.signInDataSet.StudentsSignin);
+                txtShowRangeWithDetail.Text = "今天";
+            }
+            else
+            {
+                this.studentsSigninTableAdapter.FillByDayWithStudentName(this.signInDataSet.StudentsSignin, "%" + txtStudentNameWithDetail.Text.Trim() + "%");
+                txtShowRangeWithDetail.Text = txtStudentNameWithDetail.Text.Trim() + " - 今天";
+            }
+        }
+
+        private void btnSearchByMonthWithDetail_Click(object sender, EventArgs e)
+        {
+            if (txtStudentNameWithDetail.Text.Trim() == "")
+            {
+
+                this.studentsSigninTableAdapter.FillByMonth(this.signInDataSet.StudentsSignin);
+                txtShowRangeWithDetail.Text = "本月";
+            }
+            else
+            {
+                this.studentsSigninTableAdapter.FillByMonthWithStudentName(this.signInDataSet.StudentsSignin, "%" + txtStudentNameWithDetail.Text.Trim() + "%");
+                txtShowRangeWithDetail.Text = txtStudentNameWithDetail.Text.Trim() + " - 本月";
+            }
+        }
+
+        private void btnSearchAllWithDetail_Click(object sender, EventArgs e)
+        {
+            if (txtStudentNameWithDetail.Text.Trim() == "")
+            {
+                this.studentsSigninTableAdapter.Fill(this.signInDataSet.StudentsSignin);
+                txtShowRangeWithDetail.Text = "所有";
+            }
+            else
+            {
+                this.studentsSigninTableAdapter.FillByAllWithStudentName(this.signInDataSet.StudentsSignin, "%" + txtStudentNameWithDetail.Text.Trim() + "%");
+                txtShowRangeWithDetail.Text = txtStudentNameWithDetail.Text.Trim() + " - 所有";
+            }
         }
     }
 }
