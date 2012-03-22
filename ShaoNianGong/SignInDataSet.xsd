@@ -63,6 +63,242 @@ SELECT ID, StudentID, SigninTime FROM student_signin WHERE (ID = @ID)</CommandTe
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="StudentsSigninTableAdapter" GeneratorDataComponentClassName="StudentsSigninTableAdapter" Name="StudentsSignin" UserDataComponentName="StudentsSigninTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText> select student_signin.StudentID,students.Name,students.Sex, students.Telephone, students.Address,
+  students.Birthday, students.FartherName, students.FartherWork, students.FartherTel, 
+  students.MotherName, students.MotherWork, students.MotherTel, students.CardNo, 
+  students.Balance, students.Status, students.ID, students.ExpireTime, 
+  card_type.CardTypeName, student_status.StatusName, courses.CourseName, 
+  tearchers.Name AS teacherName,student_signin.SigninTime from student_signin
+  inner join students on students.ID = student_signin.StudentID
+  inner join card_type ON students.CardType = card_type.CardTypeID
+  inner join student_status ON students.Status = student_status.StatusID
+  left outer join student_courses ON student_courses.ID = (SELECT MIN(ID) AS MinID FROM student_courses WHERE (StudentID = students.ID)) 
+  left outer join courses ON courses.ID = student_courses.CourseID 
+  left outer join tearchers ON tearchers.ID = courses.TeacherID
+ order by student_signin.SigninTime desc, students.ID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="StudentID" DataSetColumn="StudentID" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Sex" DataSetColumn="Sex" />
+              <Mapping SourceColumn="Telephone" DataSetColumn="Telephone" />
+              <Mapping SourceColumn="Address" DataSetColumn="Address" />
+              <Mapping SourceColumn="Birthday" DataSetColumn="Birthday" />
+              <Mapping SourceColumn="FartherName" DataSetColumn="FartherName" />
+              <Mapping SourceColumn="FartherWork" DataSetColumn="FartherWork" />
+              <Mapping SourceColumn="FartherTel" DataSetColumn="FartherTel" />
+              <Mapping SourceColumn="MotherName" DataSetColumn="MotherName" />
+              <Mapping SourceColumn="MotherWork" DataSetColumn="MotherWork" />
+              <Mapping SourceColumn="MotherTel" DataSetColumn="MotherTel" />
+              <Mapping SourceColumn="CardNo" DataSetColumn="CardNo" />
+              <Mapping SourceColumn="Balance" DataSetColumn="Balance" />
+              <Mapping SourceColumn="Status" DataSetColumn="Status" />
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="ExpireTime" DataSetColumn="ExpireTime" />
+              <Mapping SourceColumn="CardTypeName" DataSetColumn="CardTypeName" />
+              <Mapping SourceColumn="StatusName" DataSetColumn="StatusName" />
+              <Mapping SourceColumn="CourseName" DataSetColumn="CourseName" />
+              <Mapping SourceColumn="teacherName" DataSetColumn="teacherName" />
+              <Mapping SourceColumn="SigninTime" DataSetColumn="SigninTime" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByAllWithStudentName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByAllWithStudentName" GeneratorSourceName="FillByAllWithStudentName" GetMethodModifier="Public" GetMethodName="GetDataByAllWithStudentName" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByAllWithStudentName" UserSourceName="FillByAllWithStudentName">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   student_signin.StudentID, students.Name, students.Sex, students.Telephone, students.Address, students.Birthday, 
+                students.FartherName, students.FartherWork, students.FartherTel, students.MotherName, students.MotherWork, 
+                students.MotherTel, students.CardNo, students.Balance, students.Status, students.ID, students.ExpireTime, 
+                card_type.CardTypeName, student_status.StatusName, courses.CourseName, tearchers.Name AS teacherName, 
+                student_signin.SigninTime
+FROM      student_signin INNER JOIN
+                students ON students.ID = student_signin.StudentID INNER JOIN
+                card_type ON students.CardType = card_type.CardTypeID INNER JOIN
+                student_status ON students.Status = student_status.StatusID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS MinID
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID
+WHERE   (students.Name LIKE @StudentName)
+ORDER BY student_signin.SigninTime DESC, students.ID</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="StudentName" ColumnName="Name" DataSourceName="ChildrenPalace.dbo.students" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@StudentName" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByBeginEndDate" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByBeginEndDate" GeneratorSourceName="FillByBeginEndDate" GetMethodModifier="Public" GetMethodName="GetDataByBeginEndDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByBeginEndDate" UserSourceName="FillByBeginEndDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   student_signin.StudentID, students.Name, students.Sex, students.Telephone, students.Address, students.Birthday, 
+                students.FartherName, students.FartherWork, students.FartherTel, students.MotherName, students.MotherWork, 
+                students.MotherTel, students.CardNo, students.Balance, students.Status, students.ID, students.ExpireTime, 
+                card_type.CardTypeName, student_status.StatusName, courses.CourseName, tearchers.Name AS teacherName, 
+                student_signin.SigninTime
+FROM      student_signin INNER JOIN
+                students ON students.ID = student_signin.StudentID INNER JOIN
+                card_type ON students.CardType = card_type.CardTypeID INNER JOIN
+                student_status ON students.Status = student_status.StatusID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS MinID
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID
+WHERE   (DATEDIFF(day, @BeginDate, student_signin.SigninTime) &gt;= 0) AND (DATEDIFF(day, @EndDate, 
+                student_signin.SigninTime) &lt;= 0) AND (DATEDIFF(DAY, GETDATE(), student_signin.SigninTime) &lt;= 0)
+ORDER BY student_signin.SigninTime DESC, students.ID</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="EndDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByBeginEndDateWithStudentName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByBeginEndDateWithStudentName" GeneratorSourceName="FillByBeginEndDateWithStudentName" GetMethodModifier="Public" GetMethodName="GetDataByBeginEndDateWithStudentName" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByBeginEndDateWithStudentName" UserSourceName="FillByBeginEndDateWithStudentName">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   student_signin.StudentID, students.Name, students.Sex, students.Telephone, students.Address, students.Birthday, 
+                students.FartherName, students.FartherWork, students.FartherTel, students.MotherName, students.MotherWork, 
+                students.MotherTel, students.CardNo, students.Balance, students.Status, students.ID, students.ExpireTime, 
+                card_type.CardTypeName, student_status.StatusName, courses.CourseName, tearchers.Name AS teacherName, 
+                student_signin.SigninTime
+FROM      student_signin INNER JOIN
+                students ON students.ID = student_signin.StudentID INNER JOIN
+                card_type ON students.CardType = card_type.CardTypeID INNER JOIN
+                student_status ON students.Status = student_status.StatusID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS MinID
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID
+WHERE   (DATEDIFF(day, @BeginDate, student_signin.SigninTime) &gt;= 0) AND (DATEDIFF(day, @EndDate, 
+                student_signin.SigninTime) &lt;= 0) AND (DATEDIFF(DAY, GETDATE(), student_signin.SigninTime) &lt;= 0) AND 
+                (students.Name LIKE @StudentName)
+ORDER BY student_signin.SigninTime DESC, students.ID</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="BeginDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@BeginDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="EndDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="StudentName" ColumnName="Name" DataSourceName="ChildrenPalace.dbo.students" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@StudentName" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByDay" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByDay" GeneratorSourceName="FillByDay" GetMethodModifier="Public" GetMethodName="GetDataByDay" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByDay" UserSourceName="FillByDay">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   student_signin.StudentID, students.Name, students.Sex, students.Telephone, students.Address, students.Birthday, 
+                students.FartherName, students.FartherWork, students.FartherTel, students.MotherName, students.MotherWork, 
+                students.MotherTel, students.CardNo, students.Balance, students.Status, students.ID, students.ExpireTime, 
+                card_type.CardTypeName, student_status.StatusName, courses.CourseName, tearchers.Name AS teacherName, 
+                student_signin.SigninTime
+FROM      student_signin INNER JOIN
+                students ON students.ID = student_signin.StudentID INNER JOIN
+                card_type ON students.CardType = card_type.CardTypeID INNER JOIN
+                student_status ON students.Status = student_status.StatusID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS MinID
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID
+WHERE   (DATEDIFF(DAY, GETDATE(), student_signin.SigninTime) = 0)
+ORDER BY student_signin.SigninTime DESC, students.ID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByDayWithStudentName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByDayWithStudentName" GeneratorSourceName="FillByDayWithStudentName" GetMethodModifier="Public" GetMethodName="GetDataByDayWithStudentName" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByDayWithStudentName" UserSourceName="FillByDayWithStudentName">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   student_signin.StudentID, students.Name, students.Sex, students.Telephone, students.Address, students.Birthday, 
+                students.FartherName, students.FartherWork, students.FartherTel, students.MotherName, students.MotherWork, 
+                students.MotherTel, students.CardNo, students.Balance, students.Status, students.ID, students.ExpireTime, 
+                card_type.CardTypeName, student_status.StatusName, courses.CourseName, tearchers.Name AS teacherName, 
+                student_signin.SigninTime
+FROM      student_signin INNER JOIN
+                students ON students.ID = student_signin.StudentID INNER JOIN
+                card_type ON students.CardType = card_type.CardTypeID INNER JOIN
+                student_status ON students.Status = student_status.StatusID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS MinID
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID
+WHERE   (DATEDIFF(DAY, GETDATE(), student_signin.SigninTime) = 0) AND (students.Name LIKE @StudentName)
+ORDER BY student_signin.SigninTime DESC, students.ID</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="StudentName" ColumnName="Name" DataSourceName="ChildrenPalace.dbo.students" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@StudentName" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByMonth" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByMonth" GeneratorSourceName="FillByMonth" GetMethodModifier="Public" GetMethodName="GetDataByMonth" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByMonth" UserSourceName="FillByMonth">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   student_signin.StudentID, students.Name, students.Sex, students.Telephone, students.Address, students.Birthday, 
+                students.FartherName, students.FartherWork, students.FartherTel, students.MotherName, students.MotherWork, 
+                students.MotherTel, students.CardNo, students.Balance, students.Status, students.ID, students.ExpireTime, 
+                card_type.CardTypeName, student_status.StatusName, courses.CourseName, tearchers.Name AS teacherName, 
+                student_signin.SigninTime
+FROM      student_signin INNER JOIN
+                students ON students.ID = student_signin.StudentID INNER JOIN
+                card_type ON students.CardType = card_type.CardTypeID INNER JOIN
+                student_status ON students.Status = student_status.StatusID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS MinID
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID
+WHERE   (DATEPART(mm, student_signin.SigninTime) = DATEPART(mm, GETDATE())) AND (DATEDIFF(DAY, GETDATE(), 
+                student_signin.SigninTime) &lt;= 0)
+ORDER BY student_signin.SigninTime DESC, students.ID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillByMonthWithStudentName" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByMonthWithStudentName" GeneratorSourceName="FillByMonthWithStudentName" GetMethodModifier="Public" GetMethodName="GetDataByMonthWithStudentName" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByMonthWithStudentName" UserSourceName="FillByMonthWithStudentName">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT   student_signin.StudentID, students.Name, students.Sex, students.Telephone, students.Address, students.Birthday, 
+                students.FartherName, students.FartherWork, students.FartherTel, students.MotherName, students.MotherWork, 
+                students.MotherTel, students.CardNo, students.Balance, students.Status, students.ID, students.ExpireTime, 
+                card_type.CardTypeName, student_status.StatusName, courses.CourseName, tearchers.Name AS teacherName, 
+                student_signin.SigninTime
+FROM      student_signin INNER JOIN
+                students ON students.ID = student_signin.StudentID INNER JOIN
+                card_type ON students.CardType = card_type.CardTypeID INNER JOIN
+                student_status ON students.Status = student_status.StatusID LEFT OUTER JOIN
+                student_courses ON student_courses.ID =
+                    (SELECT   MIN(ID) AS MinID
+                     FROM      student_courses
+                     WHERE   (StudentID = students.ID)) LEFT OUTER JOIN
+                courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
+                tearchers ON tearchers.ID = courses.TeacherID
+WHERE   (DATEPART(mm, student_signin.SigninTime) = DATEPART(mm, GETDATE())) AND (DATEDIFF(DAY, GETDATE(), 
+                student_signin.SigninTime) &lt;= 0) AND (students.Name LIKE @StudentName)
+ORDER BY student_signin.SigninTime DESC, students.ID</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="StudentName" ColumnName="Name" DataSourceName="ChildrenPalace.dbo.students" DataTypeServer="nvarchar(20)" DbType="String" Direction="Input" ParameterName="@StudentName" Precision="0" ProviderType="NVarChar" Scale="0" Size="20" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -76,6 +312,124 @@ SELECT ID, StudentID, SigninTime FROM student_signin WHERE (ID = @ID)</CommandTe
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
               <xs:element name="StudentID" msprop:Generator_ColumnVarNameInTable="columnStudentID" msprop:Generator_ColumnPropNameInRow="StudentID" msprop:Generator_ColumnPropNameInTable="StudentIDColumn" msprop:Generator_UserColumnName="StudentID" type="xs:int" />
+              <xs:element name="SigninTime" msprop:Generator_ColumnVarNameInTable="columnSigninTime" msprop:Generator_ColumnPropNameInRow="SigninTime" msprop:Generator_ColumnPropNameInTable="SigninTimeColumn" msprop:Generator_UserColumnName="SigninTime" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="StudentsSignin" msprop:Generator_TableClassName="StudentsSigninDataTable" msprop:Generator_TableVarName="tableStudentsSignin" msprop:Generator_TablePropName="StudentsSignin" msprop:Generator_RowDeletingName="StudentsSigninRowDeleting" msprop:Generator_UserTableName="StudentsSignin" msprop:Generator_RowChangingName="StudentsSigninRowChanging" msprop:Generator_RowEvHandlerName="StudentsSigninRowChangeEventHandler" msprop:Generator_RowDeletedName="StudentsSigninRowDeleted" msprop:Generator_RowEvArgName="StudentsSigninRowChangeEvent" msprop:Generator_RowChangedName="StudentsSigninRowChanged" msprop:Generator_RowClassName="StudentsSigninRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="StudentID" msprop:Generator_ColumnVarNameInTable="columnStudentID" msprop:Generator_ColumnPropNameInRow="StudentID" msprop:Generator_ColumnPropNameInTable="StudentIDColumn" msprop:Generator_UserColumnName="StudentID" type="xs:int" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sex" msprop:Generator_ColumnVarNameInTable="columnSex" msprop:Generator_ColumnPropNameInRow="Sex" msprop:Generator_ColumnPropNameInTable="SexColumn" msprop:Generator_UserColumnName="Sex" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Telephone" msprop:Generator_ColumnVarNameInTable="columnTelephone" msprop:Generator_ColumnPropNameInRow="Telephone" msprop:Generator_ColumnPropNameInTable="TelephoneColumn" msprop:Generator_UserColumnName="Telephone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_UserColumnName="Address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Birthday" msprop:Generator_ColumnVarNameInTable="columnBirthday" msprop:Generator_ColumnPropNameInRow="Birthday" msprop:Generator_ColumnPropNameInTable="BirthdayColumn" msprop:Generator_UserColumnName="Birthday" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FartherName" msprop:Generator_ColumnVarNameInTable="columnFartherName" msprop:Generator_ColumnPropNameInRow="FartherName" msprop:Generator_ColumnPropNameInTable="FartherNameColumn" msprop:Generator_UserColumnName="FartherName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FartherWork" msprop:Generator_ColumnVarNameInTable="columnFartherWork" msprop:Generator_ColumnPropNameInRow="FartherWork" msprop:Generator_ColumnPropNameInTable="FartherWorkColumn" msprop:Generator_UserColumnName="FartherWork" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FartherTel" msprop:Generator_ColumnVarNameInTable="columnFartherTel" msprop:Generator_ColumnPropNameInRow="FartherTel" msprop:Generator_ColumnPropNameInTable="FartherTelColumn" msprop:Generator_UserColumnName="FartherTel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MotherName" msprop:Generator_ColumnVarNameInTable="columnMotherName" msprop:Generator_ColumnPropNameInRow="MotherName" msprop:Generator_ColumnPropNameInTable="MotherNameColumn" msprop:Generator_UserColumnName="MotherName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MotherWork" msprop:Generator_ColumnVarNameInTable="columnMotherWork" msprop:Generator_ColumnPropNameInRow="MotherWork" msprop:Generator_ColumnPropNameInTable="MotherWorkColumn" msprop:Generator_UserColumnName="MotherWork" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MotherTel" msprop:Generator_ColumnVarNameInTable="columnMotherTel" msprop:Generator_ColumnPropNameInRow="MotherTel" msprop:Generator_ColumnPropNameInTable="MotherTelColumn" msprop:Generator_UserColumnName="MotherTel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CardNo" msprop:Generator_ColumnVarNameInTable="columnCardNo" msprop:Generator_ColumnPropNameInRow="CardNo" msprop:Generator_ColumnPropNameInTable="CardNoColumn" msprop:Generator_UserColumnName="CardNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Balance" msprop:Generator_ColumnVarNameInTable="columnBalance" msprop:Generator_ColumnPropNameInRow="Balance" msprop:Generator_ColumnPropNameInTable="BalanceColumn" msprop:Generator_UserColumnName="Balance" type="xs:int" />
+              <xs:element name="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_UserColumnName="Status" type="xs:int" />
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="ExpireTime" msprop:Generator_ColumnVarNameInTable="columnExpireTime" msprop:Generator_ColumnPropNameInRow="ExpireTime" msprop:Generator_ColumnPropNameInTable="ExpireTimeColumn" msprop:Generator_UserColumnName="ExpireTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CardTypeName" msprop:Generator_ColumnVarNameInTable="columnCardTypeName" msprop:Generator_ColumnPropNameInRow="CardTypeName" msprop:Generator_ColumnPropNameInTable="CardTypeNameColumn" msprop:Generator_UserColumnName="CardTypeName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StatusName" msprop:Generator_ColumnVarNameInTable="columnStatusName" msprop:Generator_ColumnPropNameInRow="StatusName" msprop:Generator_ColumnPropNameInTable="StatusNameColumn" msprop:Generator_UserColumnName="StatusName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CourseName" msprop:Generator_ColumnVarNameInTable="columnCourseName" msprop:Generator_ColumnPropNameInRow="CourseName" msprop:Generator_ColumnPropNameInTable="CourseNameColumn" msprop:Generator_UserColumnName="CourseName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="teacherName" msprop:Generator_ColumnVarNameInTable="columnteacherName" msprop:Generator_ColumnPropNameInRow="teacherName" msprop:Generator_ColumnPropNameInTable="teacherNameColumn" msprop:Generator_UserColumnName="teacherName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="SigninTime" msprop:Generator_ColumnVarNameInTable="columnSigninTime" msprop:Generator_ColumnPropNameInRow="SigninTime" msprop:Generator_ColumnPropNameInTable="SigninTimeColumn" msprop:Generator_UserColumnName="SigninTime" type="xs:dateTime" />
             </xs:sequence>
           </xs:complexType>
