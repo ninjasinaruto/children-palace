@@ -12,9 +12,18 @@ namespace BanGongPingTai
     public partial class TeacherUpdateForm : Form
     {
         public string TeacherName;
+        public bool isBirthDayNull;
+        public DateTime BirthDay;
+        public string Ethnic;
+        public string Hometown;
         public string Sex;
-        public string Address;
+        public string Degree;
+        public string School;
+        public bool isGraduationTimeNull;
+        public DateTime GraduationTime;
+        public string Professional;
         public string Phone;
+        public string Address;
         public string Password;
         public List<SigninTime> signinTimeList;
 
@@ -26,9 +35,10 @@ namespace BanGongPingTai
         private void TeacherUpdateForm_Load(object sender, EventArgs e)
         {
             txtName.Text = TeacherName;
-            txtAddress.Text = Address;
-            txtPhone.Text = Phone;
-            txtPassword.Text = Password;
+            if (!isBirthDayNull)
+                dtBirthDay.Value = BirthDay;
+            txtEthnic.Text = Ethnic;
+            txtHometown.Text = Hometown;
             for (int i = 0; i < cmbSex.Items.Count; i++)
             {
                 if (cmbSex.Items[i].ToString().Equals(Sex))
@@ -37,6 +47,15 @@ namespace BanGongPingTai
                     break;
                 }
             }
+            txtDegree.Text = Degree;
+            txtSchool.Text = School;
+            if (!isGraduationTimeNull)
+                dtGraduationTime.Value = GraduationTime;
+            txtProfessional.Text = Professional;
+            txtPhone.Text = Phone;
+            txtAddress.Text = Address;
+            txtPassword.Text = Password;
+            txtPasswordConfirm.Text = Password;
             foreach (SigninTime st in signinTimeList)
             {
                 int range = st.range;
@@ -188,10 +207,17 @@ namespace BanGongPingTai
                 st.range = 3;
                 stList.Add(st);
             }
-            this.TeacherName = txtName.Text;
+            this.Name = txtName.Text;
+            this.BirthDay = dtBirthDay.Value;
+            this.Ethnic = txtEthnic.Text;
+            this.Hometown = txtHometown.Text;
             this.Sex = cmbSex.Text;
-            this.Address = txtAddress.Text;
+            this.Degree = txtDegree.Text;
+            this.School = txtSchool.Text;
+            this.GraduationTime = dtGraduationTime.Value;
+            this.Professional = txtProfessional.Text;
             this.Phone = txtPhone.Text;
+            this.Address = txtAddress.Text;
             this.Password = txtPassword.Text;
             this.signinTimeList = stList;
             this.DialogResult = DialogResult.OK;

@@ -12,9 +12,16 @@ namespace BanGongPingTai
     public partial class TeacherAddingForm : Form
     {
         public string TeacherName;
+        public DateTime BirthDay;
+        public string Ethnic;
+        public string Hometown;
         public string Sex;
-        public string Address;
+        public string Degree;
+        public string School;
+        public DateTime GraduationTime;
+        public string Professional;
         public string Phone;
+        public string Address;
         public string Password;
         public List<SigninTime> signinTimeList;
 
@@ -153,9 +160,16 @@ namespace BanGongPingTai
                 stList.Add(st);
             }
             this.Name = txtName.Text;
+            this.BirthDay = dtBirthDay.Value;
+            this.Ethnic = txtEthnic.Text;
+            this.Hometown = txtHometown.Text;
             this.Sex = cmbSex.Text;
-            this.Address = txtAddress.Text;
+            this.Degree = txtDegree.Text;
+            this.School = txtSchool.Text;
+            this.GraduationTime = dtGraduationTime.Value;
+            this.Professional = txtProfessional.Text;
             this.Phone = txtPhone.Text;
+            this.Address = txtAddress.Text;
             this.Password = txtPassword.Text;
             this.signinTimeList = stList;
             this.DialogResult = DialogResult.OK;

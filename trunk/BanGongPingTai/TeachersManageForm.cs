@@ -46,8 +46,10 @@ namespace BanGongPingTai
             TeacherAddingForm frmTeachersAdding = new TeacherAddingForm();
             if (frmTeachersAdding.ShowDialog() != DialogResult.OK)
                 return;
-            int teacherID = (int)teachersTableAdapter.InsertTeacher(frmTeachersAdding.Name,
-                frmTeachersAdding.Phone, null, frmTeachersAdding.Sex, frmTeachersAdding.Address, 0, frmTeachersAdding.Password);
+            int teacherID = (int)teachersTableAdapter.InsertTeacher(frmTeachersAdding.Name, frmTeachersAdding.Phone, null, frmTeachersAdding.Sex,
+                frmTeachersAdding.Address, 0, frmTeachersAdding.Password, frmTeachersAdding.BirthDay, frmTeachersAdding.Ethnic,
+                frmTeachersAdding.Hometown, frmTeachersAdding.GraduationTime, frmTeachersAdding.Degree, frmTeachersAdding.School,
+                frmTeachersAdding.Professional, User.CurrentUser.UserName);
             List<SigninTime> stList = frmTeachersAdding.signinTimeList;
             foreach (SigninTime st in stList)
             {
@@ -84,15 +86,40 @@ namespace BanGongPingTai
 
             TeacherUpdateForm frmTeacherUpdate = new TeacherUpdateForm();
             frmTeacherUpdate.TeacherName = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Name");
+            if (!teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].IsNull("BirthDay"))
+            {
+                frmTeacherUpdate.isBirthDayNull = false;
+                frmTeacherUpdate.BirthDay = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<DateTime>("BirthDay");
+            }
+            else
+            {
+                frmTeacherUpdate.isBirthDayNull = true;
+            }
+            frmTeacherUpdate.Ethnic = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Ethnic");
+            frmTeacherUpdate.Hometown = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Hometown");
             frmTeacherUpdate.Sex = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Sex");
-            frmTeacherUpdate.Address = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Address");
+            frmTeacherUpdate.Degree = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Degree");
+            frmTeacherUpdate.School = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("School");
+            if (!teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].IsNull("GraduationTime"))
+            {
+                frmTeacherUpdate.isGraduationTimeNull = false;
+                frmTeacherUpdate.GraduationTime = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<DateTime>("GraduationTime");
+            }
+            else
+            {
+                frmTeacherUpdate.isGraduationTimeNull = true;
+            }
+            frmTeacherUpdate.Professional = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Professional");
             frmTeacherUpdate.Phone = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Phone");
+            frmTeacherUpdate.Address = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Address");
             frmTeacherUpdate.Password = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Password");
             frmTeacherUpdate.signinTimeList = stList;
             if (frmTeacherUpdate.ShowDialog() != DialogResult.OK)
                 return;
             int teacherID = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<int>("ID");
-            teachersTableAdapter.UpdateByID(frmTeacherUpdate.TeacherName, frmTeacherUpdate.Phone, frmTeacherUpdate.Sex, frmTeacherUpdate.Address, frmTeacherUpdate.Password, teacherID);
+            teachersTableAdapter.UpdateByID(frmTeacherUpdate.Name, frmTeacherUpdate.Phone, frmTeacherUpdate.Sex, frmTeacherUpdate.Address, frmTeacherUpdate.Password,
+                frmTeacherUpdate.BirthDay, frmTeacherUpdate.Hometown, frmTeacherUpdate.Ethnic, frmTeacherUpdate.GraduationTime, frmTeacherUpdate.Degree, frmTeacherUpdate.School,
+                frmTeacherUpdate.Professional, teacherID);
             teacherSigninTimeTableAdapter.DeleteByTeacherID(teacherID);
             stList = frmTeacherUpdate.signinTimeList;
             foreach (SigninTime st in stList)
@@ -128,6 +155,7 @@ namespace BanGongPingTai
                     teachersTableAdapter.DeleteByID(teacherID);
                     teacherSigninTimeTableAdapter.DeleteByTeacherID(teacherID);
                     teacherSigninReportTableAdapter.DeleteByTeacherID(teacherID);
+                    teacherSigninTableAdapter.DeleteByTeacherID(teacherID);
                     teachersTableAdapter.Fill(teachersDataSet.Tearchers);
                     if (teachersDataSet.Tearchers.Rows.Count > 0)
                     {
@@ -594,7 +622,7 @@ namespace BanGongPingTai
 
         private void teachersBindingSource_ListChanged(object sender, ListChangedEventArgs e)
         {
-            if (teachersDataSet.Tearchers.Rows.Count == 0)
+            if (teachersDataSet.Tearchers.Rows.Count < 0)
             {
                 btnUpdateTeacher.Enabled = false;
                 btnDelTeacher.Enabled = false;
@@ -604,6 +632,15 @@ namespace BanGongPingTai
                 btnUpdateTeacher.Enabled = true;
                 btnDelTeacher.Enabled = true;
             }
+        }
+
+        private void dgvTeachers_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            if (dgvTeachers.Rows.Count > 0)
+                for (int i = 0; i < dgvTeachers.Rows.Count; i++)
+                {
+                    dgvTeachers.Rows[i].Cells[0].Value = i + 1;
+                }
         }
 
     }
