@@ -29,18 +29,32 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtSchool = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtProfessional = new System.Windows.Forms.TextBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtDegree = new System.Windows.Forms.TextBox();
+            this.dtGraduationTime = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtHometown = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtEthnic = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.cmbSex = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtBirthDay = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.txtPasswordConfirm = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.cmbSex = new System.Windows.Forms.ComboBox();
-            this.txtAddress = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtPhone = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -57,20 +71,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.dtBirthDay = new System.Windows.Forms.DateTimePicker();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtEthnic = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.txtHometown = new System.Windows.Forms.TextBox();
-            this.dtGraduationTime = new System.Windows.Forms.DateTimePicker();
-            this.txtDegree = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.txtProfessional = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtSchool = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -107,6 +107,189 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "基本信息";
             // 
+            // txtSchool
+            // 
+            this.txtSchool.Location = new System.Drawing.Point(91, 88);
+            this.txtSchool.Name = "txtSchool";
+            this.txtSchool.Size = new System.Drawing.Size(137, 21);
+            this.txtSchool.TabIndex = 19;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(20, 91);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(65, 12);
+            this.label19.TabIndex = 18;
+            this.label19.Text = "毕业院校：";
+            // 
+            // txtProfessional
+            // 
+            this.txtProfessional.Location = new System.Drawing.Point(556, 89);
+            this.txtProfessional.Name = "txtProfessional";
+            this.txtProfessional.Size = new System.Drawing.Size(137, 21);
+            this.txtProfessional.TabIndex = 15;
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.Location = new System.Drawing.Point(91, 120);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(137, 21);
+            this.txtPhone.TabIndex = 17;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(509, 93);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(41, 12);
+            this.label18.TabIndex = 14;
+            this.label18.Text = "专业：";
+            // 
+            // txtDegree
+            // 
+            this.txtDegree.Location = new System.Drawing.Point(556, 56);
+            this.txtDegree.Name = "txtDegree";
+            this.txtDegree.Size = new System.Drawing.Size(137, 21);
+            this.txtDegree.TabIndex = 11;
+            // 
+            // dtGraduationTime
+            // 
+            this.dtGraduationTime.CustomFormat = "";
+            this.dtGraduationTime.Location = new System.Drawing.Point(338, 88);
+            this.dtGraduationTime.Name = "dtGraduationTime";
+            this.dtGraduationTime.Size = new System.Drawing.Size(108, 21);
+            this.dtGraduationTime.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(44, 124);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "电话：";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(267, 123);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 12);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "联系地址：";
+            // 
+            // txtHometown
+            // 
+            this.txtHometown.Location = new System.Drawing.Point(91, 56);
+            this.txtHometown.Name = "txtHometown";
+            this.txtHometown.Size = new System.Drawing.Size(137, 21);
+            this.txtHometown.TabIndex = 9;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(509, 59);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(41, 12);
+            this.label17.TabIndex = 8;
+            this.label17.Text = "学历：";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(267, 92);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(65, 12);
+            this.label16.TabIndex = 7;
+            this.label16.Text = "毕业时间：";
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Location = new System.Drawing.Point(338, 120);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(355, 21);
+            this.txtAddress.TabIndex = 15;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(44, 59);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(41, 12);
+            this.label15.TabIndex = 6;
+            this.label15.Text = "籍贯：";
+            // 
+            // txtEthnic
+            // 
+            this.txtEthnic.Location = new System.Drawing.Point(556, 24);
+            this.txtEthnic.Name = "txtEthnic";
+            this.txtEthnic.Size = new System.Drawing.Size(137, 21);
+            this.txtEthnic.TabIndex = 5;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(509, 27);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(41, 12);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "民族：";
+            // 
+            // cmbSex
+            // 
+            this.cmbSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSex.FormattingEnabled = true;
+            this.cmbSex.Items.AddRange(new object[] {
+            "男",
+            "女"});
+            this.cmbSex.Location = new System.Drawing.Point(338, 56);
+            this.cmbSex.Name = "cmbSex";
+            this.cmbSex.Size = new System.Drawing.Size(56, 20);
+            this.cmbSex.TabIndex = 13;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(291, 59);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "性别：";
+            // 
+            // dtBirthDay
+            // 
+            this.dtBirthDay.CustomFormat = "";
+            this.dtBirthDay.Location = new System.Drawing.Point(338, 24);
+            this.dtBirthDay.Name = "dtBirthDay";
+            this.dtBirthDay.Size = new System.Drawing.Size(108, 21);
+            this.dtBirthDay.TabIndex = 3;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(267, 27);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(65, 12);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "出生年月：";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(44, 27);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 12);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "姓名：";
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(91, 24);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(137, 21);
+            this.txtName.TabIndex = 0;
+            // 
             // txtPasswordConfirm
             // 
             this.txtPasswordConfirm.Location = new System.Drawing.Point(338, 24);
@@ -140,75 +323,6 @@
             this.label3.Size = new System.Drawing.Size(41, 12);
             this.label3.TabIndex = 18;
             this.label3.Text = "密码：";
-            // 
-            // cmbSex
-            // 
-            this.cmbSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSex.FormattingEnabled = true;
-            this.cmbSex.Items.AddRange(new object[] {
-            "男",
-            "女"});
-            this.cmbSex.Location = new System.Drawing.Point(338, 56);
-            this.cmbSex.Name = "cmbSex";
-            this.cmbSex.Size = new System.Drawing.Size(56, 20);
-            this.cmbSex.TabIndex = 13;
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.Location = new System.Drawing.Point(338, 120);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(355, 21);
-            this.txtAddress.TabIndex = 15;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 124);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "电话：";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(267, 123);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 12);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "联系地址：";
-            // 
-            // txtPhone
-            // 
-            this.txtPhone.Location = new System.Drawing.Point(91, 120);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(137, 21);
-            this.txtPhone.TabIndex = 17;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(291, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "性别：";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(44, 27);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 12);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "姓名：";
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(91, 24);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(137, 21);
-            this.txtName.TabIndex = 0;
             // 
             // btnCancel
             // 
@@ -395,124 +509,6 @@
             this.groupBox3.TabIndex = 29;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "密码信息";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(267, 27);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(65, 12);
-            this.label13.TabIndex = 2;
-            this.label13.Text = "出生年月：";
-            // 
-            // dtBirthDay
-            // 
-            this.dtBirthDay.Checked = false;
-            this.dtBirthDay.CustomFormat = "";
-            this.dtBirthDay.Location = new System.Drawing.Point(338, 24);
-            this.dtBirthDay.Name = "dtBirthDay";
-            this.dtBirthDay.ShowCheckBox = true;
-            this.dtBirthDay.Size = new System.Drawing.Size(126, 21);
-            this.dtBirthDay.TabIndex = 3;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(509, 27);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(41, 12);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "民族：";
-            // 
-            // txtEthnic
-            // 
-            this.txtEthnic.Location = new System.Drawing.Point(556, 24);
-            this.txtEthnic.Name = "txtEthnic";
-            this.txtEthnic.Size = new System.Drawing.Size(137, 21);
-            this.txtEthnic.TabIndex = 5;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(44, 59);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(41, 12);
-            this.label15.TabIndex = 6;
-            this.label15.Text = "籍贯：";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(267, 92);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(65, 12);
-            this.label16.TabIndex = 7;
-            this.label16.Text = "毕业时间：";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(509, 59);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(41, 12);
-            this.label17.TabIndex = 8;
-            this.label17.Text = "学历：";
-            // 
-            // txtHometown
-            // 
-            this.txtHometown.Location = new System.Drawing.Point(91, 56);
-            this.txtHometown.Name = "txtHometown";
-            this.txtHometown.Size = new System.Drawing.Size(137, 21);
-            this.txtHometown.TabIndex = 9;
-            // 
-            // dtGraduationTime
-            // 
-            this.dtGraduationTime.Checked = false;
-            this.dtGraduationTime.CustomFormat = "";
-            this.dtGraduationTime.Location = new System.Drawing.Point(338, 88);
-            this.dtGraduationTime.Name = "dtGraduationTime";
-            this.dtGraduationTime.ShowCheckBox = true;
-            this.dtGraduationTime.Size = new System.Drawing.Size(126, 21);
-            this.dtGraduationTime.TabIndex = 10;
-            // 
-            // txtDegree
-            // 
-            this.txtDegree.Location = new System.Drawing.Point(556, 56);
-            this.txtDegree.Name = "txtDegree";
-            this.txtDegree.Size = new System.Drawing.Size(137, 21);
-            this.txtDegree.TabIndex = 11;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(509, 93);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(41, 12);
-            this.label18.TabIndex = 14;
-            this.label18.Text = "专业：";
-            // 
-            // txtProfessional
-            // 
-            this.txtProfessional.Location = new System.Drawing.Point(556, 89);
-            this.txtProfessional.Name = "txtProfessional";
-            this.txtProfessional.Size = new System.Drawing.Size(137, 21);
-            this.txtProfessional.TabIndex = 15;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(20, 91);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(65, 12);
-            this.label19.TabIndex = 18;
-            this.label19.Text = "毕业院校：";
-            // 
-            // txtSchool
-            // 
-            this.txtSchool.Location = new System.Drawing.Point(91, 88);
-            this.txtSchool.Name = "txtSchool";
-            this.txtSchool.Size = new System.Drawing.Size(137, 21);
-            this.txtSchool.TabIndex = 19;
             // 
             // TeacherAddingForm
             // 

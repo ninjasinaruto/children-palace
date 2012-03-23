@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("编号");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("姓名");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("月份");
@@ -75,19 +76,9 @@
             treeNode24});
             System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("实发工资（元）");
             System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("签字");
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -101,12 +92,26 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvTeachers = new System.Windows.Forms.DataGridView();
-            this.teacherNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sexColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cardNoColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teachersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teachersDataSet = new BanGongPingTai.TeachersDataSet();
             this.btnConnectCard = new System.Windows.Forms.Button();
@@ -124,13 +129,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.teachersTableAdapter = new BanGongPingTai.TeachersDataSetTableAdapters.TearchersTableAdapter();
-            this.teacherCoursesTableAdapter = new BanGongPingTai.TeachersDataSetTableAdapters.TeacherCoursesTableAdapter();
-            this.teacherSalaryAdjustBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.teacherSalaryAdjustTableAdapter = new BanGongPingTai.TeachersDataSetTableAdapters.TeacherSalaryAdjustTableAdapter();
             this.wageColumnsTree = new System.Windows.Forms.TreeView();
             this.dgvTeacherWages = new VBprinter40.MulHeaderDataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teacherNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreateDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.basicWageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -153,6 +153,7 @@
             this.minusWagesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.realWagesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CheckName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.teacherWagesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teacherWageDataSet = new BanGongPingTai.TeacherWageDataSet();
             this.btnPrint = new System.Windows.Forms.Button();
@@ -190,19 +191,37 @@
             this.teacherSalaryLogTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherSalaryLogTableAdapter();
             this.teacherWagesTableAdapter = new BanGongPingTai.TeacherWageDataSetTableAdapters.TeacherWagesTableAdapter();
             this.btnPrintDetail = new System.Windows.Forms.Button();
+            this.btnCardDisconnect = new System.Windows.Forms.Button();
+            this.teachersTableAdapter = new BanGongPingTai.TeachersDataSetTableAdapters.TearchersTableAdapter();
+            this.teacherCoursesTableAdapter = new BanGongPingTai.TeachersDataSetTableAdapters.TeacherCoursesTableAdapter();
+            this.teacherSalaryAdjustBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherSalaryAdjustTableAdapter = new BanGongPingTai.TeachersDataSetTableAdapters.TeacherSalaryAdjustTableAdapter();
             this.vCardsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vCardsTableAdapter = new BanGongPingTai.TeachersDataSetTableAdapters.VCardsTableAdapter();
-            this.btnCardDisconnect = new System.Windows.Forms.Button();
             this.teacherSigninTimeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teacherSigninTimeTableAdapter = new BanGongPingTai.TeachersDataSetTableAdapters.TeacherSigninTimeTableAdapter();
             this.teacherSigninReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teacherSigninReportTableAdapter = new BanGongPingTai.TeachersDataSetTableAdapters.TeacherSigninReportTableAdapter();
+            this.teacherSigninBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherSigninTableAdapter = new BanGongPingTai.TeachersDataSetTableAdapters.TeacherSigninTableAdapter();
+            this.TeacherSeq = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cardNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ethnicDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hometownDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.birthDayDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.degreeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.schoolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.professionalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.graduationTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeachers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teachersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teachersDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeacherCourses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherCoursesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teacherSalaryAdjustBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeacherWages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherWagesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherWageDataSet)).BeginInit();
@@ -213,9 +232,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.teacherAwardBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chargeBackBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSalaryLogBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherSalaryAdjustBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vCardsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSigninTimeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSigninReportBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherSigninBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvTeachers
@@ -224,13 +245,29 @@
             this.dgvTeachers.AllowUserToDeleteRows = false;
             this.dgvTeachers.AllowUserToResizeRows = false;
             this.dgvTeachers.AutoGenerateColumns = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTeachers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTeachers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTeachers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.teacherNameColumn,
-            this.phoneColumn,
-            this.sexColumn,
-            this.addressColumn,
-            this.cardNoColumn});
+            this.TeacherSeq,
+            this.nameDataGridViewTextBoxColumn,
+            this.cardNoDataGridViewTextBoxColumn,
+            this.sexDataGridViewTextBoxColumn,
+            this.phoneDataGridViewTextBoxColumn,
+            this.ethnicDataGridViewTextBoxColumn,
+            this.hometownDataGridViewTextBoxColumn,
+            this.birthDayDataGridViewTextBoxColumn,
+            this.degreeDataGridViewTextBoxColumn,
+            this.schoolDataGridViewTextBoxColumn,
+            this.professionalDataGridViewTextBoxColumn,
+            this.graduationTimeDataGridViewTextBoxColumn,
+            this.addressDataGridViewTextBoxColumn});
             this.dgvTeachers.DataSource = this.teachersBindingSource;
             this.dgvTeachers.Location = new System.Drawing.Point(12, 26);
             this.dgvTeachers.MultiSelect = false;
@@ -239,43 +276,9 @@
             this.dgvTeachers.RowHeadersVisible = false;
             this.dgvTeachers.RowTemplate.Height = 23;
             this.dgvTeachers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTeachers.Size = new System.Drawing.Size(597, 153);
+            this.dgvTeachers.Size = new System.Drawing.Size(773, 153);
             this.dgvTeachers.TabIndex = 3;
-            // 
-            // teacherNameColumn
-            // 
-            this.teacherNameColumn.DataPropertyName = "Name";
-            this.teacherNameColumn.HeaderText = "姓名";
-            this.teacherNameColumn.Name = "teacherNameColumn";
-            this.teacherNameColumn.ReadOnly = true;
-            // 
-            // phoneColumn
-            // 
-            this.phoneColumn.DataPropertyName = "Phone";
-            this.phoneColumn.HeaderText = "电话";
-            this.phoneColumn.Name = "phoneColumn";
-            this.phoneColumn.ReadOnly = true;
-            // 
-            // sexColumn
-            // 
-            this.sexColumn.DataPropertyName = "Sex";
-            this.sexColumn.HeaderText = "性别";
-            this.sexColumn.Name = "sexColumn";
-            this.sexColumn.ReadOnly = true;
-            // 
-            // addressColumn
-            // 
-            this.addressColumn.DataPropertyName = "Address";
-            this.addressColumn.HeaderText = "地址";
-            this.addressColumn.Name = "addressColumn";
-            this.addressColumn.ReadOnly = true;
-            // 
-            // cardNoColumn
-            // 
-            this.cardNoColumn.DataPropertyName = "CardNo";
-            this.cardNoColumn.HeaderText = "卡号";
-            this.cardNoColumn.Name = "cardNoColumn";
-            this.cardNoColumn.ReadOnly = true;
+            this.dgvTeachers.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvTeachers_DataBindingComplete);
             // 
             // teachersBindingSource
             // 
@@ -291,7 +294,7 @@
             // 
             // btnConnectCard
             // 
-            this.btnConnectCard.Location = new System.Drawing.Point(630, 120);
+            this.btnConnectCard.Location = new System.Drawing.Point(793, 121);
             this.btnConnectCard.Name = "btnConnectCard";
             this.btnConnectCard.Size = new System.Drawing.Size(70, 25);
             this.btnConnectCard.TabIndex = 2;
@@ -323,7 +326,7 @@
             this.chargeTypeNameDataGridViewTextBoxColumn,
             this.chargeAmountDataGridViewTextBoxColumn});
             this.dgvTeacherCourses.DataSource = this.teacherCoursesBindingSource;
-            this.dgvTeacherCourses.Location = new System.Drawing.Point(722, 26);
+            this.dgvTeacherCourses.Location = new System.Drawing.Point(873, 26);
             this.dgvTeacherCourses.Name = "dgvTeacherCourses";
             this.dgvTeacherCourses.ReadOnly = true;
             this.dgvTeacherCourses.RowHeadersVisible = false;
@@ -375,7 +378,7 @@
             // 
             // btnAddTeacher
             // 
-            this.btnAddTeacher.Location = new System.Drawing.Point(630, 27);
+            this.btnAddTeacher.Location = new System.Drawing.Point(793, 28);
             this.btnAddTeacher.Name = "btnAddTeacher";
             this.btnAddTeacher.Size = new System.Drawing.Size(70, 25);
             this.btnAddTeacher.TabIndex = 2;
@@ -385,7 +388,7 @@
             // 
             // btnUpdateTeacher
             // 
-            this.btnUpdateTeacher.Location = new System.Drawing.Point(630, 58);
+            this.btnUpdateTeacher.Location = new System.Drawing.Point(793, 59);
             this.btnUpdateTeacher.Name = "btnUpdateTeacher";
             this.btnUpdateTeacher.Size = new System.Drawing.Size(70, 25);
             this.btnUpdateTeacher.TabIndex = 24;
@@ -395,7 +398,7 @@
             // 
             // btnDelTeacher
             // 
-            this.btnDelTeacher.Location = new System.Drawing.Point(630, 89);
+            this.btnDelTeacher.Location = new System.Drawing.Point(793, 90);
             this.btnDelTeacher.Name = "btnDelTeacher";
             this.btnDelTeacher.Size = new System.Drawing.Size(70, 25);
             this.btnDelTeacher.TabIndex = 25;
@@ -406,7 +409,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(722, 7);
+            this.label1.Location = new System.Drawing.Point(871, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 27;
@@ -429,23 +432,6 @@
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 29;
             this.label3.Text = "工资信息";
-            // 
-            // teachersTableAdapter
-            // 
-            this.teachersTableAdapter.ClearBeforeFill = true;
-            // 
-            // teacherCoursesTableAdapter
-            // 
-            this.teacherCoursesTableAdapter.ClearBeforeFill = true;
-            // 
-            // teacherSalaryAdjustBindingSource
-            // 
-            this.teacherSalaryAdjustBindingSource.DataMember = "TeacherSalaryAdjust";
-            this.teacherSalaryAdjustBindingSource.DataSource = this.teachersDataSet;
-            // 
-            // teacherSalaryAdjustTableAdapter
-            // 
-            this.teacherSalaryAdjustTableAdapter.ClearBeforeFill = true;
             // 
             // wageColumnsTree
             // 
@@ -526,17 +512,16 @@
             this.dgvTeacherWages.AllowUserToResizeRows = false;
             this.dgvTeacherWages.AutoGenerateColumns = false;
             this.dgvTeacherWages.ColHeaderTreeView = null;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTeacherWages.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTeacherWages.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvTeacherWages.ColumnHeadersHeight = 100;
             this.dgvTeacherWages.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
             this.teacherNameDataGridViewTextBoxColumn,
             this.CreateDate,
             this.basicWageDataGridViewTextBoxColumn,
@@ -558,50 +543,38 @@
             this.otherChargeBackDataGridViewTextBoxColumn,
             this.minusWagesDataGridViewTextBoxColumn,
             this.realWagesDataGridViewTextBoxColumn,
-            this.CheckName});
+            this.CheckName,
+            this.dataGridViewTextBoxColumn1});
             this.dgvTeacherWages.DataSource = this.teacherWagesBindingSource;
             this.dgvTeacherWages.Location = new System.Drawing.Point(12, 261);
             this.dgvTeacherWages.MultiSelect = false;
             this.dgvTeacherWages.Name = "dgvTeacherWages";
             this.dgvTeacherWages.ReadOnly = true;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTeacherWages.RowHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTeacherWages.RowHeadersDefaultCellStyle = dataGridViewCellStyle35;
             this.dgvTeacherWages.RowHeadersVisible = false;
             this.dgvTeacherWages.RowHeadersWidth = 40;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dgvTeacherWages.RowsDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dgvTeacherWages.RowsDefaultCellStyle = dataGridViewCellStyle36;
             this.dgvTeacherWages.RowTemplate.Height = 23;
             this.dgvTeacherWages.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTeacherWages.Size = new System.Drawing.Size(1461, 340);
             this.dgvTeacherWages.TabIndex = 32;
             this.dgvTeacherWages.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvTeacherWages_DataBindingComplete);
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewTextBoxColumn1.HeaderText = "编号";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn1.Width = 40;
-            // 
             // teacherNameDataGridViewTextBoxColumn
             // 
             this.teacherNameDataGridViewTextBoxColumn.DataPropertyName = "TeacherName";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.teacherNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.teacherNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
             this.teacherNameDataGridViewTextBoxColumn.HeaderText = "姓名";
             this.teacherNameDataGridViewTextBoxColumn.Name = "teacherNameDataGridViewTextBoxColumn";
             this.teacherNameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -611,10 +584,10 @@
             // CreateDate
             // 
             this.CreateDate.DataPropertyName = "CreateDate";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Format = "yyyy年MM月";
-            dataGridViewCellStyle4.NullValue = null;
-            this.CreateDate.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.Format = "yyyy年MM月";
+            dataGridViewCellStyle13.NullValue = null;
+            this.CreateDate.DefaultCellStyle = dataGridViewCellStyle13;
             this.CreateDate.HeaderText = "月份";
             this.CreateDate.Name = "CreateDate";
             this.CreateDate.ReadOnly = true;
@@ -623,10 +596,10 @@
             // basicWageDataGridViewTextBoxColumn
             // 
             this.basicWageDataGridViewTextBoxColumn.DataPropertyName = "BasicWage";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.basicWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.Format = "N2";
+            dataGridViewCellStyle14.NullValue = null;
+            this.basicWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
             this.basicWageDataGridViewTextBoxColumn.HeaderText = "基本工资";
             this.basicWageDataGridViewTextBoxColumn.Name = "basicWageDataGridViewTextBoxColumn";
             this.basicWageDataGridViewTextBoxColumn.ReadOnly = true;
@@ -636,10 +609,10 @@
             // ageWageDataGridViewTextBoxColumn
             // 
             this.ageWageDataGridViewTextBoxColumn.DataPropertyName = "AgeWage";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.ageWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle15.Format = "N2";
+            dataGridViewCellStyle15.NullValue = null;
+            this.ageWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle15;
             this.ageWageDataGridViewTextBoxColumn.HeaderText = "工龄工资";
             this.ageWageDataGridViewTextBoxColumn.Name = "ageWageDataGridViewTextBoxColumn";
             this.ageWageDataGridViewTextBoxColumn.ReadOnly = true;
@@ -649,10 +622,10 @@
             // jobWageDataGridViewTextBoxColumn
             // 
             this.jobWageDataGridViewTextBoxColumn.DataPropertyName = "JobWage";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "N2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.jobWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle16.Format = "N2";
+            dataGridViewCellStyle16.NullValue = null;
+            this.jobWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle16;
             this.jobWageDataGridViewTextBoxColumn.HeaderText = "职务工资";
             this.jobWageDataGridViewTextBoxColumn.Name = "jobWageDataGridViewTextBoxColumn";
             this.jobWageDataGridViewTextBoxColumn.ReadOnly = true;
@@ -662,10 +635,10 @@
             // insuranceWageDataGridViewTextBoxColumn
             // 
             this.insuranceWageDataGridViewTextBoxColumn.DataPropertyName = "InsuranceWage";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "N2";
-            dataGridViewCellStyle8.NullValue = null;
-            this.insuranceWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle17.Format = "N2";
+            dataGridViewCellStyle17.NullValue = null;
+            this.insuranceWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle17;
             this.insuranceWageDataGridViewTextBoxColumn.HeaderText = "保险补贴";
             this.insuranceWageDataGridViewTextBoxColumn.Name = "insuranceWageDataGridViewTextBoxColumn";
             this.insuranceWageDataGridViewTextBoxColumn.ReadOnly = true;
@@ -675,10 +648,10 @@
             // holidayWageDataGridViewTextBoxColumn
             // 
             this.holidayWageDataGridViewTextBoxColumn.DataPropertyName = "HolidayWage";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.Format = "N2";
-            dataGridViewCellStyle9.NullValue = null;
-            this.holidayWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle18.Format = "N2";
+            dataGridViewCellStyle18.NullValue = null;
+            this.holidayWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle18;
             this.holidayWageDataGridViewTextBoxColumn.HeaderText = "岗位工资";
             this.holidayWageDataGridViewTextBoxColumn.Name = "holidayWageDataGridViewTextBoxColumn";
             this.holidayWageDataGridViewTextBoxColumn.ReadOnly = true;
@@ -688,10 +661,10 @@
             // workWageDataGridViewTextBoxColumn
             // 
             this.workWageDataGridViewTextBoxColumn.DataPropertyName = "WorkWage";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle10.Format = "N2";
-            dataGridViewCellStyle10.NullValue = null;
-            this.workWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle19.Format = "N2";
+            dataGridViewCellStyle19.NullValue = null;
+            this.workWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle19;
             this.workWageDataGridViewTextBoxColumn.HeaderText = "加班补贴";
             this.workWageDataGridViewTextBoxColumn.Name = "workWageDataGridViewTextBoxColumn";
             this.workWageDataGridViewTextBoxColumn.ReadOnly = true;
@@ -701,10 +674,10 @@
             // courseAmountDataGridViewTextBoxColumn
             // 
             this.courseAmountDataGridViewTextBoxColumn.DataPropertyName = "CourseAmount";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle11.Format = "N2";
-            dataGridViewCellStyle11.NullValue = null;
-            this.courseAmountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle20.Format = "N2";
+            dataGridViewCellStyle20.NullValue = null;
+            this.courseAmountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle20;
             this.courseAmountDataGridViewTextBoxColumn.HeaderText = "课量工资";
             this.courseAmountDataGridViewTextBoxColumn.Name = "courseAmountDataGridViewTextBoxColumn";
             this.courseAmountDataGridViewTextBoxColumn.ReadOnly = true;
@@ -714,10 +687,10 @@
             // otherWageDataGridViewTextBoxColumn
             // 
             this.otherWageDataGridViewTextBoxColumn.DataPropertyName = "OtherWage";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle12.Format = "N2";
-            dataGridViewCellStyle12.NullValue = null;
-            this.otherWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle21.Format = "N2";
+            dataGridViewCellStyle21.NullValue = null;
+            this.otherWageDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle21;
             this.otherWageDataGridViewTextBoxColumn.HeaderText = "其他补贴";
             this.otherWageDataGridViewTextBoxColumn.Name = "otherWageDataGridViewTextBoxColumn";
             this.otherWageDataGridViewTextBoxColumn.ReadOnly = true;
@@ -727,10 +700,10 @@
             // fullAwardDataGridViewTextBoxColumn
             // 
             this.fullAwardDataGridViewTextBoxColumn.DataPropertyName = "FullAward";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle13.Format = "N2";
-            dataGridViewCellStyle13.NullValue = null;
-            this.fullAwardDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle22.Format = "N2";
+            dataGridViewCellStyle22.NullValue = null;
+            this.fullAwardDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle22;
             this.fullAwardDataGridViewTextBoxColumn.HeaderText = "满勤奖";
             this.fullAwardDataGridViewTextBoxColumn.Name = "fullAwardDataGridViewTextBoxColumn";
             this.fullAwardDataGridViewTextBoxColumn.ReadOnly = true;
@@ -740,10 +713,10 @@
             // studentAwardDataGridViewTextBoxColumn
             // 
             this.studentAwardDataGridViewTextBoxColumn.DataPropertyName = "StudentAward";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle14.Format = "N2";
-            dataGridViewCellStyle14.NullValue = null;
-            this.studentAwardDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle23.Format = "N2";
+            dataGridViewCellStyle23.NullValue = null;
+            this.studentAwardDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle23;
             this.studentAwardDataGridViewTextBoxColumn.HeaderText = "学生管理奖";
             this.studentAwardDataGridViewTextBoxColumn.Name = "studentAwardDataGridViewTextBoxColumn";
             this.studentAwardDataGridViewTextBoxColumn.ReadOnly = true;
@@ -754,10 +727,10 @@
             // awardDataGridViewTextBoxColumn
             // 
             this.awardDataGridViewTextBoxColumn.DataPropertyName = "Award";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle15.Format = "N2";
-            dataGridViewCellStyle15.NullValue = null;
-            this.awardDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle24.Format = "N2";
+            dataGridViewCellStyle24.NullValue = null;
+            this.awardDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle24;
             this.awardDataGridViewTextBoxColumn.HeaderText = "奖励";
             this.awardDataGridViewTextBoxColumn.Name = "awardDataGridViewTextBoxColumn";
             this.awardDataGridViewTextBoxColumn.ReadOnly = true;
@@ -767,10 +740,10 @@
             // appraisalAwardDataGridViewTextBoxColumn
             // 
             this.appraisalAwardDataGridViewTextBoxColumn.DataPropertyName = "AppraisalAward";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle16.Format = "N2";
-            dataGridViewCellStyle16.NullValue = null;
-            this.appraisalAwardDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle25.Format = "N2";
+            dataGridViewCellStyle25.NullValue = null;
+            this.appraisalAwardDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle25;
             this.appraisalAwardDataGridViewTextBoxColumn.HeaderText = "绩效";
             this.appraisalAwardDataGridViewTextBoxColumn.Name = "appraisalAwardDataGridViewTextBoxColumn";
             this.appraisalAwardDataGridViewTextBoxColumn.ReadOnly = true;
@@ -780,10 +753,10 @@
             // otherAwardDataGridViewTextBoxColumn
             // 
             this.otherAwardDataGridViewTextBoxColumn.DataPropertyName = "OtherAward";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle17.Format = "N2";
-            dataGridViewCellStyle17.NullValue = null;
-            this.otherAwardDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle26.Format = "N2";
+            dataGridViewCellStyle26.NullValue = null;
+            this.otherAwardDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle26;
             this.otherAwardDataGridViewTextBoxColumn.HeaderText = "其他奖励";
             this.otherAwardDataGridViewTextBoxColumn.Name = "otherAwardDataGridViewTextBoxColumn";
             this.otherAwardDataGridViewTextBoxColumn.ReadOnly = true;
@@ -793,10 +766,10 @@
             // shouldWagesDataGridViewTextBoxColumn
             // 
             this.shouldWagesDataGridViewTextBoxColumn.DataPropertyName = "ShouldWages";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle18.Format = "N2";
-            dataGridViewCellStyle18.NullValue = null;
-            this.shouldWagesDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle27.Format = "N2";
+            dataGridViewCellStyle27.NullValue = null;
+            this.shouldWagesDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle27;
             this.shouldWagesDataGridViewTextBoxColumn.HeaderText = "应发合计";
             this.shouldWagesDataGridViewTextBoxColumn.Name = "shouldWagesDataGridViewTextBoxColumn";
             this.shouldWagesDataGridViewTextBoxColumn.ReadOnly = true;
@@ -806,11 +779,11 @@
             // checkinChargeBackDataGridViewTextBoxColumn
             // 
             this.checkinChargeBackDataGridViewTextBoxColumn.DataPropertyName = "CheckinChargeBack";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle19.Format = "N2";
-            dataGridViewCellStyle19.NullValue = null;
-            this.checkinChargeBackDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle28.Format = "N2";
+            dataGridViewCellStyle28.NullValue = null;
+            this.checkinChargeBackDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle28;
             this.checkinChargeBackDataGridViewTextBoxColumn.HeaderText = "考勤扣款";
             this.checkinChargeBackDataGridViewTextBoxColumn.Name = "checkinChargeBackDataGridViewTextBoxColumn";
             this.checkinChargeBackDataGridViewTextBoxColumn.ReadOnly = true;
@@ -820,11 +793,11 @@
             // withholdChargeBackDataGridViewTextBoxColumn
             // 
             this.withholdChargeBackDataGridViewTextBoxColumn.DataPropertyName = "WithholdChargeBack";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle20.Format = "N2";
-            dataGridViewCellStyle20.NullValue = null;
-            this.withholdChargeBackDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle29.Format = "N2";
+            dataGridViewCellStyle29.NullValue = null;
+            this.withholdChargeBackDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle29;
             this.withholdChargeBackDataGridViewTextBoxColumn.HeaderText = "代扣款";
             this.withholdChargeBackDataGridViewTextBoxColumn.Name = "withholdChargeBackDataGridViewTextBoxColumn";
             this.withholdChargeBackDataGridViewTextBoxColumn.ReadOnly = true;
@@ -834,11 +807,11 @@
             // otherChargeBackDataGridViewTextBoxColumn
             // 
             this.otherChargeBackDataGridViewTextBoxColumn.DataPropertyName = "OtherChargeBack";
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle21.Format = "N2";
-            dataGridViewCellStyle21.NullValue = null;
-            this.otherChargeBackDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle30.Format = "N2";
+            dataGridViewCellStyle30.NullValue = null;
+            this.otherChargeBackDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle30;
             this.otherChargeBackDataGridViewTextBoxColumn.HeaderText = "其他扣款";
             this.otherChargeBackDataGridViewTextBoxColumn.Name = "otherChargeBackDataGridViewTextBoxColumn";
             this.otherChargeBackDataGridViewTextBoxColumn.ReadOnly = true;
@@ -848,11 +821,11 @@
             // minusWagesDataGridViewTextBoxColumn
             // 
             this.minusWagesDataGridViewTextBoxColumn.DataPropertyName = "MinusWages";
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle22.Format = "N2";
-            dataGridViewCellStyle22.NullValue = null;
-            this.minusWagesDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle31.Format = "N2";
+            dataGridViewCellStyle31.NullValue = null;
+            this.minusWagesDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle31;
             this.minusWagesDataGridViewTextBoxColumn.HeaderText = "合计";
             this.minusWagesDataGridViewTextBoxColumn.Name = "minusWagesDataGridViewTextBoxColumn";
             this.minusWagesDataGridViewTextBoxColumn.ReadOnly = true;
@@ -862,11 +835,11 @@
             // realWagesDataGridViewTextBoxColumn
             // 
             this.realWagesDataGridViewTextBoxColumn.DataPropertyName = "RealWages";
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle23.Format = "N2";
-            dataGridViewCellStyle23.NullValue = null;
-            this.realWagesDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle32.Format = "N2";
+            dataGridViewCellStyle32.NullValue = null;
+            this.realWagesDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle32;
             this.realWagesDataGridViewTextBoxColumn.HeaderText = "实发工资";
             this.realWagesDataGridViewTextBoxColumn.Name = "realWagesDataGridViewTextBoxColumn";
             this.realWagesDataGridViewTextBoxColumn.ReadOnly = true;
@@ -876,12 +849,25 @@
             // CheckName
             // 
             this.CheckName.DataPropertyName = "CheckName";
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.CheckName.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.CheckName.DefaultCellStyle = dataGridViewCellStyle33;
             this.CheckName.HeaderText = "签名";
             this.CheckName.Name = "CheckName";
             this.CheckName.ReadOnly = true;
             this.CheckName.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle34.Format = "N0";
+            dataGridViewCellStyle34.NullValue = null;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle34;
+            this.dataGridViewTextBoxColumn1.HeaderText = "编号";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn1.Width = 40;
             // 
             // teacherWagesBindingSource
             // 
@@ -1152,6 +1138,33 @@
             this.btnPrintDetail.UseVisualStyleBackColor = true;
             this.btnPrintDetail.Click += new System.EventHandler(this.btnPrintDetail_Click);
             // 
+            // btnCardDisconnect
+            // 
+            this.btnCardDisconnect.Location = new System.Drawing.Point(793, 152);
+            this.btnCardDisconnect.Name = "btnCardDisconnect";
+            this.btnCardDisconnect.Size = new System.Drawing.Size(70, 25);
+            this.btnCardDisconnect.TabIndex = 53;
+            this.btnCardDisconnect.Text = "回收卡片";
+            this.btnCardDisconnect.UseVisualStyleBackColor = true;
+            this.btnCardDisconnect.Click += new System.EventHandler(this.btnCardDisconnect_Click);
+            // 
+            // teachersTableAdapter
+            // 
+            this.teachersTableAdapter.ClearBeforeFill = true;
+            // 
+            // teacherCoursesTableAdapter
+            // 
+            this.teacherCoursesTableAdapter.ClearBeforeFill = true;
+            // 
+            // teacherSalaryAdjustBindingSource
+            // 
+            this.teacherSalaryAdjustBindingSource.DataMember = "TeacherSalaryAdjust";
+            this.teacherSalaryAdjustBindingSource.DataSource = this.teachersDataSet;
+            // 
+            // teacherSalaryAdjustTableAdapter
+            // 
+            this.teacherSalaryAdjustTableAdapter.ClearBeforeFill = true;
+            // 
             // vCardsBindingSource
             // 
             this.vCardsBindingSource.DataMember = "VCards";
@@ -1160,16 +1173,6 @@
             // vCardsTableAdapter
             // 
             this.vCardsTableAdapter.ClearBeforeFill = true;
-            // 
-            // btnCardDisconnect
-            // 
-            this.btnCardDisconnect.Location = new System.Drawing.Point(630, 151);
-            this.btnCardDisconnect.Name = "btnCardDisconnect";
-            this.btnCardDisconnect.Size = new System.Drawing.Size(70, 25);
-            this.btnCardDisconnect.TabIndex = 53;
-            this.btnCardDisconnect.Text = "回收卡片";
-            this.btnCardDisconnect.UseVisualStyleBackColor = true;
-            this.btnCardDisconnect.Click += new System.EventHandler(this.btnCardDisconnect_Click);
             // 
             // teacherSigninTimeBindingSource
             // 
@@ -1189,11 +1192,153 @@
             // 
             this.teacherSigninReportTableAdapter.ClearBeforeFill = true;
             // 
+            // teacherSigninBindingSource
+            // 
+            this.teacherSigninBindingSource.DataMember = "TeacherSignin";
+            this.teacherSigninBindingSource.DataSource = this.teachersDataSet;
+            // 
+            // teacherSigninTableAdapter
+            // 
+            this.teacherSigninTableAdapter.ClearBeforeFill = true;
+            // 
+            // TeacherSeq
+            // 
+            this.TeacherSeq.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TeacherSeq.HeaderText = "序号";
+            this.TeacherSeq.Name = "TeacherSeq";
+            this.TeacherSeq.ReadOnly = true;
+            this.TeacherSeq.Width = 80;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.nameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.nameDataGridViewTextBoxColumn.HeaderText = "姓名";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // cardNoDataGridViewTextBoxColumn
+            // 
+            this.cardNoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.cardNoDataGridViewTextBoxColumn.DataPropertyName = "CardNo";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cardNoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.cardNoDataGridViewTextBoxColumn.HeaderText = "卡号";
+            this.cardNoDataGridViewTextBoxColumn.Name = "cardNoDataGridViewTextBoxColumn";
+            this.cardNoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cardNoDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // sexDataGridViewTextBoxColumn
+            // 
+            this.sexDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.sexDataGridViewTextBoxColumn.DataPropertyName = "Sex";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.sexDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.sexDataGridViewTextBoxColumn.HeaderText = "性别";
+            this.sexDataGridViewTextBoxColumn.Name = "sexDataGridViewTextBoxColumn";
+            this.sexDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sexDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // phoneDataGridViewTextBoxColumn
+            // 
+            this.phoneDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.phoneDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "联系电话";
+            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+            this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ethnicDataGridViewTextBoxColumn
+            // 
+            this.ethnicDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ethnicDataGridViewTextBoxColumn.DataPropertyName = "Ethnic";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ethnicDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            this.ethnicDataGridViewTextBoxColumn.HeaderText = "民族";
+            this.ethnicDataGridViewTextBoxColumn.Name = "ethnicDataGridViewTextBoxColumn";
+            this.ethnicDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ethnicDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // hometownDataGridViewTextBoxColumn
+            // 
+            this.hometownDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.hometownDataGridViewTextBoxColumn.DataPropertyName = "Hometown";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.hometownDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            this.hometownDataGridViewTextBoxColumn.HeaderText = "籍贯";
+            this.hometownDataGridViewTextBoxColumn.Name = "hometownDataGridViewTextBoxColumn";
+            this.hometownDataGridViewTextBoxColumn.ReadOnly = true;
+            this.hometownDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // birthDayDataGridViewTextBoxColumn
+            // 
+            this.birthDayDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.birthDayDataGridViewTextBoxColumn.DataPropertyName = "BirthDay";
+            dataGridViewCellStyle8.Format = "D";
+            dataGridViewCellStyle8.NullValue = null;
+            this.birthDayDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            this.birthDayDataGridViewTextBoxColumn.HeaderText = "出生日期";
+            this.birthDayDataGridViewTextBoxColumn.Name = "birthDayDataGridViewTextBoxColumn";
+            this.birthDayDataGridViewTextBoxColumn.ReadOnly = true;
+            this.birthDayDataGridViewTextBoxColumn.Width = 90;
+            // 
+            // degreeDataGridViewTextBoxColumn
+            // 
+            this.degreeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.degreeDataGridViewTextBoxColumn.DataPropertyName = "Degree";
+            this.degreeDataGridViewTextBoxColumn.HeaderText = "学历";
+            this.degreeDataGridViewTextBoxColumn.Name = "degreeDataGridViewTextBoxColumn";
+            this.degreeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.degreeDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // schoolDataGridViewTextBoxColumn
+            // 
+            this.schoolDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.schoolDataGridViewTextBoxColumn.DataPropertyName = "School";
+            this.schoolDataGridViewTextBoxColumn.HeaderText = "毕业学校";
+            this.schoolDataGridViewTextBoxColumn.Name = "schoolDataGridViewTextBoxColumn";
+            this.schoolDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // professionalDataGridViewTextBoxColumn
+            // 
+            this.professionalDataGridViewTextBoxColumn.DataPropertyName = "Professional";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.professionalDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
+            this.professionalDataGridViewTextBoxColumn.HeaderText = "专业";
+            this.professionalDataGridViewTextBoxColumn.Name = "professionalDataGridViewTextBoxColumn";
+            this.professionalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // graduationTimeDataGridViewTextBoxColumn
+            // 
+            this.graduationTimeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.graduationTimeDataGridViewTextBoxColumn.DataPropertyName = "GraduationTime";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.Format = "D";
+            dataGridViewCellStyle10.NullValue = null;
+            this.graduationTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
+            this.graduationTimeDataGridViewTextBoxColumn.HeaderText = "毕业时间";
+            this.graduationTimeDataGridViewTextBoxColumn.Name = "graduationTimeDataGridViewTextBoxColumn";
+            this.graduationTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.graduationTimeDataGridViewTextBoxColumn.Width = 90;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "地址";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
+            this.addressDataGridViewTextBoxColumn.Width = 200;
+            // 
             // TeachersManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 613);
+            this.ClientSize = new System.Drawing.Size(1484, 613);
             this.Controls.Add(this.btnCardDisconnect);
             this.Controls.Add(this.btnPrintDetail);
             this.Controls.Add(this.btnAddSalary);
@@ -1237,7 +1382,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.teachersDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeacherCourses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherCoursesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.teacherSalaryAdjustBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeacherWages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherWagesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherWageDataSet)).EndInit();
@@ -1248,9 +1392,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.teacherAwardBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chargeBackBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSalaryLogBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherSalaryAdjustBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vCardsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSigninTimeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSigninReportBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherSigninBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1300,11 +1446,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn courseSubtypeNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn chargeTypeNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn chargeAmountDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn teacherNameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sexColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cardNoColumn;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -1354,5 +1495,20 @@
         private TeachersDataSetTableAdapters.TeacherSigninTimeTableAdapter teacherSigninTimeTableAdapter;
         private System.Windows.Forms.BindingSource teacherSigninReportBindingSource;
         private TeachersDataSetTableAdapters.TeacherSigninReportTableAdapter teacherSigninReportTableAdapter;
+        private System.Windows.Forms.BindingSource teacherSigninBindingSource;
+        private TeachersDataSetTableAdapters.TeacherSigninTableAdapter teacherSigninTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TeacherSeq;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cardNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sexDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ethnicDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hometownDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn birthDayDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn degreeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn schoolDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn professionalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn graduationTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
     }
 }
