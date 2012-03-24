@@ -3421,14 +3421,14 @@ SELECT ID, Summary, Income, Pay, Remark, CreateDate, Operator, AccountType, Chec
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "SELECT   ID, Summary, Income, Pay, Remark, CreateDate, Operator, AccountType, Che" +
-                "ckUser, CheckDate\r\nFROM      financial_accounts\r\nWHERE   (AccountType <= 1)\r\nord" +
-                "er by CreateDate desc";
+                "ckUser, CheckDate\r\nFROM      financial_accounts\r\nWHERE   (AccountType = 1)\r\norde" +
+                "r by CreateDate desc";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = @"SELECT   ID, Summary, Income, Pay, Remark, CreateDate, Operator, AccountType, CheckUser, CheckDate
 FROM      financial_accounts
-WHERE   (AccountType <= 1) AND (DATEDIFF(day, @BeginDate, CreateDate) >= 0) AND (DATEDIFF(day, @EndDate, 
+WHERE   (AccountType = 1) AND (DATEDIFF(day, @BeginDate, CreateDate) >= 0) AND (DATEDIFF(day, @EndDate, 
                 CreateDate) <= 0)
 ORDER BY CreateDate DESC";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
@@ -3437,8 +3437,8 @@ ORDER BY CreateDate DESC";
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = "SELECT   ID, Summary, Income, Pay, Remark, CreateDate, Operator, AccountType, Che" +
-                "ckUser, CheckDate\r\nFROM      financial_accounts\r\nWHERE   (AccountType <= 1) AND " +
-                "(DATEDIFF(month, CreateDate, GETDATE()) = 0)\r\nORDER BY CreateDate DESC";
+                "ckUser, CheckDate\r\nFROM      financial_accounts\r\nWHERE   (AccountType = 1) AND (" +
+                "DATEDIFF(month, CreateDate, GETDATE()) = 0)\r\nORDER BY CreateDate DESC";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
@@ -4286,15 +4286,15 @@ SELECT ID, Summary, Income, Pay, Remark, CreateDate, Operator, AccountType, Chec
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT   ID, Summary, Income, Pay, Remark, CreateDate, Operator, AccountType, Che" +
-                "ckUser, CheckDate\r\nFROM      financial_accounts\r\nWHERE   (AccountType <= @Accoun" +
-                "tType)\r\nORDER BY CreateDate DESC";
+                "ckUser, CheckDate\r\nFROM      financial_accounts\r\nWHERE   (AccountType = @Account" +
+                "Type)\r\nORDER BY CreateDate DESC";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AccountType", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "AccountType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = @"SELECT   ID, Summary, Income, Pay, Remark, CreateDate, Operator, AccountType, CheckUser, CheckDate
 FROM      financial_accounts
-WHERE   (AccountType <= @AccountType) AND (DATEDIFF(day, @BeginDate, CreateDate) >= 0) AND (DATEDIFF(day, @EndDate, 
+WHERE   (AccountType = @AccountType) AND (DATEDIFF(day, @BeginDate, CreateDate) >= 0) AND (DATEDIFF(day, @EndDate, 
                 CreateDate) <= 0)
 ORDER BY CreateDate DESC";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
@@ -4304,9 +4304,9 @@ ORDER BY CreateDate DESC";
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = "SELECT   ID, Summary, Income, Pay, Remark, CreateDate, Operator, AccountType, Che" +
-                "ckUser, CheckDate\r\nFROM      financial_accounts\r\nWHERE   (AccountType <= @Accoun" +
-                "tType) AND (DATEDIFF(month, CreateDate, GETDATE()) = 0)\r\nORDER BY CreateDate DES" +
-                "C";
+                "ckUser, CheckDate\r\nFROM      financial_accounts\r\nWHERE   (AccountType = @Account" +
+                "Type) AND (DATEDIFF(month, CreateDate, GETDATE()) = 0)\r\nORDER BY CreateDate DESC" +
+                "";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AccountType", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "AccountType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -4899,20 +4899,20 @@ ORDER BY CreateDate DESC";
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT   SUM(Income) - SUM(Pay) AS TotalAmount\r\nFROM      financial_accounts\r\nWHE" +
-                "RE   (AccountType <= 1)";
+                "RE   (AccountType = 1)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "select (sum(financial_accounts.income) - SUM(financial_accounts.pay)) TotalAmount" +
-                " from financial_accounts\r\n  where financial_accounts.AccountType <= 1\r\nand (DATE" +
-                "DIFF(day, @EndDate, CreateDate) <= 0)";
+                " from financial_accounts\r\n  where financial_accounts.AccountType = 1\r\nand (DATED" +
+                "IFF(day, @EndDate, CreateDate) <= 0)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = "select (sum(financial_accounts.income) - SUM(financial_accounts.pay)) TotalAmount" +
-                " from financial_accounts\r\n  where financial_accounts.AccountType <= 1\r\nand (DATE" +
-                "DIFF(day, getdate(), CreateDate) <= 0)";
+                " from financial_accounts\r\n  where financial_accounts.AccountType = 1\r\nand (DATED" +
+                "IFF(day, getdate(), CreateDate) <= 0)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -5159,23 +5159,22 @@ ORDER BY CreateDate DESC";
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "select (sum(financial_accounts.income) - SUM(financial_accounts.pay)) TotalAmount" +
-                " from financial_accounts\r\n  where financial_accounts.AccountType <= @AccountType" +
-                "";
+                " from financial_accounts\r\n  where financial_accounts.AccountType = @AccountType";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AccountType", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "AccountType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "select (sum(financial_accounts.income) - SUM(financial_accounts.pay)) TotalAmount" +
-                " from financial_accounts\r\n  where financial_accounts.AccountType <= @AccountType" +
-                "\r\nand (DATEDIFF(day, @EndDate, CreateDate) <= 0)";
+                " from financial_accounts\r\n  where financial_accounts.AccountType = @AccountType\r" +
+                "\nand (DATEDIFF(day, @EndDate, CreateDate) <= 0)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AccountType", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "AccountType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = "select (sum(financial_accounts.income) - SUM(financial_accounts.pay)) TotalAmount" +
-                " from financial_accounts\r\n  where financial_accounts.AccountType <= @AccountType" +
-                "\r\nand (DATEDIFF(day, getdate(), CreateDate) <= 0)";
+                " from financial_accounts\r\n  where financial_accounts.AccountType = @AccountType\r" +
+                "\nand (DATEDIFF(day, getdate(), CreateDate) <= 0)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AccountType", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "AccountType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }

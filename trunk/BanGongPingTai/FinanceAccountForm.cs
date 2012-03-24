@@ -39,8 +39,8 @@ namespace BanGongPingTai
             txtShowRangeByPXZX.Text = "所有";
             if (User.CurrentUser.UserType > 1)
             {
-                this.financialAccountsHYJYTableAdapter.FillByAccountType(this.financeManageDataSet.FinancialAccountsHYJY, User.CurrentUser.UserType + 1);
-                this.financeAmountHYJYTableAdapter.FillByAll(this.financeManageDataSet.FinanceAmountHYJY, User.CurrentUser.UserType + 1);
+                this.financialAccountsHYJYTableAdapter.FillByAccountType(this.financeManageDataSet.FinancialAccountsHYJY, 2);
+                this.financeAmountHYJYTableAdapter.FillByAll(this.financeManageDataSet.FinanceAmountHYJY, 2);
                 txtShowRangeByHYJY.Text = "所有";
                 this.groupBox2.Visible = true;
             }
@@ -59,8 +59,8 @@ namespace BanGongPingTai
 
         private void btnSearchAllByHYJY_Click(object sender, EventArgs e)
         {
-            this.financialAccountsHYJYTableAdapter.FillByAccountType(this.financeManageDataSet.FinancialAccountsHYJY, User.CurrentUser.UserType+1);
-            this.financeAmountHYJYTableAdapter.FillByAll(this.financeManageDataSet.FinanceAmountHYJY, User.CurrentUser.UserType+1);
+            this.financialAccountsHYJYTableAdapter.FillByAccountType(this.financeManageDataSet.FinancialAccountsHYJY, 2);
+            this.financeAmountHYJYTableAdapter.FillByAll(this.financeManageDataSet.FinanceAmountHYJY, 2);
             txtShowRangeByHYJY.Text = "所有";
         }
 
@@ -73,8 +73,8 @@ namespace BanGongPingTai
 
         private void btnSearchMonthByHYJY_Click(object sender, EventArgs e)
         {
-            this.financialAccountsHYJYTableAdapter.FillByAccountTypeWithMonth(this.financeManageDataSet.FinancialAccountsHYJY, User.CurrentUser.UserType+1);
-            this.financeAmountHYJYTableAdapter.FillByMonth(this.financeManageDataSet.FinanceAmountHYJY, User.CurrentUser.UserType+1);
+            this.financialAccountsHYJYTableAdapter.FillByAccountTypeWithMonth(this.financeManageDataSet.FinancialAccountsHYJY, 2);
+            this.financeAmountHYJYTableAdapter.FillByMonth(this.financeManageDataSet.FinanceAmountHYJY, 2);
             txtShowRangeByHYJY.Text = "本月";
         }
 
@@ -95,8 +95,8 @@ namespace BanGongPingTai
             beginDate = new DateTime(beginDate.Year, beginDate.Month, beginDate.Day, 0, 0, 0);
             DateTime endDate = dtEndDateByHYJY.Value;
             endDate = new DateTime(endDate.Year, endDate.Month, endDate.Day, 0, 0, 0);
-            this.financialAccountsHYJYTableAdapter.FillByAccountTypeWithDate(this.financeManageDataSet.FinancialAccountsHYJY, User.CurrentUser.UserType + 1, beginDate, endDate);
-            this.financeAmountHYJYTableAdapter.FillByBeginEndDate(this.financeManageDataSet.FinanceAmountHYJY, User.CurrentUser.UserType+1, endDate);
+            this.financialAccountsHYJYTableAdapter.FillByAccountTypeWithDate(this.financeManageDataSet.FinancialAccountsHYJY, 2, beginDate, endDate);
+            this.financeAmountHYJYTableAdapter.FillByBeginEndDate(this.financeManageDataSet.FinanceAmountHYJY, 2, endDate);
             txtShowRangeByHYJY.Text = beginDate.ToShortDateString() + " - " + endDate.ToShortDateString();
         }
 
@@ -151,6 +151,9 @@ namespace BanGongPingTai
         private void btnAddByPXZX_Click(object sender, EventArgs e)
         {
             addFinanceAccount(1);
+            this.financialAccountsPXZXTableAdapter.FillByAccountType(this.financeManageDataSet.FinancialAccountsPXZX);
+            this.financeAmountPXZXTableAdapter.FillByAll(this.financeManageDataSet.FinanceAmountPXZX);
+            txtShowRangeByPXZX.Text = "所有";
         }
 
         private void btnUpdateByPXZX_Click(object sender, EventArgs e)
@@ -176,12 +179,6 @@ namespace BanGongPingTai
             this.financialAccountsPXZXTableAdapter.FillByAccountType(this.financeManageDataSet.FinancialAccountsPXZX);
             this.financeAmountPXZXTableAdapter.FillByAll(this.financeManageDataSet.FinanceAmountPXZX);
             txtShowRangeByPXZX.Text = "所有";
-            if (User.CurrentUser.UserType > 1)
-            {
-                this.financialAccountsHYJYTableAdapter.FillByAccountType(this.financeManageDataSet.FinancialAccountsHYJY, User.CurrentUser.UserType + 1);
-                this.financeAmountHYJYTableAdapter.FillByAll(this.financeManageDataSet.FinanceAmountHYJY, User.CurrentUser.UserType + 1);
-                txtShowRangeByHYJY.Text = "所有";
-            }
         }
 
         private void btnDelByPXZX_Click(object sender, EventArgs e)
@@ -195,12 +192,6 @@ namespace BanGongPingTai
                 this.financialAccountsPXZXTableAdapter.FillByAccountType(this.financeManageDataSet.FinancialAccountsPXZX);
                 this.financeAmountPXZXTableAdapter.FillByAll(this.financeManageDataSet.FinanceAmountPXZX);
                 txtShowRangeByPXZX.Text = "所有";
-                if (User.CurrentUser.UserType > 1)
-                {
-                    this.financialAccountsHYJYTableAdapter.FillByAccountType(this.financeManageDataSet.FinancialAccountsHYJY, User.CurrentUser.UserType + 1);
-                    this.financeAmountHYJYTableAdapter.FillByAll(this.financeManageDataSet.FinanceAmountHYJY, User.CurrentUser.UserType + 1);
-                    txtShowRangeByHYJY.Text = "所有";
-                }
             }
         }
 
@@ -215,18 +206,15 @@ namespace BanGongPingTai
                 this.financialAccountsPXZXTableAdapter.FillByAccountType(this.financeManageDataSet.FinancialAccountsPXZX);
                 this.financeAmountPXZXTableAdapter.FillByAll(this.financeManageDataSet.FinanceAmountPXZX);
                 txtShowRangeByPXZX.Text = "所有";
-                if (User.CurrentUser.UserType > 1)
-                {
-                    this.financialAccountsHYJYTableAdapter.FillByAccountType(this.financeManageDataSet.FinancialAccountsHYJY, User.CurrentUser.UserType + 1);
-                    this.financeAmountHYJYTableAdapter.FillByAll(this.financeManageDataSet.FinanceAmountHYJY, User.CurrentUser.UserType + 1);
-                    txtShowRangeByHYJY.Text = "所有";
-                }
             }
         }
 
         private void btnAddByHYJY_Click(object sender, EventArgs e)
         {
             addFinanceAccount(2);
+            this.financialAccountsHYJYTableAdapter.FillByAccountType(this.financeManageDataSet.FinancialAccountsHYJY, 2);
+            this.financeAmountHYJYTableAdapter.FillByAll(this.financeManageDataSet.FinanceAmountHYJY, 2);
+            txtShowRangeByHYJY.Text = "所有";
         }
 
         private void btnUpdateByHYJY_Click(object sender, EventArgs e)
@@ -249,11 +237,8 @@ namespace BanGongPingTai
                 return;
             this.financialAccountsPXZXTableAdapter.UpdateWithoutCheck(frmFinanceAccountUpdate.remark, (decimal)frmFinanceAccountUpdate.income, (decimal)frmFinanceAccountUpdate.pay,
                 frmFinanceAccountUpdate.remark, frmFinanceAccountUpdate.createDate, ID);
-            this.financialAccountsPXZXTableAdapter.FillByAccountType(this.financeManageDataSet.FinancialAccountsPXZX);
-            this.financeAmountPXZXTableAdapter.FillByAll(this.financeManageDataSet.FinanceAmountPXZX);
-            txtShowRangeByPXZX.Text = "所有";
-            this.financialAccountsHYJYTableAdapter.FillByAccountType(this.financeManageDataSet.FinancialAccountsHYJY, User.CurrentUser.UserType + 1);
-            this.financeAmountHYJYTableAdapter.FillByAll(this.financeManageDataSet.FinanceAmountHYJY, User.CurrentUser.UserType + 1);
+            this.financialAccountsHYJYTableAdapter.FillByAccountType(this.financeManageDataSet.FinancialAccountsHYJY, 2);
+            this.financeAmountHYJYTableAdapter.FillByAll(this.financeManageDataSet.FinanceAmountHYJY, 2);
             txtShowRangeByHYJY.Text = "所有";
         }
 
@@ -265,11 +250,8 @@ namespace BanGongPingTai
             {
                 int ID = financeManageDataSet.FinancialAccountsHYJY.Rows[FinanceHYJYBindingSource.Position].Field<int>("ID");
                 this.financialAccountsPXZXTableAdapter.DeleteByID(ID);
-                this.financialAccountsPXZXTableAdapter.FillByAccountType(this.financeManageDataSet.FinancialAccountsPXZX);
-                this.financeAmountPXZXTableAdapter.FillByAll(this.financeManageDataSet.FinanceAmountPXZX);
-                txtShowRangeByPXZX.Text = "所有";
-                this.financialAccountsHYJYTableAdapter.FillByAccountType(this.financeManageDataSet.FinancialAccountsHYJY, User.CurrentUser.UserType + 1);
-                this.financeAmountHYJYTableAdapter.FillByAll(this.financeManageDataSet.FinanceAmountHYJY, User.CurrentUser.UserType + 1);
+                this.financialAccountsHYJYTableAdapter.FillByAccountType(this.financeManageDataSet.FinancialAccountsHYJY, 2);
+                this.financeAmountHYJYTableAdapter.FillByAll(this.financeManageDataSet.FinanceAmountHYJY, 2);
                 txtShowRangeByHYJY.Text = "所有";
             }
         }
@@ -282,11 +264,8 @@ namespace BanGongPingTai
             {
                 int ID = financeManageDataSet.FinancialAccountsHYJY.Rows[FinanceHYJYBindingSource.Position].Field<int>("ID");
                 this.financialAccountsPXZXTableAdapter.UpdateByCheck(User.CurrentUser.UserName, ID);
-                this.financialAccountsPXZXTableAdapter.FillByAccountType(this.financeManageDataSet.FinancialAccountsPXZX);
-                this.financeAmountPXZXTableAdapter.FillByAll(this.financeManageDataSet.FinanceAmountPXZX);
-                txtShowRangeByPXZX.Text = "所有";
-                this.financialAccountsHYJYTableAdapter.FillByAccountType(this.financeManageDataSet.FinancialAccountsHYJY, User.CurrentUser.UserType + 1);
-                this.financeAmountHYJYTableAdapter.FillByAll(this.financeManageDataSet.FinanceAmountHYJY, User.CurrentUser.UserType + 1);
+                this.financialAccountsHYJYTableAdapter.FillByAccountType(this.financeManageDataSet.FinancialAccountsHYJY, 2);
+                this.financeAmountHYJYTableAdapter.FillByAll(this.financeManageDataSet.FinanceAmountHYJY, 2);
                 txtShowRangeByHYJY.Text = "所有";
             }
         }
@@ -297,16 +276,7 @@ namespace BanGongPingTai
             if (frmFinanceAccountAdd.ShowDialog() != DialogResult.OK)
                 return;
             this.financialAccountsPXZXTableAdapter.InsertWithoutCheck(frmFinanceAccountAdd.summary, (decimal)frmFinanceAccountAdd.income, (decimal)frmFinanceAccountAdd.pay,
-                frmFinanceAccountAdd.remark, frmFinanceAccountAdd.createDate, User.CurrentUser.UserName, User.CurrentUser.UserType);
-            this.financialAccountsPXZXTableAdapter.FillByAccountType(this.financeManageDataSet.FinancialAccountsPXZX);
-            this.financeAmountPXZXTableAdapter.FillByAll(this.financeManageDataSet.FinanceAmountPXZX);
-            txtShowRangeByPXZX.Text = "所有";
-            if (User.CurrentUser.UserType > 1)
-            {
-                this.financialAccountsHYJYTableAdapter.FillByAccountType(this.financeManageDataSet.FinancialAccountsHYJY, User.CurrentUser.UserType + 1);
-                this.financeAmountHYJYTableAdapter.FillByAll(this.financeManageDataSet.FinanceAmountHYJY, User.CurrentUser.UserType + 1);
-                txtShowRangeByHYJY.Text = "所有";
-            }
+                frmFinanceAccountAdd.remark, frmFinanceAccountAdd.createDate, User.CurrentUser.UserName, type);
         }
 
         private void FinancePXZXBindingSource_PositionChanged(object sender, EventArgs e)

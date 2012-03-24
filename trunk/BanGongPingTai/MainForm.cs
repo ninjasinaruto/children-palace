@@ -72,10 +72,12 @@ namespace BanGongPingTai
                     if (User.CurrentUser.UserName == "郑文静")
                     {
                         tsbFinanceAccounts.Enabled = true;
+                        tsbTeacherAttendance.Enabled = true;
                     }
                     else
                     {
                         tsbFinanceAccounts.Enabled = false;
+                        tsbTeacherAttendance.Enabled = false;
                     }
                 }
             }

@@ -111,6 +111,7 @@ namespace BanGongPingTai
 
         private void courseSubtypesBindingSource_PositionChanged(object sender, EventArgs e)
         {
+            chkboxAll.Checked = false;
             if (courseSubtypesBindingSource.Position < 0)
             {
                 usersDataSet.Courses.Clear();
@@ -167,6 +168,14 @@ namespace BanGongPingTai
 
         private void coursesBindingSource_BindingComplete(object sender, BindingCompleteEventArgs e)
         {
+        }
+
+        private void chkboxAll_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < this.chkLstCourses.Items.Count; i++)
+            {
+                chkLstCourses.SetItemChecked(i, chkboxAll.Checked);
+            }
         }
     }
 }
