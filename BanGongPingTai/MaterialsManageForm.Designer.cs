@@ -46,9 +46,11 @@
             this.btnAddMaterialType = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dtBuyTime = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtMaterialPrice = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtMaterialName = new System.Windows.Forms.TextBox();
@@ -66,8 +68,6 @@
             this.materialsTableAdapter = new BanGongPingTai.MaterialsTableAdapters.MaterialsTableAdapter();
             this.materialsBuyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.materialsBuyTableAdapter = new BanGongPingTai.MaterialsTableAdapters.MaterialsBuyTableAdapter();
-            this.label14 = new System.Windows.Forms.Label();
-            this.dtBuyTime = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterialList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialsBindingSource)).BeginInit();
@@ -254,6 +254,13 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "购买材料：";
             // 
+            // dtBuyTime
+            // 
+            this.dtBuyTime.Location = new System.Drawing.Point(325, 87);
+            this.dtBuyTime.Name = "dtBuyTime";
+            this.dtBuyTime.Size = new System.Drawing.Size(107, 21);
+            this.dtBuyTime.TabIndex = 8;
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -280,6 +287,15 @@
             this.txtMaterialPrice.ReadOnly = true;
             this.txtMaterialPrice.Size = new System.Drawing.Size(98, 21);
             this.txtMaterialPrice.TabIndex = 2;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(255, 90);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(65, 12);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "购买日期：";
             // 
             // label1
             // 
@@ -420,22 +436,6 @@
             // materialsBuyTableAdapter
             // 
             this.materialsBuyTableAdapter.ClearBeforeFill = true;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(255, 90);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(65, 12);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "购买日期：";
-            // 
-            // dtBuyTime
-            // 
-            this.dtBuyTime.Location = new System.Drawing.Point(325, 87);
-            this.dtBuyTime.Name = "dtBuyTime";
-            this.dtBuyTime.Size = new System.Drawing.Size(121, 21);
-            this.dtBuyTime.TabIndex = 8;
             // 
             // MaterialsManageForm
             // 

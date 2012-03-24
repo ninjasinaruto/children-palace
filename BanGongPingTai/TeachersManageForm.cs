@@ -25,20 +25,30 @@ namespace BanGongPingTai
             if (User.CurrentUser.UserType > 1)
                 btnAddSalary.Enabled = true;
             printTitle = "海鹰教育培训中心"+DateTime.Now.AddMonths(-1).ToString("yyyy年M月") + "工资表";
-            this.teacherWagesTableAdapter.FillByLastMonth(this.teacherWageDataSet.TeacherWages);
             this.teachersTableAdapter.Fill(this.teachersDataSet.Tearchers);
             if (teachersDataSet.Tearchers.Rows.Count > 0)
             {
                 teacherCoursesTableAdapter.Fill(teachersDataSet.TeacherCourses,
                     teachersDataSet.Tearchers.Rows[0].Field<int>("ID"));
             }
+            if (User.CurrentUser.UserType > 1 || User.CurrentUser.UserName == "郑文静")
+            {
+                this.groupBox1.Visible = true;
+                this.teacherWagesTableAdapter.FillByLastMonth(this.teacherWageDataSet.TeacherWages);
+            }
+            else
+            {
+                this.groupBox1.Visible = false;
+            }
             dgvTeacherWages.ColHeaderTreeView = wageColumnsTree;
         }
 
         private void TeachersManageForm_Resize(object sender, EventArgs e)
         {
-            dgvTeacherWages.Width = this.Width - 22;
-            dgvTeacherWages.Height = this.Height - 315;
+            this.groupBox1.Width = this.Width - 22;
+            this.groupBox1.Height = this.Height - 240;
+            dgvTeacherWages.Width = this.Width - 38;
+            dgvTeacherWages.Height = this.Height - 330;
         }
 
         private void btnAddTeacher_Click(object sender, EventArgs e)
@@ -439,7 +449,7 @@ namespace BanGongPingTai
             txtTotalShouldWages.Text = totalShouldWages.ToString();
             txtTotalMinusWages.Text = totalMinusWages.ToString();
             txtTotalRealWages.Text = totalRealWages.ToString();
-            if (teacherWageDataSet.TeacherWages.Rows.Count == 0)
+            if (teacherWageDataSet.TeacherWages.Rows.Count < 0)
             {
                 btnPrint.Enabled = false;
                 btnPrintDetail.Enabled = false;
@@ -642,6 +652,5 @@ namespace BanGongPingTai
                     dgvTeachers.Rows[i].Cells[0].Value = i + 1;
                 }
         }
-
     }
 }

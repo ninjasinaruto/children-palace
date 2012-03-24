@@ -195,7 +195,7 @@ SELECT ID, Summary, Income, Pay, Remark, CreateDate, Operator, AccountType, Chec
               <Mapping SourceColumn="CheckDate" DataSetColumn="CheckDate" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteByID" Modifier="Public" Name="DeleteByID" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="DeleteByID">
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteByID" Modifier="Public" Name="DeleteByID" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteByID">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM financial_accounts
@@ -211,7 +211,7 @@ WHERE   (ID = @Original_ID)</CommandText>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT   ID, Summary, Income, Pay, Remark, CreateDate, Operator, AccountType, CheckUser, CheckDate
 FROM      financial_accounts
-WHERE   (AccountType &lt;= 1)
+WHERE   (AccountType = 1)
 order by CreateDate desc</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -222,7 +222,7 @@ order by CreateDate desc</CommandText>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT   ID, Summary, Income, Pay, Remark, CreateDate, Operator, AccountType, CheckUser, CheckDate
 FROM      financial_accounts
-WHERE   (AccountType &lt;= 1) AND (DATEDIFF(day, @BeginDate, CreateDate) &gt;= 0) AND (DATEDIFF(day, @EndDate, 
+WHERE   (AccountType = 1) AND (DATEDIFF(day, @BeginDate, CreateDate) &gt;= 0) AND (DATEDIFF(day, @EndDate, 
                 CreateDate) &lt;= 0)
 ORDER BY CreateDate DESC</CommandText>
                     <Parameters>
@@ -237,13 +237,13 @@ ORDER BY CreateDate DESC</CommandText>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT   ID, Summary, Income, Pay, Remark, CreateDate, Operator, AccountType, CheckUser, CheckDate
 FROM      financial_accounts
-WHERE   (AccountType &lt;= 1) AND (DATEDIFF(month, CreateDate, GETDATE()) = 0)
+WHERE   (AccountType = 1) AND (DATEDIFF(month, CreateDate, GETDATE()) = 0)
 ORDER BY CreateDate DESC</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertWithoutCheck" Modifier="Public" Name="InsertWithoutCheck" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertWithoutCheck">
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertWithoutCheck" Modifier="Public" Name="InsertWithoutCheck" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="InsertWithoutCheck">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO financial_accounts
@@ -261,7 +261,7 @@ VALUES   (@Summary,@Income,@Pay,@Remark,@CreateDate,@Operator,@AccountType);  </
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateByCheck" Modifier="Public" Name="UpdateByCheck" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UpdateByCheck">
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateByCheck" Modifier="Public" Name="UpdateByCheck" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="UpdateByCheck">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE  financial_accounts
@@ -274,7 +274,7 @@ WHERE   (ID = @Original_ID);  </CommandText>
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateWithoutCheck" Modifier="Public" Name="UpdateWithoutCheck" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="UpdateWithoutCheck">
+              <DbSource ConnectionRef="ChildrenPalaceConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateWithoutCheck" Modifier="Public" Name="UpdateWithoutCheck" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="UpdateWithoutCheck">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE  financial_accounts
@@ -395,7 +395,7 @@ SELECT ID, Summary, Income, Pay, Remark, CreateDate, Operator, AccountType, Chec
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT   ID, Summary, Income, Pay, Remark, CreateDate, Operator, AccountType, CheckUser, CheckDate
 FROM      financial_accounts
-WHERE   (AccountType &lt;= @AccountType)
+WHERE   (AccountType = @AccountType)
 ORDER BY CreateDate DESC</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="AccountType" ColumnName="AccountType" DataSourceName="ChildrenPalace.dbo.financial_accounts" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@AccountType" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="AccountType" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -408,7 +408,7 @@ ORDER BY CreateDate DESC</CommandText>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT   ID, Summary, Income, Pay, Remark, CreateDate, Operator, AccountType, CheckUser, CheckDate
 FROM      financial_accounts
-WHERE   (AccountType &lt;= @AccountType) AND (DATEDIFF(day, @BeginDate, CreateDate) &gt;= 0) AND (DATEDIFF(day, @EndDate, 
+WHERE   (AccountType = @AccountType) AND (DATEDIFF(day, @BeginDate, CreateDate) &gt;= 0) AND (DATEDIFF(day, @EndDate, 
                 CreateDate) &lt;= 0)
 ORDER BY CreateDate DESC</CommandText>
                     <Parameters>
@@ -424,7 +424,7 @@ ORDER BY CreateDate DESC</CommandText>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT   ID, Summary, Income, Pay, Remark, CreateDate, Operator, AccountType, CheckUser, CheckDate
 FROM      financial_accounts
-WHERE   (AccountType &lt;= @AccountType) AND (DATEDIFF(month, CreateDate, GETDATE()) = 0)
+WHERE   (AccountType = @AccountType) AND (DATEDIFF(month, CreateDate, GETDATE()) = 0)
 ORDER BY CreateDate DESC</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="AccountType" ColumnName="AccountType" DataSourceName="ChildrenPalace.dbo.financial_accounts" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@AccountType" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="AccountType" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -455,7 +455,7 @@ FROM      financial_accounts</CommandText>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT   SUM(Income) - SUM(Pay) AS TotalAmount
 FROM      financial_accounts
-WHERE   (AccountType &lt;= 1)</CommandText>
+WHERE   (AccountType = 1)</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -464,7 +464,7 @@ WHERE   (AccountType &lt;= 1)</CommandText>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>select (sum(financial_accounts.income) - SUM(financial_accounts.pay)) TotalAmount from financial_accounts
-  where financial_accounts.AccountType &lt;= 1
+  where financial_accounts.AccountType = 1
 and (DATEDIFF(day, @EndDate, CreateDate) &lt;= 0)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="EndDate" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -476,7 +476,7 @@ and (DATEDIFF(day, @EndDate, CreateDate) &lt;= 0)</CommandText>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>select (sum(financial_accounts.income) - SUM(financial_accounts.pay)) TotalAmount from financial_accounts
-  where financial_accounts.AccountType &lt;= 1
+  where financial_accounts.AccountType = 1
 and (DATEDIFF(day, getdate(), CreateDate) &lt;= 0)</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -503,7 +503,7 @@ and (DATEDIFF(day, getdate(), CreateDate) &lt;= 0)</CommandText>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>select (sum(financial_accounts.income) - SUM(financial_accounts.pay)) TotalAmount from financial_accounts
-  where financial_accounts.AccountType &lt;= @AccountType</CommandText>
+  where financial_accounts.AccountType = @AccountType</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="AccountType" ColumnName="AccountType" DataSourceName="ChildrenPalace.dbo.financial_accounts" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@AccountType" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="AccountType" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
@@ -514,7 +514,7 @@ and (DATEDIFF(day, getdate(), CreateDate) &lt;= 0)</CommandText>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>select (sum(financial_accounts.income) - SUM(financial_accounts.pay)) TotalAmount from financial_accounts
-  where financial_accounts.AccountType &lt;= @AccountType
+  where financial_accounts.AccountType = @AccountType
 and (DATEDIFF(day, @EndDate, CreateDate) &lt;= 0)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="AccountType" ColumnName="AccountType" DataSourceName="ChildrenPalace.dbo.financial_accounts" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@AccountType" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="AccountType" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -527,7 +527,7 @@ and (DATEDIFF(day, @EndDate, CreateDate) &lt;= 0)</CommandText>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>select (sum(financial_accounts.income) - SUM(financial_accounts.pay)) TotalAmount from financial_accounts
-  where financial_accounts.AccountType &lt;= @AccountType
+  where financial_accounts.AccountType = @AccountType
 and (DATEDIFF(day, getdate(), CreateDate) &lt;= 0)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="AccountType" ColumnName="AccountType" DataSourceName="ChildrenPalace.dbo.financial_accounts" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@AccountType" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="AccountType" SourceColumnNullMapping="false" SourceVersion="Current" />

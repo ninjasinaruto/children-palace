@@ -59,6 +59,7 @@
             this.courseTypesTableAdapter = new BanGongPingTai.UsersDataSetTableAdapters.CourseTypesTableAdapter();
             this.courseSubtypesTableAdapter = new BanGongPingTai.UsersDataSetTableAdapters.CourseSubtypesTableAdapter();
             this.coursesTableAdapter = new BanGongPingTai.UsersDataSetTableAdapters.CoursesTableAdapter();
+            this.chkboxAll = new System.Windows.Forms.CheckBox();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.courseSubtypesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersDataSet)).BeginInit();
@@ -73,6 +74,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.chkboxAll);
             this.groupBox4.Controls.Add(this.chkLstCourses);
             this.groupBox4.Controls.Add(this.lstCourseSubtypes);
             this.groupBox4.Controls.Add(this.lstCourseType);
@@ -320,6 +322,17 @@
             // 
             this.coursesTableAdapter.ClearBeforeFill = true;
             // 
+            // chkboxAll
+            // 
+            this.chkboxAll.AutoSize = true;
+            this.chkboxAll.Location = new System.Drawing.Point(466, 33);
+            this.chkboxAll.Name = "chkboxAll";
+            this.chkboxAll.Size = new System.Drawing.Size(48, 16);
+            this.chkboxAll.TabIndex = 38;
+            this.chkboxAll.Text = "全选";
+            this.chkboxAll.UseVisualStyleBackColor = true;
+            this.chkboxAll.Click += new System.EventHandler(this.chkboxAll_Click);
+            // 
             // UsersManageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -380,5 +393,6 @@
         private UsersDataSetTableAdapters.CourseSubtypesTableAdapter courseSubtypesTableAdapter;
         private System.Windows.Forms.BindingSource coursesBindingSource;
         private UsersDataSetTableAdapters.CoursesTableAdapter coursesTableAdapter;
+        private System.Windows.Forms.CheckBox chkboxAll;
     }
 }
