@@ -22,13 +22,13 @@ namespace BanGongPingTai
             this.groupBox1.Width = this.Width / 2 - 30;
             this.groupBox1.Height = this.Height - 70;
             this.dgvFinanceByPXZX.Width = this.Width / 2 - 65;
-            this.dgvFinanceByPXZX.Height = this.Height - 210;
+            this.dgvFinanceByPXZX.Height = this.Height - 235;
             this.panel1.Top = this.Height - 120;
             this.groupBox2.Left = this.Width / 2 + 10;
             this.groupBox2.Width = this.Width / 2 - 30;
             this.groupBox2.Height = this.Height - 70;
             this.dgvFinanceByHYJY.Width = this.Width / 2 - 65;
-            this.dgvFinanceByHYJY.Height = this.Height - 210;
+            this.dgvFinanceByHYJY.Height = this.Height - 235;
             this.panel2.Top = this.Height - 120; 
         }
 
@@ -131,6 +131,21 @@ namespace BanGongPingTai
             {
                 btnDelByPXZX.Enabled = true;
             }
+            double totalIncome = 0.00;
+            double totalPay = 0.00;
+            double total = 0.00;
+
+            foreach (DataRow row in financeManageDataSet.FinancialAccountsPXZX.Rows)
+            {
+                if (!row.IsNull("Income"))
+                    totalIncome += (double)row.Field<decimal>("Income");
+                if (!row.IsNull("Pay"))
+                    totalPay += (double)row.Field<decimal>("Pay");
+            }
+            total = totalIncome - totalPay;
+            txtTotalIncomeByPXZX.Text = totalIncome.ToString();
+            txtTotalPayByPXZX.Text = totalPay.ToString();
+            txtTotalAmountByPXZX.Text = total.ToString();
         }
 
         private void FinanceHYJYBindingSource_ListChanged(object sender, ListChangedEventArgs e)
@@ -146,6 +161,21 @@ namespace BanGongPingTai
             {
                 btnDelByHYJY.Enabled = true;
             }
+            double totalIncome = 0.00;
+            double totalPay = 0.00;
+            double total = 0.00;
+
+            foreach (DataRow row in financeManageDataSet.FinancialAccountsHYJY.Rows)
+            {
+                if (!row.IsNull("Income"))
+                    totalIncome += (double)row.Field<decimal>("Income");
+                if (!row.IsNull("Pay"))
+                    totalPay += (double)row.Field<decimal>("Pay");
+            }
+            total = totalIncome - totalPay;
+            txtTotalIncomeByHYJY.Text = totalIncome.ToString();
+            txtTotalPayByHYJY.Text = totalPay.ToString();
+            txtTotalAmountByHYJY.Text = total.ToString();
         }
 
         private void btnAddByPXZX_Click(object sender, EventArgs e)
