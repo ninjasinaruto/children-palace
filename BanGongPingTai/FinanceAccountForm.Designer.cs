@@ -38,6 +38,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTotalPayByPXZX = new System.Windows.Forms.TextBox();
+            this.txtTotalIncomeByPXZX = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnSearchAllByPXZX = new System.Windows.Forms.Button();
             this.btnSearchMonthByPXZX = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -70,6 +74,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtTotalPayByHYJY = new System.Windows.Forms.TextBox();
+            this.txtTotalIncomeByHYJY = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.btnSearchAllByHYJY = new System.Windows.Forms.Button();
             this.btnSearchMonthByHYJY = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -104,6 +112,10 @@
             this.financialAccountsHYJYTableAdapter = new BanGongPingTai.FinanceManageDataSetTableAdapters.FinancialAccountsHYJYTableAdapter();
             this.financeAmountPXZXTableAdapter = new BanGongPingTai.FinanceManageDataSetTableAdapters.FinanceAmountPXZXTableAdapter();
             this.financeAmountHYJYTableAdapter = new BanGongPingTai.FinanceManageDataSetTableAdapters.FinanceAmountHYJYTableAdapter();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtTotalAmountByPXZX = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtTotalAmountByHYJY = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFinanceByPXZX)).BeginInit();
@@ -119,6 +131,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtTotalAmountByPXZX);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.txtTotalPayByPXZX);
+            this.groupBox1.Controls.Add(this.txtTotalIncomeByPXZX);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.btnSearchAllByPXZX);
             this.groupBox1.Controls.Add(this.btnSearchMonthByPXZX);
             this.groupBox1.Controls.Add(this.panel1);
@@ -140,6 +158,40 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "培训中心收支明细";
+            // 
+            // txtTotalPayByPXZX
+            // 
+            this.txtTotalPayByPXZX.Location = new System.Drawing.Point(276, 85);
+            this.txtTotalPayByPXZX.Name = "txtTotalPayByPXZX";
+            this.txtTotalPayByPXZX.ReadOnly = true;
+            this.txtTotalPayByPXZX.Size = new System.Drawing.Size(119, 21);
+            this.txtTotalPayByPXZX.TabIndex = 42;
+            // 
+            // txtTotalIncomeByPXZX
+            // 
+            this.txtTotalIncomeByPXZX.Location = new System.Drawing.Point(81, 84);
+            this.txtTotalIncomeByPXZX.Name = "txtTotalIncomeByPXZX";
+            this.txtTotalIncomeByPXZX.ReadOnly = true;
+            this.txtTotalIncomeByPXZX.Size = new System.Drawing.Size(119, 21);
+            this.txtTotalIncomeByPXZX.TabIndex = 41;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(212, 89);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(65, 12);
+            this.label11.TabIndex = 40;
+            this.label11.Text = "支出汇总：";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(16, 89);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 12);
+            this.label7.TabIndex = 39;
+            this.label7.Text = "收入汇总：";
             // 
             // btnSearchAllByPXZX
             // 
@@ -229,14 +281,14 @@
             this.checkUserDataGridViewTextBoxColumn,
             this.checkDateDataGridViewTextBoxColumn});
             this.dgvFinanceByPXZX.DataSource = this.FinancePXZXBindingSource;
-            this.dgvFinanceByPXZX.Location = new System.Drawing.Point(18, 87);
+            this.dgvFinanceByPXZX.Location = new System.Drawing.Point(18, 112);
             this.dgvFinanceByPXZX.MultiSelect = false;
             this.dgvFinanceByPXZX.Name = "dgvFinanceByPXZX";
             this.dgvFinanceByPXZX.ReadOnly = true;
             this.dgvFinanceByPXZX.RowHeadersVisible = false;
             this.dgvFinanceByPXZX.RowTemplate.Height = 23;
             this.dgvFinanceByPXZX.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFinanceByPXZX.Size = new System.Drawing.Size(625, 507);
+            this.dgvFinanceByPXZX.Size = new System.Drawing.Size(625, 482);
             this.dgvFinanceByPXZX.TabIndex = 35;
             this.dgvFinanceByPXZX.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvFinanceByPXZX_DataBindingComplete);
             // 
@@ -433,6 +485,12 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtTotalAmountByHYJY);
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.txtTotalPayByHYJY);
+            this.groupBox2.Controls.Add(this.txtTotalIncomeByHYJY);
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.btnSearchAllByHYJY);
             this.groupBox2.Controls.Add(this.btnSearchMonthByHYJY);
             this.groupBox2.Controls.Add(this.panel2);
@@ -454,6 +512,40 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "海鹰教育收支明细";
+            // 
+            // txtTotalPayByHYJY
+            // 
+            this.txtTotalPayByHYJY.Location = new System.Drawing.Point(280, 85);
+            this.txtTotalPayByHYJY.Name = "txtTotalPayByHYJY";
+            this.txtTotalPayByHYJY.ReadOnly = true;
+            this.txtTotalPayByHYJY.Size = new System.Drawing.Size(119, 21);
+            this.txtTotalPayByHYJY.TabIndex = 44;
+            // 
+            // txtTotalIncomeByHYJY
+            // 
+            this.txtTotalIncomeByHYJY.Location = new System.Drawing.Point(79, 85);
+            this.txtTotalIncomeByHYJY.Name = "txtTotalIncomeByHYJY";
+            this.txtTotalIncomeByHYJY.ReadOnly = true;
+            this.txtTotalIncomeByHYJY.Size = new System.Drawing.Size(119, 21);
+            this.txtTotalIncomeByHYJY.TabIndex = 43;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(214, 89);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(65, 12);
+            this.label14.TabIndex = 41;
+            this.label14.Text = "支出汇总：";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(14, 89);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(65, 12);
+            this.label13.TabIndex = 41;
+            this.label13.Text = "收入汇总：";
             // 
             // btnSearchAllByHYJY
             // 
@@ -543,14 +635,14 @@
             this.checkUserDataGridViewTextBoxColumn1,
             this.checkDateDataGridViewTextBoxColumn1});
             this.dgvFinanceByHYJY.DataSource = this.FinanceHYJYBindingSource;
-            this.dgvFinanceByHYJY.Location = new System.Drawing.Point(16, 87);
+            this.dgvFinanceByHYJY.Location = new System.Drawing.Point(16, 112);
             this.dgvFinanceByHYJY.MultiSelect = false;
             this.dgvFinanceByHYJY.Name = "dgvFinanceByHYJY";
             this.dgvFinanceByHYJY.ReadOnly = true;
             this.dgvFinanceByHYJY.RowHeadersVisible = false;
             this.dgvFinanceByHYJY.RowTemplate.Height = 23;
             this.dgvFinanceByHYJY.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFinanceByHYJY.Size = new System.Drawing.Size(631, 507);
+            this.dgvFinanceByHYJY.Size = new System.Drawing.Size(631, 482);
             this.dgvFinanceByHYJY.TabIndex = 36;
             this.dgvFinanceByHYJY.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvFinanceByHYJY_DataBindingComplete);
             // 
@@ -756,6 +848,40 @@
             // 
             this.financeAmountHYJYTableAdapter.ClearBeforeFill = true;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(409, 89);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(41, 12);
+            this.label15.TabIndex = 43;
+            this.label15.Text = "结余：";
+            // 
+            // txtTotalAmountByPXZX
+            // 
+            this.txtTotalAmountByPXZX.Location = new System.Drawing.Point(453, 84);
+            this.txtTotalAmountByPXZX.Name = "txtTotalAmountByPXZX";
+            this.txtTotalAmountByPXZX.ReadOnly = true;
+            this.txtTotalAmountByPXZX.Size = new System.Drawing.Size(119, 21);
+            this.txtTotalAmountByPXZX.TabIndex = 44;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(418, 89);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(41, 12);
+            this.label16.TabIndex = 45;
+            this.label16.Text = "结余：";
+            // 
+            // txtTotalAmountByHYJY
+            // 
+            this.txtTotalAmountByHYJY.Location = new System.Drawing.Point(463, 85);
+            this.txtTotalAmountByHYJY.Name = "txtTotalAmountByHYJY";
+            this.txtTotalAmountByHYJY.ReadOnly = true;
+            this.txtTotalAmountByHYJY.Size = new System.Drawing.Size(119, 21);
+            this.txtTotalAmountByHYJY.TabIndex = 46;
+            // 
             // FinanceAccountForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -855,5 +981,17 @@
         private System.Windows.Forms.BindingSource FinanceAmountHYJYBindingSource;
         private FinanceManageDataSetTableAdapters.FinanceAmountPXZXTableAdapter financeAmountPXZXTableAdapter;
         private FinanceManageDataSetTableAdapters.FinanceAmountHYJYTableAdapter financeAmountHYJYTableAdapter;
+        private System.Windows.Forms.TextBox txtTotalPayByPXZX;
+        private System.Windows.Forms.TextBox txtTotalIncomeByPXZX;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtTotalPayByHYJY;
+        private System.Windows.Forms.TextBox txtTotalIncomeByHYJY;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtTotalAmountByPXZX;
+        private System.Windows.Forms.TextBox txtTotalAmountByHYJY;
+        private System.Windows.Forms.Label label16;
     }
 }

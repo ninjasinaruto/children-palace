@@ -124,25 +124,25 @@
     <value>17, 17</value>
   </metadata>
   <metadata name="financeManageDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>200, 17</value>
+    <value>231, 17</value>
   </metadata>
   <metadata name="FinanceAmoutPXZXBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1131, 17</value>
+    <value>1162, 17</value>
   </metadata>
   <metadata name="HYJYSeq.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="FinanceHYJYBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>655, 17</value>
+    <value>686, 17</value>
   </metadata>
   <metadata name="FinanceAmountHYJYBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 56</value>
   </metadata>
   <metadata name="financialAccountsPXZXTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>389, 17</value>
+    <value>420, 17</value>
   </metadata>
   <metadata name="financialAccountsHYJYTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>867, 17</value>
+    <value>898, 17</value>
   </metadata>
   <metadata name="financeAmountPXZXTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>277, 56</value>
