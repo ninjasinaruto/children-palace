@@ -166,6 +166,7 @@ namespace QianDao
                         // 查看当前学生是否已经过期
                         if (row.Field<DateTime>("ExpireTime") < DateTime.Now)
                         {
+                            ShowArrearsStudentInfo(row.Field<string>("Name"), row.Field<DateTime>("ExpireTime"));
                             // 欠费
                             ShowSignInFailedInfo("您已欠费，请及时缴费");
                             studentSignInTableAdapter.InsertSignInRecord(row.Field<int>("ID"), DateTime.Now);
@@ -195,6 +196,7 @@ namespace QianDao
                                     // 1.判断该课程是否过期
                                     if (scRow.Field<DateTime>("ExpireTime") < DateTime.Now)
                                     {
+                                        ShowArrearsStudentInfo(row.Field<string>("Name"), scRow.Field<DateTime>("ExpireTime"));
                                         ShowSignInFailedInfo("您已欠费，请及时缴费");
                                         studentSignInTableAdapter.InsertSignInRecord(row.Field<int>("ID"), DateTime.Now);
                                         Monitor.Exit(this);//取消锁定
@@ -238,6 +240,7 @@ namespace QianDao
                                         {
                                             if (actualCost > balance)
                                             {
+                                                ShowArrearsStudentInfo(row.Field<string>("Name"), scRow.Field<DateTime>("ExpireTime"));
                                                 ShowSignInFailedInfo("余额不足，请及时缴费");
                                                 studentSignInTableAdapter.InsertSignInRecord(row.Field<int>("ID"), DateTime.Now);
                                                 Monitor.Exit(this);//取消锁定
@@ -279,6 +282,7 @@ namespace QianDao
                                         // 1.判断该课程是否过期
                                         if (scRow[0].Field<DateTime>("ExpireTime") < DateTime.Now)
                                         {
+                                            ShowArrearsStudentInfo(row.Field<string>("Name"), scRow[0].Field<DateTime>("ExpireTime"));
                                             ShowSignInFailedInfo("您已欠费，请及时缴费");
                                             studentSignInTableAdapter.InsertSignInRecord(row.Field<int>("ID"), DateTime.Now);
                                             Monitor.Exit(this);//取消锁定
@@ -322,6 +326,7 @@ namespace QianDao
                                             {
                                                 if (actualCost > balance)
                                                 {
+                                                    ShowArrearsStudentInfo(row.Field<string>("Name"), scRow[0].Field<DateTime>("ExpireTime"));
                                                     ShowSignInFailedInfo("余额不足，请及时缴费");
                                                     studentSignInTableAdapter.InsertSignInRecord(row.Field<int>("ID"), DateTime.Now);
                                                     Monitor.Exit(this);//取消锁定
@@ -395,6 +400,7 @@ namespace QianDao
                 // 查看当前学生是否已经过期
                 if (row.Field<DateTime>("ExpireTime") < DateTime.Now)
                 {
+                    ShowArrearsStudentInfo(row.Field<string>("Name"),row.Field<DateTime>("ExpireTime"));
                     // 欠费
                     ShowSignInFailedInfo("您已欠费，请及时缴费");
                     studentSignInTableAdapter.InsertSignInRecord(row.Field<int>("ID"), DateTime.Now);
@@ -420,6 +426,7 @@ namespace QianDao
                             // 1.判断该课程是否过期
                             if (scRow.Field<DateTime>("ExpireTime") < DateTime.Now)
                             {
+                                ShowArrearsStudentInfo(row.Field<string>("Name"), scRow.Field<DateTime>("ExpireTime"));
                                 ShowSignInFailedInfo("您已欠费，请及时缴费");
                                 studentSignInTableAdapter.InsertSignInRecord(row.Field<int>("ID"), DateTime.Now);
                                 return;
@@ -459,6 +466,7 @@ namespace QianDao
                                 {
                                     if (actualCost > balance)
                                     {
+                                        ShowArrearsStudentInfo(row.Field<string>("Name"), scRow.Field<DateTime>("ExpireTime"));
                                         ShowSignInFailedInfo("余额不足，请及时缴费");
                                         studentSignInTableAdapter.InsertSignInRecord(row.Field<int>("ID"), DateTime.Now);
                                         return;
@@ -496,6 +504,7 @@ namespace QianDao
                                 // 1.判断该课程是否过期
                                 if (scRow[0].Field<DateTime>("ExpireTime") < DateTime.Now)
                                 {
+                                    ShowArrearsStudentInfo(row.Field<string>("Name"), scRow[0].Field<DateTime>("ExpireTime"));
                                     ShowSignInFailedInfo("您已欠费，请及时缴费");
                                     studentSignInTableAdapter.InsertSignInRecord(row.Field<int>("ID"), DateTime.Now);
                                     return;
@@ -535,6 +544,7 @@ namespace QianDao
                                     {
                                         if (actualCost > balance)
                                         {
+                                            ShowArrearsStudentInfo(row.Field<string>("Name"), scRow[0].Field<DateTime>("ExpireTime"));
                                             ShowSignInFailedInfo("余额不足，请及时缴费");
                                             studentSignInTableAdapter.InsertSignInRecord(row.Field<int>("ID"), DateTime.Now);
                                             return;
@@ -675,6 +685,19 @@ namespace QianDao
                     break;
             }
             lblTime.Text = DateTime.Now.ToLongTimeString();
+        }
+
+        private void ShowArrearsStudentInfo(string studentName, DateTime expireTime)
+        {
+            StringBuilder info = new StringBuilder();
+            info.Append(studentName);
+            if (expireTime != null)
+            {
+                info.Append("（到期时间：");
+                info.Append(expireTime.ToString("yyyy年MM月dd日"));
+                info.Append("）");
+            }
+            lblName.Text = info.ToString();
         }
 
         private void ClearStudentInfo()
