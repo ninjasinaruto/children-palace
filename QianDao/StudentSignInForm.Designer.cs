@@ -71,7 +71,7 @@
             // txtCardNo
             // 
             this.txtCardNo.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtCardNo.Location = new System.Drawing.Point(362, 24);
+            this.txtCardNo.Location = new System.Drawing.Point(407, 68);
             this.txtCardNo.Name = "txtCardNo";
             this.txtCardNo.Size = new System.Drawing.Size(406, 71);
             this.txtCardNo.TabIndex = 1;
@@ -82,8 +82,8 @@
             this.lblStatus.AutoSize = true;
             this.lblStatus.BackColor = System.Drawing.Color.Transparent;
             this.lblStatus.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblStatus.ForeColor = System.Drawing.Color.Lime;
-            this.lblStatus.Location = new System.Drawing.Point(362, 588);
+            this.lblStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.lblStatus.Location = new System.Drawing.Point(397, 645);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(252, 56);
             this.lblStatus.TabIndex = 0;
@@ -94,8 +94,8 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.ForeColor = System.Drawing.Color.Yellow;
-            this.label2.Location = new System.Drawing.Point(161, 204);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(76)))), ((int)(((byte)(39)))));
+            this.label2.Location = new System.Drawing.Point(196, 223);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(195, 56);
             this.label2.TabIndex = 0;
@@ -106,8 +106,8 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.ForeColor = System.Drawing.Color.Yellow;
-            this.label1.Location = new System.Drawing.Point(161, 39);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(76)))), ((int)(((byte)(39)))));
+            this.label1.Location = new System.Drawing.Point(196, 71);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(195, 56);
             this.label1.TabIndex = 0;
@@ -118,20 +118,20 @@
             this.lblName.AutoSize = true;
             this.lblName.BackColor = System.Drawing.Color.Transparent;
             this.lblName.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblName.ForeColor = System.Drawing.Color.Lime;
-            this.lblName.Location = new System.Drawing.Point(362, 204);
+            this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.lblName.Location = new System.Drawing.Point(397, 223);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(195, 56);
+            this.lblName.Size = new System.Drawing.Size(997, 56);
             this.lblName.TabIndex = 0;
-            this.lblName.Text = "陈先文";
+            this.lblName.Text = "陈先文（到期时间：2012年03月31日）";
             // 
             // lblCardType
             // 
             this.lblCardType.AutoSize = true;
             this.lblCardType.BackColor = System.Drawing.Color.Transparent;
             this.lblCardType.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblCardType.ForeColor = System.Drawing.Color.Lime;
-            this.lblCardType.Location = new System.Drawing.Point(362, 332);
+            this.lblCardType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.lblCardType.Location = new System.Drawing.Point(397, 366);
             this.lblCardType.Name = "lblCardType";
             this.lblCardType.Size = new System.Drawing.Size(195, 56);
             this.lblCardType.TabIndex = 0;
@@ -142,8 +142,8 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.ForeColor = System.Drawing.Color.Yellow;
-            this.label6.Location = new System.Drawing.Point(47, 332);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(76)))), ((int)(((byte)(39)))));
+            this.label6.Location = new System.Drawing.Point(82, 366);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(309, 56);
             this.label6.TabIndex = 0;
@@ -154,8 +154,8 @@
             this.lblTime.AutoSize = true;
             this.lblTime.BackColor = System.Drawing.Color.Transparent;
             this.lblTime.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblTime.ForeColor = System.Drawing.Color.Lime;
-            this.lblTime.Location = new System.Drawing.Point(362, 459);
+            this.lblTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.lblTime.Location = new System.Drawing.Point(397, 509);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(256, 56);
             this.lblTime.TabIndex = 0;
@@ -166,8 +166,8 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.ForeColor = System.Drawing.Color.Yellow;
-            this.label8.Location = new System.Drawing.Point(47, 459);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(76)))), ((int)(((byte)(39)))));
+            this.label8.Location = new System.Drawing.Point(82, 509);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(309, 56);
             this.label8.TabIndex = 0;
@@ -178,8 +178,8 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.ForeColor = System.Drawing.Color.Yellow;
-            this.label3.Location = new System.Drawing.Point(47, 588);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(76)))), ((int)(((byte)(39)))));
+            this.label3.Location = new System.Drawing.Point(82, 645);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(309, 56);
             this.label3.TabIndex = 0;
@@ -266,8 +266,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::QianDao.Properties.Resources.untitled;
-            this.ClientSize = new System.Drawing.Size(1024, 715);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(1390, 768);
             this.Controls.Add(this.txtCardNo);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
