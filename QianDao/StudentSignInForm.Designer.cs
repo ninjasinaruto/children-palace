@@ -57,6 +57,8 @@
             this.vCardsTableAdapter = new QianDao.SignInDataSetTableAdapters.VCardsTableAdapter();
             this.teacherSigninBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teacherSigninTableAdapter = new QianDao.SignInDataSetTableAdapters.TeacherSigninTableAdapter();
+            this.softwareVersionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.softwareVersionTableAdapter = new QianDao.SignInDataSetTableAdapters.SoftwareVersionTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.studentSignInBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.signInDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentsBindingSource)).BeginInit();
@@ -66,6 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.studentCoursesCostbindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vCardsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSigninBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.softwareVersionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // txtCardNo
@@ -262,12 +265,21 @@
             // 
             this.teacherSigninTableAdapter.ClearBeforeFill = true;
             // 
+            // softwareVersionBindingSource
+            // 
+            this.softwareVersionBindingSource.DataMember = "SoftwareVersion";
+            this.softwareVersionBindingSource.DataSource = this.signInDataSet;
+            // 
+            // softwareVersionTableAdapter
+            // 
+            this.softwareVersionTableAdapter.ClearBeforeFill = true;
+            // 
             // StudentSignInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1390, 768);
+            this.ClientSize = new System.Drawing.Size(1290, 768);
             this.Controls.Add(this.txtCardNo);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
@@ -282,7 +294,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StudentSignInForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "签到平台";
             this.Activated += new System.EventHandler(this.StudentSignInForm_Activated);
             this.Deactivate += new System.EventHandler(this.StudentSignInForm_Deactivate);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StudentSignInForm_FormClosing);
@@ -296,6 +307,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.studentCoursesCostbindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vCardsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSigninBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.softwareVersionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -330,6 +342,8 @@
         private SignInDataSetTableAdapters.VCardsTableAdapter vCardsTableAdapter;
         private System.Windows.Forms.BindingSource teacherSigninBindingSource;
         private SignInDataSetTableAdapters.TeacherSigninTableAdapter teacherSigninTableAdapter;
+        private System.Windows.Forms.BindingSource softwareVersionBindingSource;
+        private SignInDataSetTableAdapters.SoftwareVersionTableAdapter softwareVersionTableAdapter;
     }
 }
 
