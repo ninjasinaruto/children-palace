@@ -58,6 +58,7 @@ namespace QianDao
         private int _icdev = -1;
 
         private int _currentDayOfWeek;
+        private const string currentVersion = "1.0.8";
 
         public StudentSignInForm()
         {
@@ -577,6 +578,7 @@ namespace QianDao
 
         private void StudentSignInForm_Load(object sender, EventArgs e)
         {
+            this.softwareVersionTableAdapter.Fill(this.signInDataSet.SoftwareVersion);
             this.vCardsTableAdapter.Fill(this.signInDataSet.VCards);
             this.studentCostTableAdapter.Fill(this.signInDataSet.StudentCost);
             this.signInDataSet.EnforceConstraints = false;
@@ -600,7 +602,30 @@ namespace QianDao
                 MessageBox.Show("初始化读卡器失败！", "初始化读卡器失败", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
-
+            DataRow[] rows = signInDataSet.SoftwareVersion.Select("SoftwareName = 'XueShengQianDao'");
+            if (rows.Length <= 0)
+            {
+                MessageBox.Show("数据库配置错误，无法找到版本信息！", "数据库配置错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Close();
+                return;
+            }
+            string latestVersion = rows[0].Field<string>("SoftwareVersion");
+            if (latestVersion != currentVersion)
+            {
+                MessageBox.Show("软件版本过期，当前版本为" + currentVersion + "，请更新至" + latestVersion + "版",
+                    "软件版本过期", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Close();
+                return;
+            }
+            string softName = rows[0].Field<string>("Remark");
+            if (softName != null && softName.Length != 0)
+            {
+                this.Text = softName;
+            }
+            else
+            {
+                this.Text = "";
+            }
             studentsTableAdapter.Fill(signInDataSet.Students);
             ClearStudentInfo();
         }
