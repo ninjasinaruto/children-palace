@@ -39,6 +39,15 @@ namespace BanGongPingTai
                 this.Close();
                 return;
             }
+            string softName = rows[0].Field<string>("Remark");
+            if (softName != null && softName.Length != 0)
+            {
+                this.Text = softName;
+            }
+            else
+            {
+                this.Text = "";
+            }
 
             // 登录用户
             LoginForm frmLogin = new LoginForm();
