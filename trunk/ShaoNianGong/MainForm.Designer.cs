@@ -48,10 +48,10 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbInvoicePrinting = new System.Windows.Forms.ToolStripButton();
             this.toolBtnWelcome = new System.Windows.Forms.ToolStripButton();
+            this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine(((System.ComponentModel.Component)(this)));
             this.versionDataSet = new Common.VersionDataSet();
             this.softwareVersionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.softwareVersionTableAdapter = new Common.VersionDataSetTableAdapters.SoftwareVersionTableAdapter();
-            this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine(((System.ComponentModel.Component)(this)));
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.versionDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareVersionBindingSource)).BeginInit();
@@ -227,6 +227,12 @@
             this.toolBtnWelcome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolBtnWelcome.Click += new System.EventHandler(this.toolBtnWelcome_Click);
             // 
+            // skinEngine1
+            // 
+            this.skinEngine1.SerialNumber = "";
+            this.skinEngine1.SkinFile = null;
+            this.skinEngine1.SkinStreamMain = ((System.IO.Stream)(resources.GetObject("skinEngine1.SkinStreamMain")));
+            // 
             // versionDataSet
             // 
             this.versionDataSet.DataSetName = "VersionDataSet";
@@ -241,12 +247,6 @@
             // 
             this.softwareVersionTableAdapter.ClearBeforeFill = true;
             // 
-            // skinEngine1
-            // 
-            this.skinEngine1.SerialNumber = "";
-            this.skinEngine1.SkinFile = null;
-            this.skinEngine1.SkinStreamMain = ((System.IO.Stream)(resources.GetObject("skinEngine1.SkinStreamMain")));
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -257,7 +257,6 @@
             this.IsMdiContainer = true;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "“海鹰教育”福鼎市青少年宫培训服务中心管理系统";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.toolStrip1.ResumeLayout(false);
