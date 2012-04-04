@@ -41,6 +41,15 @@ namespace ShaoNianGong
                 this.Close();
                 return;
             }
+            string softName = rows[0].Field<string>("Remark");
+            if (softName != null && softName.Length != 0)
+            {
+                this.Text = softName;
+            }
+            else
+            {
+                this.Text = "";
+            }
 
             LoginForm frmLogin = new LoginForm();
             if (frmLogin.ShowDialog() != DialogResult.OK)
