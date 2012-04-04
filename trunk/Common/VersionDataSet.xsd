@@ -22,6 +22,7 @@ FROM software_version</CommandText>
             <Mappings>
               <Mapping SourceColumn="SoftwareName" DataSetColumn="SoftwareName" />
               <Mapping SourceColumn="SoftwareVersion" DataSetColumn="SoftwareVersion" />
+              <Mapping SourceColumn="Remark" DataSetColumn="Remark" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -47,6 +48,13 @@ FROM software_version</CommandText>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Remark" msprop:Generator_ColumnVarNameInTable="columnRemark" msprop:Generator_ColumnPropNameInRow="Remark" msprop:Generator_ColumnPropNameInTable="RemarkColumn" msprop:Generator_UserColumnName="Remark" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
