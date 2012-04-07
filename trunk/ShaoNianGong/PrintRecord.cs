@@ -12,6 +12,7 @@ namespace ShaoNianGong
         public string num { get; set; }
         public string price { get; set; }
         public string amount { get; set; }
+        public string remark { get; set; }
 
         public PrintRecord() { }
     }

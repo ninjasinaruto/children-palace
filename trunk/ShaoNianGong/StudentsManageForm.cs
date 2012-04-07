@@ -213,8 +213,8 @@ namespace ShaoNianGong
                     prAmount.id = 1;
                     prAmount.name = "充值";
                     prAmount.num = "1";
-                    prAmount.price = depositAmount.ToString();
-                    prAmount.amount = depositAmount.ToString();
+                    prAmount.price = paidAmount.ToString();
+                    prAmount.amount = paidAmount.ToString();
                     list.Add(prAmount);
                 }
                 else {
@@ -498,6 +498,28 @@ namespace ShaoNianGong
             {
                 this.dgvStudents.Rows[rowIndex].Selected = true;
                 this.dgvStudents.CurrentCell = this.dgvStudents.Rows[rowIndex].Cells[0];
+            }
+
+            if (MessageBox.Show("需要打印发票吗？", "提示", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                List<PrintRecord> list = new List<PrintRecord>();
+                PrintRecord prAmount = new PrintRecord();
+                prAmount.id = 1;
+                prAmount.name = frmCourseExtend.CourseName + "学费";
+                prAmount.num = "1";
+                prAmount.price = frmCourseExtend.ActualCost.ToString();
+                prAmount.amount = frmCourseExtend.ActualCost.ToString();
+                prAmount.remark = "续报";
+                list.Add(prAmount);
+
+                InvoicePrintingForm printForm = new InvoicePrintingForm();
+                printForm.MdiParent = this.Owner;
+                printForm.StartPosition = FormStartPosition.CenterScreen;
+                printForm.isReadOnly = true;
+                printForm.userName = txtName.Text;
+                printForm.recordList = list;
+                printForm.totalAmount = frmCourseExtend.ActualCost;
+                printForm.Show();
             }
         }
 

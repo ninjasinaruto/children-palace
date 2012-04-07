@@ -29,11 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvLeaveCourse = new System.Windows.Forms.DataGridView();
             this.序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.refundDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expireTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.refundAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.refundReasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.courseTypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.courseSubtypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.courseNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teacherNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OperatorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.leaveCourseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.leaveCourseDataSet = new ShaoNianGong.LeaveCourseDataSet();
             this.btnSearchByCourseType = new System.Windows.Forms.Button();
             this.btnSearchByCourse = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -50,24 +61,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnShowFilterBuy = new System.Windows.Forms.Button();
-            this.refundDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expireTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.refundAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.refundReasonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseTypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseSubtypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teacherNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.leaveCourseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.leaveCourseDataSet = new ShaoNianGong.LeaveCourseDataSet();
             this.leaveCourseTableAdapter = new ShaoNianGong.LeaveCourseDataSetTableAdapters.LeaveCourseTableAdapter();
             this.btnSearchByCourseWithDate = new System.Windows.Forms.Button();
             this.btnSearchByCourseTypeWithDate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLeaveCourse)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leaveCourseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leaveCourseDataSet)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvLeaveCourse
@@ -107,12 +107,93 @@
             this.序号.Name = "序号";
             this.序号.ReadOnly = true;
             // 
+            // refundDateDataGridViewTextBoxColumn
+            // 
+            this.refundDateDataGridViewTextBoxColumn.DataPropertyName = "RefundDate";
+            dataGridViewCellStyle1.Format = "F";
+            dataGridViewCellStyle1.NullValue = null;
+            this.refundDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.refundDateDataGridViewTextBoxColumn.HeaderText = "离班日期";
+            this.refundDateDataGridViewTextBoxColumn.Name = "refundDateDataGridViewTextBoxColumn";
+            this.refundDateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.refundDateDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "学生姓名";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // expireTimeDataGridViewTextBoxColumn
+            // 
+            this.expireTimeDataGridViewTextBoxColumn.DataPropertyName = "ExpireTime";
+            dataGridViewCellStyle2.Format = "D";
+            dataGridViewCellStyle2.NullValue = null;
+            this.expireTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.expireTimeDataGridViewTextBoxColumn.HeaderText = "缴费到期时间";
+            this.expireTimeDataGridViewTextBoxColumn.Name = "expireTimeDataGridViewTextBoxColumn";
+            this.expireTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // refundAmountDataGridViewTextBoxColumn
+            // 
+            this.refundAmountDataGridViewTextBoxColumn.DataPropertyName = "RefundAmount";
+            this.refundAmountDataGridViewTextBoxColumn.HeaderText = "退款金额";
+            this.refundAmountDataGridViewTextBoxColumn.Name = "refundAmountDataGridViewTextBoxColumn";
+            this.refundAmountDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // refundReasonDataGridViewTextBoxColumn
+            // 
+            this.refundReasonDataGridViewTextBoxColumn.DataPropertyName = "RefundReason";
+            this.refundReasonDataGridViewTextBoxColumn.HeaderText = "离班原因";
+            this.refundReasonDataGridViewTextBoxColumn.Name = "refundReasonDataGridViewTextBoxColumn";
+            this.refundReasonDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // courseTypeNameDataGridViewTextBoxColumn
+            // 
+            this.courseTypeNameDataGridViewTextBoxColumn.DataPropertyName = "CourseTypeName";
+            this.courseTypeNameDataGridViewTextBoxColumn.HeaderText = "课程类别";
+            this.courseTypeNameDataGridViewTextBoxColumn.Name = "courseTypeNameDataGridViewTextBoxColumn";
+            this.courseTypeNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // courseSubtypeNameDataGridViewTextBoxColumn
+            // 
+            this.courseSubtypeNameDataGridViewTextBoxColumn.DataPropertyName = "CourseSubtypeName";
+            this.courseSubtypeNameDataGridViewTextBoxColumn.HeaderText = "所属科目";
+            this.courseSubtypeNameDataGridViewTextBoxColumn.Name = "courseSubtypeNameDataGridViewTextBoxColumn";
+            this.courseSubtypeNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // courseNameDataGridViewTextBoxColumn
+            // 
+            this.courseNameDataGridViewTextBoxColumn.DataPropertyName = "CourseName";
+            this.courseNameDataGridViewTextBoxColumn.HeaderText = "课程名称";
+            this.courseNameDataGridViewTextBoxColumn.Name = "courseNameDataGridViewTextBoxColumn";
+            this.courseNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // teacherNameDataGridViewTextBoxColumn
+            // 
+            this.teacherNameDataGridViewTextBoxColumn.DataPropertyName = "TeacherName";
+            this.teacherNameDataGridViewTextBoxColumn.HeaderText = "教师姓名";
+            this.teacherNameDataGridViewTextBoxColumn.Name = "teacherNameDataGridViewTextBoxColumn";
+            this.teacherNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // OperatorColumn
             // 
             this.OperatorColumn.DataPropertyName = "Operator";
             this.OperatorColumn.HeaderText = "经办人";
             this.OperatorColumn.Name = "OperatorColumn";
             this.OperatorColumn.ReadOnly = true;
+            // 
+            // leaveCourseBindingSource
+            // 
+            this.leaveCourseBindingSource.DataMember = "LeaveCourse";
+            this.leaveCourseBindingSource.DataSource = this.leaveCourseDataSet;
+            this.leaveCourseBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.leaveCourseBindingSource_ListChanged);
+            // 
+            // leaveCourseDataSet
+            // 
+            this.leaveCourseDataSet.DataSetName = "LeaveCourseDataSet";
+            this.leaveCourseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnSearchByCourseType
             // 
@@ -190,7 +271,7 @@
             this.btnShowAll.Name = "btnShowAll";
             this.btnShowAll.Size = new System.Drawing.Size(96, 36);
             this.btnShowAll.TabIndex = 29;
-            this.btnShowAll.Text = "显示所有";
+            this.btnShowAll.Text = "查看所有";
             this.btnShowAll.UseVisualStyleBackColor = true;
             this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
             // 
@@ -263,87 +344,6 @@
             this.btnShowFilterBuy.UseVisualStyleBackColor = true;
             this.btnShowFilterBuy.Click += new System.EventHandler(this.btnShowFilterBuy_Click);
             // 
-            // refundDateDataGridViewTextBoxColumn
-            // 
-            this.refundDateDataGridViewTextBoxColumn.DataPropertyName = "RefundDate";
-            dataGridViewCellStyle11.Format = "F";
-            dataGridViewCellStyle11.NullValue = null;
-            this.refundDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
-            this.refundDateDataGridViewTextBoxColumn.HeaderText = "离班日期";
-            this.refundDateDataGridViewTextBoxColumn.Name = "refundDateDataGridViewTextBoxColumn";
-            this.refundDateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.refundDateDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "学生姓名";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // expireTimeDataGridViewTextBoxColumn
-            // 
-            this.expireTimeDataGridViewTextBoxColumn.DataPropertyName = "ExpireTime";
-            dataGridViewCellStyle12.Format = "D";
-            dataGridViewCellStyle12.NullValue = null;
-            this.expireTimeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
-            this.expireTimeDataGridViewTextBoxColumn.HeaderText = "缴费到期时间";
-            this.expireTimeDataGridViewTextBoxColumn.Name = "expireTimeDataGridViewTextBoxColumn";
-            this.expireTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // refundAmountDataGridViewTextBoxColumn
-            // 
-            this.refundAmountDataGridViewTextBoxColumn.DataPropertyName = "RefundAmount";
-            this.refundAmountDataGridViewTextBoxColumn.HeaderText = "退款金额";
-            this.refundAmountDataGridViewTextBoxColumn.Name = "refundAmountDataGridViewTextBoxColumn";
-            this.refundAmountDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // refundReasonDataGridViewTextBoxColumn
-            // 
-            this.refundReasonDataGridViewTextBoxColumn.DataPropertyName = "RefundReason";
-            this.refundReasonDataGridViewTextBoxColumn.HeaderText = "离班原因";
-            this.refundReasonDataGridViewTextBoxColumn.Name = "refundReasonDataGridViewTextBoxColumn";
-            this.refundReasonDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // courseTypeNameDataGridViewTextBoxColumn
-            // 
-            this.courseTypeNameDataGridViewTextBoxColumn.DataPropertyName = "CourseTypeName";
-            this.courseTypeNameDataGridViewTextBoxColumn.HeaderText = "课程类别";
-            this.courseTypeNameDataGridViewTextBoxColumn.Name = "courseTypeNameDataGridViewTextBoxColumn";
-            this.courseTypeNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // courseSubtypeNameDataGridViewTextBoxColumn
-            // 
-            this.courseSubtypeNameDataGridViewTextBoxColumn.DataPropertyName = "CourseSubtypeName";
-            this.courseSubtypeNameDataGridViewTextBoxColumn.HeaderText = "所属科目";
-            this.courseSubtypeNameDataGridViewTextBoxColumn.Name = "courseSubtypeNameDataGridViewTextBoxColumn";
-            this.courseSubtypeNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // courseNameDataGridViewTextBoxColumn
-            // 
-            this.courseNameDataGridViewTextBoxColumn.DataPropertyName = "CourseName";
-            this.courseNameDataGridViewTextBoxColumn.HeaderText = "课程名称";
-            this.courseNameDataGridViewTextBoxColumn.Name = "courseNameDataGridViewTextBoxColumn";
-            this.courseNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // teacherNameDataGridViewTextBoxColumn
-            // 
-            this.teacherNameDataGridViewTextBoxColumn.DataPropertyName = "TeacherName";
-            this.teacherNameDataGridViewTextBoxColumn.HeaderText = "教师姓名";
-            this.teacherNameDataGridViewTextBoxColumn.Name = "teacherNameDataGridViewTextBoxColumn";
-            this.teacherNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // leaveCourseBindingSource
-            // 
-            this.leaveCourseBindingSource.DataMember = "LeaveCourse";
-            this.leaveCourseBindingSource.DataSource = this.leaveCourseDataSet;
-            this.leaveCourseBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.leaveCourseBindingSource_ListChanged);
-            // 
-            // leaveCourseDataSet
-            // 
-            this.leaveCourseDataSet.DataSetName = "LeaveCourseDataSet";
-            this.leaveCourseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // leaveCourseTableAdapter
             // 
             this.leaveCourseTableAdapter.ClearBeforeFill = true;
@@ -393,10 +393,10 @@
             this.Load += new System.EventHandler(this.LeftCourseForm_Load);
             this.Resize += new System.EventHandler(this.LeftCourseForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLeaveCourse)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leaveCourseBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leaveCourseDataSet)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

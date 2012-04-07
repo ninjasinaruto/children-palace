@@ -81,6 +81,8 @@ namespace ShaoNianGong
                     txtPrice.Text = pr.price;
                     TextBox txtAmount = GetTextBoxByName("txtAmount" + i);
                     txtAmount.Text = pr.amount;
+                    TextBox txtRemark = GetTextBoxByName("txtRemark" + i);
+                    txtRemark.Text = pr.remark;
                     i++;
                 }
             }
