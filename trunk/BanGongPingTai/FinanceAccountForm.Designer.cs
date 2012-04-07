@@ -29,15 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTotalAmountByPXZX = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.txtTotalPayByPXZX = new System.Windows.Forms.TextBox();
             this.txtTotalIncomeByPXZX = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -74,6 +76,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtTotalAmountByHYJY = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.txtTotalPayByHYJY = new System.Windows.Forms.TextBox();
             this.txtTotalIncomeByHYJY = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -112,10 +116,6 @@
             this.financialAccountsHYJYTableAdapter = new BanGongPingTai.FinanceManageDataSetTableAdapters.FinancialAccountsHYJYTableAdapter();
             this.financeAmountPXZXTableAdapter = new BanGongPingTai.FinanceManageDataSetTableAdapters.FinanceAmountPXZXTableAdapter();
             this.financeAmountHYJYTableAdapter = new BanGongPingTai.FinanceManageDataSetTableAdapters.FinanceAmountHYJYTableAdapter();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtTotalAmountByPXZX = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtTotalAmountByHYJY = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFinanceByPXZX)).BeginInit();
@@ -158,6 +158,23 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "培训中心收支明细";
+            // 
+            // txtTotalAmountByPXZX
+            // 
+            this.txtTotalAmountByPXZX.Location = new System.Drawing.Point(453, 84);
+            this.txtTotalAmountByPXZX.Name = "txtTotalAmountByPXZX";
+            this.txtTotalAmountByPXZX.ReadOnly = true;
+            this.txtTotalAmountByPXZX.Size = new System.Drawing.Size(119, 21);
+            this.txtTotalAmountByPXZX.TabIndex = 44;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(409, 89);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(41, 12);
+            this.label15.TabIndex = 43;
+            this.label15.Text = "结余：";
             // 
             // txtTotalPayByPXZX
             // 
@@ -266,7 +283,6 @@
             // 
             this.dgvFinanceByPXZX.AllowUserToAddRows = false;
             this.dgvFinanceByPXZX.AllowUserToDeleteRows = false;
-            this.dgvFinanceByPXZX.AllowUserToResizeColumns = false;
             this.dgvFinanceByPXZX.AllowUserToResizeRows = false;
             this.dgvFinanceByPXZX.AutoGenerateColumns = false;
             this.dgvFinanceByPXZX.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -301,9 +317,9 @@
             // createDateDataGridViewTextBoxColumn
             // 
             this.createDateDataGridViewTextBoxColumn.DataPropertyName = "CreateDate";
-            dataGridViewCellStyle1.Format = "D";
-            dataGridViewCellStyle1.NullValue = null;
-            this.createDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Format = "D";
+            dataGridViewCellStyle9.NullValue = null;
+            this.createDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
             this.createDateDataGridViewTextBoxColumn.HeaderText = "日期";
             this.createDateDataGridViewTextBoxColumn.Name = "createDateDataGridViewTextBoxColumn";
             this.createDateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -318,9 +334,9 @@
             // incomeDataGridViewTextBoxColumn
             // 
             this.incomeDataGridViewTextBoxColumn.DataPropertyName = "Income";
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.incomeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Format = "N2";
+            dataGridViewCellStyle10.NullValue = null;
+            this.incomeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
             this.incomeDataGridViewTextBoxColumn.HeaderText = "收入";
             this.incomeDataGridViewTextBoxColumn.Name = "incomeDataGridViewTextBoxColumn";
             this.incomeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -328,9 +344,9 @@
             // payDataGridViewTextBoxColumn
             // 
             this.payDataGridViewTextBoxColumn.DataPropertyName = "Pay";
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.payDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Format = "N2";
+            dataGridViewCellStyle11.NullValue = null;
+            this.payDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
             this.payDataGridViewTextBoxColumn.HeaderText = "支出";
             this.payDataGridViewTextBoxColumn.Name = "payDataGridViewTextBoxColumn";
             this.payDataGridViewTextBoxColumn.ReadOnly = true;
@@ -359,9 +375,9 @@
             // checkDateDataGridViewTextBoxColumn
             // 
             this.checkDateDataGridViewTextBoxColumn.DataPropertyName = "CheckDate";
-            dataGridViewCellStyle4.Format = "D";
-            dataGridViewCellStyle4.NullValue = null;
-            this.checkDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Format = "D";
+            dataGridViewCellStyle12.NullValue = null;
+            this.checkDateDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle12;
             this.checkDateDataGridViewTextBoxColumn.HeaderText = "审核时间";
             this.checkDateDataGridViewTextBoxColumn.Name = "checkDateDataGridViewTextBoxColumn";
             this.checkDateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -513,6 +529,23 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "海鹰教育收支明细";
             // 
+            // txtTotalAmountByHYJY
+            // 
+            this.txtTotalAmountByHYJY.Location = new System.Drawing.Point(463, 85);
+            this.txtTotalAmountByHYJY.Name = "txtTotalAmountByHYJY";
+            this.txtTotalAmountByHYJY.ReadOnly = true;
+            this.txtTotalAmountByHYJY.Size = new System.Drawing.Size(119, 21);
+            this.txtTotalAmountByHYJY.TabIndex = 46;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(418, 89);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(41, 12);
+            this.label16.TabIndex = 45;
+            this.label16.Text = "结余：";
+            // 
             // txtTotalPayByHYJY
             // 
             this.txtTotalPayByHYJY.Location = new System.Drawing.Point(280, 85);
@@ -620,7 +653,6 @@
             // 
             this.dgvFinanceByHYJY.AllowUserToAddRows = false;
             this.dgvFinanceByHYJY.AllowUserToDeleteRows = false;
-            this.dgvFinanceByHYJY.AllowUserToResizeColumns = false;
             this.dgvFinanceByHYJY.AllowUserToResizeRows = false;
             this.dgvFinanceByHYJY.AutoGenerateColumns = false;
             this.dgvFinanceByHYJY.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -655,9 +687,9 @@
             // createDateDataGridViewTextBoxColumn1
             // 
             this.createDateDataGridViewTextBoxColumn1.DataPropertyName = "CreateDate";
-            dataGridViewCellStyle5.Format = "D";
-            dataGridViewCellStyle5.NullValue = null;
-            this.createDateDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.Format = "D";
+            dataGridViewCellStyle13.NullValue = null;
+            this.createDateDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle13;
             this.createDateDataGridViewTextBoxColumn1.HeaderText = "日期";
             this.createDateDataGridViewTextBoxColumn1.Name = "createDateDataGridViewTextBoxColumn1";
             this.createDateDataGridViewTextBoxColumn1.ReadOnly = true;
@@ -672,9 +704,9 @@
             // incomeDataGridViewTextBoxColumn1
             // 
             this.incomeDataGridViewTextBoxColumn1.DataPropertyName = "Income";
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.incomeDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle14.Format = "N2";
+            dataGridViewCellStyle14.NullValue = null;
+            this.incomeDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle14;
             this.incomeDataGridViewTextBoxColumn1.HeaderText = "收入";
             this.incomeDataGridViewTextBoxColumn1.Name = "incomeDataGridViewTextBoxColumn1";
             this.incomeDataGridViewTextBoxColumn1.ReadOnly = true;
@@ -682,9 +714,9 @@
             // payDataGridViewTextBoxColumn1
             // 
             this.payDataGridViewTextBoxColumn1.DataPropertyName = "Pay";
-            dataGridViewCellStyle7.Format = "N2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.payDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle15.Format = "N2";
+            dataGridViewCellStyle15.NullValue = null;
+            this.payDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle15;
             this.payDataGridViewTextBoxColumn1.HeaderText = "支出";
             this.payDataGridViewTextBoxColumn1.Name = "payDataGridViewTextBoxColumn1";
             this.payDataGridViewTextBoxColumn1.ReadOnly = true;
@@ -713,9 +745,9 @@
             // checkDateDataGridViewTextBoxColumn1
             // 
             this.checkDateDataGridViewTextBoxColumn1.DataPropertyName = "CheckDate";
-            dataGridViewCellStyle8.Format = "D";
-            dataGridViewCellStyle8.NullValue = null;
-            this.checkDateDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.Format = "D";
+            dataGridViewCellStyle16.NullValue = null;
+            this.checkDateDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle16;
             this.checkDateDataGridViewTextBoxColumn1.HeaderText = "审核时间";
             this.checkDateDataGridViewTextBoxColumn1.Name = "checkDateDataGridViewTextBoxColumn1";
             this.checkDateDataGridViewTextBoxColumn1.ReadOnly = true;
@@ -847,40 +879,6 @@
             // financeAmountHYJYTableAdapter
             // 
             this.financeAmountHYJYTableAdapter.ClearBeforeFill = true;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(409, 89);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(41, 12);
-            this.label15.TabIndex = 43;
-            this.label15.Text = "结余：";
-            // 
-            // txtTotalAmountByPXZX
-            // 
-            this.txtTotalAmountByPXZX.Location = new System.Drawing.Point(453, 84);
-            this.txtTotalAmountByPXZX.Name = "txtTotalAmountByPXZX";
-            this.txtTotalAmountByPXZX.ReadOnly = true;
-            this.txtTotalAmountByPXZX.Size = new System.Drawing.Size(119, 21);
-            this.txtTotalAmountByPXZX.TabIndex = 44;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(418, 89);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(41, 12);
-            this.label16.TabIndex = 45;
-            this.label16.Text = "结余：";
-            // 
-            // txtTotalAmountByHYJY
-            // 
-            this.txtTotalAmountByHYJY.Location = new System.Drawing.Point(463, 85);
-            this.txtTotalAmountByHYJY.Name = "txtTotalAmountByHYJY";
-            this.txtTotalAmountByHYJY.ReadOnly = true;
-            this.txtTotalAmountByHYJY.Size = new System.Drawing.Size(119, 21);
-            this.txtTotalAmountByHYJY.TabIndex = 46;
             // 
             // FinanceAccountForm
             // 

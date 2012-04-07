@@ -59,7 +59,7 @@ namespace BanGongPingTai
             int teacherID = (int)teachersTableAdapter.InsertTeacher(frmTeachersAdding.Name, frmTeachersAdding.Phone, null, frmTeachersAdding.Sex,
                 frmTeachersAdding.Address, 0, frmTeachersAdding.Password, frmTeachersAdding.BirthDay, frmTeachersAdding.Ethnic,
                 frmTeachersAdding.Hometown, frmTeachersAdding.GraduationTime, frmTeachersAdding.Degree, frmTeachersAdding.School,
-                frmTeachersAdding.Professional, User.CurrentUser.UserName);
+                frmTeachersAdding.Professional,DateTime.Now,User.CurrentUser.UserName, frmTeachersAdding.EntryDate);
             List<SigninTime> stList = frmTeachersAdding.signinTimeList;
             foreach (SigninTime st in stList)
             {
@@ -122,6 +122,15 @@ namespace BanGongPingTai
             frmTeacherUpdate.Professional = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Professional");
             frmTeacherUpdate.Phone = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Phone");
             frmTeacherUpdate.Address = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Address");
+            if (!teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].IsNull("EntryDate"))
+            {
+                frmTeacherUpdate.isEntryDateNull = false;
+                frmTeacherUpdate.EntryDate = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<DateTime>("EntryDate");
+            }
+            else
+            {
+                frmTeacherUpdate.isEntryDateNull = true;
+            }
             frmTeacherUpdate.Password = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<string>("Password");
             frmTeacherUpdate.signinTimeList = stList;
             if (frmTeacherUpdate.ShowDialog() != DialogResult.OK)
@@ -129,7 +138,7 @@ namespace BanGongPingTai
             int teacherID = teachersDataSet.Tearchers.Rows[teachersBindingSource.Position].Field<int>("ID");
             teachersTableAdapter.UpdateByID(frmTeacherUpdate.Name, frmTeacherUpdate.Phone, frmTeacherUpdate.Sex, frmTeacherUpdate.Address, frmTeacherUpdate.Password,
                 frmTeacherUpdate.BirthDay, frmTeacherUpdate.Hometown, frmTeacherUpdate.Ethnic, frmTeacherUpdate.GraduationTime, frmTeacherUpdate.Degree, frmTeacherUpdate.School,
-                frmTeacherUpdate.Professional, teacherID);
+                frmTeacherUpdate.Professional, frmTeacherUpdate.EntryDate, teacherID);
             teacherSigninTimeTableAdapter.DeleteByTeacherID(teacherID);
             stList = frmTeacherUpdate.signinTimeList;
             foreach (SigninTime st in stList)

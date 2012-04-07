@@ -523,6 +523,8 @@ namespace BanGongPingTai {
             
             private global::System.Data.DataColumn columnOperator;
             
+            private global::System.Data.DataColumn columnEntryDate;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TearchersDataTable() {
@@ -694,6 +696,14 @@ namespace BanGongPingTai {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn EntryDateColumn {
+                get {
+                    return this.columnEntryDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -745,7 +755,8 @@ namespace BanGongPingTai {
                         string School, 
                         string Professional, 
                         System.DateTime CreateDate, 
-                        string Operator) {
+                        string Operator, 
+                        System.DateTime EntryDate) {
                 TearchersRow rowTearchersRow = ((TearchersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -764,7 +775,8 @@ namespace BanGongPingTai {
                         School,
                         Professional,
                         CreateDate,
-                        Operator};
+                        Operator,
+                        EntryDate};
                 rowTearchersRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTearchersRow);
                 return rowTearchersRow;
@@ -811,6 +823,7 @@ namespace BanGongPingTai {
                 this.columnProfessional = base.Columns["Professional"];
                 this.columnCreateDate = base.Columns["CreateDate"];
                 this.columnOperator = base.Columns["Operator"];
+                this.columnEntryDate = base.Columns["EntryDate"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -850,6 +863,8 @@ namespace BanGongPingTai {
                 base.Columns.Add(this.columnCreateDate);
                 this.columnOperator = new global::System.Data.DataColumn("Operator", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOperator);
+                this.columnEntryDate = new global::System.Data.DataColumn("EntryDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEntryDate);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -3416,6 +3431,22 @@ namespace BanGongPingTai {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime EntryDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableTearchers.EntryDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“Tearchers”中列“EntryDate”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTearchers.EntryDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNameNull() {
                 return this.IsNull(this.tableTearchers.NameColumn);
             }
@@ -3592,6 +3623,18 @@ namespace BanGongPingTai {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetOperatorNull() {
                 this[this.tableTearchers.OperatorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsEntryDateNull() {
+                return this.IsNull(this.tableTearchers.EntryDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetEntryDateNull() {
+                this[this.tableTearchers.EntryDateColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5024,10 +5067,11 @@ namespace BanGongPingTai.TeachersDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Professional", "Professional");
             tableMapping.ColumnMappings.Add("CreateDate", "CreateDate");
             tableMapping.ColumnMappings.Add("Operator", "Operator");
+            tableMapping.ColumnMappings.Add("EntryDate", "EntryDate");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [tearchers] WHERE (([ID] = @Original_ID) AND ((@IsNull_Name = 1 AND [Name] IS NULL) OR ([Name] = @Original_Name)) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Phone] = @Original_Phone)) AND ((@IsNull_CardNo = 1 AND [CardNo] IS NULL) OR ([CardNo] = @Original_CardNo)) AND ((@IsNull_Sex = 1 AND [Sex] IS NULL) OR ([Sex] = @Original_Sex)) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address)) AND ([Salary] = @Original_Salary) AND ((@IsNull_Password = 1 AND [Password] IS NULL) OR ([Password] = @Original_Password)) AND ((@IsNull_BirthDay = 1 AND [BirthDay] IS NULL) OR ([BirthDay] = @Original_BirthDay)) AND ((@IsNull_Ethnic = 1 AND [Ethnic] IS NULL) OR ([Ethnic] = @Original_Ethnic)) AND ((@IsNull_Hometown = 1 AND [Hometown] IS NULL) OR ([Hometown] = @Original_Hometown)) AND ((@IsNull_GraduationTime = 1 AND [GraduationTime] IS NULL) OR ([GraduationTime] = @Original_GraduationTime)) AND ((@IsNull_Degree = 1 AND [Degree] IS NULL) OR ([Degree] = @Original_Degree)) AND ((@IsNull_School = 1 AND [School] IS NULL) OR ([School] = @Original_School)) AND ((@IsNull_Professional = 1 AND [Professional] IS NULL) OR ([Professional] = @Original_Professional)) AND ((@IsNull_CreateDate = 1 AND [CreateDate] IS NULL) OR ([CreateDate] = @Original_CreateDate)) AND ((@IsNull_Operator = 1 AND [Operator] IS NULL) OR ([Operator] = @Original_Operator)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [tearchers] WHERE (([ID] = @Original_ID) AND ((@IsNull_Name = 1 AND [Name] IS NULL) OR ([Name] = @Original_Name)) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Phone] = @Original_Phone)) AND ((@IsNull_CardNo = 1 AND [CardNo] IS NULL) OR ([CardNo] = @Original_CardNo)) AND ((@IsNull_Sex = 1 AND [Sex] IS NULL) OR ([Sex] = @Original_Sex)) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address)) AND ([Salary] = @Original_Salary) AND ((@IsNull_Password = 1 AND [Password] IS NULL) OR ([Password] = @Original_Password)) AND ((@IsNull_BirthDay = 1 AND [BirthDay] IS NULL) OR ([BirthDay] = @Original_BirthDay)) AND ((@IsNull_Ethnic = 1 AND [Ethnic] IS NULL) OR ([Ethnic] = @Original_Ethnic)) AND ((@IsNull_Hometown = 1 AND [Hometown] IS NULL) OR ([Hometown] = @Original_Hometown)) AND ((@IsNull_GraduationTime = 1 AND [GraduationTime] IS NULL) OR ([GraduationTime] = @Original_GraduationTime)) AND ((@IsNull_Degree = 1 AND [Degree] IS NULL) OR ([Degree] = @Original_Degree)) AND ((@IsNull_School = 1 AND [School] IS NULL) OR ([School] = @Original_School)) AND ((@IsNull_Professional = 1 AND [Professional] IS NULL) OR ([Professional] = @Original_Professional)) AND ((@IsNull_CreateDate = 1 AND [CreateDate] IS NULL) OR ([CreateDate] = @Original_CreateDate)) AND ((@IsNull_Operator = 1 AND [Operator] IS NULL) OR ([Operator] = @Original_Operator)) AND ((@IsNull_EntryDate = 1 AND [EntryDate] IS NULL) OR ([EntryDate] = @Original_EntryDate)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -5061,10 +5105,12 @@ namespace BanGongPingTai.TeachersDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CreateDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Operator", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operator", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Operator", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operator", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_EntryDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EntryDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EntryDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EntryDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [tearchers] ([Name], [Phone], [CardNo], [Sex], [Address], [Salary], [Password], [BirthDay], [Ethnic], [Hometown], [GraduationTime], [Degree], [School], [Professional], [CreateDate], [Operator]) VALUES (@Name, @Phone, @CardNo, @Sex, @Address, @Salary, @Password, @BirthDay, @Ethnic, @Hometown, @GraduationTime, @Degree, @School, @Professional, @CreateDate, @Operator);
-SELECT ID, Name, Phone, CardNo, Sex, Address, Salary, Password, BirthDay, Ethnic, Hometown, GraduationTime, Degree, School, Professional, CreateDate, Operator FROM tearchers WHERE (ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [tearchers] ([Name], [Phone], [CardNo], [Sex], [Address], [Salary], [Password], [BirthDay], [Ethnic], [Hometown], [GraduationTime], [Degree], [School], [Professional], [CreateDate], [Operator], [EntryDate]) VALUES (@Name, @Phone, @CardNo, @Sex, @Address, @Salary, @Password, @BirthDay, @Ethnic, @Hometown, @GraduationTime, @Degree, @School, @Professional, @CreateDate, @Operator, @EntryDate);
+SELECT ID, Name, Phone, CardNo, Sex, Address, Salary, Password, BirthDay, Ethnic, Hometown, GraduationTime, Degree, School, Professional, CreateDate, Operator, EntryDate FROM tearchers WHERE (ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5082,33 +5128,35 @@ SELECT ID, Name, Phone, CardNo, Sex, Address, Salary, Password, BirthDay, Ethnic
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Professional", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Professional", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Operator", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operator", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EntryDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EntryDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [tearchers] SET [Name] = @Name, [Phone] = @Phone, [CardNo] = @CardNo, [Sex" +
                 "] = @Sex, [Address] = @Address, [Salary] = @Salary, [Password] = @Password, [Bir" +
                 "thDay] = @BirthDay, [Ethnic] = @Ethnic, [Hometown] = @Hometown, [GraduationTime]" +
                 " = @GraduationTime, [Degree] = @Degree, [School] = @School, [Professional] = @Pr" +
-                "ofessional, [CreateDate] = @CreateDate, [Operator] = @Operator WHERE (([ID] = @O" +
-                "riginal_ID) AND ((@IsNull_Name = 1 AND [Name] IS NULL) OR ([Name] = @Original_Na" +
-                "me)) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Phone] = @Original_Phone)" +
-                ") AND ((@IsNull_CardNo = 1 AND [CardNo] IS NULL) OR ([CardNo] = @Original_CardNo" +
-                ")) AND ((@IsNull_Sex = 1 AND [Sex] IS NULL) OR ([Sex] = @Original_Sex)) AND ((@I" +
-                "sNull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address)) AND" +
-                " ([Salary] = @Original_Salary) AND ((@IsNull_Password = 1 AND [Password] IS NULL" +
-                ") OR ([Password] = @Original_Password)) AND ((@IsNull_BirthDay = 1 AND [BirthDay" +
-                "] IS NULL) OR ([BirthDay] = @Original_BirthDay)) AND ((@IsNull_Ethnic = 1 AND [E" +
-                "thnic] IS NULL) OR ([Ethnic] = @Original_Ethnic)) AND ((@IsNull_Hometown = 1 AND" +
-                " [Hometown] IS NULL) OR ([Hometown] = @Original_Hometown)) AND ((@IsNull_Graduat" +
-                "ionTime = 1 AND [GraduationTime] IS NULL) OR ([GraduationTime] = @Original_Gradu" +
-                "ationTime)) AND ((@IsNull_Degree = 1 AND [Degree] IS NULL) OR ([Degree] = @Origi" +
-                "nal_Degree)) AND ((@IsNull_School = 1 AND [School] IS NULL) OR ([School] = @Orig" +
-                "inal_School)) AND ((@IsNull_Professional = 1 AND [Professional] IS NULL) OR ([Pr" +
-                "ofessional] = @Original_Professional)) AND ((@IsNull_CreateDate = 1 AND [CreateD" +
-                "ate] IS NULL) OR ([CreateDate] = @Original_CreateDate)) AND ((@IsNull_Operator =" +
-                " 1 AND [Operator] IS NULL) OR ([Operator] = @Original_Operator)));\r\nSELECT ID, N" +
-                "ame, Phone, CardNo, Sex, Address, Salary, Password, BirthDay, Ethnic, Hometown, " +
-                "GraduationTime, Degree, School, Professional, CreateDate, Operator FROM tearcher" +
-                "s WHERE (ID = @ID)";
+                "ofessional, [CreateDate] = @CreateDate, [Operator] = @Operator, [EntryDate] = @E" +
+                "ntryDate WHERE (([ID] = @Original_ID) AND ((@IsNull_Name = 1 AND [Name] IS NULL)" +
+                " OR ([Name] = @Original_Name)) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR (" +
+                "[Phone] = @Original_Phone)) AND ((@IsNull_CardNo = 1 AND [CardNo] IS NULL) OR ([" +
+                "CardNo] = @Original_CardNo)) AND ((@IsNull_Sex = 1 AND [Sex] IS NULL) OR ([Sex] " +
+                "= @Original_Sex)) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([Address]" +
+                " = @Original_Address)) AND ([Salary] = @Original_Salary) AND ((@IsNull_Password " +
+                "= 1 AND [Password] IS NULL) OR ([Password] = @Original_Password)) AND ((@IsNull_" +
+                "BirthDay = 1 AND [BirthDay] IS NULL) OR ([BirthDay] = @Original_BirthDay)) AND (" +
+                "(@IsNull_Ethnic = 1 AND [Ethnic] IS NULL) OR ([Ethnic] = @Original_Ethnic)) AND " +
+                "((@IsNull_Hometown = 1 AND [Hometown] IS NULL) OR ([Hometown] = @Original_Hometo" +
+                "wn)) AND ((@IsNull_GraduationTime = 1 AND [GraduationTime] IS NULL) OR ([Graduat" +
+                "ionTime] = @Original_GraduationTime)) AND ((@IsNull_Degree = 1 AND [Degree] IS N" +
+                "ULL) OR ([Degree] = @Original_Degree)) AND ((@IsNull_School = 1 AND [School] IS " +
+                "NULL) OR ([School] = @Original_School)) AND ((@IsNull_Professional = 1 AND [Prof" +
+                "essional] IS NULL) OR ([Professional] = @Original_Professional)) AND ((@IsNull_C" +
+                "reateDate = 1 AND [CreateDate] IS NULL) OR ([CreateDate] = @Original_CreateDate)" +
+                ") AND ((@IsNull_Operator = 1 AND [Operator] IS NULL) OR ([Operator] = @Original_" +
+                "Operator)) AND ((@IsNull_EntryDate = 1 AND [EntryDate] IS NULL) OR ([EntryDate] " +
+                "= @Original_EntryDate)));\r\nSELECT ID, Name, Phone, CardNo, Sex, Address, Salary," +
+                " Password, BirthDay, Ethnic, Hometown, GraduationTime, Degree, School, Professio" +
+                "nal, CreateDate, Operator, EntryDate FROM tearchers WHERE (ID = @ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5126,6 +5174,7 @@ SELECT ID, Name, Phone, CardNo, Sex, Address, Salary, Password, BirthDay, Ethnic
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Professional", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Professional", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Operator", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operator", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EntryDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EntryDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -5158,6 +5207,8 @@ SELECT ID, Name, Phone, CardNo, Sex, Address, Salary, Password, BirthDay, Ethnic
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CreateDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreateDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Operator", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operator", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Operator", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Operator", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_EntryDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EntryDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_EntryDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EntryDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -5200,14 +5251,16 @@ SELECT ID, Name, Phone, CardNo, Sex, Address, Salary, Password, BirthDay, Ethnic
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Degree", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@School", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Professional", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreateDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Operator", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EntryDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = @"UPDATE  tearchers
 SET         Name = @Name, Phone = @Phone, Sex = @Sex, Address = @Address, Password = @Password, BirthDay = @BirthDay, 
                 Hometown = @Hometown, Ethnic = @Ethnic, GraduationTime = @GraduationTime, Degree = @Degree, 
-                School = @School, Professional = @Professional
-WHERE   (ID = @ID);   
+                School = @School, Professional = @Professional, EntryDate = @EntryDate
+WHERE   (ID = @ID);    
 SELECT ID, Name, Phone, CardNo, Sex, Address, Salary FROM tearchers WHERE (ID = @ID)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5222,6 +5275,7 @@ SELECT ID, Name, Phone, CardNo, Sex, Address, Salary FROM tearchers WHERE (ID = 
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Degree", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Degree", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@School", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "School", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Professional", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Professional", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EntryDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 0, 0, "EntryDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
@@ -5311,7 +5365,8 @@ SELECT ID, Name, Phone, CardNo, Sex, Address, Salary FROM tearchers WHERE (ID = 
                     string Original_School, 
                     string Original_Professional, 
                     global::System.Nullable<global::System.DateTime> Original_CreateDate, 
-                    string Original_Operator) {
+                    string Original_Operator, 
+                    global::System.Nullable<global::System.DateTime> Original_EntryDate) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
             if ((Original_Name == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -5434,6 +5489,14 @@ SELECT ID, Name, Phone, CardNo, Sex, Address, Salary FROM tearchers WHERE (ID = 
                 this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[31].Value = ((string)(Original_Operator));
             }
+            if ((Original_EntryDate.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((System.DateTime)(Original_EntryDate.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5470,7 +5533,8 @@ SELECT ID, Name, Phone, CardNo, Sex, Address, Salary FROM tearchers WHERE (ID = 
                     string School, 
                     string Professional, 
                     global::System.Nullable<global::System.DateTime> CreateDate, 
-                    string Operator) {
+                    string Operator, 
+                    global::System.Nullable<global::System.DateTime> EntryDate) {
             if ((Name == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -5562,6 +5626,12 @@ SELECT ID, Name, Phone, CardNo, Sex, Address, Salary FROM tearchers WHERE (ID = 
             else {
                 this.Adapter.InsertCommand.Parameters[15].Value = ((string)(Operator));
             }
+            if ((EntryDate.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((System.DateTime)(EntryDate.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5599,6 +5669,7 @@ SELECT ID, Name, Phone, CardNo, Sex, Address, Salary FROM tearchers WHERE (ID = 
                     string Professional, 
                     global::System.Nullable<global::System.DateTime> CreateDate, 
                     string Operator, 
+                    global::System.Nullable<global::System.DateTime> EntryDate, 
                     int Original_ID, 
                     string Original_Name, 
                     string Original_Phone, 
@@ -5616,6 +5687,7 @@ SELECT ID, Name, Phone, CardNo, Sex, Address, Salary FROM tearchers WHERE (ID = 
                     string Original_Professional, 
                     global::System.Nullable<global::System.DateTime> Original_CreateDate, 
                     string Original_Operator, 
+                    global::System.Nullable<global::System.DateTime> Original_EntryDate, 
                     int ID) {
             if ((Name == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
@@ -5708,129 +5780,143 @@ SELECT ID, Name, Phone, CardNo, Sex, Address, Salary FROM tearchers WHERE (ID = 
             else {
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Operator));
             }
-            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_ID));
-            if ((Original_Name == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            if ((EntryDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((System.DateTime)(EntryDate.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_Name));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_ID));
+            if ((Original_Name == null)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Name));
             }
             if ((Original_Phone == null)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_Phone));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_Phone));
             }
             if ((Original_CardNo == null)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_CardNo));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_CardNo));
             }
             if ((Original_Sex == null)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_Sex));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_Sex));
             }
             if ((Original_Address == null)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_Address));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_Address));
             }
-            this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_Salary));
+            this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(Original_Salary));
             if ((Original_Password == null)) {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_Password));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_Password));
             }
             if ((Original_BirthDay.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((System.DateTime)(Original_BirthDay.Value));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((System.DateTime)(Original_BirthDay.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
             }
             if ((Original_Ethnic == null)) {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_Ethnic));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_Ethnic));
             }
             if ((Original_Hometown == null)) {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[36].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_Hometown));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_Hometown));
             }
             if ((Original_GraduationTime.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((System.DateTime)(Original_GraduationTime.Value));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((System.DateTime)(Original_GraduationTime.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
             }
             if ((Original_Degree == null)) {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((string)(Original_Degree));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Original_Degree));
             }
             if ((Original_School == null)) {
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((string)(Original_School));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(Original_School));
             }
             if ((Original_Professional == null)) {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((string)(Original_Professional));
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(Original_Professional));
             }
             if ((Original_CreateDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((System.DateTime)(Original_CreateDate.Value));
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((System.DateTime)(Original_CreateDate.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
             }
             if ((Original_Operator == null)) {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[47].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[47].Value = ((string)(Original_Operator));
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(Original_Operator));
             }
-            this.Adapter.UpdateCommand.Parameters[48].Value = ((int)(ID));
+            if ((Original_EntryDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((System.DateTime)(Original_EntryDate.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[50].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[51].Value = ((int)(ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5868,6 +5954,7 @@ SELECT ID, Name, Phone, CardNo, Sex, Address, Salary FROM tearchers WHERE (ID = 
                     string Professional, 
                     global::System.Nullable<global::System.DateTime> CreateDate, 
                     string Operator, 
+                    global::System.Nullable<global::System.DateTime> EntryDate, 
                     int Original_ID, 
                     string Original_Name, 
                     string Original_Phone, 
@@ -5884,8 +5971,9 @@ SELECT ID, Name, Phone, CardNo, Sex, Address, Salary FROM tearchers WHERE (ID = 
                     string Original_School, 
                     string Original_Professional, 
                     global::System.Nullable<global::System.DateTime> Original_CreateDate, 
-                    string Original_Operator) {
-            return this.Update(Name, Phone, CardNo, Sex, Address, Salary, Password, BirthDay, Ethnic, Hometown, GraduationTime, Degree, School, Professional, CreateDate, Operator, Original_ID, Original_Name, Original_Phone, Original_CardNo, Original_Sex, Original_Address, Original_Salary, Original_Password, Original_BirthDay, Original_Ethnic, Original_Hometown, Original_GraduationTime, Original_Degree, Original_School, Original_Professional, Original_CreateDate, Original_Operator, Original_ID);
+                    string Original_Operator, 
+                    global::System.Nullable<global::System.DateTime> Original_EntryDate) {
+            return this.Update(Name, Phone, CardNo, Sex, Address, Salary, Password, BirthDay, Ethnic, Hometown, GraduationTime, Degree, School, Professional, CreateDate, Operator, EntryDate, Original_ID, Original_Name, Original_Phone, Original_CardNo, Original_Sex, Original_Address, Original_Salary, Original_Password, Original_BirthDay, Original_Ethnic, Original_Hometown, Original_GraduationTime, Original_Degree, Original_School, Original_Professional, Original_CreateDate, Original_Operator, Original_EntryDate, Original_ID);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5916,7 +6004,24 @@ SELECT ID, Name, Phone, CardNo, Sex, Address, Salary FROM tearchers WHERE (ID = 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual object InsertTeacher(string Name, string Phone, string CardNo, string Sex, string Address, global::System.Nullable<int> Salary, string Password, global::System.Nullable<global::System.DateTime> BirthDay, string Ethnic, string Hometown, global::System.Nullable<global::System.DateTime> GraduationTime, string Degree, string School, string Professional, string Operator) {
+        public virtual object InsertTeacher(
+                    string Name, 
+                    string Phone, 
+                    string CardNo, 
+                    string Sex, 
+                    string Address, 
+                    global::System.Nullable<int> Salary, 
+                    string Password, 
+                    global::System.Nullable<global::System.DateTime> BirthDay, 
+                    string Ethnic, 
+                    string Hometown, 
+                    global::System.Nullable<global::System.DateTime> GraduationTime, 
+                    string Degree, 
+                    string School, 
+                    string Professional, 
+                    global::System.Nullable<global::System.DateTime> CreateDate, 
+                    string Operator, 
+                    global::System.Nullable<global::System.DateTime> EntryDate) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[2];
             if ((Name == null)) {
                 command.Parameters[1].Value = global::System.DBNull.Value;
@@ -6002,11 +6107,23 @@ SELECT ID, Name, Phone, CardNo, Sex, Address, Salary FROM tearchers WHERE (ID = 
             else {
                 command.Parameters[14].Value = ((string)(Professional));
             }
-            if ((Operator == null)) {
-                command.Parameters[15].Value = global::System.DBNull.Value;
+            if ((CreateDate.HasValue == true)) {
+                command.Parameters[15].Value = ((System.DateTime)(CreateDate.Value));
             }
             else {
-                command.Parameters[15].Value = ((string)(Operator));
+                command.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            if ((Operator == null)) {
+                command.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[16].Value = ((string)(Operator));
+            }
+            if ((EntryDate.HasValue == true)) {
+                command.Parameters[17].Value = ((System.DateTime)(EntryDate.Value));
+            }
+            else {
+                command.Parameters[17].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6035,7 +6152,7 @@ SELECT ID, Name, Phone, CardNo, Sex, Address, Salary FROM tearchers WHERE (ID = 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateByID(string Name, string Phone, string Sex, string Address, string Password, global::System.Nullable<global::System.DateTime> BirthDay, string Hometown, string Ethnic, global::System.Nullable<global::System.DateTime> GraduationTime, string Degree, string School, string Professional, int ID) {
+        public virtual int UpdateByID(string Name, string Phone, string Sex, string Address, string Password, global::System.Nullable<global::System.DateTime> BirthDay, string Hometown, string Ethnic, global::System.Nullable<global::System.DateTime> GraduationTime, string Degree, string School, string Professional, global::System.Nullable<global::System.DateTime> EntryDate, int ID) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             if ((Name == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
@@ -6109,7 +6226,13 @@ SELECT ID, Name, Phone, CardNo, Sex, Address, Salary FROM tearchers WHERE (ID = 
             else {
                 command.Parameters[11].Value = ((string)(Professional));
             }
-            command.Parameters[12].Value = ((int)(ID));
+            if ((EntryDate.HasValue == true)) {
+                command.Parameters[12].Value = ((System.DateTime)(EntryDate.Value));
+            }
+            else {
+                command.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            command.Parameters[13].Value = ((int)(ID));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
