@@ -718,9 +718,7 @@ namespace QianDao
             info.Append(studentName);
             if (expireTime != null)
             {
-                info.Append("（到期时间：");
-                info.Append(expireTime.ToString("yyyy年MM月dd日"));
-                info.Append("）");
+                info.Append(" "+expireTime.ToString("yyyy年MM月dd日")+"到期");
             }
             lblName.Text = info.ToString();
         }

@@ -120,13 +120,13 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.BackColor = System.Drawing.Color.Transparent;
-            this.lblName.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblName.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Bold);
             this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.lblName.Location = new System.Drawing.Point(397, 223);
+            this.lblName.Location = new System.Drawing.Point(399, 223);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(997, 56);
+            this.lblName.Size = new System.Drawing.Size(741, 56);
             this.lblName.TabIndex = 0;
-            this.lblName.Text = "陈先文（到期时间：2012年03月31日）";
+            this.lblName.Text = "陈先文 2012年03月31日到期";
             // 
             // lblCardType
             // 
