@@ -24,6 +24,8 @@ namespace BanGongPingTai
         public string Professional;
         public string Phone;
         public string Address;
+        public bool isEntryDateNull;
+        public DateTime EntryDate;
         public string Password;
         public List<SigninTime> signinTimeList;
 
@@ -54,6 +56,8 @@ namespace BanGongPingTai
             txtProfessional.Text = Professional;
             txtPhone.Text = Phone;
             txtAddress.Text = Address;
+            if (!isEntryDateNull)
+                dtEntryDate.Value = EntryDate;
             txtPassword.Text = Password;
             txtPasswordConfirm.Text = Password;
             foreach (SigninTime st in signinTimeList)
@@ -218,6 +222,7 @@ namespace BanGongPingTai
             this.Professional = txtProfessional.Text;
             this.Phone = txtPhone.Text;
             this.Address = txtAddress.Text;
+            this.EntryDate = dtEntryDate.Value;
             this.Password = txtPassword.Text;
             this.signinTimeList = stList;
             this.DialogResult = DialogResult.OK;

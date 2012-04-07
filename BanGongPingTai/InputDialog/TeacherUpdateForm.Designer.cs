@@ -71,6 +71,8 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.dtEntryDate = new System.Windows.Forms.DateTimePicker();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -97,7 +99,7 @@
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Location = new System.Drawing.Point(12, 245);
+            this.groupBox2.Location = new System.Drawing.Point(12, 271);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(729, 118);
             this.groupBox2.TabIndex = 33;
@@ -398,6 +400,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dtEntryDate);
+            this.groupBox1.Controls.Add(this.label20);
             this.groupBox1.Controls.Add(this.txtSchool);
             this.groupBox1.Controls.Add(this.label19);
             this.groupBox1.Controls.Add(this.txtProfessional);
@@ -422,7 +426,7 @@
             this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(729, 159);
+            this.groupBox1.Size = new System.Drawing.Size(729, 185);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "基本信息";
@@ -453,7 +457,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(666, 375);
+            this.btnCancel.Location = new System.Drawing.Point(666, 401);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 35);
             this.btnCancel.TabIndex = 32;
@@ -463,7 +467,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(574, 375);
+            this.btnOK.Location = new System.Drawing.Point(574, 401);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 35);
             this.btnOK.TabIndex = 30;
@@ -494,7 +498,7 @@
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.txtPassword);
             this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Location = new System.Drawing.Point(12, 177);
+            this.groupBox3.Location = new System.Drawing.Point(12, 203);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(729, 62);
             this.groupBox3.TabIndex = 34;
@@ -510,11 +514,28 @@
             this.label3.TabIndex = 18;
             this.label3.Text = "密码：";
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(20, 155);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(65, 12);
+            this.label20.TabIndex = 20;
+            this.label20.Text = "入职日期：";
+            // 
+            // dtEntryDate
+            // 
+            this.dtEntryDate.CustomFormat = "";
+            this.dtEntryDate.Location = new System.Drawing.Point(91, 151);
+            this.dtEntryDate.Name = "dtEntryDate";
+            this.dtEntryDate.Size = new System.Drawing.Size(108, 21);
+            this.dtEntryDate.TabIndex = 21;
+            // 
             // TeacherUpdateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(753, 419);
+            this.ClientSize = new System.Drawing.Size(753, 445);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancel);
@@ -581,6 +602,8 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dtEntryDate;
+        private System.Windows.Forms.Label label20;
 
     }
 }
