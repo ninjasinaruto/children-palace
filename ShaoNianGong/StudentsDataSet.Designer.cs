@@ -6728,51 +6728,6 @@ namespace ShaoNianGong.StudentsDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("CourseName", "CourseName");
             tableMapping.ColumnMappings.Add("teacherName", "teacherName");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM students\r\nWHERE   (ID = @Original_ID)";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [students] ([Name], [Sex], [Telephone], [Address], [Birthday], [FartherName], [FartherWork], [FartherTel], [MotherName], [MotherWork], [MotherTel], [CardNo], [Balance], [Status]) VALUES (@Name, @Sex, @Telephone, @Address, @Birthday, @FartherName, @FartherWork, @FartherTel, @MotherName, @MotherWork, @MotherTel, @CardNo, @Balance, @Status)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sex", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sex", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Telephone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telephone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Birthday", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Birthday", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FartherName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FartherName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FartherWork", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FartherWork", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FartherTel", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FartherTel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherWork", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherWork", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherTel", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MotherTel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CardNo", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CardNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Balance", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Balance", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE  students
-SET         ID = @ID, Name = @Name, Sex = @Sex, Telephone = @Telephone, Address = @Address, Birthday = @Birthday, 
-                FartherName = @FartherName, FartherWork = @FartherWork, FartherTel = @FartherTel, MotherName = @MotherName, 
-                MotherWork = @MotherWork, MotherTel = @MotherTel
-WHERE   (ID = @Original_ID); 
-SELECT ID, Name, Sex, Telephone, Address, Birthday, FartherName, FartherWork, FartherTel, MotherName, MotherWork, MotherTel FROM students WHERE (ID = @ID)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sex", global::System.Data.SqlDbType.NChar, 1, global::System.Data.ParameterDirection.Input, 0, 0, "Sex", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Telephone", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Telephone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Address", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Birthday", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Birthday", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FartherName", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "FartherName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FartherWork", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "FartherWork", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FartherTel", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "FartherTel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherName", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherWork", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "MotherWork", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MotherTel", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "MotherTel", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.NVarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6788,22 +6743,27 @@ SELECT ID, Name, Sex, Telephone, Address, Birthday, FartherName, FartherWork, Fa
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[13];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT students.Name, students.Sex, students.Telephone, students.Address, 
-      students.Birthday, students.FartherName, students.FartherWork, students.FartherTel, 
-      students.MotherName, students.MotherWork, students.MotherTel, students.CardNo, 
-      students.Balance, students.Status, students.ID, students.ExpireTime, 
-      card_type.CardTypeName, student_status.StatusName, courses.CourseName, 
-      tearchers.Name AS teacherName
-FROM students INNER JOIN
-      card_type ON students.CardType = card_type.CardTypeID INNER JOIN
-      student_status ON students.Status = student_status.StatusID INNER JOIN
-      student_courses ON student_courses.ID =
-          (SELECT MIN(ID) AS Expr1
-         FROM student_courses
-         WHERE (StudentID = students.ID)) LEFT OUTER JOIN
-      courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
-      tearchers ON tearchers.ID = courses.TeacherID
-WHERE (students.Status > 0)";
+            this._commandCollection[0].CommandText = "SELECT   students.Name, students.Sex, students.Telephone, students.Address, stude" +
+                "nts.Birthday, students.FartherName, \r\n                students.FartherWork, stud" +
+                "ents.FartherTel, students.MotherName, students.MotherWork, students.MotherTel, \r" +
+                "\n                students.CardNo, students.Balance, students.Status, students.ID" +
+                ", students.ExpireTime, card_type.CardTypeName, \r\n                student_status." +
+                "StatusName,\r\n                    (SELECT   CourseName\r\n                     FROM" +
+                "      courses\r\n                     WHERE   (ID =\r\n                             " +
+                "            (SELECT   MIN(CourseID) AS Expr1\r\n                                  " +
+                "        FROM      student_courses\r\n                                          WHE" +
+                "RE   (StudentID = students.ID)))) AS CourseName,\r\n                    (SELECT   " +
+                "Name\r\n                     FROM      tearchers\r\n                     WHERE   (ID" +
+                " =\r\n                                         (SELECT   TeacherID\r\n              " +
+                "                            FROM      courses AS courses_1\r\n                    " +
+                "                      WHERE   (ID =\r\n                                           " +
+                "                   (SELECT   MIN(CourseID) AS Expr1\r\n                           " +
+                "                                    FROM      student_courses AS student_courses" +
+                "_1\r\n                                                               WHERE   (Stud" +
+                "entID = students.ID)))))) AS teacherName\r\nFROM      students INNER JOIN\r\n       " +
+                "         card_type ON students.CardType = card_type.CardTypeID INNER JOIN\r\n     " +
+                "           student_status ON students.Status = student_status.StatusID\r\nWHERE   " +
+                "(students.Status > 0)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -6812,50 +6772,102 @@ WHERE (students.Status > 0)";
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StudentID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "StudentID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"SELECT DISTINCT 
-                StudentID, Name, Sex, Telephone, Address, Birthday, FartherName, FartherWork, FartherTel, MotherName, MotherWork, 
-                MotherTel, CardNo, Balance, Status, ID, CardTypeName, StatusName, CourseName, TeacherName, ExpireTime
-FROM      (SELECT   students.ID AS StudentID, students.Name, students.Sex, students.Telephone, students.Address, 
-                                 students.Birthday, students.FartherName, students.FartherWork, students.FartherTel, students.MotherName, 
-                                 students.MotherWork, students.MotherTel, students.CardNo, students.Balance, students.Status, students.ID, 
-                                 card_type.CardTypeName, student_status.StatusName, courses.CourseName, 
-                                 tearchers.Name AS TeacherName, students.ExpireTime
-                 FROM      students INNER JOIN
-                                 student_courses ON students.ID = student_courses.StudentID INNER JOIN
-                                 courses ON student_courses.CourseID = courses.ID INNER JOIN
-                                 card_type ON students.CardType = card_type.CardTypeID INNER JOIN
-                                 student_status ON students.Status = student_status.StatusID LEFT OUTER JOIN
-                                 tearchers ON courses.TeacherID = tearchers.ID
-                 WHERE   (students.Status > 0) AND (courses.ID = @CourseID)) AS tt
-ORDER BY StudentID";
+            this._commandCollection[2].CommandText = "SELECT DISTINCT \r\n                StudentID, Name, Sex, Telephone, Address, Birth" +
+                "day, FartherName, FartherWork, FartherTel, MotherName, MotherWork, \r\n           " +
+                "     MotherTel, CardNo, Balance, Status, ID, CardTypeName, StatusName, CourseNam" +
+                "e, teacherName, ExpireTime\r\nFROM      (SELECT   students.ID AS StudentID, studen" +
+                "ts.Name, students.Sex, students.Telephone, students.Address, \r\n                 " +
+                "                students.Birthday, students.FartherName, students.FartherWork, s" +
+                "tudents.FartherTel, students.MotherName, \r\n                                 stud" +
+                "ents.MotherWork, students.MotherTel, students.CardNo, students.Balance, students" +
+                ".Status, students.ID, \r\n                                 card_type.CardTypeName," +
+                " student_status.StatusName,\r\n                                     (SELECT   Cour" +
+                "seName\r\n                                      FROM      courses\r\n               " +
+                "                       WHERE   (ID =\r\n                                          " +
+                "                (SELECT   CourseID\r\n                                            " +
+                "               FROM      student_courses\r\n                                      " +
+                "                     WHERE   (StudentID = students.ID) AND (CourseID = @CourseID" +
+                ")))) AS CourseName,\r\n                                     (SELECT   Name\r\n      " +
+                "                                FROM      tearchers\r\n                           " +
+                "           WHERE   (ID =\r\n                                                      " +
+                "    (SELECT   TeacherID\r\n                                                       " +
+                "    FROM      courses AS courses_1\r\n                                            " +
+                "               WHERE   (ID =\r\n                                                  " +
+                "                             (SELECT   CourseID\r\n                               " +
+                "                                                 FROM      student_courses AS st" +
+                "udent_courses_2\r\n                                                               " +
+                "                 WHERE   (StudentID = students.ID) AND (CourseID = @CourseID))))" +
+                ")) \r\n                                 AS teacherName, students.ExpireTime\r\n     " +
+                "            FROM      students INNER JOIN\r\n                                 card" +
+                "_type ON students.CardType = card_type.CardTypeID INNER JOIN\r\n                  " +
+                "               student_status ON students.Status = student_status.StatusID\r\n    " +
+                "             WHERE   (students.Status > 0) AND (students.ID IN\r\n                " +
+                "                     (SELECT   StudentID\r\n                                      " +
+                "FROM      student_courses AS student_courses_1\r\n                                " +
+                "      WHERE   (CourseID = @CourseID)))) AS tt\r\nORDER BY StudentID";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"SELECT students.Name, students.Sex, students.Telephone, students.Address, 
-      students.Birthday, students.FartherName, students.FartherWork, students.FartherTel, 
-      students.MotherName, students.MotherWork, students.MotherTel, students.CardNo, 
-      students.Balance, students.Status, students.ID, card_type.CardTypeName, 
-      student_status.StatusName, courses.CourseName, 
-      tearchers.Name AS TeacherName, students.ExpireTime
-FROM students INNER JOIN
-      student_courses ON student_courses.ID =
-          (SELECT MIN(ID) AS Expr1
-         FROM student_courses
-         WHERE (StudentID = students.ID) AND (CourseID IN
-                   (SELECT courses.ID
-                  FROM courses INNER JOIN
-                        course_subtypes ON 
-                        courses.CourseSubTypeID = course_subtypes.ID INNER JOIN
-                        course_types ON 
-                        course_subtypes.CourseTypeID = course_types.ID
-                  WHERE (course_types.ID = @CourseTypeID)))) INNER JOIN
-      card_type ON students.CardType = card_type.CardTypeID INNER JOIN
-      student_status ON students.Status = student_status.StatusID INNER JOIN
-      courses ON student_courses.CourseID = courses.ID LEFT OUTER JOIN
-      tearchers ON courses.TeacherID = tearchers.ID";
+            this._commandCollection[3].CommandText = "SELECT   students.Name, students.Sex, students.Telephone, students.Address, stude" +
+                "nts.Birthday, students.FartherName, \r\n                students.FartherWork, stud" +
+                "ents.FartherTel, students.MotherName, students.MotherWork, students.MotherTel, \r" +
+                "\n                students.CardNo, students.Balance, students.Status, students.ID" +
+                ", card_type.CardTypeName, \r\n                student_status.StatusName,\r\n        " +
+                "            (SELECT   CourseName\r\n                     FROM      courses\r\n      " +
+                "               WHERE   (ID =\r\n                                         (SELECT  " +
+                " MIN(CourseID) AS Expr1\r\n                                          FROM      stu" +
+                "dent_courses\r\n                                          WHERE   (StudentID = stu" +
+                "dents.ID) AND (CourseID IN\r\n                                                    " +
+                "          (SELECT   courses_3.ID\r\n                                              " +
+                "                 FROM      courses AS courses_3 INNER JOIN\r\n                    " +
+                "                                                           course_subtypes ON \r\n" +
+                "                                                                               c" +
+                "ourses_3.CourseSubTypeID = course_subtypes.ID INNER JOIN\r\n                      " +
+                "                                                         course_types ON course_" +
+                "subtypes.CourseTypeID = course_types.ID\r\n                                       " +
+                "                        WHERE   (course_types.ID = @CourseTypeID)))))) AS Course" +
+                "Name,\r\n                    (SELECT   Name\r\n                     FROM      tearch" +
+                "ers\r\n                     WHERE   (ID =\r\n                                       " +
+                "  (SELECT   TeacherID\r\n                                          FROM      cours" +
+                "es AS courses_2\r\n                                          WHERE   (ID =\r\n      " +
+                "                                                        (SELECT   MIN(CourseID) " +
+                "AS Expr1\r\n                                                               FROM   " +
+                "   student_courses AS student_courses_1\r\n                                       " +
+                "                        WHERE   (StudentID = students.ID) AND (CourseID IN\r\n    " +
+                "                                                                               (" +
+                "SELECT   courses_1.ID\r\n                                                         " +
+                "                           FROM      courses AS courses_1 INNER JOIN\r\n          " +
+                "                                                                                " +
+                "          course_subtypes AS course_subtypes_1 ON \r\n                            " +
+                "                                                                        courses_" +
+                "1.CourseSubTypeID = course_subtypes_1.ID INNER JOIN\r\n                           " +
+                "                                                                         course_" +
+                "types AS course_types_1 ON \r\n                                                   " +
+                "                                                 course_subtypes_1.CourseTypeID " +
+                "= course_types_1.ID\r\n                                                           " +
+                "                         WHERE   (course_types_1.ID = @CourseTypeID)))))))) AS t" +
+                "eacherName, \r\n                students.ExpireTime\r\nFROM      students INNER JOIN" +
+                "\r\n                card_type ON students.CardType = card_type.CardTypeID INNER JO" +
+                "IN\r\n                student_status ON students.Status = student_status.StatusID\r" +
+                "\nWHERE   (students.ID IN\r\n                    (SELECT   StudentID\r\n             " +
+                "        FROM      student_courses AS student_courses_1\r\n                     WHE" +
+                "RE   (CourseID =\r\n                                         (SELECT   MIN(CourseI" +
+                "D) AS Expr1\r\n                                          FROM      student_courses" +
+                " AS student_courses_2\r\n                                          WHERE   (Studen" +
+                "tID = students.ID) AND (CourseID IN\r\n                                           " +
+                "                   (SELECT   courses_4.ID\r\n                                     " +
+                "                          FROM      courses AS courses_4 INNER JOIN\r\n           " +
+                "                                                                    course_subty" +
+                "pes AS course_subtypes_2 ON \r\n                                                  " +
+                "                             courses_4.CourseSubTypeID = course_subtypes_2.ID IN" +
+                "NER JOIN\r\n                                                                      " +
+                "         course_types AS course_types_2 ON \r\n                                   " +
+                "                                            course_subtypes_2.CourseTypeID = cou" +
+                "rse_types_2.ID\r\n                                                               W" +
+                "HERE   (course_types_2.ID = @CourseTypeID)))))))";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("CourseTypeID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CourseTypeID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = "SELECT   StudentsID, Name, Sex, Telephone, Address, Birthday, FartherName, Farthe" +
@@ -6875,42 +6887,62 @@ FROM students INNER JOIN
                 "l, students.CardNo, \r\n                                                  students" +
                 ".Balance, students.Status, students.ID, students.ExpireTime, card_type.CardTypeN" +
                 "ame, \r\n                                                  student_status.StatusNa" +
-                "me, courses.CourseName, tearchers.Name AS teacherName\r\n                         " +
-                "         FROM      students INNER JOIN\r\n                                        " +
-                "          card_type ON students.CardType = card_type.CardTypeID INNER JOIN\r\n    " +
-                "                                              student_status ON students.Status " +
-                "= student_status.StatusID LEFT OUTER JOIN\r\n                                     " +
-                "             student_courses ON student_courses.ID =\r\n                          " +
-                "                            (SELECT   MIN(ID) AS Expr1\r\n                        " +
-                "                               FROM      student_courses\r\n                      " +
-                "                                 WHERE   (StudentID = students.ID)) LEFT OUTER J" +
-                "OIN\r\n                                                  courses ON courses.ID = s" +
-                "tudent_courses.CourseID LEFT OUTER JOIN\r\n                                       " +
-                "           tearchers ON tearchers.ID = courses.TeacherID\r\n                      " +
-                "            WHERE   (students.Status = 2)\r\n                                  UNI" +
-                "ON ALL\r\n                                  SELECT   students_1.ID AS StudentsID, " +
-                "students_1.Name, students_1.Sex, students_1.Telephone, \r\n                       " +
-                "                           students_1.Address, students_1.Birthday, students_1.F" +
-                "artherName, students_1.FartherWork, \r\n                                          " +
-                "        students_1.FartherTel, students_1.MotherName, students_1.MotherWork, stu" +
-                "dents_1.MotherTel, \r\n                                                  students_" +
-                "1.CardNo, students_1.Balance, students_1.Status, students_1.ID, students_1.Expir" +
-                "eTime, \r\n                                                  card_type_1.CardTypeN" +
-                "ame, student_status_1.StatusName, courses_1.CourseName, \r\n                      " +
-                "                            tearchers_1.Name AS teacherName\r\n                   " +
-                "               FROM      students AS students_1 INNER JOIN\r\n                    " +
-                "                              card_type AS card_type_1 ON students_1.CardType = " +
-                "card_type_1.CardTypeID INNER JOIN\r\n                                             " +
-                "     student_status AS student_status_1 ON \r\n                                   " +
-                "               students_1.Status = student_status_1.StatusID LEFT OUTER JOIN\r\n  " +
-                "                                                student_courses AS student_cours" +
-                "es_1 ON student_courses_1.ID =\r\n                                                " +
-                "      (SELECT   MIN(ID) AS Expr1\r\n                                              " +
-                "         FROM      student_courses\r\n                                            " +
-                "           WHERE   (StudentID = students_1.ID)) LEFT OUTER JOIN\r\n               " +
-                "                                   courses AS courses_1 ON courses_1.ID = studen" +
-                "t_courses_1.CourseID LEFT OUTER JOIN\r\n                                          " +
-                "        tearchers AS tearchers_1 ON tearchers_1.ID = courses_1.TeacherID\r\n      " +
+                "me,\r\n                                                      (SELECT   CourseName\r" +
+                "\n                                                       FROM      courses\r\n     " +
+                "                                                  WHERE   (ID =\r\n               " +
+                "                                                            (SELECT   MIN(Course" +
+                "ID) AS Expr1\r\n                                                                  " +
+                "          FROM      student_courses\r\n                                           " +
+                "                                 WHERE   (StudentID = students.ID)))) AS CourseN" +
+                "ame,\r\n                                                      (SELECT   Name\r\n    " +
+                "                                                   FROM      tearchers\r\n        " +
+                "                                               WHERE   (ID =\r\n                  " +
+                "                                                         (SELECT   TeacherID\r\n  " +
+                "                                                                          FROM  " +
+                "    courses AS courses_3\r\n                                                      " +
+                "                      WHERE   (ID =\r\n                                           " +
+                "                                                     (SELECT   MIN(CourseID) AS " +
+                "Expr1\r\n                                                                         " +
+                "                        FROM      student_courses AS student_courses_2\r\n        " +
+                "                                                                                " +
+                "         WHERE   (StudentID = students.ID)))))) AS teacherName\r\n                " +
+                "                  FROM      students INNER JOIN\r\n                               " +
+                "                   card_type ON students.CardType = card_type.CardTypeID INNER J" +
+                "OIN\r\n                                                  student_status ON student" +
+                "s.Status = student_status.StatusID\r\n                                  WHERE   (s" +
+                "tudents.Status = 2)\r\n                                  UNION ALL\r\n              " +
+                "                    SELECT   students_1.ID AS StudentsID, students_1.Name, stude" +
+                "nts_1.Sex, students_1.Telephone, \r\n                                             " +
+                "     students_1.Address, students_1.Birthday, students_1.FartherName, students_1" +
+                ".FartherWork, \r\n                                                  students_1.Far" +
+                "therTel, students_1.MotherName, students_1.MotherWork, students_1.MotherTel, \r\n " +
+                "                                                 students_1.CardNo, students_1.B" +
+                "alance, students_1.Status, students_1.ID, students_1.ExpireTime, \r\n             " +
+                "                                     card_type_1.CardTypeName, student_status_1." +
+                "StatusName,\r\n                                                      (SELECT   Cou" +
+                "rseName\r\n                                                       FROM      course" +
+                "s AS courses_2\r\n                                                       WHERE   (" +
+                "ID =\r\n                                                                          " +
+                " (SELECT   MIN(CourseID) AS Expr1\r\n                                             " +
+                "                               FROM      student_courses AS student_courses_1\r\n " +
+                "                                                                           WHERE" +
+                "   (StudentID = students_1.ID)))) AS CourseName,\r\n                              " +
+                "                        (SELECT   Name\r\n                                        " +
+                "               FROM      tearchers AS tearchers_1\r\n                             " +
+                "                          WHERE   (ID =\r\n                                       " +
+                "                                    (SELECT   TeacherID\r\n                       " +
+                "                                                     FROM      courses AS course" +
+                "s_1\r\n                                                                           " +
+                " WHERE   (ID =\r\n                                                                " +
+                "                                (SELECT   MIN(CourseID) AS Expr1\r\n              " +
+                "                                                                                " +
+                "   FROM      student_courses AS student_courses_1\r\n                             " +
+                "                                                                    WHERE   (Stu" +
+                "dentID = students_1.ID)))))) AS teacherName\r\n                                  F" +
+                "ROM      students AS students_1 INNER JOIN\r\n                                    " +
+                "              card_type AS card_type_1 ON students_1.CardType = card_type_1.Card" +
+                "TypeID INNER JOIN\r\n                                                  student_sta" +
+                "tus AS student_status_1 ON students_1.Status = student_status_1.StatusID\r\n      " +
                 "                            WHERE   (students_1.ID IN\r\n                         " +
                 "                             (SELECT   StudentID\r\n                              " +
                 "                         FROM      student_refund))) AS t_1) AS t\r\nORDER BY Stat" +
@@ -6941,44 +6973,57 @@ WHERE (students.Status > 0) AND (students.ID NOT IN
                 "dents.FartherWork, students.FartherTel, students.MotherName, \r\n                 " +
                 "                students.MotherWork, students.MotherTel, students.CardNo, studen" +
                 "ts.Balance, students.Status, students.ID, \r\n                                 stu" +
-                "dents.ExpireTime, card_type.CardTypeName, student_status.StatusName, courses.Cou" +
-                "rseName, \r\n                                 tearchers.Name AS teacherName\r\n     " +
-                "            FROM      students INNER JOIN\r\n                                 card" +
-                "_type ON students.CardType = card_type.CardTypeID INNER JOIN\r\n                  " +
-                "               student_status ON students.Status = student_status.StatusID INNER" +
-                " JOIN\r\n                                 student_courses ON student_courses.ID =\r" +
-                "\n                                     (SELECT   MIN(ID) AS Expr1\r\n              " +
-                "                        FROM      student_courses\r\n                             " +
-                "         WHERE   (StudentID = students.ID)) LEFT OUTER JOIN\r\n                   " +
-                "              courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN\r\n" +
-                "                                 tearchers ON tearchers.ID = courses.TeacherID\r\n" +
-                "                 WHERE   (students.Status = 1)) AS t\r\nORDER BY StudentsID DESC";
+                "dents.ExpireTime, card_type.CardTypeName, student_status.StatusName,\r\n          " +
+                "                           (SELECT   CourseName\r\n                               " +
+                "       FROM      courses\r\n                                      WHERE   (ID =\r\n " +
+                "                                                         (SELECT   MIN(CourseID)" +
+                " AS Expr1\r\n                                                           FROM      " +
+                "student_courses\r\n                                                           WHER" +
+                "E   (StudentID = students.ID)))) AS CourseName,\r\n                               " +
+                "      (SELECT   Name\r\n                                      FROM      tearchers\r" +
+                "\n                                      WHERE   (ID =\r\n                          " +
+                "                                (SELECT   TeacherID\r\n                           " +
+                "                                FROM      courses AS courses_1\r\n                " +
+                "                                           WHERE   (ID =\r\n                      " +
+                "                                                         (SELECT   MIN(CourseID)" +
+                " AS Expr1\r\n                                                                     " +
+                "           FROM      student_courses AS student_courses_1\r\n                     " +
+                "                                                           WHERE   (StudentID = " +
+                "students.ID)))))) AS teacherName\r\n                 FROM      students INNER JOIN" +
+                "\r\n                                 card_type ON students.CardType = card_type.Ca" +
+                "rdTypeID INNER JOIN\r\n                                 student_status ON students" +
+                ".Status = student_status.StatusID\r\n                 WHERE   (students.Status = 1" +
+                ")) AS t\r\nORDER BY StudentsID DESC";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[7].Connection = this.Connection;
-            this._commandCollection[7].CommandText = @"SELECT students.Name, students.Sex, students.Telephone, students.Address, 
-      students.Birthday, students.FartherName, students.FartherWork, students.FartherTel, 
-      students.MotherName, students.MotherWork, students.MotherTel, students.CardNo, 
-      students.Balance, students.Status, students.ID, students.ExpireTime, 
-      card_type.CardTypeName, student_status.StatusName, courses.CourseName, 
-      tearchers.Name AS teacherName
-FROM students INNER JOIN
-      card_type ON students.CardType = card_type.CardTypeID INNER JOIN
-      student_status ON students.Status = student_status.StatusID INNER JOIN
-      student_courses ON student_courses.ID =
-          (SELECT MIN(ID) AS Expr1
-         FROM student_courses
-         WHERE (StudentID = students.ID)) LEFT OUTER JOIN
-      courses ON courses.ID = student_courses.CourseID LEFT OUTER JOIN
-      tearchers ON tearchers.ID = courses.TeacherID
-WHERE (students.Status > 0) AND (students.ID IN
-          (SELECT DISTINCT student_courses_1.StudentID
-         FROM users_course_privilege INNER JOIN
-               courses AS courses_1 ON 
-               users_course_privilege.CourseId = courses_1.ID RIGHT OUTER JOIN
-               student_courses AS student_courses_1 ON 
-               student_courses_1.CourseID = courses_1.ID
-         WHERE (users_course_privilege.UserName = @UserName)))";
+            this._commandCollection[7].CommandText = "SELECT   students.Name, students.Sex, students.Telephone, students.Address, stude" +
+                "nts.Birthday, students.FartherName, \r\n                students.FartherWork, stud" +
+                "ents.FartherTel, students.MotherName, students.MotherWork, students.MotherTel, \r" +
+                "\n                students.CardNo, students.Balance, students.Status, students.ID" +
+                ", students.ExpireTime, card_type.CardTypeName, \r\n                student_status." +
+                "StatusName,\r\n                    (SELECT   CourseName\r\n                     FROM" +
+                "      courses\r\n                     WHERE   (ID =\r\n                             " +
+                "            (SELECT   MIN(CourseID) AS Expr1\r\n                                  " +
+                "        FROM      student_courses\r\n                                          WHE" +
+                "RE   (StudentID = students.ID)))) AS CourseName,\r\n                    (SELECT   " +
+                "Name\r\n                     FROM      tearchers\r\n                     WHERE   (ID" +
+                " =\r\n                                         (SELECT   TeacherID\r\n              " +
+                "                            FROM      courses AS courses_2\r\n                    " +
+                "                      WHERE   (ID =\r\n                                           " +
+                "                   (SELECT   MIN(CourseID) AS Expr1\r\n                           " +
+                "                                    FROM      student_courses AS student_courses" +
+                "_2\r\n                                                               WHERE   (Stud" +
+                "entID = students.ID)))))) AS teacherName\r\nFROM      students INNER JOIN\r\n       " +
+                "         card_type ON students.CardType = card_type.CardTypeID INNER JOIN\r\n     " +
+                "           student_status ON students.Status = student_status.StatusID\r\nWHERE   " +
+                "(students.Status > 0) AND (students.ID IN\r\n                    (SELECT DISTINCT " +
+                "student_courses_1.StudentID\r\n                     FROM      users_course_privile" +
+                "ge INNER JOIN\r\n                                     courses AS courses_1 ON user" +
+                "s_course_privilege.CourseId = courses_1.ID RIGHT OUTER JOIN\r\n                   " +
+                "                  student_courses AS student_courses_1 ON student_courses_1.Cour" +
+                "seID = courses_1.ID\r\n                     WHERE   (users_course_privilege.UserNa" +
+                "me = @UserName)))";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[7].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UserName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[8] = new global::System.Data.SqlClient.SqlCommand();
@@ -7208,264 +7253,6 @@ WHERE   (ID = @Original_ID); ";
             StudentsDataSet.StudentsDataTable dataTable = new StudentsDataSet.StudentsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(StudentsDataSet.StudentsDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(StudentsDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Students");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_ID) {
-            if ((Original_ID == null)) {
-                this.Adapter.DeleteCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_ID));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Name, string Sex, string Telephone, string Address, global::System.Nullable<global::System.DateTime> Birthday, string FartherName, string FartherWork, string FartherTel, string MotherName, string MotherWork, string MotherTel, string CardNo, int Balance, int Status) {
-            if ((Name == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Name));
-            }
-            if ((Sex == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Sex));
-            }
-            if ((Telephone == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Telephone));
-            }
-            if ((Address == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Address));
-            }
-            if ((Birthday.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(Birthday.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((FartherName == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(FartherName));
-            }
-            if ((FartherWork == null)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(FartherWork));
-            }
-            if ((FartherTel == null)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(FartherTel));
-            }
-            if ((MotherName == null)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(MotherName));
-            }
-            if ((MotherWork == null)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(MotherWork));
-            }
-            if ((MotherTel == null)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(MotherTel));
-            }
-            if ((CardNo == null)) {
-                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(CardNo));
-            }
-            this.Adapter.InsertCommand.Parameters[12].Value = ((int)(Balance));
-            this.Adapter.InsertCommand.Parameters[13].Value = ((int)(Status));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string ID, string Name, string Sex, string Telephone, string Address, string Birthday, string FartherName, string FartherWork, string FartherTel, string MotherName, string MotherWork, string MotherTel, string Original_ID) {
-            if ((ID == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(ID));
-            }
-            if ((Name == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Name));
-            }
-            if ((Sex == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Sex));
-            }
-            if ((Telephone == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Telephone));
-            }
-            if ((Address == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Address));
-            }
-            if ((Birthday == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Birthday));
-            }
-            if ((FartherName == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(FartherName));
-            }
-            if ((FartherWork == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(FartherWork));
-            }
-            if ((FartherTel == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(FartherTel));
-            }
-            if ((MotherName == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(MotherName));
-            }
-            if ((MotherWork == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(MotherWork));
-            }
-            if ((MotherTel == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(MotherTel));
-            }
-            if ((Original_ID == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_ID));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, string Sex, string Telephone, string Address, string Birthday, string FartherName, string FartherWork, string FartherTel, string MotherName, string MotherWork, string MotherTel, string Original_ID) {
-            return this.Update(Original_ID, Name, Sex, Telephone, Address, Birthday, FartherName, FartherWork, FartherTel, MotherName, MotherWork, MotherTel, Original_ID);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10967,8 +10754,6 @@ SELECT ID, StudentID, CourseType, CourseSubtypeName, CourseName, ChargeType, Cha
         
         private UpdateOrderOption _updateOrder;
         
-        private StudentsTableAdapter _studentsTableAdapter;
-        
         private StudentCoursesTableAdapter _studentCoursesTableAdapter;
         
         private StudentCostTableAdapter _studentCostTableAdapter;
@@ -10997,20 +10782,6 @@ SELECT ID, StudentID, CourseType, CourseSubtypeName, CourseName, ChargeType, Cha
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public StudentsTableAdapter StudentsTableAdapter {
-            get {
-                return this._studentsTableAdapter;
-            }
-            set {
-                this._studentsTableAdapter = value;
             }
         }
         
@@ -11145,10 +10916,6 @@ SELECT ID, StudentID, CourseType, CourseSubtypeName, CourseName, ChargeType, Cha
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._studentsTableAdapter != null) 
-                            && (this._studentsTableAdapter.Connection != null))) {
-                    return this._studentsTableAdapter.Connection;
-                }
                 if (((this._studentCoursesTableAdapter != null) 
                             && (this._studentCoursesTableAdapter.Connection != null))) {
                     return this._studentCoursesTableAdapter.Connection;
@@ -11194,9 +10961,6 @@ SELECT ID, StudentID, CourseType, CourseSubtypeName, CourseName, ChargeType, Cha
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._studentsTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 if ((this._studentCoursesTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -11286,15 +11050,6 @@ SELECT ID, StudentID, CourseType, CourseSubtypeName, CourseName, ChargeType, Cha
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._studentsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Students.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._studentsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._studentRefundTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.StudentRefund.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -11371,14 +11126,6 @@ SELECT ID, StudentID, CourseType, CourseSubtypeName, CourseName, ChargeType, Cha
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._studentsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Students.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._studentsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._studentRefundTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.StudentRefund.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -11418,14 +11165,6 @@ SELECT ID, StudentID, CourseType, CourseSubtypeName, CourseName, ChargeType, Cha
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._studentRefundTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._studentsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Students.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._studentsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -11516,10 +11255,6 @@ SELECT ID, StudentID, CourseType, CourseSubtypeName, CourseName, ChargeType, Cha
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._studentsTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._studentsTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("由 TableAdapterManager 管理的所有 TableAdapter 必须使用相同的连接字符串。");
-            }
             if (((this._studentCoursesTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._studentCoursesTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("由 TableAdapterManager 管理的所有 TableAdapter 必须使用相同的连接字符串。");
@@ -11583,15 +11318,6 @@ SELECT ID, StudentID, CourseType, CourseSubtypeName, CourseName, ChargeType, Cha
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._studentsTableAdapter != null)) {
-                    revertConnections.Add(this._studentsTableAdapter, this._studentsTableAdapter.Connection);
-                    this._studentsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._studentsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._studentsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._studentsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._studentsTableAdapter.Adapter);
-                    }
-                }
                 if ((this._studentCoursesTableAdapter != null)) {
                     revertConnections.Add(this._studentCoursesTableAdapter, this._studentCoursesTableAdapter.Connection);
                     this._studentCoursesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -11721,10 +11447,6 @@ SELECT ID, StudentID, CourseType, CourseSubtypeName, CourseName, ChargeType, Cha
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
-                }
-                if ((this._studentsTableAdapter != null)) {
-                    this._studentsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._studentsTableAdapter]));
-                    this._studentsTableAdapter.Transaction = null;
                 }
                 if ((this._studentCoursesTableAdapter != null)) {
                     this._studentCoursesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._studentCoursesTableAdapter]));

@@ -62,6 +62,39 @@ namespace ShaoNianGong
             }
         }
 
+        private void positionChange(int index)
+        {
+            int studentID = studentsDataSet.Students.Rows[index].Field<int>("ID");
+            studentCoursesTableAdapter.Fill(studentsDataSet.StudentCourses, studentID);
+
+            if (UserType == 0)
+                return;
+            int studentStatus = studentsDataSet.Students.Rows[index].Field<int>("Status");
+            switch (studentStatus)
+            {
+                case 1:
+                    // 正常状态
+                    btnVacate.Enabled = true;
+                    btnReportBack.Enabled = false;
+                    btnDelLeave.Enabled = false;
+                    break;
+                case 2:
+                    // 请假状态
+                    btnVacate.Enabled = false;
+                    btnReportBack.Enabled = true;
+                    btnDelLeave.Enabled = false;
+                    break;
+                case 4:
+                    btnDelLeave.Enabled = true;
+                    break;
+                default:
+                    btnVacate.Enabled = false;
+                    btnReportBack.Enabled = false;
+                    btnDelLeave.Enabled = false;
+                    break;
+            }
+        }
+
         private void studentsBindingSource_PositionChanged(object sender, EventArgs e)
         {
             if (studentsBindingSource.Position < 0)
@@ -139,6 +172,7 @@ namespace ShaoNianGong
                 if (row.Cells["CardNoColumn"].Value.ToString() == frmCardConnect.cardNo)
                 {
                     studentsBindingSource.Position = row.Index;
+                    positionChange(row.Index);
                     return;
                 }
             }
@@ -316,6 +350,7 @@ namespace ShaoNianGong
                 if (row.Cells["NameColumn"].Value.ToString() == frmGetStudentName.StudentName)
                 {
                     studentsBindingSource.Position = row.Index;
+                    positionChange(row.Index);
                     return;
                 }
             }
