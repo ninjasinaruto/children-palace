@@ -669,6 +669,15 @@ namespace ShaoNianGong
 
             // 4> 刷新显示
             studentCoursesTableAdapter.Fill(studentsDataSet.StudentCourses, int.Parse(txtID.Text));
+
+            if (studentsDataSet.StudentCourses.Count == 0)
+            { 
+                // 5> 更新离班学生
+                studentsTableAdapter.UpdateStatus(4, int.Parse(txtID.Text));
+                this.studentsTableAdapter.FillByStatus(this.studentsDataSet.Students);
+                this.Text = "学生资料管理 - [所有]";
+                txtShowRange.Text = "所有";
+            }
         }
 
         private void btnReportBack_Click(object sender, EventArgs e)
